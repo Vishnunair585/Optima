@@ -13,6 +13,9 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/site/SiteHeader";
 import { SiteFooter } from "../components/site/SiteFooter";
 import { AuthProvider } from "../hooks/use-auth";
+import { Toaster } from "sonner";
+import { GlobalLoader } from "../components/ui/GlobalLoader";
+import { SpotlightOverlay } from "../components/ui/SpotlightOverlay";
 
 function NotFoundComponent() {
   return (
@@ -24,7 +27,7 @@ function NotFoundComponent() {
           That route doesn't exist in our model. Try heading home.
         </p>
         <a href="/" className="mt-8 inline-flex h-10 items-center justify-center rounded-full bg-gradient-brand px-5 text-sm font-medium text-brand-foreground shadow-glow">
-          Back to AIRank
+          Back to Optima
         </a>
       </div>
     </div>
@@ -76,6 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   }),
   shellComponent: RootShell,
   component: RootComponent,
+  pendingComponent: () => <GlobalLoader />,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
@@ -92,15 +96,19 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <div className="relative flex min-h-dvh flex-col">
+          <SpotlightOverlay />
           <SiteHeader />
           <main className="flex-1"><Outlet /></main>
           <SiteFooter />
+          <Toaster theme="dark" position="top-center" />
         </div>
       </AuthProvider>
     </QueryClientProvider>

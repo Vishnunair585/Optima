@@ -10,54 +10,72 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VerifyEmailRouteImport } from './routes/verify-email'
-import { Route as SubscriptionRouteImport } from './routes/subscription'
-import { Route as StackBuilderRouteImport } from './routes/stack-builder'
+import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
-import { Route as ReferralsRouteImport } from './routes/referrals'
+import { Route as ReportBugRouteImport } from './routes/report-bug'
 import { Route as RankingsRouteImport } from './routes/rankings'
 import { Route as PromptsRouteImport } from './routes/prompts'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as NewsRouteImport } from './routes/news'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as LeaderboardRouteImport } from './routes/leaderboard'
+import { Route as HelpRouteImport } from './routes/help'
 import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as FinderRouteImport } from './routes/finder'
-import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as FeedbackRouteImport } from './routes/feedback'
+import { Route as FeatureRequestsRouteImport } from './routes/feature-requests'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompareRouteImport } from './routes/compare'
-import { Route as CommunityRouteImport } from './routes/community'
 import { Route as CalculatorRouteImport } from './routes/calculator'
 import { Route as BillingRouteImport } from './routes/billing'
 import { Route as AuthCallbackRouteImport } from './routes/auth-callback'
 import { Route as AppBuildersRouteImport } from './routes/app-builders'
 import { Route as AgentsRouteImport } from './routes/agents'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AccountRouteImport } from './routes/account'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StacksIndexRouteImport } from './routes/stacks.index'
+import { Route as LegalIndexRouteImport } from './routes/legal/index'
 import { Route as StacksIdRouteImport } from './routes/stacks.$id'
 import { Route as RefCodeRouteImport } from './routes/ref.$code'
-import { Route as ApiStripeWebhookRouteImport } from './routes/api.stripe-webhook'
+import { Route as LegalTermsRouteImport } from './routes/legal.terms'
+import { Route as LegalPrivacyRouteImport } from './routes/legal.privacy'
+import { Route as LegalDisclaimerRouteImport } from './routes/legal.disclaimer'
+import { Route as LegalTypeRouteImport } from './routes/legal/$type'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AuthVerifyEmailRouteImport } from './routes/auth/verify-email'
+import { Route as AuthRegisterRouteImport } from './routes/auth/register'
+import { Route as AuthLoginRouteImport } from './routes/auth/login'
+import { Route as AuthForgotPasswordRouteImport } from './routes/auth/forgot-password'
+import { Route as AdminToolsRouteImport } from './routes/admin.tools'
+import { Route as AdminSupportRouteImport } from './routes/admin.support'
 import { Route as AdminRevenueRouteImport } from './routes/admin.revenue'
-import { Route as AdminReferralsRouteImport } from './routes/admin.referrals'
+import { Route as AdminPublicStacksRouteImport } from './routes/admin.public-stacks'
 import { Route as AdminPerformanceRouteImport } from './routes/admin.performance'
 import { Route as AdminMonitoringRouteImport } from './routes/admin.monitoring'
+import { Route as AdminMarketIntelligenceRouteImport } from './routes/admin.market-intelligence'
+import { Route as AdminLegalDocumentsRouteImport } from './routes/admin.legal-documents'
+import { Route as AdminLegalRouteImport } from './routes/admin/legal'
+import { Route as AdminIntelligenceRouteImport } from './routes/admin.intelligence'
+import { Route as AdminHelpCenterRouteImport } from './routes/admin/help-center'
+import { Route as AdminChangelogRouteImport } from './routes/admin/changelog'
 import { Route as AdminAuthDiagnosticsRouteImport } from './routes/admin.auth-diagnostics'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
+import { Route as AccountRequestsRouteImport } from './routes/account.requests'
+import { Route as AdminLegalPrivacyRouteImport } from './routes/admin/legal/privacy'
+import { Route as AccountRequestsIdRouteImport } from './routes/account.requests.$id'
 
 const VerifyEmailRoute = VerifyEmailRouteImport.update({
   id: '/verify-email',
   path: '/verify-email',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SubscriptionRoute = SubscriptionRouteImport.update({
-  id: '/subscription',
-  path: '/subscription',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const StackBuilderRoute = StackBuilderRouteImport.update({
-  id: '/stack-builder',
-  path: '/stack-builder',
+const UnsubscribeRoute = UnsubscribeRouteImport.update({
+  id: '/unsubscribe',
+  path: '/unsubscribe',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SignupRoute = SignupRouteImport.update({
@@ -75,9 +93,9 @@ const ResetPasswordRoute = ResetPasswordRouteImport.update({
   path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ReferralsRoute = ReferralsRouteImport.update({
-  id: '/referrals',
-  path: '/referrals',
+const ReportBugRoute = ReportBugRouteImport.update({
+  id: '/report-bug',
+  path: '/report-bug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RankingsRoute = RankingsRouteImport.update({
@@ -100,14 +118,19 @@ const OnboardingRoute = OnboardingRouteImport.update({
   path: '/onboarding',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LeaderboardRoute = LeaderboardRouteImport.update({
-  id: '/leaderboard',
-  path: '/leaderboard',
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
@@ -120,19 +143,24 @@ const FinderRoute = FinderRouteImport.update({
   path: '/finder',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
+const FeedbackRoute = FeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeatureRequestsRoute = FeatureRequestsRouteImport.update({
+  id: '/feature-requests',
+  path: '/feature-requests',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompareRoute = CompareRouteImport.update({
   id: '/compare',
   path: '/compare',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CommunityRoute = CommunityRouteImport.update({
-  id: '/community',
-  path: '/community',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CalculatorRoute = CalculatorRouteImport.update({
@@ -160,9 +188,19 @@ const AgentsRoute = AgentsRouteImport.update({
   path: '/agents',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AccountRoute = AccountRouteImport.update({
   id: '/account',
   path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -175,6 +213,11 @@ const StacksIndexRoute = StacksIndexRouteImport.update({
   path: '/stacks/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LegalIndexRoute = LegalIndexRouteImport.update({
+  id: '/legal/',
+  path: '/legal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StacksIdRoute = StacksIdRouteImport.update({
   id: '/stacks/$id',
   path: '/stacks/$id',
@@ -185,303 +228,542 @@ const RefCodeRoute = RefCodeRouteImport.update({
   path: '/ref/$code',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiStripeWebhookRoute = ApiStripeWebhookRouteImport.update({
-  id: '/api/stripe-webhook',
-  path: '/api/stripe-webhook',
+const LegalTermsRoute = LegalTermsRouteImport.update({
+  id: '/legal/terms',
+  path: '/legal/terms',
   getParentRoute: () => rootRouteImport,
+} as any)
+const LegalPrivacyRoute = LegalPrivacyRouteImport.update({
+  id: '/legal/privacy',
+  path: '/legal/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalDisclaimerRoute = LegalDisclaimerRouteImport.update({
+  id: '/legal/disclaimer',
+  path: '/legal/disclaimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalTypeRoute = LegalTypeRouteImport.update({
+  id: '/legal/$type',
+  path: '/legal/$type',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthVerifyEmailRoute = AuthVerifyEmailRouteImport.update({
+  id: '/auth/verify-email',
+  path: '/auth/verify-email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRegisterRoute = AuthRegisterRouteImport.update({
+  id: '/auth/register',
+  path: '/auth/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthLoginRoute = AuthLoginRouteImport.update({
+  id: '/auth/login',
+  path: '/auth/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthForgotPasswordRoute = AuthForgotPasswordRouteImport.update({
+  id: '/auth/forgot-password',
+  path: '/auth/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminToolsRoute = AdminToolsRouteImport.update({
+  id: '/tools',
+  path: '/tools',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSupportRoute = AdminSupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => AdminRoute,
 } as any)
 const AdminRevenueRoute = AdminRevenueRouteImport.update({
-  id: '/admin/revenue',
-  path: '/admin/revenue',
-  getParentRoute: () => rootRouteImport,
+  id: '/revenue',
+  path: '/revenue',
+  getParentRoute: () => AdminRoute,
 } as any)
-const AdminReferralsRoute = AdminReferralsRouteImport.update({
-  id: '/admin/referrals',
-  path: '/admin/referrals',
-  getParentRoute: () => rootRouteImport,
+const AdminPublicStacksRoute = AdminPublicStacksRouteImport.update({
+  id: '/public-stacks',
+  path: '/public-stacks',
+  getParentRoute: () => AdminRoute,
 } as any)
 const AdminPerformanceRoute = AdminPerformanceRouteImport.update({
-  id: '/admin/performance',
-  path: '/admin/performance',
-  getParentRoute: () => rootRouteImport,
+  id: '/performance',
+  path: '/performance',
+  getParentRoute: () => AdminRoute,
 } as any)
 const AdminMonitoringRoute = AdminMonitoringRouteImport.update({
-  id: '/admin/monitoring',
-  path: '/admin/monitoring',
-  getParentRoute: () => rootRouteImport,
+  id: '/monitoring',
+  path: '/monitoring',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminMarketIntelligenceRoute = AdminMarketIntelligenceRouteImport.update({
+  id: '/market-intelligence',
+  path: '/market-intelligence',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLegalDocumentsRoute = AdminLegalDocumentsRouteImport.update({
+  id: '/legal-documents',
+  path: '/legal-documents',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLegalRoute = AdminLegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminIntelligenceRoute = AdminIntelligenceRouteImport.update({
+  id: '/intelligence',
+  path: '/intelligence',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminHelpCenterRoute = AdminHelpCenterRouteImport.update({
+  id: '/help-center',
+  path: '/help-center',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminChangelogRoute = AdminChangelogRouteImport.update({
+  id: '/changelog',
+  path: '/changelog',
+  getParentRoute: () => AdminRoute,
 } as any)
 const AdminAuthDiagnosticsRoute = AdminAuthDiagnosticsRouteImport.update({
-  id: '/admin/auth-diagnostics',
-  path: '/admin/auth-diagnostics',
-  getParentRoute: () => rootRouteImport,
+  id: '/auth-diagnostics',
+  path: '/auth-diagnostics',
+  getParentRoute: () => AdminRoute,
 } as any)
 const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
-  id: '/admin/analytics',
-  path: '/admin/analytics',
-  getParentRoute: () => rootRouteImport,
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AccountRequestsRoute = AccountRequestsRouteImport.update({
+  id: '/requests',
+  path: '/requests',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AdminLegalPrivacyRoute = AdminLegalPrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => AdminLegalRoute,
+} as any)
+const AccountRequestsIdRoute = AccountRequestsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => AccountRequestsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/account': typeof AccountRoute
+  '/about': typeof AboutRoute
+  '/account': typeof AccountRouteWithChildren
+  '/admin': typeof AdminRouteWithChildren
   '/agents': typeof AgentsRoute
   '/app-builders': typeof AppBuildersRoute
   '/auth-callback': typeof AuthCallbackRoute
   '/billing': typeof BillingRoute
   '/calculator': typeof CalculatorRoute
-  '/community': typeof CommunityRoute
   '/compare': typeof CompareRoute
-  '/dashboard': typeof DashboardRoute
+  '/contact': typeof ContactRoute
+  '/feature-requests': typeof FeatureRequestsRoute
+  '/feedback': typeof FeedbackRoute
   '/finder': typeof FinderRoute
   '/forgot-password': typeof ForgotPasswordRoute
-  '/leaderboard': typeof LeaderboardRoute
+  '/help': typeof HelpRoute
   '/login': typeof LoginRoute
+  '/news': typeof NewsRoute
   '/onboarding': typeof OnboardingRoute
   '/profile': typeof ProfileRoute
   '/prompts': typeof PromptsRoute
   '/rankings': typeof RankingsRoute
-  '/referrals': typeof ReferralsRoute
+  '/report-bug': typeof ReportBugRoute
   '/reset-password': typeof ResetPasswordRoute
   '/settings': typeof SettingsRoute
   '/signup': typeof SignupRoute
-  '/stack-builder': typeof StackBuilderRoute
-  '/subscription': typeof SubscriptionRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/account/requests': typeof AccountRequestsRouteWithChildren
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/auth-diagnostics': typeof AdminAuthDiagnosticsRoute
+  '/admin/changelog': typeof AdminChangelogRoute
+  '/admin/help-center': typeof AdminHelpCenterRoute
+  '/admin/intelligence': typeof AdminIntelligenceRoute
+  '/admin/legal': typeof AdminLegalRouteWithChildren
+  '/admin/legal-documents': typeof AdminLegalDocumentsRoute
+  '/admin/market-intelligence': typeof AdminMarketIntelligenceRoute
   '/admin/monitoring': typeof AdminMonitoringRoute
   '/admin/performance': typeof AdminPerformanceRoute
-  '/admin/referrals': typeof AdminReferralsRoute
+  '/admin/public-stacks': typeof AdminPublicStacksRoute
   '/admin/revenue': typeof AdminRevenueRoute
-  '/api/stripe-webhook': typeof ApiStripeWebhookRoute
+  '/admin/support': typeof AdminSupportRoute
+  '/admin/tools': typeof AdminToolsRoute
+  '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/auth/verify-email': typeof AuthVerifyEmailRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/legal/$type': typeof LegalTypeRoute
+  '/legal/disclaimer': typeof LegalDisclaimerRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/ref/$code': typeof RefCodeRoute
   '/stacks/$id': typeof StacksIdRoute
+  '/legal/': typeof LegalIndexRoute
   '/stacks/': typeof StacksIndexRoute
+  '/account/requests/$id': typeof AccountRequestsIdRoute
+  '/admin/legal/privacy': typeof AdminLegalPrivacyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/account': typeof AccountRoute
+  '/about': typeof AboutRoute
+  '/account': typeof AccountRouteWithChildren
+  '/admin': typeof AdminRouteWithChildren
   '/agents': typeof AgentsRoute
   '/app-builders': typeof AppBuildersRoute
   '/auth-callback': typeof AuthCallbackRoute
   '/billing': typeof BillingRoute
   '/calculator': typeof CalculatorRoute
-  '/community': typeof CommunityRoute
   '/compare': typeof CompareRoute
-  '/dashboard': typeof DashboardRoute
+  '/contact': typeof ContactRoute
+  '/feature-requests': typeof FeatureRequestsRoute
+  '/feedback': typeof FeedbackRoute
   '/finder': typeof FinderRoute
   '/forgot-password': typeof ForgotPasswordRoute
-  '/leaderboard': typeof LeaderboardRoute
+  '/help': typeof HelpRoute
   '/login': typeof LoginRoute
+  '/news': typeof NewsRoute
   '/onboarding': typeof OnboardingRoute
   '/profile': typeof ProfileRoute
   '/prompts': typeof PromptsRoute
   '/rankings': typeof RankingsRoute
-  '/referrals': typeof ReferralsRoute
+  '/report-bug': typeof ReportBugRoute
   '/reset-password': typeof ResetPasswordRoute
   '/settings': typeof SettingsRoute
   '/signup': typeof SignupRoute
-  '/stack-builder': typeof StackBuilderRoute
-  '/subscription': typeof SubscriptionRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/account/requests': typeof AccountRequestsRouteWithChildren
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/auth-diagnostics': typeof AdminAuthDiagnosticsRoute
+  '/admin/changelog': typeof AdminChangelogRoute
+  '/admin/help-center': typeof AdminHelpCenterRoute
+  '/admin/intelligence': typeof AdminIntelligenceRoute
+  '/admin/legal': typeof AdminLegalRouteWithChildren
+  '/admin/legal-documents': typeof AdminLegalDocumentsRoute
+  '/admin/market-intelligence': typeof AdminMarketIntelligenceRoute
   '/admin/monitoring': typeof AdminMonitoringRoute
   '/admin/performance': typeof AdminPerformanceRoute
-  '/admin/referrals': typeof AdminReferralsRoute
+  '/admin/public-stacks': typeof AdminPublicStacksRoute
   '/admin/revenue': typeof AdminRevenueRoute
-  '/api/stripe-webhook': typeof ApiStripeWebhookRoute
+  '/admin/support': typeof AdminSupportRoute
+  '/admin/tools': typeof AdminToolsRoute
+  '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/auth/verify-email': typeof AuthVerifyEmailRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/legal/$type': typeof LegalTypeRoute
+  '/legal/disclaimer': typeof LegalDisclaimerRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/ref/$code': typeof RefCodeRoute
   '/stacks/$id': typeof StacksIdRoute
+  '/legal': typeof LegalIndexRoute
   '/stacks': typeof StacksIndexRoute
+  '/account/requests/$id': typeof AccountRequestsIdRoute
+  '/admin/legal/privacy': typeof AdminLegalPrivacyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/account': typeof AccountRoute
+  '/about': typeof AboutRoute
+  '/account': typeof AccountRouteWithChildren
+  '/admin': typeof AdminRouteWithChildren
   '/agents': typeof AgentsRoute
   '/app-builders': typeof AppBuildersRoute
   '/auth-callback': typeof AuthCallbackRoute
   '/billing': typeof BillingRoute
   '/calculator': typeof CalculatorRoute
-  '/community': typeof CommunityRoute
   '/compare': typeof CompareRoute
-  '/dashboard': typeof DashboardRoute
+  '/contact': typeof ContactRoute
+  '/feature-requests': typeof FeatureRequestsRoute
+  '/feedback': typeof FeedbackRoute
   '/finder': typeof FinderRoute
   '/forgot-password': typeof ForgotPasswordRoute
-  '/leaderboard': typeof LeaderboardRoute
+  '/help': typeof HelpRoute
   '/login': typeof LoginRoute
+  '/news': typeof NewsRoute
   '/onboarding': typeof OnboardingRoute
   '/profile': typeof ProfileRoute
   '/prompts': typeof PromptsRoute
   '/rankings': typeof RankingsRoute
-  '/referrals': typeof ReferralsRoute
+  '/report-bug': typeof ReportBugRoute
   '/reset-password': typeof ResetPasswordRoute
   '/settings': typeof SettingsRoute
   '/signup': typeof SignupRoute
-  '/stack-builder': typeof StackBuilderRoute
-  '/subscription': typeof SubscriptionRoute
+  '/unsubscribe': typeof UnsubscribeRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/account/requests': typeof AccountRequestsRouteWithChildren
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/auth-diagnostics': typeof AdminAuthDiagnosticsRoute
+  '/admin/changelog': typeof AdminChangelogRoute
+  '/admin/help-center': typeof AdminHelpCenterRoute
+  '/admin/intelligence': typeof AdminIntelligenceRoute
+  '/admin/legal': typeof AdminLegalRouteWithChildren
+  '/admin/legal-documents': typeof AdminLegalDocumentsRoute
+  '/admin/market-intelligence': typeof AdminMarketIntelligenceRoute
   '/admin/monitoring': typeof AdminMonitoringRoute
   '/admin/performance': typeof AdminPerformanceRoute
-  '/admin/referrals': typeof AdminReferralsRoute
+  '/admin/public-stacks': typeof AdminPublicStacksRoute
   '/admin/revenue': typeof AdminRevenueRoute
-  '/api/stripe-webhook': typeof ApiStripeWebhookRoute
+  '/admin/support': typeof AdminSupportRoute
+  '/admin/tools': typeof AdminToolsRoute
+  '/auth/forgot-password': typeof AuthForgotPasswordRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/auth/verify-email': typeof AuthVerifyEmailRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/legal/$type': typeof LegalTypeRoute
+  '/legal/disclaimer': typeof LegalDisclaimerRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/ref/$code': typeof RefCodeRoute
   '/stacks/$id': typeof StacksIdRoute
+  '/legal/': typeof LegalIndexRoute
   '/stacks/': typeof StacksIndexRoute
+  '/account/requests/$id': typeof AccountRequestsIdRoute
+  '/admin/legal/privacy': typeof AdminLegalPrivacyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/account'
+    | '/admin'
     | '/agents'
     | '/app-builders'
     | '/auth-callback'
     | '/billing'
     | '/calculator'
-    | '/community'
     | '/compare'
-    | '/dashboard'
+    | '/contact'
+    | '/feature-requests'
+    | '/feedback'
     | '/finder'
     | '/forgot-password'
-    | '/leaderboard'
+    | '/help'
     | '/login'
+    | '/news'
     | '/onboarding'
     | '/profile'
     | '/prompts'
     | '/rankings'
-    | '/referrals'
+    | '/report-bug'
     | '/reset-password'
     | '/settings'
     | '/signup'
-    | '/stack-builder'
-    | '/subscription'
+    | '/unsubscribe'
     | '/verify-email'
+    | '/account/requests'
     | '/admin/analytics'
     | '/admin/auth-diagnostics'
+    | '/admin/changelog'
+    | '/admin/help-center'
+    | '/admin/intelligence'
+    | '/admin/legal'
+    | '/admin/legal-documents'
+    | '/admin/market-intelligence'
     | '/admin/monitoring'
     | '/admin/performance'
-    | '/admin/referrals'
+    | '/admin/public-stacks'
     | '/admin/revenue'
-    | '/api/stripe-webhook'
+    | '/admin/support'
+    | '/admin/tools'
+    | '/auth/forgot-password'
+    | '/auth/login'
+    | '/auth/register'
+    | '/auth/verify-email'
+    | '/blog/$slug'
+    | '/legal/$type'
+    | '/legal/disclaimer'
+    | '/legal/privacy'
+    | '/legal/terms'
     | '/ref/$code'
     | '/stacks/$id'
+    | '/legal/'
     | '/stacks/'
+    | '/account/requests/$id'
+    | '/admin/legal/privacy'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/account'
+    | '/admin'
     | '/agents'
     | '/app-builders'
     | '/auth-callback'
     | '/billing'
     | '/calculator'
-    | '/community'
     | '/compare'
-    | '/dashboard'
+    | '/contact'
+    | '/feature-requests'
+    | '/feedback'
     | '/finder'
     | '/forgot-password'
-    | '/leaderboard'
+    | '/help'
     | '/login'
+    | '/news'
     | '/onboarding'
     | '/profile'
     | '/prompts'
     | '/rankings'
-    | '/referrals'
+    | '/report-bug'
     | '/reset-password'
     | '/settings'
     | '/signup'
-    | '/stack-builder'
-    | '/subscription'
+    | '/unsubscribe'
     | '/verify-email'
+    | '/account/requests'
     | '/admin/analytics'
     | '/admin/auth-diagnostics'
+    | '/admin/changelog'
+    | '/admin/help-center'
+    | '/admin/intelligence'
+    | '/admin/legal'
+    | '/admin/legal-documents'
+    | '/admin/market-intelligence'
     | '/admin/monitoring'
     | '/admin/performance'
-    | '/admin/referrals'
+    | '/admin/public-stacks'
     | '/admin/revenue'
-    | '/api/stripe-webhook'
+    | '/admin/support'
+    | '/admin/tools'
+    | '/auth/forgot-password'
+    | '/auth/login'
+    | '/auth/register'
+    | '/auth/verify-email'
+    | '/blog/$slug'
+    | '/legal/$type'
+    | '/legal/disclaimer'
+    | '/legal/privacy'
+    | '/legal/terms'
     | '/ref/$code'
     | '/stacks/$id'
+    | '/legal'
     | '/stacks'
+    | '/account/requests/$id'
+    | '/admin/legal/privacy'
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/account'
+    | '/admin'
     | '/agents'
     | '/app-builders'
     | '/auth-callback'
     | '/billing'
     | '/calculator'
-    | '/community'
     | '/compare'
-    | '/dashboard'
+    | '/contact'
+    | '/feature-requests'
+    | '/feedback'
     | '/finder'
     | '/forgot-password'
-    | '/leaderboard'
+    | '/help'
     | '/login'
+    | '/news'
     | '/onboarding'
     | '/profile'
     | '/prompts'
     | '/rankings'
-    | '/referrals'
+    | '/report-bug'
     | '/reset-password'
     | '/settings'
     | '/signup'
-    | '/stack-builder'
-    | '/subscription'
+    | '/unsubscribe'
     | '/verify-email'
+    | '/account/requests'
     | '/admin/analytics'
     | '/admin/auth-diagnostics'
+    | '/admin/changelog'
+    | '/admin/help-center'
+    | '/admin/intelligence'
+    | '/admin/legal'
+    | '/admin/legal-documents'
+    | '/admin/market-intelligence'
     | '/admin/monitoring'
     | '/admin/performance'
-    | '/admin/referrals'
+    | '/admin/public-stacks'
     | '/admin/revenue'
-    | '/api/stripe-webhook'
+    | '/admin/support'
+    | '/admin/tools'
+    | '/auth/forgot-password'
+    | '/auth/login'
+    | '/auth/register'
+    | '/auth/verify-email'
+    | '/blog/$slug'
+    | '/legal/$type'
+    | '/legal/disclaimer'
+    | '/legal/privacy'
+    | '/legal/terms'
     | '/ref/$code'
     | '/stacks/$id'
+    | '/legal/'
     | '/stacks/'
+    | '/account/requests/$id'
+    | '/admin/legal/privacy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AccountRoute: typeof AccountRoute
+  AboutRoute: typeof AboutRoute
+  AccountRoute: typeof AccountRouteWithChildren
+  AdminRoute: typeof AdminRouteWithChildren
   AgentsRoute: typeof AgentsRoute
   AppBuildersRoute: typeof AppBuildersRoute
   AuthCallbackRoute: typeof AuthCallbackRoute
   BillingRoute: typeof BillingRoute
   CalculatorRoute: typeof CalculatorRoute
-  CommunityRoute: typeof CommunityRoute
   CompareRoute: typeof CompareRoute
-  DashboardRoute: typeof DashboardRoute
+  ContactRoute: typeof ContactRoute
+  FeatureRequestsRoute: typeof FeatureRequestsRoute
+  FeedbackRoute: typeof FeedbackRoute
   FinderRoute: typeof FinderRoute
   ForgotPasswordRoute: typeof ForgotPasswordRoute
-  LeaderboardRoute: typeof LeaderboardRoute
+  HelpRoute: typeof HelpRoute
   LoginRoute: typeof LoginRoute
+  NewsRoute: typeof NewsRoute
   OnboardingRoute: typeof OnboardingRoute
   ProfileRoute: typeof ProfileRoute
   PromptsRoute: typeof PromptsRoute
   RankingsRoute: typeof RankingsRoute
-  ReferralsRoute: typeof ReferralsRoute
+  ReportBugRoute: typeof ReportBugRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   SettingsRoute: typeof SettingsRoute
   SignupRoute: typeof SignupRoute
-  StackBuilderRoute: typeof StackBuilderRoute
-  SubscriptionRoute: typeof SubscriptionRoute
+  UnsubscribeRoute: typeof UnsubscribeRoute
   VerifyEmailRoute: typeof VerifyEmailRoute
-  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
-  AdminAuthDiagnosticsRoute: typeof AdminAuthDiagnosticsRoute
-  AdminMonitoringRoute: typeof AdminMonitoringRoute
-  AdminPerformanceRoute: typeof AdminPerformanceRoute
-  AdminReferralsRoute: typeof AdminReferralsRoute
-  AdminRevenueRoute: typeof AdminRevenueRoute
-  ApiStripeWebhookRoute: typeof ApiStripeWebhookRoute
+  AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
+  AuthLoginRoute: typeof AuthLoginRoute
+  AuthRegisterRoute: typeof AuthRegisterRoute
+  AuthVerifyEmailRoute: typeof AuthVerifyEmailRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  LegalTypeRoute: typeof LegalTypeRoute
+  LegalDisclaimerRoute: typeof LegalDisclaimerRoute
+  LegalPrivacyRoute: typeof LegalPrivacyRoute
+  LegalTermsRoute: typeof LegalTermsRoute
   RefCodeRoute: typeof RefCodeRoute
   StacksIdRoute: typeof StacksIdRoute
+  LegalIndexRoute: typeof LegalIndexRoute
   StacksIndexRoute: typeof StacksIndexRoute
 }
 
@@ -494,18 +776,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VerifyEmailRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/subscription': {
-      id: '/subscription'
-      path: '/subscription'
-      fullPath: '/subscription'
-      preLoaderRoute: typeof SubscriptionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/stack-builder': {
-      id: '/stack-builder'
-      path: '/stack-builder'
-      fullPath: '/stack-builder'
-      preLoaderRoute: typeof StackBuilderRouteImport
+    '/unsubscribe': {
+      id: '/unsubscribe'
+      path: '/unsubscribe'
+      fullPath: '/unsubscribe'
+      preLoaderRoute: typeof UnsubscribeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/signup': {
@@ -529,11 +804,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/referrals': {
-      id: '/referrals'
-      path: '/referrals'
-      fullPath: '/referrals'
-      preLoaderRoute: typeof ReferralsRouteImport
+    '/report-bug': {
+      id: '/report-bug'
+      path: '/report-bug'
+      fullPath: '/report-bug'
+      preLoaderRoute: typeof ReportBugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rankings': {
@@ -564,6 +839,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OnboardingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
@@ -571,11 +853,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/leaderboard': {
-      id: '/leaderboard'
-      path: '/leaderboard'
-      fullPath: '/leaderboard'
-      preLoaderRoute: typeof LeaderboardRouteImport
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/forgot-password': {
@@ -592,11 +874,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FinderRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
+    '/feedback': {
+      id: '/feedback'
+      path: '/feedback'
+      fullPath: '/feedback'
+      preLoaderRoute: typeof FeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/feature-requests': {
+      id: '/feature-requests'
+      path: '/feature-requests'
+      fullPath: '/feature-requests'
+      preLoaderRoute: typeof FeatureRequestsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compare': {
@@ -604,13 +900,6 @@ declare module '@tanstack/react-router' {
       path: '/compare'
       fullPath: '/compare'
       preLoaderRoute: typeof CompareRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/community': {
-      id: '/community'
-      path: '/community'
-      fullPath: '/community'
-      preLoaderRoute: typeof CommunityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/calculator': {
@@ -648,11 +937,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AgentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/account': {
       id: '/account'
       path: '/account'
       fullPath: '/account'
       preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -669,6 +972,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StacksIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/legal/': {
+      id: '/legal/'
+      path: '/legal'
+      fullPath: '/legal/'
+      preLoaderRoute: typeof LegalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/stacks/$id': {
       id: '/stacks/$id'
       path: '/stacks/$id'
@@ -683,93 +993,303 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RefCodeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/stripe-webhook': {
-      id: '/api/stripe-webhook'
-      path: '/api/stripe-webhook'
-      fullPath: '/api/stripe-webhook'
-      preLoaderRoute: typeof ApiStripeWebhookRouteImport
+    '/legal/terms': {
+      id: '/legal/terms'
+      path: '/legal/terms'
+      fullPath: '/legal/terms'
+      preLoaderRoute: typeof LegalTermsRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/legal/privacy': {
+      id: '/legal/privacy'
+      path: '/legal/privacy'
+      fullPath: '/legal/privacy'
+      preLoaderRoute: typeof LegalPrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/disclaimer': {
+      id: '/legal/disclaimer'
+      path: '/legal/disclaimer'
+      fullPath: '/legal/disclaimer'
+      preLoaderRoute: typeof LegalDisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/$type': {
+      id: '/legal/$type'
+      path: '/legal/$type'
+      fullPath: '/legal/$type'
+      preLoaderRoute: typeof LegalTypeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/verify-email': {
+      id: '/auth/verify-email'
+      path: '/auth/verify-email'
+      fullPath: '/auth/verify-email'
+      preLoaderRoute: typeof AuthVerifyEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/register': {
+      id: '/auth/register'
+      path: '/auth/register'
+      fullPath: '/auth/register'
+      preLoaderRoute: typeof AuthRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/login': {
+      id: '/auth/login'
+      path: '/auth/login'
+      fullPath: '/auth/login'
+      preLoaderRoute: typeof AuthLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/forgot-password': {
+      id: '/auth/forgot-password'
+      path: '/auth/forgot-password'
+      fullPath: '/auth/forgot-password'
+      preLoaderRoute: typeof AuthForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/tools': {
+      id: '/admin/tools'
+      path: '/tools'
+      fullPath: '/admin/tools'
+      preLoaderRoute: typeof AdminToolsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/support': {
+      id: '/admin/support'
+      path: '/support'
+      fullPath: '/admin/support'
+      preLoaderRoute: typeof AdminSupportRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/admin/revenue': {
       id: '/admin/revenue'
-      path: '/admin/revenue'
+      path: '/revenue'
       fullPath: '/admin/revenue'
       preLoaderRoute: typeof AdminRevenueRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRoute
     }
-    '/admin/referrals': {
-      id: '/admin/referrals'
-      path: '/admin/referrals'
-      fullPath: '/admin/referrals'
-      preLoaderRoute: typeof AdminReferralsRouteImport
-      parentRoute: typeof rootRouteImport
+    '/admin/public-stacks': {
+      id: '/admin/public-stacks'
+      path: '/public-stacks'
+      fullPath: '/admin/public-stacks'
+      preLoaderRoute: typeof AdminPublicStacksRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/admin/performance': {
       id: '/admin/performance'
-      path: '/admin/performance'
+      path: '/performance'
       fullPath: '/admin/performance'
       preLoaderRoute: typeof AdminPerformanceRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/admin/monitoring': {
       id: '/admin/monitoring'
-      path: '/admin/monitoring'
+      path: '/monitoring'
       fullPath: '/admin/monitoring'
       preLoaderRoute: typeof AdminMonitoringRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/market-intelligence': {
+      id: '/admin/market-intelligence'
+      path: '/market-intelligence'
+      fullPath: '/admin/market-intelligence'
+      preLoaderRoute: typeof AdminMarketIntelligenceRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/legal-documents': {
+      id: '/admin/legal-documents'
+      path: '/legal-documents'
+      fullPath: '/admin/legal-documents'
+      preLoaderRoute: typeof AdminLegalDocumentsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/legal': {
+      id: '/admin/legal'
+      path: '/legal'
+      fullPath: '/admin/legal'
+      preLoaderRoute: typeof AdminLegalRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/intelligence': {
+      id: '/admin/intelligence'
+      path: '/intelligence'
+      fullPath: '/admin/intelligence'
+      preLoaderRoute: typeof AdminIntelligenceRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/help-center': {
+      id: '/admin/help-center'
+      path: '/help-center'
+      fullPath: '/admin/help-center'
+      preLoaderRoute: typeof AdminHelpCenterRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/changelog': {
+      id: '/admin/changelog'
+      path: '/changelog'
+      fullPath: '/admin/changelog'
+      preLoaderRoute: typeof AdminChangelogRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/admin/auth-diagnostics': {
       id: '/admin/auth-diagnostics'
-      path: '/admin/auth-diagnostics'
+      path: '/auth-diagnostics'
       fullPath: '/admin/auth-diagnostics'
       preLoaderRoute: typeof AdminAuthDiagnosticsRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/admin/analytics': {
       id: '/admin/analytics'
-      path: '/admin/analytics'
+      path: '/analytics'
       fullPath: '/admin/analytics'
       preLoaderRoute: typeof AdminAnalyticsRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/account/requests': {
+      id: '/account/requests'
+      path: '/requests'
+      fullPath: '/account/requests'
+      preLoaderRoute: typeof AccountRequestsRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/admin/legal/privacy': {
+      id: '/admin/legal/privacy'
+      path: '/privacy'
+      fullPath: '/admin/legal/privacy'
+      preLoaderRoute: typeof AdminLegalPrivacyRouteImport
+      parentRoute: typeof AdminLegalRoute
+    }
+    '/account/requests/$id': {
+      id: '/account/requests/$id'
+      path: '/$id'
+      fullPath: '/account/requests/$id'
+      preLoaderRoute: typeof AccountRequestsIdRouteImport
+      parentRoute: typeof AccountRequestsRoute
     }
   }
 }
 
+interface AccountRequestsRouteChildren {
+  AccountRequestsIdRoute: typeof AccountRequestsIdRoute
+}
+
+const AccountRequestsRouteChildren: AccountRequestsRouteChildren = {
+  AccountRequestsIdRoute: AccountRequestsIdRoute,
+}
+
+const AccountRequestsRouteWithChildren = AccountRequestsRoute._addFileChildren(
+  AccountRequestsRouteChildren,
+)
+
+interface AccountRouteChildren {
+  AccountRequestsRoute: typeof AccountRequestsRouteWithChildren
+}
+
+const AccountRouteChildren: AccountRouteChildren = {
+  AccountRequestsRoute: AccountRequestsRouteWithChildren,
+}
+
+const AccountRouteWithChildren =
+  AccountRoute._addFileChildren(AccountRouteChildren)
+
+interface AdminLegalRouteChildren {
+  AdminLegalPrivacyRoute: typeof AdminLegalPrivacyRoute
+}
+
+const AdminLegalRouteChildren: AdminLegalRouteChildren = {
+  AdminLegalPrivacyRoute: AdminLegalPrivacyRoute,
+}
+
+const AdminLegalRouteWithChildren = AdminLegalRoute._addFileChildren(
+  AdminLegalRouteChildren,
+)
+
+interface AdminRouteChildren {
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminAuthDiagnosticsRoute: typeof AdminAuthDiagnosticsRoute
+  AdminChangelogRoute: typeof AdminChangelogRoute
+  AdminHelpCenterRoute: typeof AdminHelpCenterRoute
+  AdminIntelligenceRoute: typeof AdminIntelligenceRoute
+  AdminLegalRoute: typeof AdminLegalRouteWithChildren
+  AdminLegalDocumentsRoute: typeof AdminLegalDocumentsRoute
+  AdminMarketIntelligenceRoute: typeof AdminMarketIntelligenceRoute
+  AdminMonitoringRoute: typeof AdminMonitoringRoute
+  AdminPerformanceRoute: typeof AdminPerformanceRoute
+  AdminPublicStacksRoute: typeof AdminPublicStacksRoute
+  AdminRevenueRoute: typeof AdminRevenueRoute
+  AdminSupportRoute: typeof AdminSupportRoute
+  AdminToolsRoute: typeof AdminToolsRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminAuthDiagnosticsRoute: AdminAuthDiagnosticsRoute,
+  AdminChangelogRoute: AdminChangelogRoute,
+  AdminHelpCenterRoute: AdminHelpCenterRoute,
+  AdminIntelligenceRoute: AdminIntelligenceRoute,
+  AdminLegalRoute: AdminLegalRouteWithChildren,
+  AdminLegalDocumentsRoute: AdminLegalDocumentsRoute,
+  AdminMarketIntelligenceRoute: AdminMarketIntelligenceRoute,
+  AdminMonitoringRoute: AdminMonitoringRoute,
+  AdminPerformanceRoute: AdminPerformanceRoute,
+  AdminPublicStacksRoute: AdminPublicStacksRoute,
+  AdminRevenueRoute: AdminRevenueRoute,
+  AdminSupportRoute: AdminSupportRoute,
+  AdminToolsRoute: AdminToolsRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AccountRoute: AccountRoute,
+  AboutRoute: AboutRoute,
+  AccountRoute: AccountRouteWithChildren,
+  AdminRoute: AdminRouteWithChildren,
   AgentsRoute: AgentsRoute,
   AppBuildersRoute: AppBuildersRoute,
   AuthCallbackRoute: AuthCallbackRoute,
   BillingRoute: BillingRoute,
   CalculatorRoute: CalculatorRoute,
-  CommunityRoute: CommunityRoute,
   CompareRoute: CompareRoute,
-  DashboardRoute: DashboardRoute,
+  ContactRoute: ContactRoute,
+  FeatureRequestsRoute: FeatureRequestsRoute,
+  FeedbackRoute: FeedbackRoute,
   FinderRoute: FinderRoute,
   ForgotPasswordRoute: ForgotPasswordRoute,
-  LeaderboardRoute: LeaderboardRoute,
+  HelpRoute: HelpRoute,
   LoginRoute: LoginRoute,
+  NewsRoute: NewsRoute,
   OnboardingRoute: OnboardingRoute,
   ProfileRoute: ProfileRoute,
   PromptsRoute: PromptsRoute,
   RankingsRoute: RankingsRoute,
-  ReferralsRoute: ReferralsRoute,
+  ReportBugRoute: ReportBugRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   SettingsRoute: SettingsRoute,
   SignupRoute: SignupRoute,
-  StackBuilderRoute: StackBuilderRoute,
-  SubscriptionRoute: SubscriptionRoute,
+  UnsubscribeRoute: UnsubscribeRoute,
   VerifyEmailRoute: VerifyEmailRoute,
-  AdminAnalyticsRoute: AdminAnalyticsRoute,
-  AdminAuthDiagnosticsRoute: AdminAuthDiagnosticsRoute,
-  AdminMonitoringRoute: AdminMonitoringRoute,
-  AdminPerformanceRoute: AdminPerformanceRoute,
-  AdminReferralsRoute: AdminReferralsRoute,
-  AdminRevenueRoute: AdminRevenueRoute,
-  ApiStripeWebhookRoute: ApiStripeWebhookRoute,
+  AuthForgotPasswordRoute: AuthForgotPasswordRoute,
+  AuthLoginRoute: AuthLoginRoute,
+  AuthRegisterRoute: AuthRegisterRoute,
+  AuthVerifyEmailRoute: AuthVerifyEmailRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  LegalTypeRoute: LegalTypeRoute,
+  LegalDisclaimerRoute: LegalDisclaimerRoute,
+  LegalPrivacyRoute: LegalPrivacyRoute,
+  LegalTermsRoute: LegalTermsRoute,
   RefCodeRoute: RefCodeRoute,
   StacksIdRoute: StacksIdRoute,
+  LegalIndexRoute: LegalIndexRoute,
   StacksIndexRoute: StacksIndexRoute,
 }
 export const routeTree = rootRouteImport

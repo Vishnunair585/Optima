@@ -5,20 +5,7 @@ import { Bookmark, LogOut, Sparkles, LogIn, ChevronRight, Layers, ExternalLink }
 import { ProtectedRoute } from "../components/auth/route-guard";
 import { getStacksFn } from "../lib/api/stack.functions";
 
-const PROMPT_LIBRARY = [
-  { cat: "Coding", title: "Refactor with tests", body: "You are an expert software engineer..." },
-  { cat: "Coding", title: "Bug detective", body: "You are a Senior Principal Security..." },
-  { cat: "Research", title: "Source-cited summary", body: "You are an elite research analyst..." },
-  { cat: "Research", title: "Steelman both sides", body: "Act as an unbiased philosophical analyst..." },
-  { cat: "Marketing", title: "Landing page hero", body: "You are an elite conversion rate copywriter..." },
-  { cat: "Marketing", title: "Cold email v2", body: "You are a B2B SaaS cold outbound expert..." },
-  { cat: "Content", title: "Blog outline", body: "You are an expert SEO Content Strategist..." },
-  { cat: "Content", title: "Twitter thread", body: "You are a viral content marketer..." },
-  { cat: "Business", title: "Pricing memo", body: "You are a product management consultant..." },
-  { cat: "Business", title: "Investor update", body: "You are a startup founder drafting..." },
-  { cat: "Productivity", title: "Weekly review", body: "Act as an executive performance coach..." },
-  { cat: "Productivity", title: "Meeting → action items", body: "You are an executive assistant..." },
-];
+import { PROMPTS } from "../lib/data/prompts";
 
 type UserStack = Awaited<ReturnType<typeof getStacksFn>>[number];
 
@@ -43,15 +30,29 @@ function ProfilePage() {
   const [myStacks, setMyStacks] = useState<UserStack[]>([]);
   const [bookmarkedStacks, setBookmarkedStacks] = useState<UserStack[]>([]);
   const [loadingStacks, setLoadingStacks] = useState(true);
+  const [isEditingName, setIsEditingName] = useState(false);
+  const [newName, setNewName] = useState(user?.name || "");
+  const { updateUsername } = useAuth();
   const navigate = useNavigate();
+
+  const [savedPublicStacks, setSavedPublicStacks] = useState<any[]>([]);
+  const [savedPerfectAiStacks, setSavedPerfectAiStacks] = useState<any[]>([]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       try {
         const stored = JSON.parse(localStorage.getItem("saved_prompts") ?? "[]");
         setSavedPrompts(stored);
+        
+        const storedStacks = JSON.parse(localStorage.getItem("saved_public_stacks") ?? "[]");
+        setSavedPublicStacks(storedStacks);
+
+        const storedPerfectStacks = JSON.parse(localStorage.getItem("saved_perfect_ai_stacks") ?? "[]");
+        setSavedPerfectAiStacks(storedPerfectStacks);
       } catch {
         setSavedPrompts([]);
+        setSavedPublicStacks([]);
+        setSavedPerfectAiStacks([]);
       }
     }
   }, [user]);
@@ -83,6 +84,15 @@ function ProfilePage() {
   const handleLogout = () => {
     logout();
     navigate({ to: "/" });
+  };
+
+  const handleUpdateName = async () => {
+    if (!newName.trim() || newName === user?.name) {
+      setIsEditingName(false);
+      return;
+    }
+    await updateUsername(newName.trim());
+    setIsEditingName(false);
   };
 
   if (!user) {
@@ -117,8 +127,8 @@ function ProfilePage() {
   };
 
   const savedPromptDetails = savedPrompts
-    .map((title) => PROMPT_LIBRARY.find((p) => p.title === title))
-    .filter(Boolean) as typeof PROMPT_LIBRARY;
+    .map((title) => PROMPTS.find((p) => p.title === title))
+    .filter(Boolean) as typeof PROMPTS;
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8 space-y-10 animate-fade-up">
@@ -138,7 +148,24 @@ function ProfilePage() {
             </label>
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">{user.name}</h1>
+            {isEditingName ? (
+              <div className="flex items-center gap-2">
+                <input
+                  type="text"
+                  value={newName}
+                  onChange={(e) => setNewName(e.target.value)}
+                  className="h-10 rounded-md border border-border bg-card px-3 text-lg font-bold outline-none focus:border-brand"
+                  autoFocus
+                />
+                <button onClick={handleUpdateName} className="rounded-md bg-brand px-3 py-2 text-sm font-semibold text-brand-foreground hover:bg-brand/90">Save</button>
+                <button onClick={() => { setIsEditingName(false); setNewName(user.name); }} className="rounded-md border border-border px-3 py-2 text-sm font-semibold hover:bg-accent">Cancel</button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <h1 className="text-3xl font-bold tracking-tight">{user.name}</h1>
+                <button onClick={() => setIsEditingName(true)} className="text-xs text-brand hover:underline">Edit</button>
+              </div>
+            )}
             <p className="text-sm text-muted-foreground">{user.email}</p>
           </div>
         </div>
@@ -147,55 +174,53 @@ function ProfilePage() {
         </button>
       </header>
 
-      {/* My Stacks */}
-      <section className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold flex items-center gap-2">
-            <Layers className="h-5 w-5 text-brand" />
-            My Saved Stacks ({myStacks.length})
-          </h2>
-          <Link to="/stack-builder" className="text-sm text-brand hover:underline font-medium">
-            + Create new stack
-          </Link>
-        </div>
+      {/* Quick Links */}
+      <div className="flex flex-wrap gap-3 pb-4">
+        <a href="#saved-prompts" className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium hover:bg-accent/80 transition-colors">
+          <Sparkles className="h-4 w-4 text-brand" /> Saved Prompts
+        </a>
+        <a href="#saved-public-stacks" className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium hover:bg-accent/80 transition-colors">
+          <Layers className="h-4 w-4 text-brand" /> Saved Stacks
+        </a>
+        <a href="#saved-perfect-ai-stacks" className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium hover:bg-accent/80 transition-colors">
+          <Bookmark className="h-4 w-4 text-brand" /> Saved Perfect AI Stacks
+        </a>
+      </div>
 
-        {loadingStacks ? (
-          <div className="rounded-2xl border border-dashed border-border p-8 text-center text-muted-foreground text-sm">
-            Loading your stacks...
-          </div>
-        ) : myStacks.length > 0 ? (
+      {/* Saved Public Stacks */}
+      <section id="saved-public-stacks" className="space-y-4">
+        <h2 className="text-xl font-bold flex items-center gap-2">
+          <Layers className="h-5 w-5 text-brand" />
+          Saved Public Stacks ({savedPublicStacks.length})
+        </h2>
+
+        {savedPublicStacks.length > 0 ? (
           <div className="grid gap-3 sm:grid-cols-2">
-            {myStacks.map((stack) => (
+            {savedPublicStacks.map((stack) => (
               <Link
                 key={stack.id}
                 to={`/stacks/${stack.id}`}
                 className="rounded-2xl glass p-5 flex flex-col gap-2 hover:bg-card/60 transition-all group"
               >
                 <div className="flex items-start justify-between gap-2">
-                  <h3 className="font-semibold text-sm group-hover:text-brand transition-colors">{stack.name}</h3>
+                  <h3 className="font-semibold text-sm group-hover:text-brand transition-colors">{stack.title}</h3>
                   <ExternalLink className="h-3.5 w-3.5 text-muted-foreground shrink-0" />
                 </div>
-                <p className="text-xs text-muted-foreground line-clamp-2">{stack.description || stack.goal}</p>
+                <p className="text-xs text-muted-foreground line-clamp-2">{stack.description}</p>
                 <div className="flex items-center gap-2 mt-1">
                   <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full border border-border text-muted-foreground">
                     {stack.category}
                   </span>
                   <span className="text-[10px] font-mono text-muted-foreground">
-                    {stack.toolCount ?? stack.tools?.length ?? 0} tools
+                    {stack.tools?.length ?? 0} tools
                   </span>
-                  {!stack.is_public && (
-                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-muted text-muted-foreground">
-                      Private
-                    </span>
-                  )}
                 </div>
               </Link>
             ))}
           </div>
         ) : (
           <div className="rounded-2xl border border-dashed border-border p-12 text-center text-muted-foreground">
-            No stacks saved yet.{" "}
-            <Link to="/stack-builder" className="text-brand hover:underline">Build your first AI stack</Link>.
+            No public stacks saved yet. Explore the <Link to="/stacks" className="text-brand hover:underline">Public Stacks Library</Link> to find useful workflows.
           </div>
         )}
       </section>
@@ -217,7 +242,7 @@ function ProfilePage() {
                 <div>
                   <h3 className="font-semibold text-sm">{stack.name}</h3>
                   <p className="text-xs text-muted-foreground mt-0.5">
-                    by {stack.creator_name || "Community"} · {stack.toolCount ?? 0} tools
+                    by {stack.creator_name || "User"} · {stack.toolCount ?? 0} tools
                   </p>
                 </div>
                 <ChevronRight className="h-4 w-4 text-muted-foreground" />
@@ -228,7 +253,7 @@ function ProfilePage() {
       )}
 
       {/* Saved Prompts */}
-      <section className="space-y-4">
+      <section id="saved-prompts" className="space-y-4">
         <h2 className="text-xl font-bold flex items-center gap-2">
           <Sparkles className="h-5 w-5 text-brand" />
           My Saved Prompts ({savedPrompts.length})
@@ -254,6 +279,40 @@ function ProfilePage() {
         ) : (
           <div className="rounded-2xl border border-dashed border-border p-12 text-center text-muted-foreground">
             No prompts saved yet. Go to the <Link to="/prompts" className="text-brand hover:underline">Prompt Library</Link> to save some.
+          </div>
+        )}
+      </section>
+
+      {/* Saved Perfect AI Stacks */}
+      <section id="saved-perfect-ai-stacks" className="space-y-4">
+        <h2 className="text-xl font-bold flex items-center gap-2">
+          <Bookmark className="h-5 w-5 text-brand" />
+          Saved Perfect AI Stacks ({savedPerfectAiStacks.length})
+        </h2>
+
+        {savedPerfectAiStacks.length > 0 ? (
+          <div className="grid gap-3 sm:grid-cols-2">
+            {savedPerfectAiStacks.map((stack, idx) => (
+              <div key={idx} className="rounded-2xl glass p-5 flex flex-col gap-2 hover:bg-card/60 transition-all">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-semibold text-sm">{stack.answers.goal ?? "Custom Workflow"}</h3>
+                  <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full border border-border text-muted-foreground">
+                    {new Date(stack.created_at).toLocaleDateString()}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {stack.tools.map((t: any) => (
+                    <span key={t.name} className="text-xs bg-accent text-foreground px-2 py-0.5 rounded-md border border-border/50">
+                      {t.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-2xl border border-dashed border-border p-12 text-center text-muted-foreground">
+            There is no saved item. Go to the <Link to="/finder" className="text-brand hover:underline">AI Finder</Link> to save that.
           </div>
         )}
       </section>

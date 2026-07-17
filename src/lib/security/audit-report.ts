@@ -1,5 +1,5 @@
 export const SECURITY_AUDIT_REPORT = `
-# AIRank Red Team Security Audit Report
+# Optima Red Team Security Audit Report
 
 ## Date: June 2026
 ## Final Security Score: 82/100

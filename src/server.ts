@@ -39,12 +39,26 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
+    const url = new URL(request.url);
+    const ip = request.headers.get("x-forwarded-for") || "unknown";
+    
+    // Log traffic
+    console.log(`[TRAFFIC] ${request.method} ${url.pathname} - IP: ${ip}`);
+
+    // Enforce HTTPS in production
+    const proto = request.headers.get("x-forwarded-proto");
+    const isProduction = process.env.NODE_ENV === "production" || !!proto;
+    if (isProduction && proto === "http") {
+      url.protocol = "https:";
+      return Response.redirect(url.toString(), 301);
+    }
+
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
     } catch (error) {
-      console.error(error);
+      console.error(`[API_ERROR] Unhandled exception during fetch for ${url.pathname}:`, error);
       return new Response(renderErrorPage(), {
         status: 500,
         headers: { "content-type": "text/html; charset=utf-8" },

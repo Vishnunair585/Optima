@@ -2,8 +2,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/use-auth";
 import { toast } from "sonner";
-import { Loader2 } from "lucide-react";
-
+import { GlobalLoader } from "../components/ui/GlobalLoader";
 export const Route = createFileRoute("/auth-callback")({
   component: OAuthCallbackPage,
 });
@@ -34,7 +33,7 @@ function OAuthCallbackPage() {
         if (safeRedirect) {
           navigate({ to: safeRedirect });
         } else {
-          navigate({ to: "/dashboard" });
+          navigate({ to: "/" });
         }
       } catch (err: any) {
         toast.error(err.message || "Authentication callback failed.");
@@ -48,10 +47,7 @@ function OAuthCallbackPage() {
   if (loading) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
-        <div className="flex flex-col items-center gap-3">
-          <Loader2 className="h-8 w-8 animate-spin text-brand" />
-          <p className="text-sm text-muted-foreground">{message}</p>
-        </div>
+        <GlobalLoader text={message} />
       </div>
     );
   }

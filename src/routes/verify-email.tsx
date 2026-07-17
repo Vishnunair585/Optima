@@ -1,7 +1,7 @@
-import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useAuth } from "../hooks/use-auth";
-import { Mail, RefreshCw, LogOut, CheckCircle, Loader2, ArrowLeft } from "lucide-react";
-import { useEffect, useState, useRef } from "react";
+import { Mail, RefreshCw, LogOut, CheckCircle, Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { OptimaLogo } from "../components/site/OptimaLogo";
 
@@ -10,14 +10,11 @@ export const Route = createFileRoute("/verify-email")({
 });
 
 function VerifyEmailPage() {
-  const { user, isLoaded, verifyOtp, resendOtp, logout } = useAuth();
+  const { user, isLoaded, resendOtp, refreshSession, logout } = useAuth();
   const navigate = useNavigate();
-  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
-  const [submitting, setSubmitting] = useState(false);
+  const [checking, setChecking] = useState(false);
   const [resending, setResending] = useState(false);
-  const [resent, setResent] = useState(false);
   const [verified, setVerified] = useState(false);
-  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   useEffect(() => {
     if (isLoaded && !user) {
@@ -28,65 +25,20 @@ function VerifyEmailPage() {
     }
   }, [user, isLoaded, navigate, verified]);
 
-  const handleOtpChange = (index: number, value: string) => {
-    if (value.length > 1) {
-      value = value.slice(0, 1);
-    }
-    if (value && !/^\d$/.test(value)) return;
-
-    const newOtp = [...otp];
-    newOtp[index] = value;
-    setOtp(newOtp);
-
-    if (value && index < 5) {
-      inputRefs.current[index + 1]?.focus();
-    }
-  };
-
-  const handleKeyDown = (index: number, e: React.KeyboardEvent) => {
-    if (e.key === "Backspace" && !otp[index] && index > 0) {
-      inputRefs.current[index - 1]?.focus();
-    }
-  };
-
-  const handlePaste = (e: React.ClipboardEvent) => {
-    e.preventDefault();
-    const pasted = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, 6);
-    if (!pasted) return;
-    const newOtp = [...otp];
-    for (let i = 0; i < pasted.length; i++) {
-      newOtp[i] = pasted[i]!;
-    }
-    setOtp(newOtp);
-    const nextIndex = Math.min(pasted.length, 5);
-    inputRefs.current[nextIndex]?.focus();
-  };
-
-  const handleSubmit = async () => {
-    const code = otp.join("");
-    if (code.length !== 6) {
-      toast.error("Please enter the complete 6-digit code.");
-      return;
-    }
-    if (!user?.email) return;
-
-    setSubmitting(true);
+  const handleCheckVerified = async () => {
+    setChecking(true);
     try {
-      const success = await verifyOtp(user.email, code);
-      if (success) {
-        setVerified(true);
-        setTimeout(() => {
-          navigate({ to: user.onboarded ? "/dashboard" : "/onboarding" });
-        }, 1500);
-      } else {
-        setOtp(["", "", "", "", "", ""]);
-        inputRefs.current[0]?.focus();
-      }
+      await refreshSession();
+      // user state will automatically update because of the context
+      // if not immediately updated in context, we could check auth.currentUser directly, 
+      // but relying on context is cleaner.
+      setTimeout(() => {
+        setChecking(false);
+        // The useEffect will catch the updated user.email_verified
+        toast.info("Checked verification status.");
+      }, 1000);
     } catch {
-      setOtp(["", "", "", "", "", ""]);
-      inputRefs.current[0]?.focus();
-    } finally {
-      setSubmitting(false);
+      setChecking(false);
     }
   };
 
@@ -95,9 +47,6 @@ function VerifyEmailPage() {
     setResending(true);
     try {
       await resendOtp(user.email);
-      setResent(true);
-      setOtp(["", "", "", "", "", ""]);
-      inputRefs.current[0]?.focus();
     } finally {
       setResending(false);
     }
@@ -106,12 +55,19 @@ function VerifyEmailPage() {
   if (!isLoaded || !user) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
-        <div className="animate-pulse-glow h-8 w-8 rounded-full bg-brand/30" />
+        <div className="flex flex-col items-center gap-4">
+          <div className="relative flex items-center justify-center">
+            <div className="absolute h-16 w-16 animate-[spin_4s_linear_infinite] rounded-full border-2 border-brand/20 border-t-brand border-r-brand/60" />
+            <div className="absolute h-10 w-10 animate-[spin_3s_linear_infinite_reverse] rounded-full border-2 border-brand/30 border-b-brand/80 border-l-brand" />
+            <div className="h-4 w-4 rounded-full bg-brand shadow-[0_0_15px_rgba(102,51,255,0.7)] animate-pulse" />
+          </div>
+          <span className="text-xs font-mono uppercase tracking-widest text-brand animate-pulse">Loading Workspace...</span>
+        </div>
       </div>
     );
   }
 
-  if (verified) {
+  if (verified || user.email_verified) {
     return (
       <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-b from-background to-muted/30 px-4 py-12">
         <div className="w-full max-w-[420px] text-center">
@@ -144,46 +100,22 @@ function VerifyEmailPage() {
           <div>
             <h2 className="text-xl font-bold tracking-tight">Verify your email</h2>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-              Enter the 6-digit code sent to{" "}
-              <span className="font-semibold text-foreground">{user.email}</span>
+              We've sent a verification link to{" "}
+              <span className="font-semibold text-foreground">{user.email}</span>. 
+              Please check your inbox and click the link to verify your account.
             </p>
-          </div>
-
-          {resent && (
-            <div className="flex items-center gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-600 dark:text-emerald-400 text-left">
-              <CheckCircle className="h-4 w-4 shrink-0" />
-              <span>New code sent! Check your inbox.</span>
-            </div>
-          )}
-
-          <div className="flex justify-center gap-2 sm:gap-3">
-            {otp.map((digit, index) => (
-              <input
-                key={index}
-                ref={(el) => { inputRefs.current[index] = el; }}
-                type="text"
-                inputMode="numeric"
-                maxLength={1}
-                value={digit}
-                onChange={(e) => handleOtpChange(index, e.target.value)}
-                onKeyDown={(e) => handleKeyDown(index, e)}
-                onPaste={index === 0 ? handlePaste : undefined}
-                className="h-12 w-10 sm:h-14 sm:w-12 rounded-xl border border-border/60 bg-background text-center text-lg font-bold tracking-wider outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition-all"
-                style={{ fontVariantNumeric: "tabular-nums" }}
-              />
-            ))}
           </div>
 
           <div className="space-y-3 pt-2">
             <button
-              onClick={handleSubmit}
-              disabled={submitting || otp.join("").length !== 6}
+              onClick={handleCheckVerified}
+              disabled={checking}
               className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-brand text-sm font-semibold text-brand-foreground shadow-glow hover:scale-[1.01] active:scale-[0.99] transition-all disabled:opacity-50 cursor-pointer"
             >
-              {submitting ? (
-                <><Loader2 className="h-4 w-4 animate-spin" /> Verifying...</>
+              {checking ? (
+                <><Loader2 className="h-4 w-4 animate-spin" /> Checking...</>
               ) : (
-                <><CheckCircle className="h-4 w-4" /> Verify email</>
+                <><CheckCircle className="h-4 w-4" /> I have clicked the link</>
               )}
             </button>
 
@@ -195,7 +127,7 @@ function VerifyEmailPage() {
               {resending ? (
                 <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</>
               ) : (
-                <><RefreshCw className="h-4 w-4" /> Resend code</>
+                <><RefreshCw className="h-4 w-4" /> Resend Verification Link</>
               )}
             </button>
 
@@ -208,13 +140,6 @@ function VerifyEmailPage() {
             </button>
           </div>
         </div>
-
-        <p className="mt-6 text-center text-xs text-muted-foreground">
-          Didn't receive the code? Check your spam folder or{" "}
-          <button onClick={handleResend} className="text-brand underline hover:no-underline cursor-pointer">
-            request a new one
-          </button>
-        </p>
       </div>
     </div>
   );

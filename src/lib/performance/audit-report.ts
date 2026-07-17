@@ -1,5 +1,5 @@
 export const PERFORMANCE_AUDIT_REPORT = `
-# AIRank Performance Audit Report
+# Optima Performance Audit Report
 
 ## Analysis Date: June 2026
 ## Auditor: Automated System

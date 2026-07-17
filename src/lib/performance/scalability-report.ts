@@ -1,5 +1,5 @@
 export const SCALABILITY_REPORT = `
-# AIRank Scalability Assessment
+# Optima Scalability Assessment
 
 ## Current Architecture
 - **Database:** SQLite via better-sqlite3 (embedded, single-process)

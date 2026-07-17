@@ -3,7 +3,7 @@ import { users } from "../db/schema";
 import { eq } from "drizzle-orm";
 
 const ADMIN_EMAILS = new Set([
-  "admin@airank.com",
+  "admin@optima.com",
   ...(process.env.ADMIN_EMAILS?.split(",").map((e) => e.trim().toLowerCase()) || []),
 ]);
 

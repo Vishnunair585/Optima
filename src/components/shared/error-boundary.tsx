@@ -1,4 +1,5 @@
 import React, { Component, type ReactNode } from "react";
+import { GlobalLoader } from "../ui/GlobalLoader";
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -90,7 +91,7 @@ interface SuspenseErrorProps {
 
 export function SuspenseWithError({ children, fallback, errorFallback }: SuspenseErrorProps) {
   return (
-    <React.Suspense fallback={fallback || <div className="flex justify-center p-8"><div className="h-8 w-8 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" /></div>}>
+    <React.Suspense fallback={fallback || <GlobalLoader />}>
       <ErrorBoundary fallback={errorFallback}>
         {children}
       </ErrorBoundary>

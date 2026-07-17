@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, Check, Sparkles, DollarSign, Wand2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Sparkles, DollarSign, Wand2, Bookmark } from "lucide-react";
 import { AI_TOOLS } from "@/lib/data/tools";
 import { ProtectedRoute } from "../components/auth/route-guard";
 
@@ -31,20 +31,46 @@ const STEPS = [
 function FinderPage() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [saved, setSaved] = useState(false);
   const done = step >= STEPS.length;
 
   const recommended = useMemo(() => {
     const goal = answers.goal ?? "Coding";
-    const pool = AI_TOOLS.filter((t) =>
+    const budget = answers.budget ?? "Free";
+    const experience = answers.experience ?? "Beginner";
+    const persona = answers.persona ?? "Student";
+
+    let pool = AI_TOOLS.filter((t) =>
       goal === "Coding" ? ["Coding", "AI App Builders"].includes(t.category) :
       goal === "App Building" ? t.category === "AI App Builders" :
-      goal === "Research" ? ["Research", "Writing"].includes(t.category) :
+      goal === "Website Building" ? ["AI Website Builders", "AI App Builders"].includes(t.category) :
+      goal === "Research" ? ["Research", "Writing", "Data Analysis"].includes(t.category) :
       goal === "AI Agents" ? ["AI Agents", "Automation"].includes(t.category) :
       goal === "Automation" ? ["Automation", "AI Agents"].includes(t.category) :
+      goal === "Writing" ? ["Writing", "Research"].includes(t.category) :
+      goal === "Marketing" ? ["Writing", "Image", "Video", "Audio"].includes(t.category) :
       t.category === "Writing"
     );
+
+    if (budget === "Free") {
+      pool = pool.filter(t => t.price.toLowerCase().includes("free") || t.price.includes("$0"));
+      if (pool.length === 0) pool = AI_TOOLS.slice(0, 4); // fallback
+    } else if (budget === "Under $20") {
+      pool = pool.filter(t => !t.price.toLowerCase().includes("enterprise") && !t.price.includes("$30"));
+    } else if (budget === "Enterprise") {
+      // Prioritize higher score tools
+      pool.sort((a, b) => b.score - a.score);
+    }
+
+    if (experience === "Beginner") {
+      // Beginners prefer higher usability, we can mock this or just sort differently
+      pool.sort((a, b) => (b.score - 5) - a.score);
+    } else if (experience === "Advanced") {
+      pool.sort((a, b) => b.score - a.score);
+    }
+
     return pool.length ? pool : AI_TOOLS.slice(0, 4);
-  }, [answers.goal]);
+  }, [answers.goal, answers.budget, answers.experience, answers.persona]);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
@@ -111,13 +137,13 @@ function FinderPage() {
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {recommended.slice(0, 4).map((t, i) => (
-                <div key={t.name} className="group relative overflow-hidden rounded-2xl border border-border bg-card/60 p-5 transition-all hover:-translate-y-0.5">
+                <a href={t.url} target="_blank" rel="noopener noreferrer" key={t.name} className="block group relative overflow-hidden rounded-2xl border border-border bg-card/60 p-5 transition-all hover:-translate-y-0.5">
                   <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full blur-2xl opacity-40" style={{ background: t.color }} />
                   <div className="flex items-center justify-between">
                     <span className="h-2.5 w-2.5 rounded-full" style={{ background: t.color }} />
                     {i === 0 && <span className="rounded-full border border-brand/40 bg-brand/15 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-brand">Best pick</span>}
                   </div>
-                  <h3 className="mt-3 font-display text-xl font-semibold">{t.name}</h3>
+                  <h3 className="mt-3 font-display text-xl font-semibold group-hover:text-brand transition-colors">{t.name}</h3>
                   <p className="text-xs text-muted-foreground">{t.vendor} · {t.category}</p>
                   <div className="mt-4 flex items-center justify-between">
                     <span className="font-mono text-xs text-muted-foreground">Score</span>
@@ -129,7 +155,7 @@ function FinderPage() {
                   <div className="mt-4 flex items-center justify-between text-sm">
                     <span className="text-muted-foreground">{t.price}</span>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
 
@@ -149,10 +175,22 @@ function FinderPage() {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <button onClick={() => { setStep(0); setAnswers({}); }} className="inline-flex h-10 items-center gap-2 rounded-full border border-border px-4 text-sm font-medium hover:bg-accent">Start over</button>
-              <Link to="/stack-builder" className="inline-flex h-10 items-center gap-2 rounded-full bg-gradient-brand px-5 text-sm font-medium text-brand-foreground shadow-glow">
-                Build full workflow <Sparkles className="h-4 w-4" />
-              </Link>
+              <button onClick={() => { setStep(0); setAnswers({}); setSaved(false); }} className="inline-flex h-10 items-center gap-2 rounded-full border border-border px-4 text-sm font-medium hover:bg-accent">Start over</button>
+              <button 
+                onClick={() => {
+                  try {
+                    let stored = JSON.parse(localStorage.getItem("saved_perfect_ai_stacks") ?? "[]");
+                    const newStack = { id: Date.now().toString(), tools: recommended, answers, created_at: new Date().toISOString() };
+                    stored.push(newStack);
+                    localStorage.setItem("saved_perfect_ai_stacks", JSON.stringify(stored));
+                    setSaved(true);
+                  } catch {}
+                }}
+                disabled={saved}
+                className={`inline-flex h-10 items-center gap-2 rounded-full px-5 text-sm font-medium shadow-glow transition-all ${saved ? 'bg-brand/20 text-brand border border-brand' : 'bg-gradient-brand text-brand-foreground'}`}
+              >
+                {saved ? 'Saved to Profile' : 'Save Perfect AI Stack'} <Bookmark className="h-4 w-4" />
+              </button>
             </div>
           </div>
         </div>

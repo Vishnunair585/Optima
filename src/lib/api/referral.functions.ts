@@ -238,7 +238,7 @@ async function evaluateAndGrantRewards(referrerUserId: string) {
       referrerUserId,
       "referral_reward_earned",
       `🎉 Reward unlocked: ${milestone.label}`,
-      `Congratulations! You earned "${milestone.label}" for reaching ${milestone.referral_count} qualified referrals on AIRank.`,
+      `Congratulations! You earned "${milestone.label}" for reaching ${milestone.referral_count} qualified referrals on Optima.`,
     );
   }
 
@@ -368,7 +368,7 @@ export async function processReferralSignup(
       referrer.user_id,
       "referral_signup",
       "Someone signed up with your referral link!",
-      `Great news! A new user joined AIRank using your referral code ${referrer.code}. They'll count toward your rewards once they complete onboarding.`,
+      `Great news! A new user joined Optima using your referral code ${referrer.code}. They'll count toward your rewards once they complete onboarding.`,
     );
   }
 
@@ -400,7 +400,7 @@ export async function qualifyReferral(referredUserId: string) {
       row[0].referrer_user_id,
       "referral_milestone",
       `Milestone reached: ${qualifiedCount} qualified referrals!`,
-      `You've reached ${qualifiedCount} qualified referrals on AIRank. Keep sharing to unlock more rewards!`,
+      `You've reached ${qualifiedCount} qualified referrals on Optima. Keep sharing to unlock more rewards!`,
     );
   }
 
@@ -440,7 +440,7 @@ export async function convertReferral(referredUserId: string, revenueCents = 0) 
     row[0].referrer_user_id,
     "referral_conversion",
     "Your referral converted to a paid plan!",
-    `One of your referrals just upgraded to a paid AIRank plan. Revenue attributed: $${(revenueCents / 100).toFixed(2)}.`,
+    `One of your referrals just upgraded to a paid Optima plan. Revenue attributed: $${(revenueCents / 100).toFixed(2)}.`,
   );
 
   return { success: true, referrerUserId: row[0].referrer_user_id };
@@ -450,7 +450,7 @@ export const trackReferralClickFn = createServerFn({ method: "POST" })
   .validator(z.object({
     code: z.string().min(5),
     sessionId: z.string().optional(),
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const ip = await getClientIp();
     if (!await rateLimit(`ref-click:${ip}`, 30, 60_000)) {
@@ -560,7 +560,7 @@ export const getReferralDashboardFn = createServerFn({ method: "GET" })
   });
 
 export const sendReferralInviteFn = createServerFn({ method: "POST" })
-  .validator(z.object({ email: z.string().email() }))
+  .validator(z.object({ email: z.string().email() }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Please log in.");
@@ -575,7 +575,7 @@ export const sendReferralInviteFn = createServerFn({ method: "POST" })
     const link = `${origin}/ref/${code}`;
 
     const existingUser = await db.select().from(users).where(eq(users.email, data.email)).limit(1);
-    if (existingUser[0]) throw new Error("This email already has an AIRank account.");
+    if (existingUser[0]) throw new Error("This email already has an Optima account.");
 
     const priorInvite = await db.select().from(referralInvites)
       .where(and(eq(referralInvites.referrer_user_id, authData.user.id), eq(referralInvites.email, data.email)))
@@ -594,8 +594,8 @@ export const sendReferralInviteFn = createServerFn({ method: "POST" })
       user_id: null,
       email: data.email,
       type: "referral_invite",
-      subject: `${authData.user.name} invited you to AIRank`,
-      body: `${authData.user.name} thinks you'd love AIRank — the AI tool discovery platform.\n\nJoin with their referral link: ${link}\n\nCode: ${code}`,
+      subject: `${authData.user.name} invited you to Optima`,
+      body: `${authData.user.name} thinks you'd love Optima — the AI tool discovery platform.\n\nJoin with their referral link: ${link}\n\nCode: ${code}`,
     });
 
     await trackReferralEvent("Referral Invite Sent", authData.user.id, { email: data.email, code });
@@ -604,7 +604,7 @@ export const sendReferralInviteFn = createServerFn({ method: "POST" })
   });
 
 export const getLeaderboardFn = createServerFn({ method: "GET" })
-  .validator(z.object({ period: z.enum(["monthly", "all_time"]).default("all_time") }))
+  .validator(z.object({ period: z.enum(["monthly", "all_time"]).default("all_time") }).strict())
   .handler(async ({ data }) => {
     const since = data.period === "monthly"
       ? new Date(new Date().getFullYear(), new Date().getMonth(), 1)
@@ -733,7 +733,7 @@ export const getReferralAnalyticsFn = createServerFn({ method: "GET" })
   });
 
 export const resolveFraudAlertFn = createServerFn({ method: "POST" })
-  .validator(z.object({ alertId: z.string() }))
+  .validator(z.object({ alertId: z.string() }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData || !(await isAdminUser(authData.user.id))) {
@@ -747,7 +747,7 @@ export const resolveFraudAlertFn = createServerFn({ method: "POST" })
   });
 
 export const getReferralLandingFn = createServerFn({ method: "GET" })
-  .validator(z.object({ code: z.string() }))
+  .validator(z.object({ code: z.string() }).strict())
   .handler(async ({ data }) => {
     const referrer = await getReferrerByCode(data.code);
     if (!referrer) return { valid: false as const };
@@ -760,7 +760,7 @@ export const getReferralLandingFn = createServerFn({ method: "GET" })
     return {
       valid: true as const,
       code: referrer.code,
-      referrer_name: profile[0]?.full_name || user[0]?.name || "An AIRank member",
+      referrer_name: profile[0]?.full_name || user[0]?.name || "An Optima member",
       referrer_avatar: user[0]?.avatar || profile[0]?.avatar_url,
       qualified_referrals: qualifiedCount,
     };
@@ -792,7 +792,7 @@ export const sendLeaderboardDigestFn = createServerFn({ method: "POST" })
       await queueReferralEmail(
         row.referrer_user_id,
         "leaderboard_update",
-        "You're on the AIRank referral leaderboard!",
+        "You're on the Optima referral leaderboard!",
         `Great work! You're ranked #${i + 1} this month with ${row.qualified} qualified referrals.`,
       );
       notified++;

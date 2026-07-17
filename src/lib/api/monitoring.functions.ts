@@ -72,7 +72,7 @@ export const triggerHealthCheckFn = createServerFn({ method: "POST" })
   });
 
 export const triggerBackupFn = createServerFn({ method: "POST" })
-  .validator(z.object({ type: z.enum(["daily", "weekly", "monthly"]) }))
+  .validator(z.object({ type: z.enum(["daily", "weekly", "monthly"]) }).strict())
   .handler(async ({ data }) => {
     await requireAdmin();
     const success = await runBackup(data.type);
@@ -86,7 +86,7 @@ export const triggerBackupFn = createServerFn({ method: "POST" })
   });
 
 export const triggerRestoreFn = createServerFn({ method: "POST" })
-  .validator(z.object({ backupId: z.string() }))
+  .validator(z.object({ backupId: z.string() }).strict())
   .handler(async ({ data }) => {
     await requireAdmin();
     const success = await restoreBackup(data.backupId);
@@ -100,7 +100,7 @@ export const triggerRestoreFn = createServerFn({ method: "POST" })
   });
 
 export const acknowledgeAlertFn = createServerFn({ method: "POST" })
-  .validator(z.object({ alertId: z.string() }))
+  .validator(z.object({ alertId: z.string() }).strict())
   .handler(async ({ data }) => {
     await requireAdmin();
     await acknowledgeAlert(data.alertId);
@@ -108,7 +108,7 @@ export const acknowledgeAlertFn = createServerFn({ method: "POST" })
   });
 
 export const resolveSecurityEventFn = createServerFn({ method: "POST" })
-  .validator(z.object({ eventId: z.string() }))
+  .validator(z.object({ eventId: z.string() }).strict())
   .handler(async ({ data }) => {
     await requireAdmin();
     await resolveSecurityEvent(data.eventId);

@@ -21,7 +21,7 @@ export const saveComparisonFn = createServerFn({ method: "POST" })
   .validator(z.object({
     name: z.string().min(1).max(100),
     tools: z.array(z.string()).min(2).max(4),
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) {
@@ -68,8 +68,12 @@ export const saveComparisonFn = createServerFn({ method: "POST" })
   });
 
 export const getComparisonBySlugFn = createServerFn({ method: "GET" })
-  .validator(z.object({ slug: z.string() }))
+  .validator(z.object({ slug: z.string() }).strict())
   .handler(async ({ data }) => {
+    const ip = getRequestHeader("x-forwarded-for") || "unknown";
+    if (!await rateLimit(`compare-read:${ip}`, 100, 1000 * 60)) {
+      throw new Error("Too many requests. Please try again later.");
+    }
     const result = await db.select().from(toolComparisons)
       .where(eq(toolComparisons.slug, data.slug));
 
@@ -101,7 +105,7 @@ export const getSavedComparisonsFn = createServerFn({ method: "GET" })
   });
 
 export const deleteComparisonFn = createServerFn({ method: "POST" })
-  .validator(z.object({ id: z.string() }))
+  .validator(z.object({ id: z.string() }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Unauthorized");

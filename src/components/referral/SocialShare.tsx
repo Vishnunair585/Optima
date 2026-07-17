@@ -8,7 +8,7 @@ interface SocialShareProps {
   message?: string;
 }
 
-export function SocialShare({ link, message = "Join me on AIRank — discover the best AI tools!" }: SocialShareProps) {
+export function SocialShare({ link, message = "Join me on Optima — discover the best AI tools!" }: SocialShareProps) {
   const [copied, setCopied] = useState(false);
   const urls = buildShareUrls(link, message);
 

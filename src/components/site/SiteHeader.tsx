@@ -8,11 +8,9 @@ const nav = [
   { to: "/finder", label: "AI Finder" },
   { to: "/rankings", label: "Rankings" },
   { to: "/compare", label: "Compare" },
-  { to: "/stack-builder", label: "Stack Builder" },
   { to: "/stacks", label: "Public Stacks" },
   { to: "/agents", label: "Agents" },
   { to: "/prompts", label: "Prompts" },
-  { to: "/community", label: "Community" },
 ];
 
 export function SiteHeader() {
@@ -55,6 +53,9 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex shrink-0 items-center gap-2.5">
           <OptimaLogo className="h-9 w-9" />
+          <span className="font-sans text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#0066ff] via-[#6600ff] to-[#b300ff]">
+            Optima
+          </span>
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -114,14 +115,6 @@ export function SiteHeader() {
                     
                     <div className="py-1">
                       <Link
-                        to="/dashboard"
-                        onClick={() => setShowDropdown(false)}
-                        className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-xs hover:bg-accent hover:text-foreground text-muted-foreground transition-colors"
-                      >
-                        <FolderClosedIcon className="h-3.5 w-3.5" />
-                        Dashboard
-                      </Link>
-                      <Link
                         to="/profile"
                         onClick={() => setShowDropdown(false)}
                         className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-xs hover:bg-accent hover:text-foreground text-muted-foreground transition-colors"
@@ -136,30 +129,6 @@ export function SiteHeader() {
                       >
                         <SettingsIcon className="h-3.5 w-3.5" />
                         Settings
-                      </Link>
-                      <Link
-                        to="/subscription"
-                        onClick={() => setShowDropdown(false)}
-                        className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-xs hover:bg-accent hover:text-foreground text-muted-foreground transition-colors"
-                      >
-                        <CreditCardIcon className="h-3.5 w-3.5" />
-                        Subscription
-                      </Link>
-                      <Link
-                        to="/referrals"
-                        onClick={() => setShowDropdown(false)}
-                        className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-xs hover:bg-accent hover:text-foreground text-muted-foreground transition-colors"
-                      >
-                        <Gift className="h-3.5 w-3.5" />
-                        Referrals
-                      </Link>
-                      <Link
-                        to="/leaderboard"
-                        onClick={() => setShowDropdown(false)}
-                        className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-xs hover:bg-accent hover:text-foreground text-muted-foreground transition-colors"
-                      >
-                        <Trophy className="h-3.5 w-3.5" />
-                        Leaderboard
                       </Link>
                     </div>
 

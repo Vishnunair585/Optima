@@ -1,13 +1,14 @@
 import Database from "better-sqlite3";
 import { drizzle } from "drizzle-orm/better-sqlite3";
 import * as schema from "./schema";
+import { env } from "../env.server";
 
 let _sqlite: Database.Database | null = null;
 let _db: ReturnType<typeof drizzle> | null = null;
 
 export function getSqlite(): Database.Database {
   if (!_sqlite) {
-    _sqlite = new Database(process.env.DATABASE_URL || "sqlite.db");
+    _sqlite = new Database(env.DATABASE_URL);
     _sqlite.pragma("journal_mode = WAL");
     _sqlite.pragma("synchronous = NORMAL");
     _sqlite.pragma("cache_size = -64000");

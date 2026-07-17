@@ -1,4 +1,4 @@
-export const REFERRAL_COOKIE = "airank_ref";
+export const REFERRAL_COOKIE = "optima_ref";
 export const REFERRAL_COOKIE_DAYS = 30;
 
 export const BADGE_DEFINITIONS = {

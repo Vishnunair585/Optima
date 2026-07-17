@@ -12,8 +12,9 @@ import {
 import {
   Activity, AlertTriangle, Server, Database, Shield, HardDrive,
   RefreshCw, Download, CheckCircle, XCircle, Clock, Users,
-  Bug, Bell, FileText, Loader2
+  Bug, Bell, FileText
 } from "lucide-react";
+import { GlobalLoader } from "../components/ui/GlobalLoader";
 
 export const Route = createFileRoute("/admin/monitoring")({
   component: MonitoringDashboard,
@@ -90,11 +91,7 @@ function MonitoringDashboard() {
   };
 
   if (loading && !data) {
-    return (
-      <div className="min-h-[80vh] flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-brand" />
-      </div>
-    );
+    return <GlobalLoader text="Loading System Data..." />;
   }
 
   return (

@@ -28,7 +28,7 @@ export const trackEventFn = createServerFn({ method: "POST" })
       session_id: z.string(),
       metadata: z.any()
     }))
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     const userId = authData?.user.id || null;
@@ -75,7 +75,7 @@ export const getAnalyticsSummaryFn = createServerFn({ method: "GET" })
     if (!authData) throw new Error("Unauthorized");
 
     // Check if admin
-    const adminCheck = authData.user.email === "admin@airank.com" || authData.user.name.toLowerCase().includes("admin");
+    const adminCheck = authData.user.email === "admin@optima.com" || authData.user.name.toLowerCase().includes("admin");
     if (!adminCheck) throw new Error("Admin privileges required.");
 
     const now = new Date();
@@ -189,7 +189,7 @@ export const getRealTimeAnalyticsFn = createServerFn({ method: "GET" })
     if (!authData) throw new Error("Unauthorized");
 
     // Check if admin
-    const adminCheck = authData.user.email === "admin@airank.com" || authData.user.name.toLowerCase().includes("admin");
+    const adminCheck = authData.user.email === "admin@optima.com" || authData.user.name.toLowerCase().includes("admin");
     if (!adminCheck) throw new Error("Admin privileges required.");
 
     // Active users in last 15 minutes

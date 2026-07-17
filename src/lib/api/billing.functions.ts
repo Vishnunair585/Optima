@@ -318,7 +318,7 @@ export const getSubscriptionStatusFn = createServerFn({ method: "GET" })
 export const checkUsageLimitFn = createServerFn({ method: "POST" })
   .validator(z.object({
     type: z.enum(["comparison", "stack", "saved_tool", "premium_feature"]),
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Please sign in.");
@@ -331,7 +331,7 @@ export const createCheckoutSessionFn = createServerFn({ method: "POST" })
     cycle: cycleSchema,
     couponCode: z.string().trim().optional(),
     seats: z.number().int().min(1).max(100).optional(),
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Please log in to upgrade.");
@@ -403,7 +403,7 @@ export const getBillingPortalFn = createServerFn({ method: "GET" })
 export const cancelSubscriptionFn = createServerFn({ method: "POST" })
   .validator(z.object({
     atPeriodEnd: z.boolean().default(true),
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Unauthorized");
@@ -422,7 +422,7 @@ export const cancelSubscriptionFn = createServerFn({ method: "POST" })
       updated_at: new Date(),
     }).where(eq(subscriptions.id, activeSub.id));
     await trackBillingEvent("subscription_cancelled", { atPeriodEnd: data.atPeriodEnd }, authData.user.id);
-    await queueBillingEmail(authData.user.id, authData.user.email, "cancellation_confirmation", "Your AIRank subscription cancellation is scheduled", "Your subscription cancellation has been recorded.");
+    await queueBillingEmail(authData.user.id, authData.user.email, "cancellation_confirmation", "Your Optima subscription cancellation is scheduled", "Your subscription cancellation has been recorded.");
 
     return { success: true };
   });
@@ -431,7 +431,7 @@ export const changeSubscriptionPlanFn = createServerFn({ method: "POST" })
   .validator(z.object({
     planName: planSchema,
     cycle: cycleSchema,
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Unauthorized");
@@ -480,7 +480,7 @@ async function activateMockSubscription(userId: string, email: string, planName:
       await db.insert(teamWorkspaces).values({
         id: workspaceId,
         owner_user_id: userId,
-        name: "AIRank Team Workspace",
+        name: "Optima Team Workspace",
         seats_purchased: 1,
       });
       await db.insert(teamMembers).values({
@@ -496,7 +496,7 @@ async function activateMockSubscription(userId: string, email: string, planName:
   }
 
   await trackBillingEvent("subscription_created", { planName, cycle, local: true }, userId);
-  await queueBillingEmail(userId, email, "subscription_activated", "Your AIRank subscription is active", `Your ${planName} subscription is active.`);
+  await queueBillingEmail(userId, email, "subscription_activated", "Your Optima subscription is active", `Your ${planName} subscription is active.`);
 
   const revenueCents = planName === "Team"
     ? (cycle === "yearly" ? PLANS.TEAM.yearly_price : PLANS.TEAM.monthly_price) * 100
@@ -509,7 +509,7 @@ export const activateMockSubscriptionFn = createServerFn({ method: "POST" })
   .validator(z.object({
     planName: planSchema,
     cycle: cycleSchema,
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Unauthorized");
@@ -533,7 +533,7 @@ export const inviteTeamMemberFn = createServerFn({ method: "POST" })
   .validator(z.object({
     email: z.string().email(),
     role: z.enum(["admin", "member"]).default("member"),
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Unauthorized");
@@ -550,14 +550,14 @@ export const inviteTeamMemberFn = createServerFn({ method: "POST" })
       role: data.role,
       status: "invited",
     });
-    await queueBillingEmail(null, data.email, "team_invite", "You were invited to AIRank", `${authData.user.name} invited you to join their AIRank workspace.`);
+    await queueBillingEmail(null, data.email, "team_invite", "You were invited to Optima", `${authData.user.name} invited you to join their Optima workspace.`);
     return { success: true };
   });
 
 export const updateTeamSeatsFn = createServerFn({ method: "POST" })
   .validator(z.object({
     seats: z.number().int().min(1).max(100),
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Unauthorized");
@@ -570,7 +570,7 @@ export const updateTeamSeatsFn = createServerFn({ method: "POST" })
   });
 
 export const removeTeamMemberFn = createServerFn({ method: "POST" })
-  .validator(z.object({ memberId: z.string() }))
+  .validator(z.object({ memberId: z.string() }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Unauthorized");

@@ -82,7 +82,7 @@ export const createStackFn = createServerFn({ method: "POST" })
       position: z.number(),
       purpose: z.string()
     })).min(1)
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Please log in to save stacks.");
@@ -144,7 +144,7 @@ export const updateStackFn = createServerFn({ method: "POST" })
       position: z.number(),
       purpose: z.string()
     })).min(1)
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Unauthorized");
@@ -184,7 +184,7 @@ export const updateStackFn = createServerFn({ method: "POST" })
   });
 
 export const deleteStackFn = createServerFn({ method: "POST" })
-  .validator(z.object({ id: z.string() }))
+  .validator(z.object({ id: z.string() }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Unauthorized");
@@ -202,7 +202,7 @@ export const deleteStackFn = createServerFn({ method: "POST" })
   });
 
 export const duplicateStackFn = createServerFn({ method: "POST" })
-  .validator(z.object({ id: z.string() }))
+  .validator(z.object({ id: z.string() }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Please log in to duplicate stacks.");
@@ -250,7 +250,7 @@ export const duplicateStackFn = createServerFn({ method: "POST" })
   });
 
 export const getStackByIdOrSlugFn = createServerFn({ method: "GET" })
-  .validator(z.object({ id: z.string() }))
+  .validator(z.object({ id: z.string() }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     
@@ -374,8 +374,12 @@ export const getStacksFn = createServerFn({ method: "GET" })
     savedByUserId: z.string().optional(),
     limit: z.number().optional().default(20),
     offset: z.number().optional().default(0)
-  }))
+  }).strict())
   .handler(async ({ data }) => {
+    const ip = getRequestHeader("x-forwarded-for") || "unknown";
+    if (!await rateLimit(`stacks-read:${ip}`, 100, 1000 * 60)) {
+      throw new Error("Too many requests. Please try again later.");
+    }
     // We construct a query
     // SQLite queries with drizzle
     let query = db.select({
@@ -474,7 +478,7 @@ export const getStacksFn = createServerFn({ method: "GET" })
   });
 
 export const toggleLikeStackFn = createServerFn({ method: "POST" })
-  .validator(z.object({ stackId: z.string() }))
+  .validator(z.object({ stackId: z.string() }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Please log in to like stacks.");
@@ -504,7 +508,7 @@ export const toggleLikeStackFn = createServerFn({ method: "POST" })
   });
 
 export const toggleBookmarkStackFn = createServerFn({ method: "POST" })
-  .validator(z.object({ stackId: z.string() }))
+  .validator(z.object({ stackId: z.string() }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Please log in to bookmark stacks.");
@@ -531,7 +535,7 @@ export const addCommentFn = createServerFn({ method: "POST" })
     stackId: z.string(),
     content: z.string().min(1).max(1000),
     parentId: z.string().optional()
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Please log in to post comments.");
@@ -554,7 +558,7 @@ export const addCommentFn = createServerFn({ method: "POST" })
   });
 
 export const deleteCommentFn = createServerFn({ method: "POST" })
-  .validator(z.object({ commentId: z.string() }))
+  .validator(z.object({ commentId: z.string() }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Unauthorized");
@@ -575,7 +579,7 @@ export const deleteCommentFn = createServerFn({ method: "POST" })
   });
 
 export const updateFeaturedStatusFn = createServerFn({ method: "POST" })
-  .validator(z.object({ stackId: z.string(), featured: z.boolean() }))
+  .validator(z.object({ stackId: z.string(), featured: z.boolean() }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Unauthorized");
@@ -595,9 +599,17 @@ export const getRecommendationsFn = createServerFn({ method: "POST" })
     experienceLevel: z.enum(["Beginner", "Intermediate", "Advanced"]),
     favoriteTools: z.array(z.string()),
     categories: z.array(z.string()),
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
+    
+    // Rate limit AI generations
+    const ip = getRequestHeader("x-forwarded-for") || "unknown";
+    const rateLimitKey = authData ? `ai:${authData.user.id}` : `ai:${ip}`;
+    if (!await rateLimit(rateLimitKey, 5, 1000 * 60 * 10)) {
+      throw new Error("Too many AI generation requests. Please try again later.");
+    }
+
     // Try to track usage, but don't block if billing/usage DB fails
     if (authData) {
       try {

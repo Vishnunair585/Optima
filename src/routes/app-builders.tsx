@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Wrench, Star } from "lucide-react";
 
+import { ProtectedRoute } from "../components/auth/route-guard";
+
 export const Route = createFileRoute("/app-builders")({
   head: () => ({
     meta: [
@@ -11,7 +13,11 @@ export const Route = createFileRoute("/app-builders")({
     ],
     links: [{ rel: "canonical", href: "/app-builders" }],
   }),
-  component: BuildersPage,
+  component: () => (
+    <ProtectedRoute>
+      <BuildersPage />
+    </ProtectedRoute>
+  ),
 });
 
 const BUILDERS = [

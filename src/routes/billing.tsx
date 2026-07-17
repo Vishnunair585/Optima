@@ -40,8 +40,8 @@ export const Route = createFileRoute("/billing")({
   validateSearch: (search) => billingSearchSchema.parse(search),
   head: () => ({
     meta: [
-      { title: "Billing & Subscription - AIRank" },
-      { name: "description", content: "Manage AIRank SaaS subscriptions, invoices, team seats, and billing settings." },
+      { title: "Billing & Subscription - Optima" },
+      { name: "description", content: "Manage Optima SaaS subscriptions, invoices, team seats, and billing settings." },
     ],
   }),
   component: () => (
@@ -93,7 +93,7 @@ function BillingPage() {
       name: "Free" as const,
       price: 0,
       yearlyPrice: 0,
-      description: "For evaluating AIRank with basic monthly limits.",
+      description: "For evaluating Optima with basic monthly limits.",
       features: ["5 Tool Comparisons per Month", "5 Saved Stacks", "Basic Reviews Access", "Basic Analytics"],
       icon: ShieldCheck,
     },
@@ -354,7 +354,7 @@ function BillingPage() {
             <AlertCircle className="mt-0.5 h-5 w-5 text-amber-300" />
             <div>
               <h3 className="font-bold">Free limit paywall is active</h3>
-              <p className="text-sm text-muted-foreground">When you reach 5 comparisons or 5 saved stacks, AIRank blocks the action and prompts an upgrade to Pro or Team.</p>
+              <p className="text-sm text-muted-foreground">When you reach 5 comparisons or 5 saved stacks, Optima blocks the action and prompts an upgrade to Pro or Team.</p>
             </div>
           </div>
           <button onClick={() => checkout("Pro")} disabled={action !== null} className="h-10 rounded-lg bg-brand px-4 text-sm font-bold text-brand-foreground">Unlock Pro</button>

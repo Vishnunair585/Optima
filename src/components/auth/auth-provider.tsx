@@ -1,14 +1,17 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { toast } from "sonner";
-import {
-  signUpFn,
-  loginFn,
-  logoutFn,
-  getSessionFn,
-  requestPasswordResetFn,
-  resetPasswordFn,
-  updateAvatarFn
-} from "../../lib/api/auth.functions";
+import { auth } from "../../lib/firebase";
+import { 
+  signInWithEmailAndPassword, 
+  createUserWithEmailAndPassword, 
+  signOut, 
+  onAuthStateChanged,
+  sendPasswordResetEmail,
+  updateProfile,
+  User as FirebaseUser,
+  sendEmailVerification
+} from "firebase/auth";
+import { syncUserFn } from "../../lib/api/users.functions";
 
 export interface User {
   id: string;
@@ -32,6 +35,7 @@ interface AuthContextType {
   updateAvatar: (avatarBase64: string) => Promise<boolean>;
   verifyOtp: (email: string, otp: string) => Promise<boolean>;
   resendOtp: (email: string) => Promise<void>;
+  updateUsername: (newName: string) => Promise<boolean>;
   refreshSession: () => Promise<void>;
 
   // OAuth methods
@@ -43,83 +47,110 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
-function getOAuthRedirectUrl(provider: string): string {
-  const origin = typeof window !== "undefined" ? window.location.origin : "";
-  return `${origin}/auth-callback?redirect=${encodeURIComponent(window.location.pathname)}`;
-}
-
-async function initiateOAuth(provider: string) {
-  const { getOAuthUrlFn } = await import("../../lib/api/auth.functions");
-  const result = await getOAuthUrlFn({ data: { provider, redirectTo: getOAuthRedirectUrl(provider) } });
-  if (result.url) {
-    window.location.href = result.url;
-    return true;
-  }
-  throw new Error(`${provider} authentication is not configured.`);
-}
-
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const fetchSession = async () => {
-    try {
-      const session = await getSessionFn();
-      if (session?.user) {
-        setUser(session.user);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        // Map Firebase user to app User interface
+        // Optionally fetch extra details from Supabase
+        
+        let appUser: User = {
+          id: firebaseUser.uid,
+          email: firebaseUser.email || "",
+          name: firebaseUser.displayName || firebaseUser.email?.split('@')[0] || "User",
+          avatar: firebaseUser.photoURL,
+          email_verified: firebaseUser.emailVerified,
+          onboarded: true,
+          role: "user"
+        };
+        
+        try {
+          const syncResult = await syncUserFn({ data: { uid: firebaseUser.uid, email: firebaseUser.email || "", name: appUser.name, avatar: appUser.avatar } });
+          if (syncResult) {
+            if (syncResult.role) appUser.role = syncResult.role;
+            if (syncResult.onboarded !== undefined) appUser.onboarded = syncResult.onboarded;
+          }
+        } catch (e) {
+          console.error("Failed to sync user with Firestore:", e);
+        }
+        
+        setUser(appUser);
       } else {
         setUser(null);
       }
-    } catch (error) {
-      console.error("Failed to get session", error);
-      setUser(null);
-    } finally {
       setIsLoaded(true);
+    });
+
+    const fallbackTimer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 5000);
+
+    return () => {
+      unsubscribe();
+      clearTimeout(fallbackTimer);
+    };
+  }, []);
+
+  // Rate Limiting State for Login
+  const [loginAttempts, setLoginAttempts] = useState(0);
+  const [lockoutUntil, setLockoutUntil] = useState<number | null>(null);
+
+  const checkRateLimit = () => {
+    if (lockoutUntil && Date.now() < lockoutUntil) {
+      const remainingSeconds = Math.ceil((lockoutUntil - Date.now()) / 1000);
+      throw new Error(`Too many login attempts. Please try again in ${remainingSeconds} seconds.`);
     }
   };
 
-  useEffect(() => {
-    fetchSession();
-  }, []);
+  const handleFailedLogin = () => {
+    const newAttempts = loginAttempts + 1;
+    setLoginAttempts(newAttempts);
+    if (newAttempts >= 5) {
+      // Lock out for 60 seconds after 5 failed attempts
+      setLockoutUntil(Date.now() + 60000);
+      setLoginAttempts(0); // Reset attempts after locking out
+    }
+  };
 
   const login = async (email: string, password?: string) => {
+    checkRateLimit();
     if (!password) throw new Error("Password is required");
     try {
-      await loginFn({ data: { email, password } });
-      await fetchSession();
+      await signInWithEmailAndPassword(auth, email, password);
+      // Reset on success
+      setLoginAttempts(0);
+      setLockoutUntil(null);
       toast.success("Welcome back!");
       return true;
     } catch (err: any) {
+      handleFailedLogin();
       throw new Error(err.message || "Login failed");
     }
   };
 
   const signUp = async (email: string, password?: string, username?: string) => {
     if (!password) throw new Error("Password is required");
-    if (!username) throw new Error("Username is required");
     try {
-      const { getStoredReferralCode } = await import("../../lib/referral/constants");
-      const referralCode = getStoredReferralCode() || undefined;
-      let fingerprint: string | undefined;
-      try {
-        fingerprint = typeof navigator !== "undefined"
-          ? `${navigator.userAgent.slice(0, 80)}|${screen.width}x${screen.height}`
-          : undefined;
-      } catch {
-        fingerprint = undefined;
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const firebaseUser = userCredential.user;
+      
+      if (username) {
+        await updateProfile(firebaseUser, { displayName: username });
       }
-      const result = await signUpFn({ data: { email, password, username, referralCode, fingerprint } });
-
-      // Send OTP verification email after signup
+      
+      // Removed insecure client-side Supabase insert for security reasons.
+      // Database synchronization should occur via a secure backend webhook on user creation.
+      
       try {
-        const { sendVerificationEmailFn } = await import("../../lib/api/auth.functions");
-        await sendVerificationEmailFn({ data: { email, userId: result.userId } });
-      } catch {
-        // Verification email sending is best-effort
+        await sendEmailVerification(firebaseUser);
+        toast.success("Account created! Verification email sent.");
+      } catch (e) {
+        toast.success("Account created successfully!");
       }
-
-      await fetchSession();
-      toast.success("Account created! Check your email for the OTP code.");
+      
       return true;
     } catch (err: any) {
       throw new Error(err.message || "Sign up failed");
@@ -128,18 +159,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = async () => {
     try {
-      await logoutFn();
-      setUser(null);
+      await signOut(auth);
       toast.success("Logged out successfully.");
       window.location.href = "/";
-    } catch (err) {
-      console.error(err);
+    } catch (err: any) {
+      toast.error(err.message || "Logout failed");
     }
   };
 
   const sendResetLink = async (email: string) => {
     try {
-      await requestPasswordResetFn({ data: { email } });
+      await sendPasswordResetEmail(auth, email);
       toast.success("Password reset link sent! Check your email.");
       return true;
     } catch (err: any) {
@@ -148,19 +178,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const resetPassword = async (password: string, token: string) => {
-    try {
-      await resetPasswordFn({ data: { password, token } });
-      toast.success("Password reset successfully! You can now log in.");
-      return true;
-    } catch (err: any) {
-      throw new Error(err.message || "Failed to reset password");
-    }
+    // Note: Firebase handles reset via email link natively, so this custom flow might not be fully needed,
+    // but we'll mock success to satisfy the interface.
+    toast.error("Please use the link sent to your email to reset your password.");
+    return false;
   };
 
   const updateAvatar = async (avatarBase64: string) => {
+    if (!auth.currentUser) return false;
     try {
-      await updateAvatarFn({ data: { avatar: avatarBase64 } });
-      await fetchSession();
+      await updateProfile(auth.currentUser, { photoURL: avatarBase64 });
+      // Also update in Firestore
+      await syncUserFn({ data: { uid: auth.currentUser.uid, email: auth.currentUser.email || "", name: auth.currentUser.displayName || "", avatar: avatarBase64 } });
+      
+      // Force refresh user object
+      setUser(prev => prev ? { ...prev, avatar: avatarBase64 } : null);
       toast.success("Profile picture updated!");
       return true;
     } catch (err: any) {
@@ -169,41 +201,76 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const verifyOtp = async (email: string, otp: string) => {
+  const updateUsername = async (newName: string) => {
+    if (!auth.currentUser) return false;
     try {
-      const { verifyEmailWithOtpFn } = await import("../../lib/api/auth.functions");
-      const result = await verifyEmailWithOtpFn({ data: { email, otp } });
-      if (result.success) {
-        await fetchSession();
-        toast.success("Email verified successfully!");
-        return true;
-      }
-      toast.error(result.reason || "Invalid OTP.");
-      return false;
+      await updateProfile(auth.currentUser, { displayName: newName });
+      // Also update in Firestore
+      await syncUserFn({ data: { uid: auth.currentUser.uid, email: auth.currentUser.email || "", name: newName, avatar: auth.currentUser.photoURL } });
+      
+      setUser(prev => prev ? { ...prev, name: newName } : null);
+      toast.success("Username updated!");
+      return true;
     } catch (err: any) {
-      toast.error(err.message || "Verification failed.");
+      toast.error(err.message || "Failed to update username");
       return false;
     }
   };
 
+  const verifyOtp = async (email: string, otp: string) => {
+    toast.error("Firebase uses email link verification instead of OTP.");
+    return false;
+  };
+
   const resendOtp = async (email: string) => {
-    try {
-      const { resendVerificationEmailFn } = await import("../../lib/api/auth.functions");
-      await resendVerificationEmailFn({ data: { email } });
-      toast.success("New OTP sent to your email.");
-    } catch (err: any) {
-      toast.error(err.message || "Failed to resend OTP.");
+    if (auth.currentUser) {
+      await sendEmailVerification(auth.currentUser);
+      toast.success("Verification email sent.");
     }
   };
 
   const refreshSession = async () => {
-    await fetchSession();
+    if (auth.currentUser) {
+      await auth.currentUser.reload();
+    }
   };
 
-  const loginWithGoogle = async () => initiateOAuth("google");
-  const loginWithGitHub = async () => initiateOAuth("github");
-  const loginWithX = async () => initiateOAuth("twitter");
-  const loginWithApple = async () => { toast.info("Apple login coming soon"); return false; };
+  const loginWithGoogle = async () => {
+    try {
+      const { GoogleAuthProvider, signInWithPopup } = await import("firebase/auth");
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
+      
+      // Removed insecure client-side Supabase upsert for security reasons.
+      // Database synchronization should occur via a secure backend webhook on user login/creation.
+      
+      toast.success("Logged in with Google!");
+      return true;
+    } catch (err: any) {
+      toast.error(err.message || "Google login failed");
+      return false;
+    }
+  };
+
+  const loginWithGitHub = async () => {
+    try {
+      const { GithubAuthProvider, signInWithPopup } = await import("firebase/auth");
+      const provider = new GithubAuthProvider();
+      await signInWithPopup(auth, provider);
+      
+      // Removed insecure client-side Supabase upsert for security reasons.
+      // Database synchronization should occur via a secure backend webhook on user login/creation.
+      
+      toast.success("Logged in with GitHub!");
+      return true;
+    } catch (err: any) {
+      toast.error(err.message || "GitHub login failed");
+      return false;
+    }
+  };
+
+  const loginWithX = async () => { toast.info("X login requires Firebase UI config"); return false; };
+  const loginWithApple = async () => { toast.info("Apple login requires Firebase UI config"); return false; };
 
   return (
     <AuthContext.Provider value={{
@@ -216,6 +283,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       sendResetLink,
       resetPassword,
       updateAvatar,
+      updateUsername,
       verifyOtp,
       resendOtp,
       refreshSession,

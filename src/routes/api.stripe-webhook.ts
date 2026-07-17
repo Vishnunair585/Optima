@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from '@tanstack/react-router'
+import { createAPIFileRoute } from "@tanstack/start/api";
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { and, eq } from "drizzle-orm";
 import { db } from "../lib/db";
@@ -139,14 +140,14 @@ async function upsertSubscription(userId: string, object: any, statusOverride?: 
       await db.insert(teamWorkspaces).values({
         id: workspaceId,
         owner_user_id: userId,
-        name: "AIRank Team Workspace",
+        name: "Optima Team Workspace",
         seats_purchased: object.quantity || 1,
       });
       await db.insert(teamMembers).values({
         id: generateId(),
         workspace_id: workspaceId,
         user_id: userId,
-        email: user[0]?.email || "owner@airank.local",
+        email: user[0]?.email || "owner@optima.local",
         role: "owner",
         status: "active",
         joined_at: new Date(),
@@ -182,85 +183,81 @@ async function recordInvoice(object: any, status: "paid" | "failed") {
   return userId;
 }
 
-export const Route = createFileRoute("/api/stripe-webhook")({
-  server: {
-    handlers: {
-      GET: () => new Response("AIRank Stripe Webhook Handler Active", { status: 200 }),
-      POST: async ({ request }) => {
-        const rawBody = await request.text();
-        if (!verifyStripeSignature(rawBody, request.headers.get("stripe-signature"))) {
-          return new Response(JSON.stringify({ error: "Invalid Stripe signature" }), { status: 400 });
+export const APIRoute = createAPIFileRoute("/api/stripe-webhook")({
+  GET: () => new Response("Optima Stripe Webhook Handler Active", { status: 200 }),
+  POST: async ({ request }) => {
+    const rawBody = await request.text();
+    if (!verifyStripeSignature(rawBody, request.headers.get("stripe-signature"))) {
+      return new Response(JSON.stringify({ error: "Invalid Stripe signature" }), { status: 400 });
+    }
+
+    try {
+      const event = JSON.parse(rawBody) as StripeEvent;
+      const prior = await db.select().from(billingEvents)
+        .where(eq(billingEvents.stripe_event_id, event.id))
+        .limit(1);
+      if (prior[0]) return Response.json({ received: true, duplicate: true });
+
+      const object = event.data.object;
+      const userId = await findUserId(object);
+      await recordEvent(event, userId);
+
+      if (event.type === "checkout.session.completed") {
+        if (!userId) throw new Error("Missing Optima user id on checkout session.");
+        await upsertSubscription(userId, object, object.subscription ? "active" : "active");
+        await queueEmail(userId, "subscription_activated", "Your Optima subscription is active", "Your Optima subscription has been activated.");
+
+        const amountCents = object.amount_total || 0;
+        const { convertReferral } = await import("../lib/api/referral.functions");
+        await convertReferral(userId, amountCents);
+      }
+
+      if (event.type === "customer.subscription.created" || event.type === "customer.subscription.updated") {
+        if (!userId) throw new Error("Missing Optima user id on subscription event.");
+        await upsertSubscription(userId, object);
+        if (object.status === "trialing") {
+          await queueEmail(userId, "trial_started", "Your Optima trial has started", "Your trial is active. You can manage billing any time from Optima.");
         }
+      }
 
-        try {
-          const event = JSON.parse(rawBody) as StripeEvent;
-          const prior = await db.select().from(billingEvents)
-            .where(eq(billingEvents.stripe_event_id, event.id))
-            .limit(1);
-          if (prior[0]) return Response.json({ received: true, duplicate: true });
+      if (event.type === "customer.subscription.deleted") {
+        await db.update(subscriptions)
+          .set({ status: "canceled", updated_at: new Date() })
+          .where(eq(subscriptions.stripe_subscription_id, object.id));
+        await queueEmail(userId, "cancellation_confirmation", "Your Optima subscription was cancelled", "Your subscription has been cancelled.");
+      }
 
-          const object = event.data.object;
-          const userId = await findUserId(object);
-          await recordEvent(event, userId);
-
-          if (event.type === "checkout.session.completed") {
-            if (!userId) throw new Error("Missing AIRank user id on checkout session.");
-            await upsertSubscription(userId, object, object.subscription ? "active" : "active");
-            await queueEmail(userId, "subscription_activated", "Your AIRank subscription is active", "Your AIRank subscription has been activated.");
-
-            const amountCents = object.amount_total || 0;
-            const { convertReferral } = await import("../lib/api/referral.functions");
-            await convertReferral(userId, amountCents);
-          }
-
-          if (event.type === "customer.subscription.created" || event.type === "customer.subscription.updated") {
-            if (!userId) throw new Error("Missing AIRank user id on subscription event.");
-            await upsertSubscription(userId, object);
-            if (object.status === "trialing") {
-              await queueEmail(userId, "trial_started", "Your AIRank trial has started", "Your trial is active. You can manage billing any time from AIRank.");
-            }
-          }
-
-          if (event.type === "customer.subscription.deleted") {
-            await db.update(subscriptions)
-              .set({ status: "canceled", updated_at: new Date() })
-              .where(eq(subscriptions.stripe_subscription_id, object.id));
-            await queueEmail(userId, "cancellation_confirmation", "Your AIRank subscription was cancelled", "Your subscription has been cancelled.");
-          }
-
-          if (event.type === "invoice.payment_failed") {
-            const invoiceUserId = await recordInvoice(object, "failed");
-            const targetUserId = userId || invoiceUserId;
-            if (object.subscription) {
-              await db.update(subscriptions)
-                .set({ status: "past_due", updated_at: new Date() })
-                .where(eq(subscriptions.stripe_subscription_id, object.subscription));
-            }
-            await queueEmail(targetUserId, "payment_failed", "AIRank payment failed", "We could not process your latest payment. Please update your billing method.");
-          }
-
-          if (event.type === "invoice.paid") {
-            const invoiceUserId = await recordInvoice(object, "paid");
-            const targetUserId = userId || invoiceUserId;
-            if (object.subscription) {
-              await db.update(subscriptions)
-                .set({ status: "active", updated_at: new Date() })
-                .where(and(eq(subscriptions.stripe_subscription_id, object.subscription), eq(subscriptions.status, "past_due")));
-            }
-            await queueEmail(targetUserId, "payment_success", "AIRank payment received", "Your AIRank payment was successful.");
-
-            if (targetUserId && object.billing_reason === "subscription_create") {
-              const { convertReferral } = await import("../lib/api/referral.functions");
-              await convertReferral(targetUserId, object.amount_paid || 0);
-            }
-          }
-
-          return Response.json({ received: true });
-        } catch (err: any) {
-          console.error("[STRIPE WEBHOOK ERROR]", err);
-          return new Response(JSON.stringify({ error: err.message }), { status: 400 });
+      if (event.type === "invoice.payment_failed") {
+        const invoiceUserId = await recordInvoice(object, "failed");
+        const targetUserId = userId || invoiceUserId;
+        if (object.subscription) {
+          await db.update(subscriptions)
+            .set({ status: "past_due", updated_at: new Date() })
+            .where(eq(subscriptions.stripe_subscription_id, object.subscription));
         }
-      },
-    },
+        await queueEmail(targetUserId, "payment_failed", "Optima payment failed", "We could not process your latest payment. Please update your billing method.");
+      }
+
+      if (event.type === "invoice.paid") {
+        const invoiceUserId = await recordInvoice(object, "paid");
+        const targetUserId = userId || invoiceUserId;
+        if (object.subscription) {
+          await db.update(subscriptions)
+            .set({ status: "active", updated_at: new Date() })
+            .where(and(eq(subscriptions.stripe_subscription_id, object.subscription), eq(subscriptions.status, "past_due")));
+        }
+        await queueEmail(targetUserId, "payment_success", "Optima payment received", "Your Optima payment was successful.");
+
+        if (targetUserId && object.billing_reason === "subscription_create") {
+          const { convertReferral } = await import("../lib/api/referral.functions");
+          await convertReferral(targetUserId, object.amount_paid || 0);
+        }
+      }
+
+      return Response.json({ received: true });
+    } catch (err: any) {
+      console.error("[STRIPE WEBHOOK ERROR]", err);
+      return new Response(JSON.stringify({ error: err.message }), { status: 400 });
+    }
   },
 });

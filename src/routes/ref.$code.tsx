@@ -1,14 +1,15 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Gift, Sparkles, Users, ArrowRight, Loader2 } from "lucide-react";
+import { Gift, Sparkles, Users, ArrowRight } from "lucide-react";
+import { GlobalLoader } from "../components/ui/GlobalLoader";
 import { getReferralLandingFn, trackReferralClickFn } from "../lib/api/referral.functions";
 import { storeReferralCode } from "../lib/referral/constants";
 
 export const Route = createFileRoute("/ref/$code")({
   head: ({ params }) => ({
     meta: [
-      { title: `Join AIRank — Referral ${params.code}` },
-      { name: "description", content: "You've been invited to AIRank. Discover, compare, and build your AI tool stack." },
+      { title: `Join Optima — Referral ${params.code}` },
+      { name: "description", content: "You've been invited to Optima. Discover, compare, and build your AI tool stack." },
     ],
   }),
   component: ReferralLandingPage,
@@ -43,11 +44,7 @@ function ReferralLandingPage() {
   }, [code]);
 
   if (loading) {
-    return (
-      <div className="flex min-h-[70vh] items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-brand" />
-      </div>
-    );
+    return <GlobalLoader text="Loading Referral..." />;
   }
 
   if (!landing?.valid) {
@@ -80,7 +77,7 @@ function ReferralLandingPage() {
         </div>
 
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
-          <span className="text-gradient">{landing.referrer_name}</span> invited you to AIRank
+          <span className="text-gradient">{landing.referrer_name}</span> invited you to Optima
         </h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">
           Discover, compare, and build your perfect AI tool stack. Join thousands of builders finding the best AI tools.

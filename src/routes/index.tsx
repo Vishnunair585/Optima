@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles, Trophy, GitCompare, Layers, Bot, Calculator, Book
 import { AI_TOOLS } from "@/lib/data/tools";
 import { useState, useMemo } from "react";
 import { OptimaLogo } from "@/components/site/OptimaLogo";
+import { ParticleCanvas } from "@/components/ui/particle-canvas";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,7 +21,7 @@ export const Route = createFileRoute("/")({
 const STATS = [
   { value: "2,847", label: "AI Tools Ranked", sub: "+124 this week" },
   { value: "42", label: "AI Categories", sub: "Curated taxonomy" },
-  { value: "186K", label: "Community Reviews", sub: "Verified users" },
+  { value: "186K", label: "User Reviews", sub: "Verified users" },
   { value: "1.2M", label: "Comparisons / mo", sub: "Decisions made" },
 ];
 
@@ -28,11 +29,11 @@ const FEATURES = [
   { icon: Sparkles, title: "AI Finder", desc: "Answer 4 questions and get a tailored AI stack — picked by data, not hype.", to: "/finder", accent: "from-[oklch(0.72_0.2_295)] to-[oklch(0.78_0.18_340)]" },
   { icon: Trophy, title: "Live Rankings", desc: "Real-time leaderboards across coding, writing, agents, and more.", to: "/rankings", accent: "from-[oklch(0.82_0.16_80)] to-[oklch(0.78_0.16_40)]" },
   { icon: GitCompare, title: "Side-by-Side Compare", desc: "Radar charts, benchmarks, pros, cons. Decide in 30 seconds.", to: "/compare", accent: "from-[oklch(0.74_0.18_220)] to-[oklch(0.72_0.2_295)]" },
-  { icon: Layers, title: "Stack Builder", desc: "Generate a complete workflow — frontend to deployment to marketing.", to: "/stack-builder", accent: "from-[oklch(0.78_0.16_155)] to-[oklch(0.74_0.18_195)]" },
+
   { icon: Bot, title: "Agent Hub", desc: "Discover the best agent-building platforms for your use case.", to: "/agents", accent: "from-[oklch(0.72_0.2_295)] to-[oklch(0.74_0.18_220)]" },
   { icon: Calculator, title: "Cost Calculator", desc: "Estimate monthly spend across providers before you commit.", to: "/calculator", accent: "from-[oklch(0.78_0.18_340)] to-[oklch(0.82_0.16_80)]" },
   { icon: BookOpen, title: "Prompt Library", desc: "Thousands of curated prompts. Copy, save, remix.", to: "/prompts", accent: "from-[oklch(0.74_0.18_195)] to-[oklch(0.78_0.16_155)]" },
-  { icon: Users, title: "Community", desc: "Reviews, shared stacks, contributor leaderboard.", to: "/community", accent: "from-[oklch(0.82_0.16_60)] to-[oklch(0.78_0.18_340)]" },
+
 ];
 
 const PERSONAS = ["Student", "Developer", "Founder", "Designer", "Marketer", "Researcher"];
@@ -87,6 +88,7 @@ function Hero() {
 
   return (
     <section className="relative overflow-hidden">
+      <ParticleCanvas />
       <div className="pointer-events-none absolute inset-0 grid-bg opacity-40 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
       <div className="pointer-events-none absolute left-1/2 top-0 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-brand/20 blur-[120px]" />
       <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-20 sm:px-6 lg:px-8 lg:pt-28">
@@ -329,7 +331,7 @@ function CTA() {
             Join 186,000+ builders, founders, and researchers using Optima to pick the right tool every time.
           </p>
           <ul className="mt-6 grid gap-2 text-sm sm:grid-cols-2">
-            {["Personalized recommendations", "Real benchmark data", "Live community reviews", "Free forever for core features"].map((f) => (
+            {["Personalized recommendations", "Real benchmark data", "Live user reviews", "Free forever for core features"].map((f) => (
               <li key={f} className="flex items-center gap-2"><Check className="h-4 w-4 text-success" />{f}</li>
             ))}
           </ul>

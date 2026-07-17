@@ -73,12 +73,12 @@ async function getClientIp() {
 
 export const syncSupabaseSessionFn = createServerFn({ method: "POST" })
   .validator(z.object({
-    userId: z.string(),
-    email: z.string().email(),
-    name: z.string(),
-    avatar: z.string().nullable(),
+    userId: z.string().min(1).max(100),
+    email: z.string().email().max(255),
+    name: z.string().max(255),
+    avatar: z.string().max(2048).nullable(),
     email_verified: z.boolean(),
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const ip = await getClientIp();
     if (!await rateLimit(`sync:${data.userId}`, 60, 1000 * 60)) {
@@ -119,12 +119,12 @@ export const syncSupabaseSessionFn = createServerFn({ method: "POST" })
 
 export const signUpFn = createServerFn({ method: "POST" })
   .validator(z.object({
-    email: z.string().email(),
-    password: z.string().min(8),
-    username: z.string().min(2),
-    referralCode: z.string().optional(),
-    fingerprint: z.string().optional(),
-  }))
+    email: z.string().email().max(255),
+    password: z.string().min(8).max(255),
+    username: z.string().min(2).max(100),
+    referralCode: z.string().max(100).optional(),
+    fingerprint: z.string().max(100).optional(),
+  }).strict())
   .handler(async ({ data }) => {
     const ip = await getClientIp();
     if (!await rateLimit(`signup:${ip}`, 5, 1000 * 60 * 15)) {
@@ -182,9 +182,9 @@ export const signUpFn = createServerFn({ method: "POST" })
 
 export const loginFn = createServerFn({ method: "POST" })
   .validator(z.object({
-    email: z.string().email(),
-    password: z.string(),
-  }))
+    email: z.string().email().max(255),
+    password: z.string().max(255),
+  }).strict())
   .handler(async ({ data }) => {
     startMeasure("loginFn");
     const ip = await getClientIp();
@@ -286,7 +286,7 @@ export const getSessionFn = createServerFn({ method: "GET" })
   });
 
 export const updateAvatarFn = createServerFn({ method: "POST" })
-  .validator(z.object({ avatar: z.string() }))
+  .validator(z.object({ avatar: z.string().max(2048) }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) {
@@ -311,9 +311,9 @@ function generateOtp(): string {
 
 export const sendVerificationEmailFn = createServerFn({ method: "POST" })
   .validator(z.object({
-    email: z.string(),
-    userId: z.string(),
-  }))
+    email: z.string().email().max(255),
+    userId: z.string().max(100).optional(),
+  }).strict())
   .handler(async ({ data }) => {
     const tokenId = generateId();
     const otp = generateOtp();
@@ -358,7 +358,7 @@ export const sendVerificationEmailFn = createServerFn({ method: "POST" })
   });
 
 export const verifyEmailWithOtpFn = createServerFn({ method: "POST" })
-  .validator(z.object({ email: z.string().email(), otp: z.string().length(6) }))
+  .validator(z.object({ email: z.string().email().max(255), otp: z.string().length(6) }).strict())
   .handler(async ({ data }) => {
     const ip = await getClientIp();
     if (!await rateLimit(`otp:${ip}`, 5, 1000 * 60)) {
@@ -402,7 +402,7 @@ export const verifyEmailWithOtpFn = createServerFn({ method: "POST" })
   });
 
 export const resendVerificationEmailFn = createServerFn({ method: "POST" })
-  .validator(z.object({ email: z.string() }))
+  .validator(z.object({ email: z.string().email().max(255) }).strict())
   .handler(async ({ data }) => {
     const user = await db.select().from(users).where(eq(users.email, data.email)).limit(1);
     if (user.length === 0) throw new Error("User not found.");
@@ -413,7 +413,7 @@ export const resendVerificationEmailFn = createServerFn({ method: "POST" })
 
 // Password Reset
 export const requestPasswordResetFn = createServerFn({ method: "POST" })
-  .validator(z.object({ email: z.string().email() }))
+  .validator(z.object({ email: z.string().email().max(255) }).strict())
   .handler(async ({ data }) => {
     const ip = await getClientIp();
     if (!await rateLimit(`reset:${ip}`, 3, 1000 * 60 * 60)) {
@@ -455,7 +455,7 @@ export const requestPasswordResetFn = createServerFn({ method: "POST" })
   });
 
 export const resetPasswordFn = createServerFn({ method: "POST" })
-  .validator(z.object({ token: z.string(), password: z.string().min(8) }))
+  .validator(z.object({ token: z.string().max(255), password: z.string().min(8).max(255) }).strict())
   .handler(async ({ data }) => {
     const { passwordResetTokens } = await import("../db/schema");
     const tokenRecord = await db.select()
@@ -503,9 +503,9 @@ export const verifyEmailManuallyFn = createServerFn({ method: "POST" })
 // OAuth URLs
 export const getOAuthUrlFn = createServerFn({ method: "POST" })
   .validator(z.object({
-    provider: z.string(),
-    redirectTo: z.string(),
-  }))
+    provider: z.string().max(50),
+    redirectTo: z.string().max(2048),
+  }).strict())
   .handler(async ({ data }) => {
     const origin = await getOrigin();
 

@@ -11,7 +11,7 @@ export function ProtectedRoute({ children, requireRole }: { children: ReactNode,
     if (!isLoaded) return;
     
     if (!isSignedIn) {
-      navigate({ to: "/login", search: { redirect: location.pathname } });
+      navigate({ to: "/login" });
     } else if (user && !user.email_verified) {
       navigate({ to: "/verify-email" });
     } else if (user && !user.onboarded && location.pathname !== "/onboarding") {
@@ -22,10 +22,23 @@ export function ProtectedRoute({ children, requireRole }: { children: ReactNode,
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoaded, isSignedIn, requireRole, user]);
 
-  if (!isLoaded || !isSignedIn || (user && !user.email_verified) || (user && !user.onboarded) || (requireRole && user?.role !== requireRole)) {
+  if (
+    !isLoaded || 
+    !isSignedIn || 
+    (user && !user.email_verified) || 
+    (user && !user.onboarded && location.pathname !== "/onboarding") || 
+    (requireRole && user?.role !== requireRole)
+  ) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
-        <div className="animate-pulse-glow h-8 w-8 rounded-full bg-brand/30" />
+        <div className="flex flex-col items-center gap-4">
+          <div className="relative flex items-center justify-center">
+            <div className="absolute h-16 w-16 animate-[spin_4s_linear_infinite] rounded-full border-2 border-brand/20 border-t-brand border-r-brand/60" />
+            <div className="absolute h-10 w-10 animate-[spin_3s_linear_infinite_reverse] rounded-full border-2 border-brand/30 border-b-brand/80 border-l-brand" />
+            <div className="h-4 w-4 rounded-full bg-brand shadow-[0_0_15px_rgba(102,51,255,0.7)] animate-pulse" />
+          </div>
+          <span className="text-xs font-mono uppercase tracking-widest text-brand animate-pulse">Loading Workspace...</span>
+        </div>
       </div>
     );
   }
@@ -48,7 +61,14 @@ export function PublicOnlyRoute({ children }: { children: ReactNode }) {
   if (!isLoaded || isSignedIn) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
-        <div className="animate-pulse-glow h-8 w-8 rounded-full bg-brand/30" />
+        <div className="flex flex-col items-center gap-4">
+          <div className="relative flex items-center justify-center">
+            <div className="absolute h-16 w-16 animate-[spin_4s_linear_infinite] rounded-full border-2 border-brand/20 border-t-brand border-r-brand/60" />
+            <div className="absolute h-10 w-10 animate-[spin_3s_linear_infinite_reverse] rounded-full border-2 border-brand/30 border-b-brand/80 border-l-brand" />
+            <div className="h-4 w-4 rounded-full bg-brand shadow-[0_0_15px_rgba(102,51,255,0.7)] animate-pulse" />
+          </div>
+          <span className="text-xs font-mono uppercase tracking-widest text-brand animate-pulse">Loading Workspace...</span>
+        </div>
       </div>
     );
   }

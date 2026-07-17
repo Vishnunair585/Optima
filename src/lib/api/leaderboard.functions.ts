@@ -9,12 +9,23 @@ async function getSession() {
   return getCurrentSession();
 }
 
+async function rateLimit(key: string, limit: number, windowMs: number) {
+  const { checkRateLimit } = await import("../../server/auth/rate-limit.server");
+  return checkRateLimit(key, limit, windowMs);
+}
+import { getRequestHeader } from "@tanstack/react-start/server";
+
 export const getLeaderboardFn = createServerFn({ method: "GET" })
   .validator(z.object({
     tab: z.enum(["curators", "stacks", "referrals"]).default("curators"),
     period: z.enum(["monthly", "all_time"]).default("all_time"),
-  }))
+  }).strict())
   .handler(async ({ data }) => {
+    const ip = getRequestHeader("x-forwarded-for") || "unknown";
+    if (!await rateLimit(`leaderboard:${ip}`, 100, 1000 * 60)) {
+      throw new Error("Too many requests. Please try again later.");
+    }
+
     const since = data.period === "monthly"
       ? new Date(new Date().getFullYear(), new Date().getMonth(), 1)
       : new Date(0);

@@ -3,6 +3,8 @@ import { useMemo, useState } from "react";
 import { Bot, Star, ArrowRight, Search, ExternalLink } from "lucide-react";
 import { AGENT_CATEGORIES, AI_AGENTS, AGENT_COUNT } from "../lib/data/agents";
 
+import { ProtectedRoute } from "../components/auth/route-guard";
+
 export const Route = createFileRoute("/agents")({
   head: () => ({
     meta: [
@@ -13,7 +15,11 @@ export const Route = createFileRoute("/agents")({
     ],
     links: [{ rel: "canonical", href: "/agents" }],
   }),
-  component: AgentsPage,
+  component: () => (
+    <ProtectedRoute>
+      <AgentsPage />
+    </ProtectedRoute>
+  ),
 });
 
 function AgentsPage() {
@@ -81,9 +87,9 @@ function AgentsPage() {
 
       {list.length > 0 ? (
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {list.map((a) => (
+          {list.map((a, index) => (
             <div
-              key={a.name}
+              key={`${a.name}-${index}`}
               className="group relative overflow-hidden rounded-2xl glass p-6 transition-all hover:-translate-y-1"
             >
               <div

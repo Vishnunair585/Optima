@@ -10,6 +10,12 @@ async function getSession() {
   return getCurrentSession();
 }
 
+async function rateLimit(key: string, limit: number, windowMs: number) {
+  const { checkRateLimit } = await import("../../server/auth/rate-limit.server");
+  return checkRateLimit(key, limit, windowMs);
+}
+import { getRequestHeader } from "@tanstack/react-start/server";
+
 export const completeOnboardingFn = createServerFn({ method: "POST" })
   .validator(z.object({
     fullName: z.string().min(2),
@@ -20,11 +26,19 @@ export const completeOnboardingFn = createServerFn({ method: "POST" })
     goals: z.array(z.string()),
     favoriteTools: z.array(z.string()),
     categories: z.array(z.string()),
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) {
       throw new Error("Unauthorized");
+    }
+
+    if (!await rateLimit(`onboarding:${authData.user.id}`, 3, 1000 * 60 * 60)) {
+      throw new Error("Too many onboarding attempts. Please try again later.");
+    }
+    
+    if (authData.user.onboarded) {
+      throw new Error("User is already onboarded.");
     }
 
     const userId = authData.user.id;
@@ -70,8 +84,13 @@ export const completeOnboardingFn = createServerFn({ method: "POST" })
   });
 
 export const checkUsernameFn = createServerFn({ method: "GET" })
-  .validator(z.object({ username: z.string() }))
+  .validator(z.object({ username: z.string() }).strict())
   .handler(async ({ data }) => {
+    const ip = getRequestHeader("x-forwarded-for") || "unknown";
+    if (!await rateLimit(`check-username:${ip}`, 20, 1000 * 60)) {
+      return { available: false, error: "Too many requests" };
+    }
+
     if (!data.username || data.username.length < 3) {
       return { available: false };
     }

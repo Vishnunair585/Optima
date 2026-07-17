@@ -71,7 +71,7 @@ export const runLoadTestFn = createServerFn({ method: "POST" })
     endpoint: z.string(),
     concurrentUsers: z.number().min(1).max(100),
     totalRequests: z.number().min(1).max(1000),
-  }))
+  }).strict())
   .handler(async ({ data }) => {
     await requireAdmin();
     const result = await runLoadTest(data);
@@ -99,7 +99,7 @@ export const getCircuitBreakerStatusFn = createServerFn({ method: "GET" })
   });
 
 export const resetCircuitBreakerFn = createServerFn({ method: "POST" })
-  .validator(z.object({ name: z.string() }))
+  .validator(z.object({ name: z.string() }).strict())
   .handler(async ({ data }) => {
     await requireAdmin();
     circuitBreaker.reset(data.name);
@@ -113,7 +113,7 @@ export const getCacheStatsFn = createServerFn({ method: "GET" })
   });
 
 export const invalidateCacheTagFn = createServerFn({ method: "POST" })
-  .validator(z.object({ tag: z.string() }))
+  .validator(z.object({ tag: z.string() }).strict())
   .handler(async ({ data }) => {
     await requireAdmin();
     globalCache.invalidateTag(data.tag);

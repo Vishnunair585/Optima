@@ -14,6 +14,11 @@ import { toast } from "sonner";
 import { ProtectedRoute } from "../components/auth/route-guard";
 
 export const Route = createFileRoute("/compare")({
+  validateSearch: (search: Record<string, unknown>) => {
+    return {
+      tools: search.tools as string | undefined,
+    }
+  },
   head: () => ({
     meta: [
       { title: "AI Tool Comparison Engine — Optima" },
@@ -177,7 +182,7 @@ function getToolMeta(name: string): ToolMeta {
     rating: parseFloat((tool?.score ? tool.score / 20 : 4.0).toFixed(1)),
     reviewCount: Math.floor(Math.random() * 10000) + 1000,
     verified: true,
-    website: "#",
+    website: tool?.url || "#",
     bestFor: `${tool?.category || "General"} tasks`,
     easeOfUse: Math.min(10, Math.floor((tool?.score || 80) / 10)),
     learningCurve: "Moderate",
@@ -205,7 +210,20 @@ const getCompareScore = (toolName: string, metric: string): number => {
 
 function ComparePage() {
   const { user } = useAuth();
-  const [selected, setSelected] = useState<string[]>(["ChatGPT", "Claude", "Gemini"]);
+  const search = Route.useSearch() as { tools?: string };
+  
+  const [selected, setSelected] = useState<string[]>(() => {
+    if (search.tools) {
+      const toolSlugs = search.tools.split("-vs-");
+      const matchedTools = toolSlugs.map(slug => {
+        const found = AI_TOOLS.find(t => t.name.toLowerCase().replace(/[\s.]+/g, "-") === slug);
+        return found?.name;
+      }).filter(Boolean) as string[];
+      if (matchedTools.length > 0) return matchedTools.slice(0, 4);
+    }
+    return ["ChatGPT", "Claude", "Gemini"];
+  });
+  
   const [searchQuery, setSearchQuery] = useState("");
   const [searchFocused, setSearchFocused] = useState(false);
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({

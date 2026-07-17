@@ -30,6 +30,7 @@ export interface LogEntry {
 
 export async function logSystemEvent(entry: LogEntry) {
   try {
+    console.log(`[SYSTEM_LOG] ${entry.severity?.toUpperCase() || 'INFO'} | ${entry.event_type} | ${entry.ip_address || 'unknown IP'} | ${entry.description}`);
     await db.insert(systemLogs).values({
       id: generateId(),
       event_type: entry.event_type,
