@@ -48,16 +48,16 @@ export function LoginForm() {
 
   const handleOAuthSignIn = async (provider: any) => {
     try {
-      setLoading(true);
       setError(null);
+      // Do not setLoading(true) before popup to prevent popup blockers
       await signInWithPopup(auth, provider);
+      setLoading(true);
       navigate({ to: '/' });
     } catch (err: any) {
+      setLoading(false);
       if (err.code !== 'auth/popup-closed-by-user') {
         setError(`Failed to sign in with provider. ${err.message}`);
       }
-    } finally {
-      setLoading(false);
     }
   };
 

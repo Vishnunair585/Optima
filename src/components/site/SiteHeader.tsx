@@ -11,6 +11,7 @@ const nav = [
   { to: "/stacks", label: "Public Stacks" },
   { to: "/agents", label: "Agents" },
   { to: "/prompts", label: "Prompts" },
+  { to: "/calculator", label: "Cost Calculator" },
 ];
 
 export function SiteHeader() {
@@ -48,8 +49,18 @@ export function SiteHeader() {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
+  // Close menu when clicking escape
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, []);
+
   return (
-    <header className={`sticky top-0 z-50 transition-all ${scrolled || isOpen ? "border-b border-border glass-strong" : ""}`}>
+    <>
+      <header className={`sticky top-0 z-50 transition-all ${scrolled || isOpen ? "border-b border-border glass-strong" : ""}`}>
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex shrink-0 items-center gap-2.5">
           <OptimaLogo className="h-9 w-9" />
@@ -167,80 +178,104 @@ export function SiteHeader() {
           </button>
         </div>
       </div>
+      </header>
 
-      {/* Styled Mobile Menu Drawer Overlay */}
+      {/* Mobile Menu Overlay and Drawer */}
       {isOpen && (
-        <div className="absolute left-0 right-0 top-16 z-50 border-b border-border bg-background/98 backdrop-blur-xl p-6 shadow-elegant lg:hidden flex flex-col gap-6 animate-scale-in">
-          {/* Navigation Links */}
-          <nav className="flex flex-col gap-1">
-            {nav.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                onClick={() => setIsOpen(false)}
-                className="rounded-xl px-4 py-3 text-sm font-medium text-muted-foreground transition-all hover:bg-accent hover:text-foreground border-b border-border/10 last:border-0"
-                activeProps={{ className: "rounded-xl px-4 py-3 text-sm font-medium bg-accent text-foreground" }}
-              >
-                {n.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* User Settings & Controls (Mobile) */}
-          <div className="flex flex-col gap-3 border-t border-border pt-6">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Select Theme</span>
+        <>
+          {/* Overlay to catch outside clicks */}
+          <div 
+            className="fixed inset-0 z-40 bg-background/50 backdrop-blur-sm transition-opacity lg:hidden" 
+            onClick={() => setIsOpen(false)}
+            aria-hidden="true"
+          />
+          
+          {/* Drawer sliding from the right */}
+          <div className="fixed top-0 bottom-0 right-0 z-50 w-3/4 max-w-xs border-l border-border bg-background/95 backdrop-blur-xl p-6 shadow-elegant lg:hidden flex flex-col gap-6 animate-slide-in-right overflow-y-auto">
+            <div className="flex justify-end">
               <button 
-                onClick={toggleTheme} 
-                className="flex h-10 items-center justify-center gap-2 rounded-full border border-border px-4 text-xs font-medium w-36 hover:bg-accent"
+                onClick={() => setIsOpen(false)} 
+                className="grid h-9 w-9 place-items-center rounded-full border border-border text-muted-foreground hover:text-foreground hover:bg-accent"
+                aria-label="Close Menu"
               >
-                {theme === "dark" ? (
-                  <><Sun className="h-3.5 w-3.5" /> Light Mode</>
-                ) : (
-                  <><Moon className="h-3.5 w-3.5" /> Dark Mode</>
-                )}
+                <X className="h-4.5 w-4.5" />
               </button>
             </div>
 
-            <div className="flex items-center justify-between border-t border-border/10 pt-3">
-              <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Account Status</span>
-              {user ? (
-                <div className="flex items-center gap-2">
-                  <Link
-                    to="/profile"
-                    onClick={() => setIsOpen(false)}
-                    className="inline-flex h-10 items-center gap-2 rounded-full border border-border bg-card/60 px-4 text-xs font-medium hover:bg-accent"
-                  >
-                    <div className="grid h-5 w-5 place-items-center rounded-full bg-gradient-brand text-[8px] font-bold text-brand-foreground overflow-hidden">
-                      {user.avatar && user.avatar.startsWith('data:') ? (
-                        <img src={user.avatar} alt="" className="h-full w-full object-cover" />
-                      ) : (
-                        <span>{user.name?.charAt(0).toUpperCase()}</span>
-                      )}
-                    </div>
-                    Profile
-                  </Link>
-                  <button 
-                    onClick={() => { logout(); setIsOpen(false); }} 
-                    className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground hover:text-destructive hover:bg-destructive/15 transition-all"
-                    aria-label="Logout"
-                  >
-                    <LogOut className="h-3.5 w-3.5" />
-                  </button>
-                </div>
-              ) : (
+            {/* Navigation Links */}
+            <nav className="flex flex-col gap-1">
+              {nav.map((n) => (
                 <Link
-                  to="/login"
+                  key={n.to}
+                  to={n.to}
                   onClick={() => setIsOpen(false)}
-                  className="inline-flex h-10 items-center justify-center rounded-full bg-gradient-brand px-6 text-xs font-semibold text-brand-foreground shadow-glow w-36"
+                  className="rounded-xl px-4 py-3 text-sm font-medium text-muted-foreground transition-all hover:bg-accent hover:text-foreground border-b border-border/10 last:border-0"
+                  activeProps={{ className: "rounded-xl px-4 py-3 text-sm font-medium bg-accent text-foreground" }}
                 >
-                  Sign In
+                  {n.label}
                 </Link>
-              )}
+              ))}
+            </nav>
+
+            {/* User Settings & Controls (Mobile) */}
+            <div className="flex flex-col gap-3 border-t border-border pt-6 mt-auto pb-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Select Theme</span>
+                <button 
+                  onClick={toggleTheme} 
+                  className="flex h-10 items-center justify-center gap-2 rounded-full border border-border px-4 text-xs font-medium w-32 hover:bg-accent transition-colors"
+                >
+                  {theme === "dark" ? (
+                    <><Sun className="h-3.5 w-3.5" /> Light Mode</>
+                  ) : (
+                    <><Moon className="h-3.5 w-3.5" /> Dark Mode</>
+                  )}
+                </button>
+              </div>
+
+              <div className="flex items-center justify-between border-t border-border/10 pt-4">
+                <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Account</span>
+                {user ? (
+                  <div className="flex items-center gap-2">
+                    <Link
+                      to="/profile"
+                      onClick={() => setIsOpen(false)}
+                      className="inline-flex h-10 items-center gap-2 rounded-full border border-border bg-card/60 px-4 text-xs font-medium hover:bg-accent transition-colors"
+                    >
+                      <div className="grid h-5 w-5 place-items-center rounded-full bg-gradient-brand text-[8px] font-bold text-brand-foreground overflow-hidden">
+                        {user.avatar && user.avatar.startsWith('data:') ? (
+                          <img src={user.avatar} alt="" className="h-full w-full object-cover" />
+                        ) : (
+                          <span>{user.name?.charAt(0).toUpperCase()}</span>
+                        )}
+                      </div>
+                      Profile
+                    </Link>
+                    <button
+                      onClick={() => {
+                        setIsOpen(false);
+                        logout();
+                      }}
+                      className="grid h-10 w-10 place-items-center rounded-full border border-destructive/20 bg-destructive/10 text-destructive hover:bg-destructive hover:text-destructive-foreground transition-colors"
+                      aria-label="Logout"
+                    >
+                      <LogOut className="h-4 w-4" />
+                    </button>
+                  </div>
+                ) : (
+                  <Link
+                    to="/login"
+                    onClick={() => setIsOpen(false)}
+                    className="inline-flex h-9 items-center justify-center rounded-full bg-gradient-brand px-4 text-sm font-medium text-brand-foreground shadow-glow"
+                  >
+                    Sign In
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
-    </header>
+    </>
   );
 }

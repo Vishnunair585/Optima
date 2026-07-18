@@ -247,7 +247,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       toast.success("Logged in with Google!");
       return true;
     } catch (err: any) {
-      toast.error(err.message || "Google login failed");
+      if (err.code === 'auth/internal-error' || err.message.includes('internal-error')) {
+        toast.error("Google Sign-In is disabled. Please enable it in your Firebase Console > Authentication > Sign-in method.", { duration: 8000 });
+      } else {
+        toast.error(err.message || "Google login failed");
+      }
       return false;
     }
   };

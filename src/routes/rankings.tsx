@@ -112,15 +112,15 @@ function RankingsPage() {
           {[1, 0, 2].map((idx, pos) => {
             const t = podium[idx];
             const ranks = [
-              { icon: Medal, label: "2nd", height: "h-48", grad: "from-[oklch(0.75_0.04_270)] to-[oklch(0.6_0.04_270)]" },
-              { icon: Crown, label: "1st", height: "h-60", grad: "from-[oklch(0.72_0.2_295)] to-[oklch(0.78_0.18_340)]" },
-              { icon: Medal, label: "3rd", height: "h-44", grad: "from-[oklch(0.7_0.12_60)] to-[oklch(0.55_0.12_40)]" },
+              { icon: Medal, label: "2nd", height: "h-56", grad: "from-[oklch(0.75_0.04_270)] to-[oklch(0.6_0.04_270)]" },
+              { icon: Crown, label: "1st", height: "h-72", grad: "from-[oklch(0.72_0.2_295)] to-[oklch(0.78_0.18_340)]" },
+              { icon: Medal, label: "3rd", height: "h-52", grad: "from-[oklch(0.7_0.12_60)] to-[oklch(0.55_0.12_40)]" },
             ][pos];
             return (
-              <a href={t.url} target="_blank" rel="noopener noreferrer" key={t.name} className={`relative block flex ${ranks.height} flex-col justify-end overflow-hidden rounded-3xl glass-strong p-6 transition-transform hover:scale-[1.02] ${pos === 1 ? "ring-brand" : ""}`}>
+              <a href={t.url || `https://${t.name.toLowerCase().replace(/[^a-z0-9]/g, "")}.com`} target="_blank" rel="noopener noreferrer" key={t.name} className={`relative block flex ${ranks.height} flex-col justify-end overflow-hidden rounded-3xl glass-strong p-6 transition-transform hover:scale-[1.02] ${pos === 1 ? "ring-brand" : ""}`}>
                 <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${ranks.grad} opacity-20`} />
                 <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full blur-3xl opacity-30" style={{ background: t.color }} />
-                <div className="relative">
+                <div className="relative z-10">
                   <div className="flex items-start justify-between mb-2">
                     <span className={`inline-flex items-center gap-1.5 rounded-full bg-gradient-to-br ${ranks.grad} px-2.5 py-1 text-xs font-medium text-brand-foreground shadow-glow`}>
                       <ranks.icon className="h-3 w-3" /> {ranks.label}
@@ -134,6 +134,11 @@ function RankingsPage() {
                   <p className="text-xs text-muted-foreground">{t.vendor} · {t.category}</p>
                   <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-muted">
                     <div className="h-full bg-gradient-brand transition-all duration-1000" style={{ width: `${t.overall_score}%` }} />
+                  </div>
+                  <div className="mt-4 flex justify-end">
+                    <span className="inline-flex h-8 items-center justify-center rounded-full bg-brand/20 px-4 text-xs font-medium text-brand hover:bg-brand/30 transition-colors">
+                      Visit ↗
+                    </span>
                   </div>
                 </div>
               </a>

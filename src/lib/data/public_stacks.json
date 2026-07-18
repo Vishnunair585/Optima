@@ -8,13 +8,13 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -34,31 +34,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -78,19 +78,19 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -110,13 +110,13 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -136,25 +136,25 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -174,13 +174,13 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -200,25 +200,25 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -238,25 +238,25 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -276,31 +276,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -326,31 +326,31 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -370,31 +370,31 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -420,31 +420,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -464,13 +464,13 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -490,19 +490,19 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -522,13 +522,13 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -548,31 +548,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -592,31 +592,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -636,31 +636,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -686,31 +686,31 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -736,31 +736,31 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -780,19 +780,19 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -812,31 +812,31 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -856,31 +856,31 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -906,31 +906,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -956,31 +956,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1000,13 +1000,13 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1026,31 +1026,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1076,31 +1076,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1126,25 +1126,25 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1164,25 +1164,25 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1202,31 +1202,31 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1252,31 +1252,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1296,31 +1296,31 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1346,13 +1346,13 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1372,19 +1372,19 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1404,31 +1404,31 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1454,25 +1454,25 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1492,31 +1492,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1536,13 +1536,13 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1562,13 +1562,13 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1588,19 +1588,19 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1620,19 +1620,19 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1652,31 +1652,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1696,25 +1696,25 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1734,31 +1734,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1784,31 +1784,31 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1834,31 +1834,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1884,13 +1884,13 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1910,19 +1910,19 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1942,25 +1942,25 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -1980,13 +1980,13 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2006,31 +2006,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2050,19 +2050,19 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2082,19 +2082,19 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2114,31 +2114,31 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2158,25 +2158,25 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2196,13 +2196,13 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2222,31 +2222,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2272,31 +2272,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2316,19 +2316,19 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2348,31 +2348,31 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2398,31 +2398,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2442,31 +2442,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2486,13 +2486,13 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2512,13 +2512,13 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2538,19 +2538,19 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2570,19 +2570,19 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2602,13 +2602,13 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2628,31 +2628,31 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2672,31 +2672,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2716,19 +2716,19 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2748,31 +2748,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2798,19 +2798,19 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2830,31 +2830,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2874,31 +2874,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2924,19 +2924,19 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2956,19 +2956,19 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -2988,31 +2988,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3038,19 +3038,19 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3070,25 +3070,25 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3108,25 +3108,25 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3146,25 +3146,25 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3184,31 +3184,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3228,13 +3228,13 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3254,31 +3254,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3298,31 +3298,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3342,31 +3342,31 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3386,25 +3386,25 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3424,13 +3424,13 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3450,19 +3450,19 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3482,25 +3482,25 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3520,19 +3520,19 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3552,31 +3552,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3596,13 +3596,13 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3622,13 +3622,13 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3648,25 +3648,25 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3686,31 +3686,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3730,25 +3730,25 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3768,31 +3768,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3818,31 +3818,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3862,25 +3862,25 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3900,31 +3900,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3944,19 +3944,19 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -3976,31 +3976,31 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4026,31 +4026,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4076,31 +4076,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4120,25 +4120,25 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4158,31 +4158,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4202,31 +4202,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4252,19 +4252,19 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4284,25 +4284,25 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4322,25 +4322,25 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4360,13 +4360,13 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4386,31 +4386,31 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4430,31 +4430,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4474,13 +4474,13 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4500,31 +4500,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4550,31 +4550,31 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4594,25 +4594,25 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4632,19 +4632,19 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4664,31 +4664,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4714,31 +4714,31 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4758,31 +4758,31 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4808,31 +4808,31 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4858,19 +4858,19 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4890,19 +4890,19 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4922,19 +4922,19 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -4954,31 +4954,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5004,19 +5004,19 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5036,25 +5036,25 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5074,31 +5074,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5118,25 +5118,25 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5156,19 +5156,19 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5188,19 +5188,19 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5220,25 +5220,25 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5258,25 +5258,25 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5296,19 +5296,19 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5328,25 +5328,25 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5366,31 +5366,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5410,31 +5410,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5454,19 +5454,19 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5486,13 +5486,13 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5512,13 +5512,13 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5538,13 +5538,13 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5564,25 +5564,25 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5602,31 +5602,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5646,31 +5646,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5696,25 +5696,25 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5734,31 +5734,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5778,13 +5778,13 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5804,19 +5804,19 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5836,25 +5836,25 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5874,19 +5874,19 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5906,25 +5906,25 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5944,13 +5944,13 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5970,13 +5970,13 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -5996,13 +5996,13 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6022,25 +6022,25 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6060,13 +6060,13 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6086,19 +6086,19 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6118,19 +6118,19 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6150,31 +6150,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6200,19 +6200,19 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6232,31 +6232,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6276,31 +6276,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6326,25 +6326,25 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6364,13 +6364,13 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6390,25 +6390,25 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6428,25 +6428,25 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6466,19 +6466,19 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6498,31 +6498,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6542,25 +6542,25 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6580,19 +6580,19 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6612,13 +6612,13 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6638,19 +6638,19 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6670,25 +6670,25 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6708,31 +6708,31 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6758,31 +6758,31 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6808,25 +6808,25 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6846,19 +6846,19 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6878,31 +6878,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6922,31 +6922,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -6966,31 +6966,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7016,31 +7016,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7066,25 +7066,25 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7104,31 +7104,31 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7154,19 +7154,19 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7186,31 +7186,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7230,13 +7230,13 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7256,13 +7256,13 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7282,19 +7282,19 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7314,25 +7314,25 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7352,31 +7352,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7402,13 +7402,13 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7428,19 +7428,19 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7460,31 +7460,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7504,19 +7504,19 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7536,31 +7536,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7586,19 +7586,19 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7618,31 +7618,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7662,25 +7662,25 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7700,13 +7700,13 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7726,31 +7726,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7770,31 +7770,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7820,25 +7820,25 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7858,25 +7858,25 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7896,31 +7896,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7940,25 +7940,25 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -7978,25 +7978,25 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8016,25 +8016,25 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8054,25 +8054,25 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8092,13 +8092,13 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8118,25 +8118,25 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8156,31 +8156,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8200,31 +8200,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8244,19 +8244,19 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8276,19 +8276,19 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8308,31 +8308,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8352,19 +8352,19 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8384,31 +8384,31 @@
     "creator_name": "elena_r",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8434,31 +8434,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8478,13 +8478,13 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8504,31 +8504,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8554,31 +8554,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8604,13 +8604,13 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8630,13 +8630,13 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8656,31 +8656,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8700,19 +8700,19 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8732,31 +8732,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8782,31 +8782,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8832,13 +8832,13 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8858,25 +8858,25 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8896,19 +8896,19 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8928,13 +8928,13 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8954,25 +8954,25 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -8992,19 +8992,19 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -9024,31 +9024,31 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -9074,25 +9074,25 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -9112,13 +9112,13 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -9138,13 +9138,13 @@
     "creator_name": "growth_hacker",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -9164,31 +9164,31 @@
     "creator_name": "dev_master",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -9214,13 +9214,13 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -9240,19 +9240,19 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -9272,31 +9272,31 @@
     "creator_name": "seo_guru",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -9316,19 +9316,19 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -9348,31 +9348,31 @@
     "creator_name": "lucas_k",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -9392,31 +9392,31 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 4",
+        "name": "Notion AI",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 5",
+        "name": "GitHub Copilot",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
@@ -9436,19 +9436,19 @@
     "creator_name": "marketing_pro",
     "tools": [
       {
-        "name": "Tool 1",
+        "name": "ChatGPT",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 2",
+        "name": "Midjourney",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"
       },
       {
-        "name": "Tool 3",
+        "name": "Zapier",
         "vendor": "Vendor",
         "category": "Software",
         "price": "$0/mo"

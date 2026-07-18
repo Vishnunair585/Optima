@@ -6,12 +6,11 @@ import { Input } from "../components/ui/input";
 import { Card, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { toast } from "sonner";
-import { Search, BookOpen, Shield, CreditCard, Users, BarChart2, Code, Settings, HelpCircle, FileText, Clock, ArrowRight, Layers, Zap, MessageSquare, Bug, Activity } from "lucide-react";
+import { Search, BookOpen, Shield, CreditCard, Users, BarChart2, Code, Settings, HelpCircle, FileText, Clock, ArrowRight, Layers, Zap, MessageSquare, Bug, Activity, Lightbulb } from "lucide-react";
 
 const CATEGORIES = [
   { key: "authentication", label: "Authentication", icon: <Shield className="h-5 w-5" />, desc: "Login, signup, passwords, and sessions" },
   { key: "account", label: "Account", icon: <Users className="h-5 w-5" />, desc: "Profile, settings, and preferences" },
-  { key: "billing", label: "Billing", icon: <CreditCard className="h-5 w-5" />, desc: "Plans, payments, and invoices" },
   { key: "rankings", label: "AI Rankings", icon: <BarChart2 className="h-5 w-5" />, desc: "How rankings work and methodology" },
   { key: "stacks", label: "Public Stacks", icon: <Layers className="h-5 w-5" />, desc: "Creating and sharing AI stacks" },
   { key: "search", label: "Search & Finder", icon: <Search className="h-5 w-5" />, desc: "Finding the right AI tool" },
@@ -19,7 +18,6 @@ const CATEGORIES = [
   { key: "troubleshooting", label: "Troubleshooting", icon: <Settings className="h-5 w-5" />, desc: "Common issues and solutions" },
   { key: "api", label: "API", icon: <Code className="h-5 w-5" />, desc: "API usage and endpoints" },
   { key: "analytics", label: "Analytics", icon: <BarChart2 className="h-5 w-5" />, desc: "Dashboard and insights" },
-  { key: "premium", label: "Premium Features", icon: <Zap className="h-5 w-5" />, desc: "Pro and Business plans" },
   { key: "privacy", label: "Privacy", icon: <Shield className="h-5 w-5" />, desc: "Data handling and compliance" },
 ];
 
@@ -84,18 +82,7 @@ function HelpCenterPage() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        {/* Quick Links */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          <Button variant="outline" size="sm" className="gap-2 border-border" asChild>
-            <Link to="/contact"><MessageSquare className="h-3.5 w-3.5" /> Contact Support</Link>
-          </Button>
-          <Button variant="outline" size="sm" className="gap-2 border-border" asChild>
-            <Link to="/contact"><Bug className="h-3.5 w-3.5" /> Report a Bug</Link>
-          </Button>
-          <Button variant="outline" size="sm" className="gap-2 border-border" asChild>
-            <Link to="/status"><Activity className="h-3.5 w-3.5" /> System Status</Link>
-          </Button>
-        </div>
+
 
         {/* Categories Grid */}
         <div className="mb-16">
@@ -129,25 +116,27 @@ function HelpCenterPage() {
               <HelpCircle className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">No articles found</h3>
               <p className="text-muted-foreground text-sm">Try a different search term or browse categories above.</p>
-              <Button variant="outline" className="mt-4" asChild><Link to="/contact">Contact Support</Link></Button>
+              <Button variant="outline" className="mt-4" asChild><a href="mailto:optimainc2026@gmail.com">Contact Support</a></Button>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {filteredArticles.map((article: any) => (
-                <Card key={article.id} className="bg-card border-border transition-colors hover:border-brand/30 group cursor-pointer">
-                  <CardContent className="p-5">
-                    <div className="flex justify-between items-start mb-3">
-                      <Badge variant="outline" className="capitalize text-xs">{article.category}</Badge>
-                      <span className="text-xs text-muted-foreground flex items-center gap-1"><Clock className="h-3 w-3" />{article.read_time} min read</span>
-                    </div>
-                    <h3 className="font-semibold text-foreground group-hover:text-brand transition-colors mb-2">{article.title}</h3>
-                    <p className="text-sm text-muted-foreground line-clamp-2">{article.summary}</p>
-                    <div className="mt-4 flex justify-between items-center">
-                      <span className="text-xs text-muted-foreground">{new Date(article.updated_at).toLocaleDateString()}</span>
-                      <span className="text-xs text-brand flex items-center gap-1 group-hover:gap-2 transition-all">Read article <ArrowRight className="h-3 w-3" /></span>
-                    </div>
-                  </CardContent>
-                </Card>
+                <a key={article.id} href={article.slug.startsWith('http') ? article.slug : `/help/${article.slug}`} target="_blank" rel="noopener noreferrer" className="block outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-xl">
+                  <Card className="bg-card border-border transition-colors hover:border-brand/30 group cursor-pointer h-full">
+                    <CardContent className="p-5">
+                      <div className="flex justify-between items-start mb-3">
+                        <Badge variant="outline" className="capitalize text-xs">{article.category}</Badge>
+                        <span className="text-xs text-muted-foreground flex items-center gap-1"><Clock className="h-3 w-3" />{article.read_time} min read</span>
+                      </div>
+                      <h3 className="font-semibold text-foreground group-hover:text-brand transition-colors mb-2">{article.title}</h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2">{article.summary}</p>
+                      <div className="mt-4 flex justify-between items-center">
+                        <span className="text-xs text-muted-foreground">{new Date(article.updated_at).toLocaleDateString()}</span>
+                        <span className="text-xs text-brand flex items-center gap-1 group-hover:gap-2 transition-all">Read article <ArrowRight className="h-3 w-3" /></span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </a>
               ))}
             </div>
           )}
@@ -159,11 +148,9 @@ function HelpCenterPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               { q: "How does Optima determine rankings?", a: "Rankings are determined by a proprietary algorithm that factors in performance benchmarks, user reviews, feature completeness, pricing, and overall adoption." },
-              { q: "Is Optima free to use?", a: "Yes! Optima offers a generous free tier. Premium plans unlock advanced features like unlimited comparisons, priority support, and analytics." },
-              { q: "How do I create a Public Stack?", a: "Navigate to 'Public Stacks', click 'Create Stack', add your preferred AI tools, and publish. Your stack will be visible to everyone." },
+              { q: "How often are the AI tool rankings updated?", a: "Our data engine updates rankings daily to ensure you always have the most accurate and up-to-date market intelligence." },
               { q: "How can I report inaccurate information?", a: "Use the Contact page and select 'Report a Bug' category. Our team reviews all reports within 48 hours." },
-              { q: "Can I export my data?", a: "Yes. Go to Settings > Data & Privacy > Export Data. You'll receive a download link within 24 hours." },
-              { q: "How do I cancel my subscription?", a: "Go to Settings > Billing > Manage Subscription > Cancel. You'll retain access until the end of your billing period." },
+              { q: "Can I export my data?", a: "Yes. Go to Settings > Data & Privacy > Export Data. You'll instantly receive a comprehensive JSON download containing all your data." },
             ].map((faq, i) => (
               <Card key={i} className="bg-card border-border">
                 <CardContent className="p-5">

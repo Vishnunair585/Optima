@@ -3,10 +3,15 @@ import React, { useRef, useEffect } from 'react';
 interface Particle {
   x: number;
   y: number;
+  targetX: number;
+  targetY: number;
   size: number;
   vx: number;
   vy: number;
   color: string;
+  delay: number;
+  opacity: number;
+  active: boolean;
 }
 
 export function ParticleCanvas() {
@@ -23,8 +28,8 @@ export function ParticleCanvas() {
     let particles: Particle[] = [];
 
     const colors = ['#8b5cf6', '#3b82f6', '#10b981', '#ec4899', '#f59e0b'];
-
     let mouse = { x: -1000, y: -1000 };
+    const startTime = Date.now();
 
     const resize = () => {
       if (canvas.parentElement) {
@@ -37,50 +42,86 @@ export function ParticleCanvas() {
     const initParticles = () => {
       particles = [];
       const numParticles = Math.floor((canvas.width * canvas.height) / 12000);
+      
       for (let i = 0; i < numParticles; i++) {
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
+        const targetX = Math.random() * canvas.width;
+        const targetY = Math.random() * canvas.height;
+        
         particles.push({
-          x,
-          y,
+          x: canvas.width / 2, // Start from center
+          y: canvas.height / 2,
+          targetX,
+          targetY,
           size: Math.random() * 2.5 + 0.5,
           vx: (Math.random() - 0.5) * 0.3,
           vy: (Math.random() - 0.5) * 0.3,
-          color: colors[Math.floor(Math.random() * colors.length)]
+          color: colors[Math.floor(Math.random() * colors.length)],
+          delay: Math.random() * 2000, // Stagger up to 2 seconds
+          opacity: 0,
+          active: false
         });
       }
     };
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const elapsed = Date.now() - startTime;
 
       particles.forEach(p => {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
-
-        const dx = mouse.x - p.x;
-        const dy = mouse.y - p.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const maxDist = 200;
-
-        if (dist < maxDist) {
-          const force = (maxDist - dist) / maxDist;
-          p.x -= (dx / dist) * force * 4;
-          p.y -= (dy / dist) * force * 4;
+        if (elapsed > p.delay) {
+          p.active = true;
         }
 
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = p.color;
-        ctx.fill();
-        ctx.shadowBlur = 0;
+        if (p.active) {
+          // Fade in
+          if (p.opacity < 1) {
+            p.opacity += 0.02;
+            if (p.opacity > 1) p.opacity = 1;
+          }
+
+          // Move towards target initially (entry animation)
+          const dxTarget = p.targetX - p.x;
+          const dyTarget = p.targetY - p.y;
+          const distToTarget = Math.sqrt(dxTarget * dxTarget + dyTarget * dyTarget);
+          
+          if (distToTarget > 2) {
+             p.x += dxTarget * 0.05;
+             p.y += dyTarget * 0.05;
+          } else {
+             // Normal drift after reaching target
+             p.x += p.vx;
+             p.y += p.vy;
+
+             if (p.x < 0) p.x = canvas.width;
+             if (p.x > canvas.width) p.x = 0;
+             if (p.y < 0) p.y = canvas.height;
+             if (p.y > canvas.height) p.y = 0;
+          }
+
+          // Mouse interaction
+          const dxMouse = mouse.x - p.x;
+          const dyMouse = mouse.y - p.y;
+          const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+          const maxDist = 200;
+
+          if (distMouse < maxDist) {
+            const force = (maxDist - distMouse) / maxDist;
+            p.x -= (dxMouse / distMouse) * force * 4;
+            p.y -= (dyMouse / distMouse) * force * 4;
+          }
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          
+          // Apply opacity to color
+          ctx.globalAlpha = p.opacity;
+          ctx.fillStyle = p.color;
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = p.color;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+          ctx.globalAlpha = 1.0;
+        }
       });
 
       animationFrameId = requestAnimationFrame(draw);

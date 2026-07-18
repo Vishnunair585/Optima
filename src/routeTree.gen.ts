@@ -14,7 +14,6 @@ import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
-import { Route as ReportBugRouteImport } from './routes/report-bug'
 import { Route as RankingsRouteImport } from './routes/rankings'
 import { Route as PromptsRouteImport } from './routes/prompts'
 import { Route as ProfileRouteImport } from './routes/profile'
@@ -25,8 +24,6 @@ import { Route as HelpRouteImport } from './routes/help'
 import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as FinderRouteImport } from './routes/finder'
 import { Route as FeedbackRouteImport } from './routes/feedback'
-import { Route as FeatureRequestsRouteImport } from './routes/feature-requests'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompareRouteImport } from './routes/compare'
 import { Route as CalculatorRouteImport } from './routes/calculator'
 import { Route as BillingRouteImport } from './routes/billing'
@@ -51,6 +48,7 @@ import { Route as AuthRegisterRouteImport } from './routes/auth/register'
 import { Route as AuthLoginRouteImport } from './routes/auth/login'
 import { Route as AuthForgotPasswordRouteImport } from './routes/auth/forgot-password'
 import { Route as AdminToolsRouteImport } from './routes/admin.tools'
+import { Route as AdminSupportCenterRouteImport } from './routes/admin.support-center'
 import { Route as AdminSupportRouteImport } from './routes/admin.support'
 import { Route as AdminRevenueRouteImport } from './routes/admin.revenue'
 import { Route as AdminPublicStacksRouteImport } from './routes/admin.public-stacks'
@@ -64,6 +62,7 @@ import { Route as AdminHelpCenterRouteImport } from './routes/admin/help-center'
 import { Route as AdminChangelogRouteImport } from './routes/admin/changelog'
 import { Route as AdminAuthDiagnosticsRouteImport } from './routes/admin.auth-diagnostics'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
+import { Route as AccountSupportRouteImport } from './routes/account.support'
 import { Route as AccountRequestsRouteImport } from './routes/account.requests'
 import { Route as AdminLegalPrivacyRouteImport } from './routes/admin/legal/privacy'
 import { Route as AccountRequestsIdRouteImport } from './routes/account.requests.$id'
@@ -91,11 +90,6 @@ const SettingsRoute = SettingsRouteImport.update({
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
   id: '/reset-password',
   path: '/reset-password',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReportBugRoute = ReportBugRouteImport.update({
-  id: '/report-bug',
-  path: '/report-bug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RankingsRoute = RankingsRouteImport.update({
@@ -146,16 +140,6 @@ const FinderRoute = FinderRouteImport.update({
 const FeedbackRoute = FeedbackRouteImport.update({
   id: '/feedback',
   path: '/feedback',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FeatureRequestsRoute = FeatureRequestsRouteImport.update({
-  id: '/feature-requests',
-  path: '/feature-requests',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompareRoute = CompareRouteImport.update({
@@ -278,6 +262,11 @@ const AdminToolsRoute = AdminToolsRouteImport.update({
   path: '/tools',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminSupportCenterRoute = AdminSupportCenterRouteImport.update({
+  id: '/support-center',
+  path: '/support-center',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminSupportRoute = AdminSupportRouteImport.update({
   id: '/support',
   path: '/support',
@@ -343,6 +332,11 @@ const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
   path: '/analytics',
   getParentRoute: () => AdminRoute,
 } as any)
+const AccountSupportRoute = AccountSupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => AccountRoute,
+} as any)
 const AccountRequestsRoute = AccountRequestsRouteImport.update({
   id: '/requests',
   path: '/requests',
@@ -370,8 +364,6 @@ export interface FileRoutesByFullPath {
   '/billing': typeof BillingRoute
   '/calculator': typeof CalculatorRoute
   '/compare': typeof CompareRoute
-  '/contact': typeof ContactRoute
-  '/feature-requests': typeof FeatureRequestsRoute
   '/feedback': typeof FeedbackRoute
   '/finder': typeof FinderRoute
   '/forgot-password': typeof ForgotPasswordRoute
@@ -382,13 +374,13 @@ export interface FileRoutesByFullPath {
   '/profile': typeof ProfileRoute
   '/prompts': typeof PromptsRoute
   '/rankings': typeof RankingsRoute
-  '/report-bug': typeof ReportBugRoute
   '/reset-password': typeof ResetPasswordRoute
   '/settings': typeof SettingsRoute
   '/signup': typeof SignupRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/verify-email': typeof VerifyEmailRoute
   '/account/requests': typeof AccountRequestsRouteWithChildren
+  '/account/support': typeof AccountSupportRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/auth-diagnostics': typeof AdminAuthDiagnosticsRoute
   '/admin/changelog': typeof AdminChangelogRoute
@@ -402,6 +394,7 @@ export interface FileRoutesByFullPath {
   '/admin/public-stacks': typeof AdminPublicStacksRoute
   '/admin/revenue': typeof AdminRevenueRoute
   '/admin/support': typeof AdminSupportRoute
+  '/admin/support-center': typeof AdminSupportCenterRoute
   '/admin/tools': typeof AdminToolsRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
@@ -430,8 +423,6 @@ export interface FileRoutesByTo {
   '/billing': typeof BillingRoute
   '/calculator': typeof CalculatorRoute
   '/compare': typeof CompareRoute
-  '/contact': typeof ContactRoute
-  '/feature-requests': typeof FeatureRequestsRoute
   '/feedback': typeof FeedbackRoute
   '/finder': typeof FinderRoute
   '/forgot-password': typeof ForgotPasswordRoute
@@ -442,13 +433,13 @@ export interface FileRoutesByTo {
   '/profile': typeof ProfileRoute
   '/prompts': typeof PromptsRoute
   '/rankings': typeof RankingsRoute
-  '/report-bug': typeof ReportBugRoute
   '/reset-password': typeof ResetPasswordRoute
   '/settings': typeof SettingsRoute
   '/signup': typeof SignupRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/verify-email': typeof VerifyEmailRoute
   '/account/requests': typeof AccountRequestsRouteWithChildren
+  '/account/support': typeof AccountSupportRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/auth-diagnostics': typeof AdminAuthDiagnosticsRoute
   '/admin/changelog': typeof AdminChangelogRoute
@@ -462,6 +453,7 @@ export interface FileRoutesByTo {
   '/admin/public-stacks': typeof AdminPublicStacksRoute
   '/admin/revenue': typeof AdminRevenueRoute
   '/admin/support': typeof AdminSupportRoute
+  '/admin/support-center': typeof AdminSupportCenterRoute
   '/admin/tools': typeof AdminToolsRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
@@ -491,8 +483,6 @@ export interface FileRoutesById {
   '/billing': typeof BillingRoute
   '/calculator': typeof CalculatorRoute
   '/compare': typeof CompareRoute
-  '/contact': typeof ContactRoute
-  '/feature-requests': typeof FeatureRequestsRoute
   '/feedback': typeof FeedbackRoute
   '/finder': typeof FinderRoute
   '/forgot-password': typeof ForgotPasswordRoute
@@ -503,13 +493,13 @@ export interface FileRoutesById {
   '/profile': typeof ProfileRoute
   '/prompts': typeof PromptsRoute
   '/rankings': typeof RankingsRoute
-  '/report-bug': typeof ReportBugRoute
   '/reset-password': typeof ResetPasswordRoute
   '/settings': typeof SettingsRoute
   '/signup': typeof SignupRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/verify-email': typeof VerifyEmailRoute
   '/account/requests': typeof AccountRequestsRouteWithChildren
+  '/account/support': typeof AccountSupportRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/auth-diagnostics': typeof AdminAuthDiagnosticsRoute
   '/admin/changelog': typeof AdminChangelogRoute
@@ -523,6 +513,7 @@ export interface FileRoutesById {
   '/admin/public-stacks': typeof AdminPublicStacksRoute
   '/admin/revenue': typeof AdminRevenueRoute
   '/admin/support': typeof AdminSupportRoute
+  '/admin/support-center': typeof AdminSupportCenterRoute
   '/admin/tools': typeof AdminToolsRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
@@ -553,8 +544,6 @@ export interface FileRouteTypes {
     | '/billing'
     | '/calculator'
     | '/compare'
-    | '/contact'
-    | '/feature-requests'
     | '/feedback'
     | '/finder'
     | '/forgot-password'
@@ -565,13 +554,13 @@ export interface FileRouteTypes {
     | '/profile'
     | '/prompts'
     | '/rankings'
-    | '/report-bug'
     | '/reset-password'
     | '/settings'
     | '/signup'
     | '/unsubscribe'
     | '/verify-email'
     | '/account/requests'
+    | '/account/support'
     | '/admin/analytics'
     | '/admin/auth-diagnostics'
     | '/admin/changelog'
@@ -585,6 +574,7 @@ export interface FileRouteTypes {
     | '/admin/public-stacks'
     | '/admin/revenue'
     | '/admin/support'
+    | '/admin/support-center'
     | '/admin/tools'
     | '/auth/forgot-password'
     | '/auth/login'
@@ -613,8 +603,6 @@ export interface FileRouteTypes {
     | '/billing'
     | '/calculator'
     | '/compare'
-    | '/contact'
-    | '/feature-requests'
     | '/feedback'
     | '/finder'
     | '/forgot-password'
@@ -625,13 +613,13 @@ export interface FileRouteTypes {
     | '/profile'
     | '/prompts'
     | '/rankings'
-    | '/report-bug'
     | '/reset-password'
     | '/settings'
     | '/signup'
     | '/unsubscribe'
     | '/verify-email'
     | '/account/requests'
+    | '/account/support'
     | '/admin/analytics'
     | '/admin/auth-diagnostics'
     | '/admin/changelog'
@@ -645,6 +633,7 @@ export interface FileRouteTypes {
     | '/admin/public-stacks'
     | '/admin/revenue'
     | '/admin/support'
+    | '/admin/support-center'
     | '/admin/tools'
     | '/auth/forgot-password'
     | '/auth/login'
@@ -673,8 +662,6 @@ export interface FileRouteTypes {
     | '/billing'
     | '/calculator'
     | '/compare'
-    | '/contact'
-    | '/feature-requests'
     | '/feedback'
     | '/finder'
     | '/forgot-password'
@@ -685,13 +672,13 @@ export interface FileRouteTypes {
     | '/profile'
     | '/prompts'
     | '/rankings'
-    | '/report-bug'
     | '/reset-password'
     | '/settings'
     | '/signup'
     | '/unsubscribe'
     | '/verify-email'
     | '/account/requests'
+    | '/account/support'
     | '/admin/analytics'
     | '/admin/auth-diagnostics'
     | '/admin/changelog'
@@ -705,6 +692,7 @@ export interface FileRouteTypes {
     | '/admin/public-stacks'
     | '/admin/revenue'
     | '/admin/support'
+    | '/admin/support-center'
     | '/admin/tools'
     | '/auth/forgot-password'
     | '/auth/login'
@@ -734,8 +722,6 @@ export interface RootRouteChildren {
   BillingRoute: typeof BillingRoute
   CalculatorRoute: typeof CalculatorRoute
   CompareRoute: typeof CompareRoute
-  ContactRoute: typeof ContactRoute
-  FeatureRequestsRoute: typeof FeatureRequestsRoute
   FeedbackRoute: typeof FeedbackRoute
   FinderRoute: typeof FinderRoute
   ForgotPasswordRoute: typeof ForgotPasswordRoute
@@ -746,7 +732,6 @@ export interface RootRouteChildren {
   ProfileRoute: typeof ProfileRoute
   PromptsRoute: typeof PromptsRoute
   RankingsRoute: typeof RankingsRoute
-  ReportBugRoute: typeof ReportBugRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   SettingsRoute: typeof SettingsRoute
   SignupRoute: typeof SignupRoute
@@ -802,13 +787,6 @@ declare module '@tanstack/react-router' {
       path: '/reset-password'
       fullPath: '/reset-password'
       preLoaderRoute: typeof ResetPasswordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/report-bug': {
-      id: '/report-bug'
-      path: '/report-bug'
-      fullPath: '/report-bug'
-      preLoaderRoute: typeof ReportBugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rankings': {
@@ -879,20 +857,6 @@ declare module '@tanstack/react-router' {
       path: '/feedback'
       fullPath: '/feedback'
       preLoaderRoute: typeof FeedbackRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/feature-requests': {
-      id: '/feature-requests'
-      path: '/feature-requests'
-      fullPath: '/feature-requests'
-      preLoaderRoute: typeof FeatureRequestsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compare': {
@@ -1063,6 +1027,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminToolsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/support-center': {
+      id: '/admin/support-center'
+      path: '/support-center'
+      fullPath: '/admin/support-center'
+      preLoaderRoute: typeof AdminSupportCenterRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/support': {
       id: '/admin/support'
       path: '/support'
@@ -1154,6 +1125,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAnalyticsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/account/support': {
+      id: '/account/support'
+      path: '/support'
+      fullPath: '/account/support'
+      preLoaderRoute: typeof AccountSupportRouteImport
+      parentRoute: typeof AccountRoute
+    }
     '/account/requests': {
       id: '/account/requests'
       path: '/requests'
@@ -1192,10 +1170,12 @@ const AccountRequestsRouteWithChildren = AccountRequestsRoute._addFileChildren(
 
 interface AccountRouteChildren {
   AccountRequestsRoute: typeof AccountRequestsRouteWithChildren
+  AccountSupportRoute: typeof AccountSupportRoute
 }
 
 const AccountRouteChildren: AccountRouteChildren = {
   AccountRequestsRoute: AccountRequestsRouteWithChildren,
+  AccountSupportRoute: AccountSupportRoute,
 }
 
 const AccountRouteWithChildren =
@@ -1227,6 +1207,7 @@ interface AdminRouteChildren {
   AdminPublicStacksRoute: typeof AdminPublicStacksRoute
   AdminRevenueRoute: typeof AdminRevenueRoute
   AdminSupportRoute: typeof AdminSupportRoute
+  AdminSupportCenterRoute: typeof AdminSupportCenterRoute
   AdminToolsRoute: typeof AdminToolsRoute
 }
 
@@ -1244,6 +1225,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminPublicStacksRoute: AdminPublicStacksRoute,
   AdminRevenueRoute: AdminRevenueRoute,
   AdminSupportRoute: AdminSupportRoute,
+  AdminSupportCenterRoute: AdminSupportCenterRoute,
   AdminToolsRoute: AdminToolsRoute,
 }
 
@@ -1260,8 +1242,6 @@ const rootRouteChildren: RootRouteChildren = {
   BillingRoute: BillingRoute,
   CalculatorRoute: CalculatorRoute,
   CompareRoute: CompareRoute,
-  ContactRoute: ContactRoute,
-  FeatureRequestsRoute: FeatureRequestsRoute,
   FeedbackRoute: FeedbackRoute,
   FinderRoute: FinderRoute,
   ForgotPasswordRoute: ForgotPasswordRoute,
@@ -1272,7 +1252,6 @@ const rootRouteChildren: RootRouteChildren = {
   ProfileRoute: ProfileRoute,
   PromptsRoute: PromptsRoute,
   RankingsRoute: RankingsRoute,
-  ReportBugRoute: ReportBugRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   SettingsRoute: SettingsRoute,
   SignupRoute: SignupRoute,

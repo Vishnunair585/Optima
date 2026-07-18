@@ -68,19 +68,19 @@ function Hero() {
   const recommendedTools = useMemo(() => {
     let pool = AI_TOOLS;
     if (goal === "Coding") {
-      pool = AI_TOOLS.filter((t) => ["Coding", "App Builder"].includes(t.category));
+      pool = AI_TOOLS.filter((t) => ["Coding & Development", "App & Website Builders"].includes(t.category));
     } else if (goal === "Research") {
-      pool = AI_TOOLS.filter((t) => ["Research", "Chat"].includes(t.category));
+      pool = AI_TOOLS.filter((t) => ["Enterprise Search", "Chatbots & Companions"].includes(t.category));
     } else if (goal === "Writing") {
-      pool = AI_TOOLS.filter((t) => ["Chat"].includes(t.category));
+      pool = AI_TOOLS.filter((t) => ["Content Marketing", "Chatbots & Companions"].includes(t.category));
     } else if (goal === "AI Agents") {
-      pool = AI_TOOLS.filter((t) => ["Agents", "Automation"].includes(t.category));
+      pool = AI_TOOLS.filter((t) => ["Productivity & Workflows"].includes(t.category));
     } else if (goal === "Website" || goal === "App") {
-      pool = AI_TOOLS.filter((t) => ["App Builder"].includes(t.category));
+      pool = AI_TOOLS.filter((t) => ["App & Website Builders"].includes(t.category));
     } else if (goal === "Automation") {
-      pool = AI_TOOLS.filter((t) => ["Automation", "Agents"].includes(t.category));
+      pool = AI_TOOLS.filter((t) => ["Productivity & Workflows"].includes(t.category));
     } else if (goal === "Marketing") {
-      pool = AI_TOOLS.filter((t) => ["Image", "Video", "Chat"].includes(t.category));
+      pool = AI_TOOLS.filter((t) => ["Content Marketing", "Sales & CRM"].includes(t.category));
     }
     const sorted = [...pool].sort((a, b) => b.score - a.score);
     return sorted.length ? sorted.slice(0, 3) : AI_TOOLS.slice(0, 3);

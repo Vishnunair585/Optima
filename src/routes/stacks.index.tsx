@@ -169,18 +169,18 @@ function StackCard({ stack, featured = false }: { stack: any, featured?: boolean
       </div>
       <div className="px-5 py-3 border-t border-border/50 bg-muted/20 flex justify-between items-center text-xs text-muted-foreground">
         <div className="flex items-center gap-2">
-          <span className="grid h-5 w-5 place-items-center rounded-full bg-brand/20 text-brand font-bold uppercase text-[9px]">{(stack.creator || "Un").substring(0, 2)}</span>
-          {stack.creator || "Unknown"}
+          <span className="grid h-5 w-5 place-items-center rounded-full bg-brand/20 text-brand font-bold uppercase text-[9px]">{String(stack.creator || stack.creator_name || "Un").substring(0, 2)}</span>
+          {stack.creator || stack.creator_name || "Unknown"}
         </div>
         <div className="flex items-center gap-3">
-          <span className="flex items-center gap-1" title="Time Saved"><Clock className="h-3 w-3" /> {(stack.estimated_time_saved || "0 ").split(' ')[0]}h</span>
+          <span className="flex items-center gap-1" title="Time Saved"><Clock className="h-3 w-3" /> {String(stack.estimated_time_saved || "0 ").split(' ')[0]}h</span>
           <button 
             onClick={(e) => { e.stopPropagation(); handleBookmark(); }}
             className={`flex items-center gap-1 font-medium cursor-pointer transition-transform ${bookmarked ? 'text-brand' : 'text-muted-foreground hover:text-foreground'}`}
             title={bookmarked ? "Saved" : "Save Stack"}
           >
             <BookmarkPlus className={`h-3.5 w-3.5 ${bookmarked ? 'fill-current' : ''}`} /> 
-            {bookmarked ? 'Saved' : stack.saves}
+            {bookmarked ? 'Saved' : (stack.saves || 0).toLocaleString()}
           </button>
         </div>
       </div>

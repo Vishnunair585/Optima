@@ -38,7 +38,7 @@ export function buildSecurityHeaders(config?: Partial<SecurityHeadersConfig>): R
   const cfg = { ...DEFAULT_CONFIG, ...config };
   const headers: Record<string, string> = {};
 
-  if (cfg.contentSecurityPolicy !== false) {
+  if (cfg.contentSecurityPolicy !== false && cfg.contentSecurityPolicy !== undefined) {
     headers["Content-Security-Policy"] = cfg.contentSecurityPolicy;
   }
 
@@ -53,7 +53,7 @@ export function buildSecurityHeaders(config?: Partial<SecurityHeadersConfig>): R
   if (cfg.contentTypeOptions) headers["X-Content-Type-Options"] = cfg.contentTypeOptions;
   if (cfg.referrerPolicy) headers["Referrer-Policy"] = cfg.referrerPolicy;
 
-  if (cfg.permissionsPolicy !== false) {
+  if (cfg.permissionsPolicy !== false && cfg.permissionsPolicy !== undefined) {
     headers["Permissions-Policy"] = cfg.permissionsPolicy;
   }
 

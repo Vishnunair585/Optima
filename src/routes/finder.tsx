@@ -41,15 +41,15 @@ function FinderPage() {
     const persona = answers.persona ?? "Student";
 
     let pool = AI_TOOLS.filter((t) =>
-      goal === "Coding" ? ["Coding", "AI App Builders"].includes(t.category) :
-      goal === "App Building" ? t.category === "AI App Builders" :
-      goal === "Website Building" ? ["AI Website Builders", "AI App Builders"].includes(t.category) :
-      goal === "Research" ? ["Research", "Writing", "Data Analysis"].includes(t.category) :
-      goal === "AI Agents" ? ["AI Agents", "Automation"].includes(t.category) :
-      goal === "Automation" ? ["Automation", "AI Agents"].includes(t.category) :
-      goal === "Writing" ? ["Writing", "Research"].includes(t.category) :
-      goal === "Marketing" ? ["Writing", "Image", "Video", "Audio"].includes(t.category) :
-      t.category === "Writing"
+      goal === "Coding" ? ["Coding & Development", "App & Website Builders"].includes(t.category) :
+      goal === "App Building" ? t.category === "App & Website Builders" :
+      goal === "Website Building" ? ["App & Website Builders", "Graphic Design"].includes(t.category) :
+      goal === "Research" ? ["Enterprise Search", "Productivity & Workflows"].includes(t.category) :
+      goal === "AI Agents" ? ["Chatbots & Companions", "Productivity & Workflows"].includes(t.category) :
+      goal === "Automation" ? ["Productivity & Workflows", "Sales & CRM"].includes(t.category) :
+      goal === "Writing" ? ["Content Marketing", "Chatbots & Companions"].includes(t.category) :
+      goal === "Marketing" ? ["Content Marketing", "Image Generation", "Video Generation"].includes(t.category) :
+      t.category === "Chatbots & Companions"
     );
 
     if (budget === "Free") {

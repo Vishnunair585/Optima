@@ -11,18 +11,15 @@ const FOOTER_LINKS = {
   ],
   Discover: [
     { label: "Agent Hub", href: "/agents" },
-    { label: "App Builders", href: "/app-builders" },
     { label: "Cost Calculator", href: "/calculator" },
     { label: "Prompt Library", href: "/prompts" },
   ],
   Company: [
     { label: "About Us", href: "/about" },
-    { label: "Contact", href: "/contact" },
   ],
   Support: [
     { label: "Help Center", href: "/help" },
-    { label: "Report a Bug", href: "/report-bug" },
-    { label: "Feature Requests", href: "/feature-requests" },
+    { label: "Mail: optimainc2026@gmail.com", href: "https://mail.google.com/mail/?view=cm&fs=1&to=optimainc2026@gmail.com" },
   ],
   Legal: [
     { label: "Privacy Policy", href: "/legal/privacy" },
@@ -91,12 +88,23 @@ export function SiteFooter() {
               <ul className="mt-6 space-y-4">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link 
-                      to={link.href as any} 
-                      className="text-sm text-muted-foreground transition-colors hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-sm px-1 -mx-1 py-0.5"
-                    >
-                      {link.label}
-                    </Link>
+                    {link.href.startsWith("mailto:") || link.href.startsWith("http") ? (
+                      <a 
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-muted-foreground transition-colors hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-sm px-1 -mx-1 py-0.5"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link 
+                        to={link.href as any} 
+                        className="text-sm text-muted-foreground transition-colors hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-sm px-1 -mx-1 py-0.5"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

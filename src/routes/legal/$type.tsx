@@ -44,7 +44,7 @@ function LegalPolicyPage() {
 
         <div className="mt-16 pt-8 border-t border-border text-center">
           <p className="text-muted-foreground text-sm mb-4">Have questions about this policy?</p>
-          <Button variant="outline" asChild><Link to="/contact">Contact Legal Team</Link></Button>
+          <Button variant="outline" asChild><a href="mailto:optimainc2026@gmail.com">Contact Legal Team</a></Button>
         </div>
       </div>
     </div>
