@@ -116,7 +116,7 @@ function HelpCenterPage() {
               <HelpCircle className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">No articles found</h3>
               <p className="text-muted-foreground text-sm">Try a different search term or browse categories above.</p>
-              <Button variant="outline" className="mt-4" asChild><a href="mailto:optimainc2026@gmail.com">Contact Support</a></Button>
+              <Button variant="outline" className="mt-4" asChild><a href="https://mail.google.com/mail/?view=cm&fs=1&to=optimainc2026@gmail.com" target="_blank" rel="noopener noreferrer">Contact Support</a></Button>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
