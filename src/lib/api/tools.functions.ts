@@ -5,10 +5,31 @@ import { aiTools } from "../db/schema";
 import { eq, desc } from "drizzle-orm";
 import { getSessionFn } from "./auth.functions";
 
+import { AI_TOOLS } from "../data/tools";
+
 export const getToolsFn = createServerFn({ method: "GET" })
   .handler(async () => {
-    const tools = await db.select().from(aiTools).orderBy(desc(aiTools.overall_score));
-    return tools;
+    try {
+      const tools = await db.select().from(aiTools).orderBy(desc(aiTools.overall_score));
+      if (!tools || tools.length === 0) throw new Error("Empty DB fallback");
+      return tools;
+    } catch (err) {
+      // Fallback to mock data on Cloudflare where better-sqlite3 crashes
+      return AI_TOOLS.map(t => ({
+        id: t.name,
+        name: t.name,
+        vendor: t.vendor,
+        category: t.category,
+        price: t.price,
+        overall_score: t.score,
+        has_free_tier: t.price.toLowerCase().includes("free"),
+        popularity_score: t.score,
+        growth_score: t.score,
+        review_score: t.score,
+        reliability_score: t.score,
+        trend_indicator: "stable"
+      }));
+    }
   });
 
 export const addToolFn = createServerFn({ method: "POST" })

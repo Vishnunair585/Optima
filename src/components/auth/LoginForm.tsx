@@ -122,7 +122,7 @@ export function LoginForm() {
             <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">Remember me</span>
           </label>
 
-          <Link to="/auth/forgot-password" className="text-sm text-brand hover:text-brand/80 transition-colors">
+          <Link to="/forgot-password" className="text-sm text-brand hover:text-brand/80 transition-colors">
             Forgot password?
           </Link>
         </div>
