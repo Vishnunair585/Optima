@@ -1,7 +1,9 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import ReactCrop, { type Crop } from 'react-image-crop';
+import 'react-image-crop/dist/ReactCrop.css';
 import { useAuth } from "../hooks/use-auth";
-import { Bookmark, LogOut, Sparkles, LogIn, ChevronRight, Layers, ExternalLink } from "lucide-react";
+import { Bookmark, LogOut, Sparkles, LogIn, ChevronRight, Layers, ExternalLink, Trash2, X, Check } from "lucide-react";
 import { ProtectedRoute } from "../components/auth/route-guard";
 import { getStacksFn } from "../lib/api/stack.functions";
 
@@ -35,19 +37,23 @@ function ProfilePage() {
   const { updateUsername } = useAuth();
   const navigate = useNavigate();
 
+  const [crop, setCrop] = useState<Crop>({ unit: '%', width: 50, height: 50, x: 25, y: 25 });
+  const [imgSrc, setImgSrc] = useState("");
+  const imageRef = useRef<HTMLImageElement | null>(null);
+
   const [savedPublicStacks, setSavedPublicStacks] = useState<any[]>([]);
   const [savedPerfectAiStacks, setSavedPerfectAiStacks] = useState<any[]>([]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       try {
-        const stored = JSON.parse(localStorage.getItem("saved_prompts") ?? "[]");
+        const stored = JSON.parse(localStorage.getItem(`saved_prompts_${user?.id}`) ?? "[]");
         setSavedPrompts(stored);
         
-        const storedStacks = JSON.parse(localStorage.getItem("saved_public_stacks") ?? "[]");
+        const storedStacks = JSON.parse(localStorage.getItem(`saved_public_stacks_${user?.id}`) ?? "[]");
         setSavedPublicStacks(storedStacks);
 
-        const storedPerfectStacks = JSON.parse(localStorage.getItem("saved_perfect_ai_stacks") ?? "[]");
+        const storedPerfectStacks = JSON.parse(localStorage.getItem(`saved_perfect_ai_stacks_${user?.id}`) ?? "[]");
         setSavedPerfectAiStacks(storedPerfectStacks);
       } catch {
         setSavedPrompts([]);
@@ -95,6 +101,27 @@ function ProfilePage() {
     setIsEditingName(false);
   };
 
+  const deletePublicStack = (id: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    const updated = savedPublicStacks.filter((s) => s.id !== id);
+    setSavedPublicStacks(updated);
+    localStorage.setItem(`saved_public_stacks_${user?.id}`, JSON.stringify(updated));
+  };
+
+  const deletePrompt = (title: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    const updated = savedPrompts.filter((t) => t !== title);
+    setSavedPrompts(updated);
+    localStorage.setItem(`saved_prompts_${user?.id}`, JSON.stringify(updated));
+  };
+
+  const deletePerfectStack = (idxToRemove: number, e: React.MouseEvent) => {
+    e.preventDefault();
+    const updated = savedPerfectAiStacks.filter((_, idx) => idx !== idxToRemove);
+    setSavedPerfectAiStacks(updated);
+    localStorage.setItem(`saved_perfect_ai_stacks_${user?.id}`, JSON.stringify(updated));
+  };
+
   if (!user) {
     return (
       <div className="mx-auto flex min-h-[60vh] max-w-md flex-col justify-center px-4 py-12">
@@ -119,10 +146,39 @@ function ProfilePage() {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        const base64String = reader.result as string;
-        updateAvatar(base64String);
+        setImgSrc(reader.result as string);
       };
       reader.readAsDataURL(file);
+    }
+  };
+
+  const saveCroppedImage = async () => {
+    if (!imageRef.current || !crop.width || !crop.height) return;
+    
+    const canvas = document.createElement('canvas');
+    const scaleX = imageRef.current.naturalWidth / imageRef.current.width;
+    const scaleY = imageRef.current.naturalHeight / imageRef.current.height;
+    
+    canvas.width = crop.width;
+    canvas.height = crop.height;
+    const ctx = canvas.getContext('2d');
+    
+    if (ctx) {
+      ctx.drawImage(
+        imageRef.current,
+        crop.x * scaleX,
+        crop.y * scaleY,
+        crop.width * scaleX,
+        crop.height * scaleY,
+        0,
+        0,
+        crop.width,
+        crop.height
+      );
+      
+      const base64Image = canvas.toDataURL('image/jpeg', 0.8);
+      await updateAvatar(base64Image);
+      setImgSrc("");
     }
   };
 
@@ -132,6 +188,22 @@ function ProfilePage() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8 space-y-10 animate-fade-up">
+      {imgSrc && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
+          <div className="bg-card p-6 rounded-2xl max-w-md w-full border border-border shadow-2xl">
+            <h3 className="text-xl font-bold mb-4">Crop Profile Picture</h3>
+            <ReactCrop crop={crop} onChange={c => setCrop(c)} aspect={1}>
+              <img ref={imageRef} src={imgSrc} alt="Crop preview" className="max-h-[60vh] object-contain" />
+            </ReactCrop>
+            <div className="flex justify-end gap-3 mt-6">
+              <button onClick={() => setImgSrc("")} className="px-4 py-2 rounded-lg border border-border hover:bg-accent text-sm font-medium">Cancel</button>
+              <button onClick={saveCroppedImage} className="px-4 py-2 rounded-lg bg-brand text-brand-foreground hover:bg-brand/90 text-sm font-semibold flex items-center gap-2">
+                <Check className="h-4 w-4" /> Save
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-6">
         <div className="flex items-center gap-6">
           <div className="relative group shrink-0">
@@ -204,7 +276,12 @@ function ProfilePage() {
               >
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="font-semibold text-sm group-hover:text-brand transition-colors">{stack.title}</h3>
-                  <ExternalLink className="h-3.5 w-3.5 text-muted-foreground shrink-0" />
+                  <div className="flex gap-2 shrink-0">
+                    <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
+                    <button onClick={(e) => deletePublicStack(stack.id, e)} className="text-muted-foreground hover:text-destructive transition-colors">
+                      <Trash2 className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
                 </div>
                 <p className="text-xs text-muted-foreground line-clamp-2">{stack.description}</p>
                 <div className="flex items-center gap-2 mt-1">
@@ -265,9 +342,14 @@ function ProfilePage() {
               <div key={prompt.title} className="rounded-2xl glass p-5 flex flex-col gap-2 hover:bg-card/60 transition-all">
                 <div className="flex items-center justify-between">
                   <h3 className="font-semibold text-sm">{prompt.title}</h3>
-                  <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full border border-border text-muted-foreground">
-                    {prompt.cat}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full border border-border text-muted-foreground">
+                      {prompt.cat}
+                    </span>
+                    <button onClick={(e) => deletePrompt(prompt.title, e)} className="text-muted-foreground hover:text-destructive transition-colors">
+                      <Trash2 className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
                 </div>
                 <p className="text-xs text-muted-foreground line-clamp-2">{prompt.body}</p>
                 <Link to="/prompts" className="text-xs text-brand hover:underline mt-1 inline-flex items-center gap-1">
@@ -296,9 +378,14 @@ function ProfilePage() {
               <div key={idx} className="rounded-2xl glass p-5 flex flex-col gap-2 hover:bg-card/60 transition-all">
                 <div className="flex items-center justify-between">
                   <h3 className="font-semibold text-sm">{stack.answers.goal ?? "Custom Workflow"}</h3>
-                  <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full border border-border text-muted-foreground">
-                    {new Date(stack.created_at).toLocaleDateString()}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full border border-border text-muted-foreground">
+                      {new Date(stack.created_at).toLocaleDateString()}
+                    </span>
+                    <button onClick={(e) => deletePerfectStack(idx, e)} className="text-muted-foreground hover:text-destructive transition-colors">
+                      <Trash2 className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
                 </div>
                 <div className="flex flex-wrap gap-1.5 mt-2">
                   {stack.tools.map((t: any) => (

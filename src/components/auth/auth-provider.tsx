@@ -57,11 +57,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         // Map Firebase user to app User interface
         // Optionally fetch extra details from Supabase
         
+        const localAvatar = localStorage.getItem(`user_avatar_${firebaseUser.uid}`);
         let appUser: User = {
           id: firebaseUser.uid,
           email: firebaseUser.email || "",
           name: firebaseUser.displayName || firebaseUser.email?.split('@')[0] || "User",
-          avatar: firebaseUser.photoURL,
+          avatar: localAvatar || firebaseUser.photoURL,
           email_verified: firebaseUser.emailVerified,
           onboarded: true,
           role: "user"
@@ -187,9 +188,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const updateAvatar = async (avatarBase64: string) => {
     if (!auth.currentUser) return false;
     try {
-      await updateProfile(auth.currentUser, { photoURL: avatarBase64 });
-      // Also update in Firestore
-      await syncUserFn({ data: { uid: auth.currentUser.uid, email: auth.currentUser.email || "", name: auth.currentUser.displayName || "", avatar: avatarBase64 } });
+      // Firebase auth photoURL max length is 2048 chars
+      if (avatarBase64.length < 2048) {
+        await updateProfile(auth.currentUser, { photoURL: avatarBase64 });
+      } else {
+        // Fallback: save locally if it's a huge base64
+        localStorage.setItem(`user_avatar_${auth.currentUser.uid}`, avatarBase64);
+      }
+      
+      try {
+        // Also update in Firestore
+        await syncUserFn({ data: { uid: auth.currentUser.uid, email: auth.currentUser.email || "", name: auth.currentUser.displayName || "", avatar: avatarBase64 } });
+      } catch (e) {
+        console.warn("Could not sync avatar to Firestore", e);
+      }
       
       // Force refresh user object
       setUser(prev => prev ? { ...prev, avatar: avatarBase64 } : null);
@@ -205,8 +217,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!auth.currentUser) return false;
     try {
       await updateProfile(auth.currentUser, { displayName: newName });
-      // Also update in Firestore
-      await syncUserFn({ data: { uid: auth.currentUser.uid, email: auth.currentUser.email || "", name: newName, avatar: auth.currentUser.photoURL } });
+      
+      try {
+        // Also update in Firestore
+        await syncUserFn({ data: { uid: auth.currentUser.uid, email: auth.currentUser.email || "", name: newName, avatar: auth.currentUser.photoURL } });
+      } catch (e) {
+        console.warn("Could not sync username to Firestore", e);
+      }
       
       setUser(prev => prev ? { ...prev, name: newName } : null);
       toast.success("Username updated!");

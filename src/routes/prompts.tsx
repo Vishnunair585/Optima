@@ -4,6 +4,7 @@ import { Copy, Bookmark, Search, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { ProtectedRoute } from "../components/auth/route-guard";
 import { PROMPTS } from "../lib/data/prompts";
+import { useAuth } from "../hooks/use-auth";
 
 export const Route = createFileRoute("/prompts")({
   head: () => ({
@@ -25,12 +26,13 @@ export const Route = createFileRoute("/prompts")({
 const CATS = Array.from(new Set(PROMPTS.map(p => p.cat))).slice(0, 30);
 
 function PromptsPage() {
+  const { user } = useAuth();
   const [cat, setCat] = useState("All");
   const [q, setQ] = useState("");
   const [saved, setSaved] = useState<string[]>(() => {
     if (typeof window !== "undefined") {
       try {
-        return JSON.parse(localStorage.getItem("saved_prompts") ?? "[]");
+        return JSON.parse(localStorage.getItem(`saved_prompts_${user?.id}`) ?? "[]");
       } catch {
         return [];
       }
@@ -79,7 +81,7 @@ function PromptsPage() {
       toast.success("Prompt saved successfully!");
     }
     setSaved(updated);
-    localStorage.setItem("saved_prompts", JSON.stringify(updated));
+    localStorage.setItem(`saved_prompts_${user?.id}`, JSON.stringify(updated));
   };
 
   return (

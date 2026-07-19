@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { ArrowLeft, ArrowRight, Check, Sparkles, DollarSign, Wand2, Bookmark } from "lucide-react";
 import { AI_TOOLS } from "@/lib/data/tools";
 import { ProtectedRoute } from "../components/auth/route-guard";
+import { useAuth } from "../hooks/use-auth";
 
 export const Route = createFileRoute("/finder")({
   head: () => ({
@@ -29,6 +30,7 @@ const STEPS = [
 ] as const;
 
 function FinderPage() {
+  const { user } = useAuth();
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [saved, setSaved] = useState(false);
@@ -179,10 +181,10 @@ function FinderPage() {
               <button 
                 onClick={() => {
                   try {
-                    let stored = JSON.parse(localStorage.getItem("saved_perfect_ai_stacks") ?? "[]");
+                    let stored = JSON.parse(localStorage.getItem(`saved_perfect_ai_stacks_${user?.id}`) ?? "[]");
                     const newStack = { id: Date.now().toString(), tools: recommended, answers, created_at: new Date().toISOString() };
                     stored.push(newStack);
-                    localStorage.setItem("saved_perfect_ai_stacks", JSON.stringify(stored));
+                    localStorage.setItem(`saved_perfect_ai_stacks_${user?.id}`, JSON.stringify(stored));
                     setSaved(true);
                   } catch {}
                 }}

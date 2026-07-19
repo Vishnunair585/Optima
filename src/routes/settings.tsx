@@ -21,9 +21,9 @@ function SettingsPage() {
     try {
       const data = {
         profile: user,
-        saved_prompts: JSON.parse(localStorage.getItem("saved_prompts") || "[]"),
-        saved_public_stacks: JSON.parse(localStorage.getItem("saved_public_stacks") || "[]"),
-        saved_perfect_ai_stacks: JSON.parse(localStorage.getItem("saved_perfect_ai_stacks") || "[]"),
+        saved_prompts: JSON.parse(localStorage.getItem(`saved_prompts_${user.id}`) || "[]"),
+        saved_public_stacks: JSON.parse(localStorage.getItem(`saved_public_stacks_${user.id}`) || "[]"),
+        saved_perfect_ai_stacks: JSON.parse(localStorage.getItem(`saved_perfect_ai_stacks_${user.id}`) || "[]"),
         export_date: new Date().toISOString()
       };
 

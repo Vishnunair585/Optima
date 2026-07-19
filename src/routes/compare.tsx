@@ -216,11 +216,23 @@ function ComparePage() {
     if (search.tools) {
       const toolSlugs = search.tools.split("-vs-");
       const matchedTools = toolSlugs.map(slug => {
+        const inMeta = Object.keys(TOOL_META).find(name => name.toLowerCase().replace(/[\s.]+/g, "-") === slug);
+        if (inMeta) return inMeta;
         const found = AI_TOOLS.find(t => t.name.toLowerCase().replace(/[\s.]+/g, "-") === slug);
         return found?.name;
       }).filter(Boolean) as string[];
       if (matchedTools.length > 0) return matchedTools.slice(0, 4);
     }
+
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('compare_selected_tools');
+      if (stored) {
+        try {
+          return JSON.parse(stored);
+        } catch (e) {}
+      }
+    }
+    
     return ["ChatGPT", "Claude", "Gemini"];
   });
   
@@ -233,14 +245,30 @@ function ComparePage() {
 
   const filteredTools = useMemo(() => {
     if (!searchQuery) return [];
-    return AI_TOOLS.filter(t =>
+    
+    const metaTools = Object.keys(TOOL_META).map(name => ({
+      name,
+      category: TOOL_META[name].bestFor || "AI Tool",
+      color: "oklch(0.7 0.2 258)",
+    }));
+    
+    const combinedTools = [...metaTools, ...AI_TOOLS];
+    const uniqueTools = Array.from(new Map(combinedTools.map(t => [t.name, t])).values());
+
+    return uniqueTools.filter(t =>
       t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      t.category.toLowerCase().includes(searchQuery.toLowerCase())
+      (t.category && t.category.toLowerCase().includes(searchQuery.toLowerCase()))
     ).slice(0, 8);
   }, [searchQuery]);
 
   const toggle = (name: string) => {
-    setSelected(s => s.includes(name) ? s.filter(x => x !== name) : s.length < 4 ? [...s, name] : s);
+    setSelected(s => {
+      const updated = s.includes(name) ? s.filter(x => x !== name) : s.length < 4 ? [...s, name] : s;
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('compare_selected_tools', JSON.stringify(updated));
+      }
+      return updated;
+    });
     setSearchQuery("");
   };
 

@@ -8,6 +8,7 @@ import {
 import STACKS_DATA from "../lib/data/public_stacks.json";
 
 import { ProtectedRoute } from "../components/auth/route-guard";
+import { useAuth } from "../hooks/use-auth";
 
 export const Route = createFileRoute("/stacks/$id")({
   loader: ({ params }) => {
@@ -29,12 +30,13 @@ export const Route = createFileRoute("/stacks/$id")({
 });
 
 function StackDetailPage() {
+  const { user } = useAuth();
   const { stack } = Route.useLoaderData();
   const [bookmarked, setBookmarked] = useState(false);
 
   useEffect(() => {
     try {
-      const stored = JSON.parse(localStorage.getItem("saved_public_stacks") ?? "[]");
+      const stored = JSON.parse(localStorage.getItem(`saved_public_stacks_${user?.id}`) ?? "[]");
       if (stored.some((s: any) => s.id === stack.id)) {
         setBookmarked(true);
       }
@@ -43,7 +45,7 @@ function StackDetailPage() {
 
   const handleBookmark = () => {
     try {
-      let stored = JSON.parse(localStorage.getItem("saved_public_stacks") ?? "[]");
+      let stored = JSON.parse(localStorage.getItem(`saved_public_stacks_${user?.id}`) ?? "[]");
       if (bookmarked) {
         stored = stored.filter((s: any) => s.id !== stack.id);
         setBookmarked(false);
@@ -51,7 +53,7 @@ function StackDetailPage() {
         stored.push(stack);
         setBookmarked(true);
       }
-      localStorage.setItem("saved_public_stacks", JSON.stringify(stored));
+      localStorage.setItem(`saved_public_stacks_${user?.id}`, JSON.stringify(stored));
     } catch {}
   };
 
