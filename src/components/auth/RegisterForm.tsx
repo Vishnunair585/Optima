@@ -96,8 +96,10 @@ export function RegisterForm() {
       navigate({ to: '/' });
     } catch (err: any) {
       setLoading(false);
-      if (err.code !== 'auth/popup-closed-by-user') {
-        setError(`Failed to sign in with provider. ${err.message}`);
+      if (err.code === 'auth/unauthorized-domain') {
+        setError('This domain is not authorized. Please add it to your Firebase Console settings.');
+      } else if (err.code !== 'auth/popup-closed-by-user') {
+        setError('Failed to sign in with Google. Please try again later.');
       }
     }
   };
