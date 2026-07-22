@@ -137,9 +137,9 @@ function StackDetailPage() {
                   <div className="absolute left-[-8px] top-1 h-4 w-4 rounded-full bg-brand ring-4 ring-background"></div>
                   <div className="bg-card/40 rounded-xl border border-border p-5">
                     <h3 className="font-bold text-lg mb-2">Step {step}: Execute Automation</h3>
-                    <p className="text-muted-foreground text-sm mb-4">Connect {typeof stack.tools[step % stack.tools.length] === 'object' ? stack.tools[step % stack.tools.length]?.name : (stack.tools[step % stack.tools.length] || 'Tool')} via API to process the incoming payload. Extract required JSON parameters and pass them downstream.</p>
+                    <p className="text-muted-foreground text-sm mb-4">Connect {typeof stack.tools?.[step % stack.tools.length] === 'string' ? stack.tools[step % stack.tools.length] : (stack.tools?.[step % stack.tools.length]?.name || 'Tool')} via API to process the incoming payload. Extract required JSON parameters and pass them downstream.</p>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono bg-accent text-foreground px-2 py-1 rounded">Tool: {(stack.tools && stack.tools.length > 0) ? (stack.tools[step % stack.tools.length]?.name || stack.tools[step % stack.tools.length]) : "Tool"}</span>
+                      <span className="text-xs font-mono bg-accent text-foreground px-2 py-1 rounded">Tool: {typeof stack.tools?.[step % stack.tools.length] === 'string' ? stack.tools[step % stack.tools.length] : (stack.tools?.[step % stack.tools.length]?.name || "Tool")}</span>
                     </div>
                   </div>
                 </div>

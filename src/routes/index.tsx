@@ -4,6 +4,10 @@ import { AI_TOOLS } from "@/lib/data/tools";
 import { useState, useMemo } from "react";
 import { OptimaLogo } from "@/components/site/OptimaLogo";
 import { ParticleCanvas } from "@/components/ui/particle-canvas";
+import { useNavigation } from "@/components/navigation/NavigationProvider";
+import { V2Landing } from "@/components/home/v2/V2Landing";
+import { V3Landing } from "@/components/home/v3/V3Landing";
+import { V4Landing } from "@/components/home/v4/V4Landing";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -15,7 +19,13 @@ export const Route = createFileRoute("/")({
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
-  component: Landing,
+  component: () => {
+    const { version } = useNavigation();
+    if (version === "v4") return <V4Landing />;
+    if (version === "v3") return <V3Landing />;
+    if (version === "v2") return <V2Landing />;
+    return <Landing />;
+  },
 });
 
 const STATS = [
@@ -286,31 +296,35 @@ function RankingPreview() {
       </div>
 
       <div className="mt-10 overflow-hidden rounded-2xl glass">
-        <div className="grid grid-cols-[40px_1fr_120px_100px_140px] items-center gap-4 border-b border-border px-6 py-3 text-xs font-mono uppercase tracking-wider text-muted-foreground">
-          <span>#</span><span>Tool</span><span>Category</span><span>Price</span><span>Score</span>
-        </div>
-        {top.map((t, i) => (
-          <div key={t.name} className="grid grid-cols-[40px_1fr_120px_100px_140px] items-center gap-4 border-b border-border px-6 py-4 transition-colors last:border-0 hover:bg-accent/40">
-            <span className="font-mono text-sm text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-            <div className="flex items-center gap-3">
-              <span className="grid h-8 w-8 place-items-center rounded-lg shrink-0" style={{ background: `${t.color}30`, color: t.color }}>
-                <Zap className="h-4 w-4" />
-              </span>
-              <div className="min-w-0">
-                <p className="truncate font-medium">{t.name}</p>
-                <p className="truncate text-xs text-muted-foreground">{t.vendor}</p>
-              </div>
+        <div className="overflow-x-auto w-full">
+          <div className="min-w-[650px]">
+            <div className="grid grid-cols-[40px_1fr_120px_100px_140px] items-center gap-4 border-b border-border px-6 py-3 text-xs font-mono uppercase tracking-wider text-muted-foreground">
+              <span>#</span><span>Tool</span><span>Category</span><span>Price</span><span>Score</span>
             </div>
-            <span className="text-sm text-muted-foreground">{t.category}</span>
-            <span className="text-sm">{t.price}</span>
-            <div className="flex items-center gap-2">
-              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-muted">
-                <div className="h-full bg-gradient-brand" style={{ width: `${t.score}%` }} />
+            {top.map((t, i) => (
+              <div key={t.name} className="grid grid-cols-[40px_1fr_120px_100px_140px] items-center gap-4 border-b border-border px-6 py-4 transition-colors last:border-0 hover:bg-accent/40">
+                <span className="font-mono text-sm text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                <div className="flex items-center gap-3">
+                  <span className="grid h-8 w-8 place-items-center rounded-lg shrink-0" style={{ background: `${t.color}30`, color: t.color }}>
+                    <Zap className="h-4 w-4" />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="truncate font-medium">{t.name}</p>
+                    <p className="truncate text-xs text-muted-foreground">{t.vendor}</p>
+                  </div>
+                </div>
+                <span className="text-sm text-muted-foreground">{t.category}</span>
+                <span className="text-sm">{t.price}</span>
+                <div className="flex items-center gap-2">
+                  <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-muted">
+                    <div className="h-full bg-gradient-brand" style={{ width: `${t.score}%` }} />
+                  </div>
+                  <span className="w-8 font-mono text-sm tabular-nums">{t.score}</span>
+                </div>
               </div>
-              <span className="w-8 font-mono text-sm tabular-nums">{t.score}</span>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );

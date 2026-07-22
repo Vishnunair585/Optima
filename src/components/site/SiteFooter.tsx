@@ -50,7 +50,7 @@ export function SiteFooter() {
   };
 
   return (
-    <footer className="relative mt-32 border-t border-border bg-background" aria-label="Site Footer">
+    <footer className="relative mt-32 border-t border-border bg-background pb-16 lg:pb-0" aria-label="Site Footer">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

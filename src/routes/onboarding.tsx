@@ -28,7 +28,7 @@ export const Route = createFileRoute("/onboarding")({
 });
 
 function OnboardingWizard() {
-  const { user, isLoaded, isSignedIn, refreshSession } = useAuth();
+  const { user, isLoaded, isSignedIn, refreshSession, updateUsername } = useAuth();
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
@@ -108,6 +108,7 @@ function OnboardingWizard() {
         },
       });
 
+      await updateUsername(username);
       await refreshSession();
 
       setTimeout(() => {

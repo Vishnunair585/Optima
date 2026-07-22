@@ -14,7 +14,7 @@ interface Particle {
   active: boolean;
 }
 
-export function ParticleCanvas() {
+export function ParticleCanvas({ trigger = true }: { trigger?: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -29,7 +29,8 @@ export function ParticleCanvas() {
 
     const colors = ['#8b5cf6', '#3b82f6', '#10b981', '#ec4899', '#f59e0b'];
     let mouse = { x: -1000, y: -1000 };
-    const startTime = Date.now();
+    let startTime = Date.now();
+    let hasTriggered = false;
 
     const resize = () => {
       if (canvas.parentElement) {
@@ -65,10 +66,16 @@ export function ParticleCanvas() {
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const elapsed = Date.now() - startTime;
+      
+      if (trigger && !hasTriggered) {
+        hasTriggered = true;
+        startTime = Date.now();
+      }
+
+      const elapsed = hasTriggered ? Date.now() - startTime : 0;
 
       particles.forEach(p => {
-        if (elapsed > p.delay) {
+        if (hasTriggered && elapsed > p.delay) {
           p.active = true;
         }
 
@@ -151,7 +158,7 @@ export function ParticleCanvas() {
       document.removeEventListener('mouseleave', handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [trigger]);
 
   return (
     <canvas

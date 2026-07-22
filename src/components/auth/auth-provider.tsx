@@ -9,7 +9,10 @@ import {
   sendPasswordResetEmail,
   updateProfile,
   User as FirebaseUser,
-  sendEmailVerification
+  sendEmailVerification,
+  verifyPasswordResetCode,
+  confirmPasswordReset,
+  ActionCodeSettings
 } from "firebase/auth";
 import { syncUserFn } from "../../lib/api/users.functions";
 
@@ -30,8 +33,9 @@ interface AuthContextType {
   login: (email: string, password?: string) => Promise<boolean>;
   signUp: (email: string, password?: string, username?: string) => Promise<boolean>;
   logout: () => void;
-  sendResetLink: (email: string) => Promise<boolean>;
-  resetPassword: (password: string, token: string) => Promise<boolean>;
+  sendResetLink: (email: string, actionCodeSettings?: ActionCodeSettings) => Promise<boolean>;
+  verifyResetCode: (code: string) => Promise<string>;
+  confirmResetPassword: (password: string, code: string) => Promise<boolean>;
   updateAvatar: (avatarBase64: string) => Promise<boolean>;
   verifyOtp: (email: string, otp: string) => Promise<boolean>;
   resendOtp: (email: string) => Promise<void>;
@@ -168,21 +172,53 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const sendResetLink = async (email: string) => {
+  const sendResetLink = async (email: string, actionCodeSettings?: ActionCodeSettings) => {
     try {
-      await sendPasswordResetEmail(auth, email);
-      toast.success("Password reset link sent! Check your email.");
-      return true;
+      // Use our backend function which generates a Firebase Admin reset link and sends via Nodemailer.
+      // This bypasses Firebase Client SDK's domain whitelist requirements and uses our custom template.
+      const { requestPasswordResetFn } = await import("../../lib/api/auth.functions");
+      const result = await requestPasswordResetFn({ data: { email } });
+      if (result && result.success) {
+        toast.success("Password reset link sent! Check your email.");
+        return true;
+      } else {
+        throw new Error("Failed to send reset link via backend");
+      }
     } catch (err: any) {
+      console.error("[Auth] sendResetLink error:", err);
       throw new Error(err.message || "Failed to send reset link");
     }
   };
 
-  const resetPassword = async (password: string, token: string) => {
-    // Note: Firebase handles reset via email link natively, so this custom flow might not be fully needed,
-    // but we'll mock success to satisfy the interface.
-    toast.error("Please use the link sent to your email to reset your password.");
-    return false;
+  const verifyResetCode = async (code: string) => {
+    try {
+      // Local enterprise tokens are 64 char hex strings
+      if (code.length === 64 && /^[0-9a-f]+$/i.test(code)) {
+        const { validateResetTokenFn } = await import("../../lib/api/auth.functions");
+        const res = await validateResetTokenFn({ data: { token: code } });
+        if (res.valid) return "your account";
+        throw new Error("Invalid token");
+      }
+      return await verifyPasswordResetCode(auth, code);
+    } catch (err: any) {
+      throw new Error(err.message || "Invalid or expired reset link");
+    }
+  };
+
+  const confirmResetPassword = async (password: string, code: string) => {
+    try {
+      if (code.length === 64 && /^[0-9a-f]+$/i.test(code)) {
+        const { resetPasswordFn } = await import("../../lib/api/auth.functions");
+        await resetPasswordFn({ data: { token: code, password } });
+        toast.success("Password has been reset successfully!");
+        return true;
+      }
+      await confirmPasswordReset(auth, code, password);
+      toast.success("Password has been reset successfully!");
+      return true;
+    } catch (err: any) {
+      throw new Error(err.message || "Failed to reset password");
+    }
   };
 
   const updateAvatar = async (avatarBase64: string) => {
@@ -302,7 +338,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signUp,
       logout,
       sendResetLink,
-      resetPassword,
+      verifyResetCode,
+      confirmResetPassword,
       updateAvatar,
       updateUsername,
       verifyOtp,

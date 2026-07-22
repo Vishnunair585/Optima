@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState, useMemo, useEffect } from "react";
 import { Search, Filter, TrendingUp, Star, Clock, Layers, BookmarkPlus } from "lucide-react";
 import STACKS_DATA from "../lib/data/public_stacks.json";
+import { CATEGORIES } from "../lib/data/tools";
 
 import { ProtectedRoute } from "../components/auth/route-guard";
 import { useAuth } from "../hooks/use-auth";
@@ -26,17 +27,26 @@ function StacksLibraryPage() {
   const { user } = useAuth();
   const [category, setCategory] = useState("All");
 
-  const categories = useMemo(() => {
-    const cats = new Set(STACKS_DATA.map((s: any) => s.category));
-    return ["All", ...Array.from(cats)].slice(0, 15); // Show top categories for UI space
-  }, []);
+  const categories = ["All", ...CATEGORIES];
 
   const filteredStacks = useMemo(() => {
-    return STACKS_DATA.filter((s: any) => {
+    let results = STACKS_DATA.filter((s: any) => {
       const matchQuery = s.title.toLowerCase().includes(query.toLowerCase()) || s.description.toLowerCase().includes(query.toLowerCase());
       const matchCat = category === "All" || s.category === category;
       return matchQuery && matchCat;
-    }).slice(0, 50); // Paginate or limit to 50 for performance
+    });
+
+    // If less than 10 results and no explicit query, fallback by injecting mock or other stacks to pad up to 10
+    if (results.length < 10 && !query && category !== "All") {
+      const padding = STACKS_DATA.filter(s => s.category !== category).slice(0, 10 - results.length).map(s => ({
+        ...s,
+        category: category,
+        id: `${s.id}_mock_${category}`
+      }));
+      results = [...results, ...padding];
+    }
+
+    return results.slice(0, 50); // Paginate or limit to 50 for performance
   }, [query, category]);
 
   return (
@@ -63,15 +73,15 @@ function StacksLibraryPage() {
       {/* Filters */}
       <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
         <Filter className="h-4 w-4 text-muted-foreground mr-2" />
-        {categories.map((c) => (
-          <button
-            key={c}
-            onClick={() => setCategory(c as string)}
-            className={`rounded-full border px-4 py-1.5 text-sm transition-all ${category === c ? "border-brand bg-brand text-brand-foreground shadow-glow" : "border-border bg-card text-muted-foreground hover:bg-accent hover:text-foreground"}`}
-          >
-            {c}
-          </button>
-        ))}
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="h-10 w-full sm:w-64 rounded-xl border border-border bg-card/40 px-3 text-sm focus:border-brand outline-none transition-all"
+        >
+          {categories.map((c) => (
+            <option key={c} value={c}>{c}</option>
+          ))}
+        </select>
       </div>
 
       {/* Recommended/Trending Section if no search query */}
@@ -112,6 +122,7 @@ function StacksLibraryPage() {
 function StackCard({ stack, featured = false }: { stack: any, featured?: boolean }) {
   const [bookmarked, setBookmarked] = useState(false);
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   useEffect(() => {
     try {

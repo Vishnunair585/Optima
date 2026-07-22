@@ -1,9 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { sendPasswordResetEmail } from 'firebase/auth';
-import { auth } from '../../lib/firebase';
+import { useAuth } from '../../hooks/use-auth';
 import { Mail, AlertCircle, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { Link } from '@tanstack/react-router';
 
@@ -17,24 +16,43 @@ export function ForgotPasswordForm() {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [cooldown, setCooldown] = useState(0);
+  const { sendResetLink } = useAuth();
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (cooldown > 0) {
+      timer = setTimeout(() => setCooldown(cooldown - 1), 1000);
+    }
+    return () => clearTimeout(timer);
+  }, [cooldown]);
 
   const { register, handleSubmit, formState: { errors } } = useForm<ForgotPasswordValues>({
     resolver: zodResolver(forgotPasswordSchema)
   });
 
   const onSubmit = async (data: ForgotPasswordValues) => {
+    if (cooldown > 0) return;
+    
     try {
       setLoading(true);
       setError(null);
       setSuccess(false);
       
-      await sendPasswordResetEmail(auth, data.email);
+      const actionCodeSettings = {
+        url: window.location.origin + '/login',
+        handleCodeInApp: false
+      };
+      
+      await sendResetLink(data.email, actionCodeSettings);
       setSuccess(true);
+      setCooldown(60);
       
     } catch (err: any) {
-      if (err.code === 'auth/user-not-found') {
-        // For security reasons, often it's best not to reveal if an email exists
+      if (err.message && err.message.includes('user-not-found')) {
+        // For security reasons, don't reveal if an email exists
         setSuccess(true);
+        setCooldown(60);
       } else {
         setError(err.message || 'An error occurred. Please try again.');
       }
@@ -96,11 +114,13 @@ export function ForgotPasswordForm() {
 
         <button
           type="submit"
-          disabled={loading}
+          disabled={loading || cooldown > 0}
           className="w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-xl font-medium shadow-lg shadow-blue-900/20 focus:outline-none focus:ring-2 focus:ring-blue-500/50 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
         >
           {loading ? (
             <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+          ) : cooldown > 0 ? (
+            `Wait ${cooldown}s`
           ) : (
             'Send reset link'
           )}

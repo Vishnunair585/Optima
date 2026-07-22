@@ -60,8 +60,8 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className={`sticky top-0 z-50 transition-all ${scrolled || isOpen ? "border-b border-border glass-strong" : ""}`}>
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <header className={`sticky top-0 z-50 w-full transition-all ${scrolled || isOpen ? "border-b border-border glass-strong" : ""}`}>
+      <div className="mx-auto flex w-full h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex shrink-0 items-center gap-2.5">
           <OptimaLogo className="h-9 w-9" />
           <span className="font-sans text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#0066ff] via-[#6600ff] to-[#b300ff]">
@@ -88,7 +88,7 @@ export function SiteHeader() {
           {/* Light/Dark Mode Toggle (Desktop) */}
           <button 
             onClick={toggleTheme} 
-            className="hidden h-9 w-9 place-items-center rounded-full border border-border text-muted-foreground hover:text-foreground hover:bg-accent sm:grid"
+            className="grid h-9 w-9 place-items-center rounded-full border border-border text-muted-foreground hover:text-foreground hover:bg-accent"
             aria-label="Toggle Theme"
           >
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
@@ -96,7 +96,7 @@ export function SiteHeader() {
 
           {/* Authentication State Button */}
           {user ? (
-            <div className="relative hidden items-center gap-2 sm:flex">
+            <div className="relative flex items-center gap-2">
               <button
                 onClick={() => setShowDropdown(!showDropdown)}
                 className="inline-flex h-9 items-center gap-2 rounded-full border border-border bg-card/60 px-4 text-sm font-medium hover:bg-accent transition-all duration-200 cursor-pointer"
@@ -162,13 +162,14 @@ export function SiteHeader() {
           ) : (
             <Link
               to="/login"
-              className="hidden h-9 items-center justify-center rounded-full bg-gradient-brand px-4 text-sm font-medium text-brand-foreground shadow-glow transition-transform hover:scale-[1.02] sm:inline-flex"
+              className="inline-flex h-9 items-center justify-center rounded-full bg-gradient-brand px-4 text-sm font-medium text-brand-foreground shadow-glow transition-transform hover:scale-[1.02]"
             >
               Sign In
             </Link>
           )}
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - COMMENTED OUT FOR NEW BOTTOM NAV UI */}
+          {/* TO REVERT: Uncomment this block 
           <button 
             onClick={() => setIsOpen(!isOpen)} 
             className="grid h-9 w-9 place-items-center rounded-full border border-border text-muted-foreground hover:text-foreground hover:bg-accent lg:hidden"
@@ -176,21 +177,23 @@ export function SiteHeader() {
           >
             {isOpen ? <X className="h-4.5 w-4.5" /> : <Menu className="h-4.5 w-4.5" />}
           </button>
+          */}
         </div>
       </div>
       </header>
 
-      {/* Mobile Menu Overlay and Drawer */}
+      {/* Mobile Menu Overlay and Drawer - COMMENTED OUT FOR NEW BOTTOM NAV UI */}
+      {/* TO REVERT: Uncomment this block
       {isOpen && (
         <>
-          {/* Overlay to catch outside clicks */}
+          {/* Overlay to catch outside clicks * /}
           <div 
             className="fixed inset-0 z-40 bg-background/50 backdrop-blur-sm transition-opacity lg:hidden" 
             onClick={() => setIsOpen(false)}
             aria-hidden="true"
           />
           
-          {/* Drawer sliding from the right */}
+          {/* Drawer sliding from the right * /}
           <div className="fixed top-0 bottom-0 right-0 z-50 w-3/4 max-w-xs border-l border-border bg-background/95 backdrop-blur-xl p-6 shadow-elegant lg:hidden flex flex-col gap-6 animate-slide-in-right overflow-y-auto">
             <div className="flex justify-end">
               <button 
@@ -202,7 +205,7 @@ export function SiteHeader() {
               </button>
             </div>
 
-            {/* Navigation Links */}
+            {/* Navigation Links * /}
             <nav className="flex flex-col gap-1">
               {nav.map((n) => (
                 <Link
@@ -217,7 +220,7 @@ export function SiteHeader() {
               ))}
             </nav>
 
-            {/* User Settings & Controls (Mobile) */}
+            {/* User Settings & Controls (Mobile) * /}
             <div className="flex flex-col gap-3 border-t border-border pt-6 mt-auto pb-4">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Select Theme</span>
@@ -276,6 +279,7 @@ export function SiteHeader() {
           </div>
         </>
       )}
+      */}
     </>
   );
 }

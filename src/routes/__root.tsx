@@ -12,10 +12,15 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/site/SiteHeader";
 import { SiteFooter } from "../components/site/SiteFooter";
+import { SiteBottomNav } from "../components/site/SiteBottomNav";
 import { AuthProvider } from "../hooks/use-auth";
 import { Toaster } from "sonner";
 import { GlobalLoader } from "../components/ui/GlobalLoader";
 import { SpotlightOverlay } from "../components/ui/SpotlightOverlay";
+import { NavigationProvider, useNavigation } from "../components/navigation/NavigationProvider";
+import { V2Layout } from "../components/layout/v2/V2Layout";
+import { V3Layout } from "../components/layout/v3/V3Layout";
+import { toast } from "sonner";
 
 function NotFoundComponent() {
   return (
@@ -69,6 +74,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#0b0a14" },
+      { httpEquiv: "Content-Security-Policy", content: "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';" },
+      { httpEquiv: "X-Content-Type-Options", content: "nosniff" },
+      { httpEquiv: "X-Frame-Options", content: "DENY" },
+      { httpEquiv: "Strict-Transport-Security", content: "max-age=31536000; includeSubDomains" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -103,14 +112,55 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <div className="relative flex min-h-dvh flex-col">
-          <SpotlightOverlay />
-          <SiteHeader />
-          <main className="flex-1"><Outlet /></main>
-          <SiteFooter />
-          <Toaster theme="dark" position="top-center" />
-        </div>
+        <NavigationProvider>
+          <RootLayout />
+        </NavigationProvider>
       </AuthProvider>
     </QueryClientProvider>
+  );
+}
+
+function RootLayout() {
+  const { version } = useNavigation();
+  
+  if (version === "v2") {
+    return (
+      <V2Layout>
+        <Outlet />
+        <Toaster theme="dark" position="top-center" />
+      </V2Layout>
+    );
+  }
+
+  if (version === "v3") {
+    return (
+      <V3Layout>
+        <Outlet />
+        <Toaster theme="dark" position="top-center" />
+      </V3Layout>
+    );
+  }
+
+  useEffect(() => {
+    // Check if the user is on a mobile device and hasn't seen the warning yet
+    const hasSeenMobileWarning = sessionStorage.getItem("mobile_desktop_warning");
+    if (window.innerWidth < 768 && !hasSeenMobileWarning) {
+      toast("For a better experience, please use Desktop mode.", {
+        icon: "📱",
+        duration: 5000,
+      });
+      sessionStorage.setItem("mobile_desktop_warning", "true");
+    }
+  }, []);
+
+  return (
+    <div className="relative flex min-h-dvh flex-col overflow-x-hidden">
+      <SpotlightOverlay />
+      <SiteHeader />
+      <main className="flex-1 lg:pb-0 pb-16"><Outlet /></main>
+      <SiteFooter />
+      <SiteBottomNav />
+      <Toaster theme="dark" position="top-center" />
+    </div>
   );
 }

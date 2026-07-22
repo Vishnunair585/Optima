@@ -411,78 +411,200 @@ export const resendVerificationEmailFn = createServerFn({ method: "POST" })
     return sendVerificationEmailFn({ data: { email: data.email, userId: user[0].id } });
   });
 
-// Password Reset
 export const requestPasswordResetFn = createServerFn({ method: "POST" })
   .validator(z.object({ email: z.string().email().max(255) }).strict())
   .handler(async ({ data }) => {
     const ip = await getClientIp();
-    if (!await rateLimit(`reset:${ip}`, 3, 1000 * 60 * 60)) {
+    let userAgent = "unknown";
+    try {
+      const { getRequestHeader } = await import("@tanstack/react-start/server");
+      userAgent = getRequestHeader("user-agent") || "unknown";
+    } catch {}
+
+    // Rate Limiting: 5 per hour per email, 20 per hour per IP
+    if (!await rateLimit(`reset:ip:${ip}`, 20, 1000 * 60 * 60) || 
+        !await rateLimit(`reset:email:${data.email}`, 5, 1000 * 60 * 60)) {
       throw new Error("Too many requests.");
     }
 
-    const user = await db.select().from(users).where(eq(users.email, data.email)).limit(1);
-    if (user.length === 0) {
-      // Don't reveal if email exists, return success regardless
-      return { success: true };
+    try {
+      const existingUser = await db.select({ id: users.id }).from(users).where(eq(users.email, data.email));
+      
+      // Enforce anti-enumeration: Do not proceed if user not found, but return generic success later
+      if (existingUser.length > 0) {
+        const userId = existingUser[0].id;
+        const { passwordResetTokens, authAuditLogs } = await import("../db/schema");
+        const crypto = await import("crypto");
+        
+        // Invalidate previous tokens
+        await db.update(passwordResetTokens)
+          .set({ used: true })
+          .where(and(eq(passwordResetTokens.user_id, userId), eq(passwordResetTokens.used, false)));
+        
+        // Generate secure 256-bit token
+        const rawToken = crypto.randomBytes(32).toString('hex');
+        const tokenHash = crypto.createHash('sha256').update(rawToken).digest('hex');
+        
+        await db.insert(passwordResetTokens).values({
+          id: crypto.randomUUID(),
+          user_id: userId,
+          token_hash: tokenHash,
+          expires_at: new Date(Date.now() + 1000 * 60 * 15), // 15 minutes expiry
+          used: false,
+          ip_address: ip,
+          user_agent: userAgent,
+        });
+        
+        // Audit log
+        await db.insert(authAuditLogs).values({
+          id: crypto.randomUUID(),
+          user_id: userId,
+          ip_address: ip,
+          browser: userAgent.substring(0, 50),
+          os: "unknown",
+          country: "unknown",
+          action: "REQUEST_PASSWORD_RESET",
+          success: true,
+        });
+        
+        const origin = await getOrigin();
+        const resetLink = `${origin}/reset-password?token=${rawToken}`;
+        
+        const { sendEmail } = await import("../email/send-email");
+        const { getPasswordResetEmailHtml } = await import("../email/templates");
+        await sendEmail(
+          data.email,
+          "Reset your password - Optima",
+          `You requested a password reset. Click the link below to reset your password:\n\n${resetLink}\n\nThis link expires in 15 minutes.\n\nIf you didn't request this, you can ignore this email.`,
+          getPasswordResetEmailHtml(resetLink)
+        );
+      } else {
+        // Audit log for non-existent user attempt
+        const { authAuditLogs } = await import("../db/schema");
+        const crypto = await import("crypto");
+        await db.insert(authAuditLogs).values({
+          id: crypto.randomUUID(),
+          user_id: null,
+          ip_address: ip,
+          browser: userAgent.substring(0, 50),
+          os: "unknown",
+          country: "unknown",
+          action: "REQUEST_PASSWORD_RESET_NOT_FOUND",
+          success: false,
+        });
+      }
+    } catch (err: any) {
+      console.error("Error generating password reset link:", err);
+      // Still return success to prevent enumeration if error occurs mid-flight
     }
 
-    const { passwordResetTokens } = await import("../db/schema");
-    const tokenId = generateId();
-    const resetToken = crypto.randomUUID();
-    const expiresAt = new Date(Date.now() + 1000 * 60 * 60); // 1 hour
-
-    await db.delete(passwordResetTokens).where(eq(passwordResetTokens.user_id, user[0].id));
-    await db.insert(passwordResetTokens).values({
-      id: tokenId,
-      user_id: user[0].id,
-      token: resetToken,
-      expires_at: expiresAt,
-    });
-
-    const origin = await getOrigin();
-    const resetLink = `${origin}/reset-password?token=${resetToken}`;
-
-    await db.insert(emailNotifications).values({
-      id: generateId(),
-      user_id: user[0].id,
-      email: data.email,
-      type: "password_reset",
-      subject: "Reset your password — Optima",
-      body: `You requested a password reset. Click the link below to reset your password:\n\n${resetLink}\n\nThis link expires in 1 hour.\n\nIf you didn't request this, you can ignore this email.`,
-    });
-
     return { success: true };
+  });
+
+export const validateResetTokenFn = createServerFn({ method: "POST" })
+  .validator(z.object({ token: z.string().max(255) }).strict())
+  .handler(async ({ data }) => {
+    const { passwordResetTokens } = await import("../db/schema");
+    const crypto = await import("crypto");
+    const tokenHash = crypto.createHash('sha256').update(data.token).digest('hex');
+    
+    const tokenRecord = await db.select()
+      .from(passwordResetTokens)
+      .where(eq(passwordResetTokens.token_hash, tokenHash))
+      .limit(1);
+
+    if (tokenRecord.length === 0 || tokenRecord[0].used) {
+      throw new Error("Invalid or already used reset token.");
+    }
+
+    if (tokenRecord[0].expires_at < new Date()) {
+      throw new Error("Reset token has expired.");
+    }
+
+    return { valid: true };
   });
 
 export const resetPasswordFn = createServerFn({ method: "POST" })
   .validator(z.object({ token: z.string().max(255), password: z.string().min(8).max(255) }).strict())
   .handler(async ({ data }) => {
-    const { passwordResetTokens } = await import("../db/schema");
+    const { passwordResetTokens, authAuditLogs } = await import("../db/schema");
+    const crypto = await import("crypto");
+    const tokenHash = crypto.createHash('sha256').update(data.token).digest('hex');
+    
     const tokenRecord = await db.select()
       .from(passwordResetTokens)
-      .where(eq(passwordResetTokens.token, data.token))
+      .where(eq(passwordResetTokens.token_hash, tokenHash))
       .limit(1);
 
-    if (tokenRecord.length === 0) {
-      throw new Error("Invalid or expired reset token.");
+    if (tokenRecord.length === 0 || tokenRecord[0].used) {
+      throw new Error("Invalid or already used reset token.");
     }
 
     const record = tokenRecord[0];
     const now = new Date();
 
     if (record.expires_at < now) {
-      await db.delete(passwordResetTokens).where(eq(passwordResetTokens.id, record.id));
       throw new Error("Reset token has expired. Please request a new one.");
     }
 
     const passwordHash = await hashPass(data.password);
-    await db.update(users)
-      .set({ password_hash: passwordHash, updated_at: now })
-      .where(eq(users.id, record.user_id));
+    const ip = await getClientIp();
+    
+    // Database transaction to ensure race conditions don't occur
+    await db.transaction(async (tx) => {
+      // 1. Update Password
+      await tx.update(users)
+        .set({ password_hash: passwordHash, updated_at: now })
+        .where(eq(users.id, record.user_id));
+        
+      // 2. Mark token as used
+      await tx.update(passwordResetTokens)
+        .set({ used: true })
+        .where(eq(passwordResetTokens.id, record.id));
+        
+      // 3. Invalidate all sessions
+      const { sessions } = await import("../db/schema");
+      await tx.delete(sessions).where(eq(sessions.user_id, record.user_id));
+      
+      // 4. Insert Audit Log
+      await tx.insert(authAuditLogs).values({
+        id: crypto.randomUUID(),
+        user_id: record.user_id,
+        ip_address: ip,
+        browser: "unknown",
+        os: "unknown",
+        country: "unknown",
+        action: "RESET_PASSWORD_SUCCESS",
+        success: true,
+        timestamp: new Date(),
+      });
+    });
 
-    // Clean up used token
-    await db.delete(passwordResetTokens).where(eq(passwordResetTokens.id, record.id));
+    // Send Confirmation Email
+    const user = await db.select({ email: users.email }).from(users).where(eq(users.id, record.user_id));
+    if (user.length > 0) {
+      const { sendEmail } = await import("../email/send-email");
+      const { getPasswordChangedEmailHtml } = await import("../email/templates");
+      await sendEmail(
+        user[0].email,
+        "Your password has been changed - Optima",
+        "If this wasn't you, secure your account immediately.",
+        getPasswordChangedEmailHtml()
+      );
+    }
 
+    return { success: true };
+  });
+
+export const logoutAllFn = createServerFn({ method: "POST" })
+  .handler(async () => {
+    const authData = await getSession();
+    if (!authData) {
+      throw new Error("Unauthorized");
+    }
+    const { sessions } = await import("../db/schema");
+    await db.delete(sessions).where(eq(sessions.user_id, authData.user.id));
+    await deleteCookie();
     return { success: true };
   });
 

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../hooks/use-auth";
 import { PublicOnlyRoute } from "../components/auth/route-guard";
 import { OptimaLogo } from "../components/site/OptimaLogo";
@@ -22,17 +22,40 @@ function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [cooldown, setCooldown] = useState(0);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (cooldown > 0) {
+      timer = setTimeout(() => setCooldown(cooldown - 1), 1000);
+    }
+    return () => clearTimeout(timer);
+  }, [cooldown]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (cooldown > 0) return;
+
     setStatus("loading");
     setErrorMessage("");
     try {
-      await sendResetLink(email);
+      const actionCodeSettings = {
+        url: window.location.origin + '/login',
+        handleCodeInApp: false
+      };
+      await sendResetLink(email, actionCodeSettings);
+      // Always show success to prevent enumeration
       setStatus("success");
+      setCooldown(60);
     } catch (err: any) {
-      setErrorMessage(err.message || "Failed to send reset link.");
-      setStatus("error");
+      // Even on failure, if it's not a rate limit, show generic success to prevent enumeration
+      if (err.message && err.message.includes("Too many")) {
+        setErrorMessage(err.message);
+        setStatus("error");
+      } else {
+        setStatus("success");
+        setCooldown(60);
+      }
     }
   };
 
@@ -63,7 +86,7 @@ function ForgotPasswordPage() {
               <div>
                 <h3 className="font-semibold text-lg">Check your inbox</h3>
                 <p className="text-sm text-muted-foreground mt-1">
-                  We've sent a password reset link to <span className="font-medium text-foreground">{email}</span>
+                  If an account exists with this email, we've sent password reset instructions to <span className="font-medium text-foreground">{email}</span>.
                 </p>
               </div>
               <Link to="/login" className="inline-flex items-center gap-1.5 text-sm font-medium text-brand hover:underline">
@@ -86,11 +109,13 @@ function ForgotPasswordPage() {
               </div>
               <button
                 type="submit"
-                disabled={status === "loading"}
+                disabled={status === "loading" || cooldown > 0}
                 className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-brand text-sm font-semibold text-brand-foreground shadow-glow hover:scale-[1.01] active:scale-[0.99] transition-all disabled:opacity-50 cursor-pointer"
               >
                 {status === "loading" ? (
                   <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</>
+                ) : cooldown > 0 ? (
+                  `Wait ${cooldown}s`
                 ) : (
                   <><Mail className="h-4 w-4" /> Send Reset Link</>
                 )}

@@ -27,7 +27,9 @@ export const getToolsFn = createServerFn({ method: "GET" })
         growth_score: t.score,
         review_score: t.score,
         reliability_score: t.score,
-        trend_indicator: "stable"
+        trend_indicator: "stable",
+        website_url: t.url || "",
+        color: t.color || ""
       }));
     }
   });
@@ -45,6 +47,7 @@ export const addToolFn = createServerFn({ method: "POST" })
     reliability_score: z.number(),
     trend_indicator: z.string(),
     color: z.string(),
+    website_url: z.string().optional(),
     last_verified_at: z.string()
   }))
   .handler(async ({ data }) => {

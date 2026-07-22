@@ -7,7 +7,7 @@ import {
   Code, Puzzle, Shield, Gauge, BookOpen, Sparkles,
   ChevronDown, ChevronUp, Copy,
 } from "lucide-react";
-import { AI_TOOLS, CATEGORIES, COMPARE_METRICS, COMPARE_DATA } from "@/lib/data/tools";
+import { AI_TOOLS, CATEGORIES, COMPARE_METRICS } from "@/lib/data/tools";
 import { useAuth } from "../hooks/use-auth";
 import { toast } from "sonner";
 
@@ -201,7 +201,6 @@ function getToolMeta(name: string): ToolMeta {
 }
 
 const getCompareScore = (toolName: string, metric: string): number => {
-  if (COMPARE_DATA[toolName]?.[metric] !== undefined) return COMPARE_DATA[toolName][metric];
   const tool = AI_TOOLS.find((t) => t.name === toolName);
   const baseScore = tool ? Math.round(tool.score / 10) : 8;
   const v = (metric.charCodeAt(0) + metric.charCodeAt(metric.length - 1)) % 3 - 1;

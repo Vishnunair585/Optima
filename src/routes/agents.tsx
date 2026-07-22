@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Bot, Star, ArrowRight, Search, ExternalLink } from "lucide-react";
-import { AGENT_CATEGORIES, AI_AGENTS, AGENT_COUNT } from "../lib/data/agents";
+import { AI_AGENTS } from "../lib/data/agents";
+import { CATEGORIES as AGENT_CATEGORIES } from "../lib/data/tools";
+const AGENT_COUNT = AI_AGENTS.length;
 
 import { ProtectedRoute } from "../components/auth/route-guard";
 
@@ -69,74 +71,73 @@ function AgentsPage() {
         </p>
       </div>
 
-      <div className="mt-6 flex flex-wrap gap-2">
-        {["All", ...AGENT_CATEGORIES].map((c) => (
-          <button
-            key={c}
-            onClick={() => setCat(c)}
-            className={`rounded-full border px-3.5 py-1.5 text-sm transition-all ${
-              cat === c
-                ? "border-brand bg-brand/15 text-foreground"
-                : "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
-            }`}
-          >
-            {c}
-          </button>
-        ))}
+      <div className="mt-6">
+        <select
+          value={cat}
+          onChange={(e) => setCat(e.target.value)}
+          className="h-10 w-full sm:w-64 rounded-xl border border-border bg-card/40 px-3 text-sm focus:border-brand outline-none transition-all"
+        >
+          {["All", ...AGENT_CATEGORIES].map((c) => (
+            <option key={c} value={c}>
+              {c}
+            </option>
+          ))}
+        </select>
       </div>
 
       {list.length > 0 ? (
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {list.map((a, index) => (
-            <div
-              key={`${a.name}-${index}`}
-              className="group relative overflow-hidden rounded-2xl glass p-6 transition-all hover:-translate-y-1"
-            >
-              <div
-                className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full blur-3xl opacity-30"
-                style={{ background: a.color }}
-              />
-              <div className="relative flex items-center justify-between">
-                <span
-                  className="grid h-10 w-10 place-items-center rounded-xl"
-                  style={{ background: `${a.color}25`, color: a.color }}
-                >
-                  <Bot className="h-5 w-5" />
-                </span>
-                <span className="rounded-full border border-border bg-card/60 px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
-                  {a.cat}
-                </span>
-              </div>
-              <h3 className="mt-4 font-display text-xl font-semibold">{a.name}</h3>
-              {a.vendor && (
-                <p className="text-[11px] font-mono text-muted-foreground mt-0.5">{a.vendor}</p>
-              )}
-              <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{a.desc}</p>
-              <div className="mt-4 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-1 text-sm">
-                    <Star className="h-3.5 w-3.5 fill-warning text-warning" />
-                    <span className="font-mono">{a.score}</span>
+          {list.map((a, index) => {
+            const CardWrapper = a.url ? "a" : "div";
+            return (
+              <CardWrapper
+                {...(a.url ? { href: a.url, target: "_blank", rel: "noopener noreferrer" } : {})}
+                key={`${a.name}-${index}`}
+                className="group relative overflow-hidden rounded-2xl glass p-6 transition-all hover:-translate-y-1 block text-foreground no-underline"
+              >
+                <div
+                  className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full blur-3xl opacity-30"
+                  style={{ background: a.color }}
+                />
+                <div className="relative flex items-center justify-between">
+                  <span
+                    className="grid h-10 w-10 place-items-center rounded-xl"
+                    style={{ background: `${a.color}25`, color: a.color }}
+                  >
+                    <Bot className="h-5 w-5" />
+                  </span>
+                  <span className="rounded-full border border-border bg-card/60 px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-muted-foreground truncate max-w-[120px]">
+                    {a.cat}
+                  </span>
+                </div>
+                <h3 className="mt-4 font-display text-xl font-semibold">{a.name}</h3>
+                {a.vendor && (
+                  <p className="text-[11px] font-mono text-muted-foreground mt-0.5">{a.vendor}</p>
+                )}
+                <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{a.desc}</p>
+                <div className="mt-4 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-1 text-sm">
+                      <Star className="h-3.5 w-3.5 fill-warning text-warning" />
+                      <span className="font-mono">{a.score}</span>
+                    </div>
+                    {a.pricing && (
+                      <span className="text-[10px] font-mono text-emerald-400">{a.pricing}</span>
+                    )}
                   </div>
-                  {a.pricing && (
-                    <span className="text-[10px] font-mono text-emerald-400">{a.pricing}</span>
+                  {a.url ? (
+                    <div className="inline-flex items-center gap-1 text-xs text-brand hover:underline">
+                      Visit <ExternalLink className="h-3 w-3" />
+                    </div>
+                  ) : (
+                    <span className="text-[10px] text-muted-foreground italic">
+                      You can search this AI tool
+                    </span>
                   )}
                 </div>
-                {a.url ? (
-                  <a
-                    href={a.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs text-brand hover:underline"
-                  >
-                    Visit <ExternalLink className="h-3 w-3" />
-                  </a>
-                ) : (
-                  <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1" />
-                )}
-              </div>
-            </div>
-          ))}
+              </CardWrapper>
+            );
+          })}
         </div>
       ) : (
         <div className="mt-16 rounded-2xl border border-dashed border-border p-16 text-center text-muted-foreground">

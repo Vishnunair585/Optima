@@ -3,6 +3,8 @@ import { useState, useMemo } from "react";
 import { Calculator, DollarSign, Search, Plus, Trash2, ShieldCheck, X, Zap, Box, BrainCircuit, Users } from "lucide-react";
 import { ProtectedRoute } from "../components/auth/route-guard";
 import { AI_TOOLS } from "../lib/data/tools";
+import { AI_AGENTS } from "../lib/data/agents";
+import { Bot } from "lucide-react";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 
@@ -36,13 +38,7 @@ const API_MODELS = [
   { id: "command-r-plus", name: "Command R+", provider: "Cohere", inputPrice: 3.0, outputPrice: 15.0, type: "API" },
 ];
 
-const AI_AGENTS_SUBS = [
-  { id: "devin", name: "Devin (Cognition)", provider: "Cognition", monthlyPrice: 500, type: "Agent" },
-  { id: "multion", name: "MultiOn Pro", provider: "MultiOn", monthlyPrice: 49, type: "Agent" },
-  { id: "crewai-ent", name: "CrewAI Enterprise", provider: "CrewAI", monthlyPrice: 99, type: "Agent" },
-  { id: "lindyai", name: "Lindy.ai", provider: "Lindy", monthlyPrice: 20, type: "Agent" },
-  { id: "auto-gpt-cloud", name: "AutoGPT Cloud", provider: "AutoGPT", monthlyPrice: 15, type: "Agent" },
-];
+// AI_AGENTS will be loaded directly from data
 
 const USAGE_TIERS = {
   low: { label: "Low (Solo / Hobby)", inputMillions: 1, outputMillions: 0.2 },
@@ -70,7 +66,7 @@ function CalcPage() {
   // Selected items arrays
   const [selectedApis, setSelectedApis] = useState<typeof API_MODELS>([]);
   const [selectedSaas, setSelectedSaas] = useState<typeof AI_TOOLS>([]);
-  const [selectedAgents, setSelectedAgents] = useState<typeof AI_AGENTS_SUBS>([]);
+  const [selectedAgents, setSelectedAgents] = useState<typeof AI_AGENTS>([]);
 
   const currentInputM = usageTier === "custom" ? customInput : USAGE_TIERS[usageTier].inputMillions;
   const currentOutputM = usageTier === "custom" ? customOutput : USAGE_TIERS[usageTier].outputMillions;
@@ -89,9 +85,9 @@ function CalcPage() {
   }, [search]);
 
   const agentResults = useMemo(() => {
-    if (!search.trim()) return AI_AGENTS_SUBS;
+    if (!search.trim()) return [];
     const query = search.toLowerCase();
-    return AI_AGENTS_SUBS.filter(m => m.name.toLowerCase().includes(query) || m.provider.toLowerCase().includes(query));
+    return AI_AGENTS.filter(m => m.name.toLowerCase().includes(query) || (m.vendor?.toLowerCase().includes(query) ?? false)).slice(0, 10);
   }, [search]);
 
   // Calculations
@@ -104,7 +100,11 @@ function CalcPage() {
     return typeof p === 'number' ? acc + p : acc;
   }, 0);
 
-  const totalAgentCost = selectedAgents.reduce((acc, a) => acc + a.monthlyPrice, 0);
+  const totalAgentCost = selectedAgents.reduce((acc, a) => {
+    let p = parseSaaSPrice(a.pricing);
+    if (p === "Custom") p = 20; // Default estimate for Agents if Custom/Freemium
+    return typeof p === 'number' ? acc + p : acc;
+  }, 0);
 
   const grandTotal = totalApiCost + totalSaasCost + totalAgentCost;
   const hasCustomSaas = selectedSaas.some(t => parseSaaSPrice(t.price) === "Custom");
@@ -143,7 +143,7 @@ function CalcPage() {
             </div>
 
             {usageTier === "custom" && (
-              <div className="grid grid-cols-2 gap-4 bg-black/20 p-4 rounded-xl border border-border">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-black/20 p-4 rounded-xl border border-border mt-4">
                 <div>
                   <label className="text-xs text-muted-foreground mb-1 block">Input Tokens (Millions/mo)</label>
                   <Input type="number" value={customInput} onChange={e => setCustomInput(Number(e.target.value))} />
@@ -217,17 +217,23 @@ function CalcPage() {
 
               {activeTab === 'agents' && agentResults.map(agent => (
                 <button
-                  key={agent.id}
-                  onClick={() => !selectedAgents.find(a => a.id === agent.id) && setSelectedAgents([...selectedAgents, agent])}
+                  key={agent.name}
+                  onClick={() => !selectedAgents.find(a => a.name === agent.name) && setSelectedAgents([...selectedAgents, agent])}
                   className="w-full flex items-center justify-between p-3 rounded-xl border border-border hover:border-brand hover:bg-brand/5 transition-colors text-left"
                 >
                   <div>
-                    <div className="font-medium">{agent.name}</div>
-                    <div className="text-xs text-muted-foreground mt-1">${agent.monthlyPrice}/mo</div>
+                    <div className="font-medium">{agent.name} <span className="text-xs font-normal text-muted-foreground ml-2">by {agent.vendor}</span></div>
+                    <div className="text-xs text-muted-foreground mt-1">{agent.pricing}</div>
                   </div>
                   <Plus className="h-4 w-4 text-muted-foreground" />
                 </button>
               ))}
+              
+              {activeTab === 'agents' && search.trim() === '' && (
+                <div className="text-center p-8 text-muted-foreground text-sm border border-dashed border-border rounded-xl">
+                  Search through our database of 400+ Autonomous Agents to add them to your stack.
+                </div>
+              )}
 
               {activeTab === 'saas' && saasResults.map(tool => (
                 <button
@@ -293,9 +299,9 @@ function CalcPage() {
               ))}
 
               {selectedAgents.map(agent => (
-                <div key={agent.id} className="flex items-center justify-between group">
+                <div key={agent.name} className="flex items-center justify-between group">
                   <div className="text-sm truncate pr-2"><span className="text-[10px] bg-purple-500/20 text-purple-400 px-1.5 py-0.5 rounded mr-2">AGENT</span>{agent.name}</div>
-                  <button onClick={() => setSelectedAgents(prev => prev.filter(a => a.id !== agent.id))} className="text-muted-foreground hover:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"><X className="h-3.5 w-3.5" /></button>
+                  <button onClick={() => setSelectedAgents(prev => prev.filter(a => a.name !== agent.name))} className="text-muted-foreground hover:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"><X className="h-3.5 w-3.5" /></button>
                 </div>
               ))}
 
@@ -319,9 +325,4 @@ function CalcPage() {
       </div>
     </div>
   );
-}
-
-// Ensure lucide icon Bot is imported for the Agent tab
-function Bot(props: any) {
-  return <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>;
 }

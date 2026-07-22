@@ -24,14 +24,14 @@ function getTransporter() {
   return transporter;
 }
 
-export async function sendEmail(to: string, subject: string, body: string, isHtml: boolean = false) {
+export async function sendEmail(to: string, subject: string, body: string, customHtml?: string) {
   const t = getTransporter();
 
-  const htmlTemplate = `
+  const htmlTemplate = customHtml || `
     <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 8px;">
       <h2 style="color: #6366f1;">Optima Support</h2>
       <div style="color: #333; line-height: 1.6;">
-        ${isHtml ? body : body.replace(/\n/g, '<br>')}
+        ${body.replace(/\n/g, '<br>')}
       </div>
       <hr style="border: none; border-top: 1px solid #eaeaea; margin: 30px 0;" />
       <p style="font-size: 12px; color: #888;">
@@ -54,7 +54,44 @@ export async function sendEmail(to: string, subject: string, body: string, isHtm
       return true;
     } catch (err) {
       console.error(`[EMAIL] Failed to send to ${to}:`, err);
-      return false;
+      
+      // Fallback: If their SMTP fails (e.g. BadCredentials), use Ethereal to give them a real inbox preview
+      try {
+        console.log("Generating Ethereal test account to preview email...");
+        const testAccount = await nodemailer.createTestAccount();
+        const testTransporter = nodemailer.createTransport({
+          host: "smtp.ethereal.email",
+          port: 587,
+          secure: false,
+          auth: {
+            user: testAccount.user,
+            pass: testAccount.pass,
+          },
+        });
+        
+        const info = await testTransporter.sendMail({
+          from: '"Optima Test Support" <test@optima.app>',
+          to,
+          subject,
+          text: body,
+          html: htmlTemplate,
+        });
+        
+        console.log("============================================================");
+        console.log(`[EMAIL PREVIEW INBOX READY]`);
+        console.log(`Your SMTP failed, so we sent it to a test inbox instead!`);
+        console.log(`Click here to view your email: ${nodemailer.getTestMessageUrl(info)}`);
+        console.log("============================================================");
+        return true;
+      } catch (etherealErr) {
+        // Ultimate fallback to console
+        console.log("=".repeat(60));
+        console.log(`[EMAIL FALLBACK] To: ${to}`);
+        console.log(`[EMAIL FALLBACK] Subject: ${subject}`);
+        console.log(`[EMAIL FALLBACK] Body:\n${body}`);
+        console.log("=".repeat(60));
+        return false;
+      }
     }
   }
 

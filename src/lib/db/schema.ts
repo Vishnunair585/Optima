@@ -25,8 +25,24 @@ export const sessions = sqliteTable("sessions", {
 export const passwordResetTokens = sqliteTable("password_reset_tokens", {
   id: text("id").primaryKey(),
   user_id: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
-  token: text("token").notNull().unique(),
+  token_hash: text("token_hash").notNull().unique(),
   expires_at: integer("expires_at", { mode: "timestamp" }).notNull(),
+  used: integer("used", { mode: "boolean" }).default(false).notNull(),
+  created_at: integer("created_at", { mode: "timestamp" }).default(sql`(strftime('%s', 'now'))`).notNull(),
+  ip_address: text("ip_address"),
+  user_agent: text("user_agent"),
+});
+
+export const authAuditLogs = sqliteTable("auth_audit_logs", {
+  id: text("id").primaryKey(),
+  user_id: text("user_id"), // Can be null if action is from unknown user
+  ip_address: text("ip_address"),
+  browser: text("browser"),
+  os: text("os"),
+  country: text("country"),
+  action: text("action").notNull(),
+  success: integer("success", { mode: "boolean" }).notNull(),
+  timestamp: integer("timestamp", { mode: "timestamp" }).default(sql`(strftime('%s', 'now'))`).notNull(),
 });
 
 export const userProfiles = sqliteTable("user_profiles", {
@@ -792,6 +808,7 @@ export const aiTools = sqliteTable('ai_tools', {
   overall_score: real('overall_score'),
   trend_indicator: text('trend_indicator').notNull(),
   color: text('color').notNull(),
+  website_url: text('website_url').notNull().default(''),
   last_verified_at: text('last_verified_at').notNull(),
   created_at: integer('created_at', { mode: 'timestamp' }).default(sql`(strftime('%s', 'now'))`).notNull(),
   updated_at: integer('updated_at', { mode: 'timestamp' }).default(sql`(strftime('%s', 'now'))`).notNull(),
