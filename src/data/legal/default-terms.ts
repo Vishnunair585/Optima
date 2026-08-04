@@ -123,5 +123,5 @@ THE SERVICES ARE PROVIDED ON AN "AS-IS" AND "AS-AVAILABLE" BASIS. OPTIMA EXPRESS
 ## 19. Contact
 
 If you have any questions or concerns regarding these Terms, please visit our Help Center or contact us directly at:
-**legal@optima.example.com**
+**optimainc2026@gmail.com**
 `;

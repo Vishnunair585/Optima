@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { createAdminServerFn } from "./middleware";
 import { z } from "zod";
 import { db } from "../db";
 import { aiTools } from "../db/schema";
@@ -34,7 +35,7 @@ export const getToolsFn = createServerFn({ method: "GET" })
     }
   });
 
-export const addToolFn = createServerFn({ method: "POST" })
+export const addToolFn = createAdminServerFn({ method: "POST" })
   .validator(z.object({
     name: z.string(),
     vendor: z.string(),
@@ -66,7 +67,7 @@ export const addToolFn = createServerFn({ method: "POST" })
     return { success: true, id };
   });
 
-export const deleteToolFn = createServerFn({ method: "POST" })
+export const deleteToolFn = createAdminServerFn({ method: "POST" })
   .validator(z.object({ id: z.string() }))
   .handler(async ({ data }) => {
     await db.delete(aiTools).where(eq(aiTools.id, data.id));

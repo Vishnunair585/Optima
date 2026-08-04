@@ -3,7 +3,8 @@ import { useAuth } from "../hooks/use-auth";
 import { Mail, RefreshCw, LogOut, CheckCircle, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { OptimaLogo } from "../components/site/OptimaLogo";
+import { AuthLayout } from "../components/auth/AuthLayout";
+import { Button } from "../components/ui/button";
 
 export const Route = createFileRoute("/verify-email")({
   component: VerifyEmailPage,
@@ -29,12 +30,8 @@ function VerifyEmailPage() {
     setChecking(true);
     try {
       await refreshSession();
-      // user state will automatically update because of the context
-      // if not immediately updated in context, we could check auth.currentUser directly, 
-      // but relying on context is cleaner.
       setTimeout(() => {
         setChecking(false);
-        // The useEffect will catch the updated user.email_verified
         toast.info("Checked verification status.");
       }, 1000);
     } catch {
@@ -54,14 +51,10 @@ function VerifyEmailPage() {
 
   if (!isLoaded || !user) {
     return (
-      <div className="flex min-h-[50vh] items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-4">
-          <div className="relative flex items-center justify-center">
-            <div className="absolute h-16 w-16 animate-[spin_4s_linear_infinite] rounded-full border-2 border-brand/20 border-t-brand border-r-brand/60" />
-            <div className="absolute h-10 w-10 animate-[spin_3s_linear_infinite_reverse] rounded-full border-2 border-brand/30 border-b-brand/80 border-l-brand" />
-            <div className="h-4 w-4 rounded-full bg-brand shadow-[0_0_15px_rgba(102,51,255,0.7)] animate-pulse" />
-          </div>
-          <span className="text-xs font-mono uppercase tracking-widest text-brand animate-pulse">Loading Workspace...</span>
+          <Loader2 className="h-8 w-8 text-brand animate-spin" />
+          <span className="text-sm text-muted-foreground animate-pulse">Loading Workspace...</span>
         </div>
       </div>
     );
@@ -69,78 +62,75 @@ function VerifyEmailPage() {
 
   if (verified || user.email_verified) {
     return (
-      <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-b from-background to-muted/30 px-4 py-12">
-        <div className="w-full max-w-[420px] text-center">
-          <div className="rounded-2xl border border-emerald-500/20 bg-card/50 backdrop-blur-sm p-8 shadow-elegant space-y-6">
-            <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-500/10 text-emerald-500">
-              <CheckCircle className="h-8 w-8" />
-            </div>
-            <h2 className="text-xl font-bold tracking-tight">Email verified!</h2>
-            <p className="text-sm text-muted-foreground">Redirecting you to your account...</p>
+      <AuthLayout
+        title="Email Verified!"
+        subtitle="Redirecting you to your account..."
+      >
+        <div className="flex justify-center py-6">
+          <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center border border-emerald-500/20 shadow-glow">
+            <CheckCircle className="w-8 h-8 text-emerald-500" />
           </div>
         </div>
-      </div>
+      </AuthLayout>
     );
   }
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-b from-background to-muted/30 px-4 py-12">
-      <div className="w-full max-w-[420px]">
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center mb-4">
-            <OptimaLogo className="h-12 w-12" />
+    <AuthLayout
+      title="Verify your email"
+      subtitle={`We've sent a verification link to ${user.email}`}
+    >
+      <div className="w-full space-y-6">
+        <div className="flex justify-center animate-bounce-subtle">
+          <div className="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center border border-brand/20 shadow-glow">
+            <Mail className="w-8 h-8 text-brand" />
           </div>
         </div>
 
-        <div className="rounded-2xl border border-border/60 bg-card/50 backdrop-blur-sm p-8 shadow-elegant text-center space-y-6">
-          <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-brand/10 border border-brand/20 text-brand">
-            <Mail className="h-8 w-8" />
-          </div>
+        <p className="text-center text-sm text-muted-foreground leading-relaxed">
+          Please check your inbox and click the link to verify your account before continuing.
+        </p>
+        
+        <div className="flex items-start gap-2 p-3 text-xs bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 rounded-lg">
+          <Mail className="w-4 h-4 shrink-0 mt-0.5" />
+          <p>If you don't see the email, please check your <strong>spam</strong> or <strong>junk</strong> folder. Depending on your email provider, it might take a minute to arrive.</p>
+        </div>
 
-          <div>
-            <h2 className="text-xl font-bold tracking-tight">Verify your email</h2>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-              We've sent a verification link to{" "}
-              <span className="font-semibold text-foreground">{user.email}</span>. 
-              Please check your inbox and click the link to verify your account.
-            </p>
-          </div>
+        <div className="space-y-3 pt-2">
+          <Button
+            onClick={handleCheckVerified}
+            disabled={checking}
+            className="w-full h-11 text-base font-semibold bg-gradient-brand text-white shadow-lg hover:shadow-brand/25 transition-all"
+          >
+            {checking ? (
+              <Loader2 className="w-5 h-5 animate-spin" />
+            ) : (
+              <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4" /> I have clicked the link</span>
+            )}
+          </Button>
 
-          <div className="space-y-3 pt-2">
-            <button
-              onClick={handleCheckVerified}
-              disabled={checking}
-              className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-brand text-sm font-semibold text-brand-foreground shadow-glow hover:scale-[1.01] active:scale-[0.99] transition-all disabled:opacity-50 cursor-pointer"
-            >
-              {checking ? (
-                <><Loader2 className="h-4 w-4 animate-spin" /> Checking...</>
-              ) : (
-                <><CheckCircle className="h-4 w-4" /> I have clicked the link</>
-              )}
-            </button>
+          <Button
+            variant="outline"
+            onClick={handleResend}
+            disabled={resending}
+            className="w-full h-11 text-base font-medium"
+          >
+            {resending ? (
+              <Loader2 className="w-5 h-5 animate-spin" />
+            ) : (
+              <span className="flex items-center gap-2"><RefreshCw className="w-4 h-4" /> Resend Verification Link</span>
+            )}
+          </Button>
 
-            <button
-              onClick={handleResend}
-              disabled={resending}
-              className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-border/60 bg-background/40 text-sm font-semibold hover:bg-accent hover:text-foreground transition-all disabled:opacity-50 cursor-pointer"
-            >
-              {resending ? (
-                <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</>
-              ) : (
-                <><RefreshCw className="h-4 w-4" /> Resend Verification Link</>
-              )}
-            </button>
-
-            <button
-              onClick={() => logout()}
-              className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-rose-500/20 bg-rose-500/5 text-sm font-semibold text-rose-400 hover:bg-rose-500/10 transition-all cursor-pointer"
-            >
-              <LogOut className="h-4 w-4" />
-              Use a different email
-            </button>
-          </div>
+          <Button
+            variant="ghost"
+            onClick={() => logout()}
+            className="w-full h-11 text-base font-medium text-destructive hover:bg-destructive/10 hover:text-destructive"
+          >
+            <LogOut className="w-4 h-4 mr-2" /> Use a different email
+          </Button>
         </div>
       </div>
-    </div>
+    </AuthLayout>
   );
 }

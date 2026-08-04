@@ -1,20 +1,20 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { useAuth } from "../hooks/use-auth";
 import { PublicOnlyRoute } from "../components/auth/route-guard";
-import { OptimaLogo } from "../components/site/OptimaLogo";
-import { Loader2, AlertCircle, Check, ArrowLeft, Mail } from "lucide-react";
+import { AuthLayout } from "../components/auth/AuthLayout";
+import { Loader2, AlertCircle, Mail, RefreshCw, Edit2 } from "lucide-react";
+import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/button";
+import { z } from "zod";
+import { forgotPasswordSchema } from "../components/auth/validation";
 
-function ForgotPasswordRoute() {
-  return (
+export const Route = createFileRoute("/forgot-password")({
+  component: () => (
     <PublicOnlyRoute>
       <ForgotPasswordPage />
     </PublicOnlyRoute>
-  );
-}
-
-export const Route = createFileRoute("/forgot-password")({
-  component: ForgotPasswordRoute,
+  ),
 });
 
 function ForgotPasswordPage() {
@@ -34,22 +34,26 @@ function ForgotPasswordPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (cooldown > 0) return;
+    if (cooldown > 0 || status === "loading") return;
 
-    setStatus("loading");
-    setErrorMessage("");
     try {
+      setStatus("loading");
+      setErrorMessage("");
+      forgotPasswordSchema.parse({ email });
+
       const actionCodeSettings = {
         url: window.location.origin + '/login',
         handleCodeInApp: false
       };
+      
       await sendResetLink(email, actionCodeSettings);
-      // Always show success to prevent enumeration
       setStatus("success");
       setCooldown(60);
     } catch (err: any) {
-      // Even on failure, if it's not a rate limit, show generic success to prevent enumeration
-      if (err.message && err.message.includes("Too many")) {
+      if (err instanceof z.ZodError) {
+        setErrorMessage(err.errors[0].message);
+        setStatus("error");
+      } else if (err.message && err.message.includes("Too many")) {
         setErrorMessage(err.message);
         setStatus("error");
       } else {
@@ -59,77 +63,116 @@ function ForgotPasswordPage() {
     }
   };
 
-  return (
-    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-b from-background to-muted/30 px-4 py-12">
-      <div className="w-full max-w-[420px]">
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center mb-4">
-            <OptimaLogo className="h-12 w-12" />
-          </div>
-          <h1 className="text-2xl font-bold tracking-tight">Reset your password</h1>
-          <p className="text-sm text-muted-foreground mt-1.5">Enter your email and we'll send you a reset link</p>
-        </div>
+  const handleResend = async () => {
+    if (cooldown > 0) return;
+    setStatus("loading");
+    try {
+      const actionCodeSettings = {
+        url: window.location.origin + '/login',
+        handleCodeInApp: false
+      };
+      await sendResetLink(email, actionCodeSettings);
+      setCooldown(60);
+      setStatus("success");
+    } catch (err) {
+      setCooldown(60);
+      setStatus("success");
+    }
+  };
 
+  if (status === "success") {
+    return (
+      <AuthLayout
+        title="Check your email"
+        subtitle={`We've sent a password reset link to ${email}`}
+        backLink="/login"
+        backLabel="Back to Login"
+      >
+        <div className="w-full space-y-6">
+          <div className="flex justify-center animate-bounce-subtle">
+            <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center border border-emerald-500/20 shadow-glow">
+              <Mail className="w-8 h-8 text-emerald-500" />
+            </div>
+          </div>
+          
+          <div className="space-y-3">
+            <Button
+              onClick={handleResend}
+              disabled={cooldown > 0 || status === "loading"}
+              className="w-full h-11 text-base font-semibold bg-gradient-brand text-white shadow-lg hover:shadow-brand/25 transition-all"
+            >
+              {status === "loading" ? (
+                <Loader2 className="w-5 h-5 animate-spin" />
+              ) : cooldown > 0 ? (
+                `Resend in ${cooldown}s`
+              ) : (
+                <span className="flex items-center gap-2"><RefreshCw className="w-4 h-4" /> Resend Link</span>
+              )}
+            </Button>
+
+            <Button
+              variant="outline"
+              onClick={() => {
+                setStatus("idle");
+                setCooldown(0);
+              }}
+              className="w-full h-11 text-base font-medium"
+            >
+              <Edit2 className="w-4 h-4 mr-2" /> Change Email
+            </Button>
+          </div>
+        </div>
+      </AuthLayout>
+    );
+  }
+
+  return (
+    <AuthLayout
+      title="Reset your password"
+      subtitle="Enter your email to receive a reset link"
+      backLink="/login"
+      backLabel="Back to Login"
+    >
+      <div className="w-full space-y-6">
         {status === "error" && (
-          <div className="mb-4 flex items-start gap-2.5 rounded-xl border border-rose-500/20 bg-rose-500/10 px-4 py-3 text-sm text-rose-600 dark:text-rose-400">
-            <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
-            <span>{errorMessage}</span>
+          <div className="p-4 rounded-xl bg-destructive/10 border border-destructive/20 flex items-start gap-3 animate-fade-in">
+            <AlertCircle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+            <p className="text-sm text-destructive-foreground font-medium">{errorMessage}</p>
           </div>
         )}
 
-        <div className="rounded-2xl border border-border/60 bg-card/50 backdrop-blur-sm p-6 shadow-elegant">
-          {status === "success" ? (
-            <div className="text-center py-4 space-y-4">
-              <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-500">
-                <Check className="h-7 w-7" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg">Check your inbox</h3>
-                <p className="text-sm text-muted-foreground mt-1">
-                  If an account exists with this email, we've sent password reset instructions to <span className="font-medium text-foreground">{email}</span>.
-                </p>
-              </div>
-              <Link to="/login" className="inline-flex items-center gap-1.5 text-sm font-medium text-brand hover:underline">
-                <ArrowLeft className="h-3.5 w-3.5" /> Back to sign in
-              </Link>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-xs font-medium text-muted-foreground mb-1.5">Email address</label>
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@example.com"
-                  autoComplete="email"
-                  className="w-full h-11 px-3.5 text-sm rounded-xl border border-border bg-background/60 outline-none focus:border-brand focus:ring-1 focus:ring-brand/30 transition-all"
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={status === "loading" || cooldown > 0}
-                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-brand text-sm font-semibold text-brand-foreground shadow-glow hover:scale-[1.01] active:scale-[0.99] transition-all disabled:opacity-50 cursor-pointer"
-              >
-                {status === "loading" ? (
-                  <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</>
-                ) : cooldown > 0 ? (
-                  `Wait ${cooldown}s`
-                ) : (
-                  <><Mail className="h-4 w-4" /> Send Reset Link</>
-                )}
-              </button>
-            </form>
-          )}
-        </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-1">
+            <label htmlFor="email" className="text-sm font-medium text-foreground">
+              Email
+            </label>
+            <Input
+              id="email"
+              type="email"
+              autoComplete="email"
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={status === "loading"}
+              className="w-full h-11"
+            />
+          </div>
 
-        <p className="mt-6 text-center text-sm">
-          <Link to="/login" className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            <ArrowLeft className="h-3.5 w-3.5" /> Back to sign in
-          </Link>
-        </p>
+          <Button
+            type="submit"
+            disabled={status === "loading" || cooldown > 0}
+            className="w-full h-11 text-base font-semibold bg-gradient-brand text-white shadow-lg hover:shadow-brand/25 transition-all mt-2"
+          >
+            {status === "loading" ? (
+              <Loader2 className="w-5 h-5 animate-spin" />
+            ) : cooldown > 0 ? (
+              `Wait ${cooldown}s`
+            ) : (
+              'Send Reset Link'
+            )}
+          </Button>
+        </form>
       </div>
-    </div>
+    </AuthLayout>
   );
 }

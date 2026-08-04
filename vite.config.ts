@@ -7,6 +7,30 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  vite: {
+    plugins: [
+      {
+        name: 'mock-server',
+        enforce: 'pre',
+        resolveId(source, importer, options) {
+          if (!options?.ssr && (source === 'better-sqlite3' || source === 'drizzle-orm/better-sqlite3')) {
+            return { id: '\0mock-server', moduleSideEffects: false };
+          }
+        },
+        load(id) {
+          if (id === '\0mock-server') {
+            return `
+              export default function Database() { throw new Error("Client DB"); };
+              export const drizzle = () => ({});
+            `;
+          }
+        }
+      }
+    ],
+    optimizeDeps: {
+      exclude: ['better-sqlite3', 'firebase-admin', 'drizzle-orm/better-sqlite3']
+    }
+  },
   tanstackStart: {
     server: { entry: "server" },
   },

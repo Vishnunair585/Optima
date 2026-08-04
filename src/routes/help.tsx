@@ -120,24 +120,36 @@ function HelpCenterPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {filteredArticles.map((article: any) => (
-                <a key={article.id} href={article.slug.startsWith('http') ? article.slug : `/help/${article.slug}`} target="_blank" rel="noopener noreferrer" className="block outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-xl">
-                  <Card className="bg-card border-border transition-colors hover:border-brand/30 group cursor-pointer h-full">
-                    <CardContent className="p-5">
-                      <div className="flex justify-between items-start mb-3">
-                        <Badge variant="outline" className="capitalize text-xs">{article.category}</Badge>
-                        <span className="text-xs text-muted-foreground flex items-center gap-1"><Clock className="h-3 w-3" />{article.read_time} min read</span>
-                      </div>
-                      <h3 className="font-semibold text-foreground group-hover:text-brand transition-colors mb-2">{article.title}</h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2">{article.summary}</p>
-                      <div className="mt-4 flex justify-between items-center">
-                        <span className="text-xs text-muted-foreground">{new Date(article.updated_at).toLocaleDateString()}</span>
-                        <span className="text-xs text-brand flex items-center gap-1 group-hover:gap-2 transition-all">Read article <ArrowRight className="h-3 w-3" /></span>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </a>
-              ))}
+              {filteredArticles.map((article: any) => {
+                const isExternal = article.slug.startsWith('http');
+                const LinkComponent = isExternal ? 'a' : Link;
+                const linkProps = isExternal 
+                  ? { href: article.slug, target: "_blank", rel: "noopener noreferrer" }
+                  : { to: "/help/articles/$slug", params: { slug: article.slug } };
+
+                return (
+                  <LinkComponent 
+                    key={article.id} 
+                    {...linkProps} 
+                    className="block outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-xl"
+                  >
+                    <Card className="bg-card border-border transition-colors hover:border-brand/30 group cursor-pointer h-full">
+                      <CardContent className="p-5">
+                        <div className="flex justify-between items-start mb-3">
+                          <Badge variant="outline" className="capitalize text-xs">{article.category}</Badge>
+                          <span className="text-xs text-muted-foreground flex items-center gap-1"><Clock className="h-3 w-3" />{article.read_time} min read</span>
+                        </div>
+                        <h3 className="font-semibold text-foreground group-hover:text-brand transition-colors mb-2">{article.title}</h3>
+                        <p className="text-sm text-muted-foreground line-clamp-2">{article.summary}</p>
+                        <div className="mt-4 flex justify-between items-center">
+                          <span className="text-xs text-muted-foreground">{new Date(article.updated_at).toLocaleDateString()}</span>
+                          <span className="text-xs text-brand flex items-center gap-1 group-hover:gap-2 transition-all">Read article <ArrowRight className="h-3 w-3" /></span>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </LinkComponent>
+                );
+              })}
             </div>
           )}
         </div>
@@ -149,7 +161,7 @@ function HelpCenterPage() {
             {[
               { q: "How does Optima determine rankings?", a: "Rankings are determined by a proprietary algorithm that factors in performance benchmarks, user reviews, feature completeness, pricing, and overall adoption." },
               { q: "How often are the AI tool rankings updated?", a: "Our data engine updates rankings daily to ensure you always have the most accurate and up-to-date market intelligence." },
-              { q: "How can I report inaccurate information?", a: "Use the Contact page and select 'Report a Bug' category. Our team reviews all reports within 48 hours." },
+              { q: "How can I report inaccurate information?", a: "Please send an email to optimainc2026@gmail.com with the details. Our team will review and fix the issue within 2-3 working days." },
               { q: "Can I export my data?", a: "Yes. Go to Settings > Data & Privacy > Export Data. You'll instantly receive a comprehensive JSON download containing all your data." },
             ].map((faq, i) => (
               <Card key={i} className="bg-card border-border">

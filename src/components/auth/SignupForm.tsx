@@ -1,136 +1,114 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useAuthContext } from './auth-provider';
 import { Link, useNavigate } from '@tanstack/react-router';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
+import { AlertCircle, Chrome } from 'lucide-react';
+import { z } from 'zod';
+import { signupSchema } from './validation';
 
 export function SignupForm() {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [acceptTerms, setAcceptTerms] = useState(false);
+  
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { signUp, loginWithGoogle } = useAuthContext();
+  const { loginWithGoogle } = useAuthContext();
 
-  const handleSignup = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
-
-    if (password !== confirmPassword) {
-      return setError('Passwords do not match');
-    }
-
-    setLoading(true);
+  const handleSignupWithGoogle = async () => {
+    if (loading) return;
 
     try {
-      await signUp(email, password, username);
-      navigate({ to: '/' });
+      setError(null);
+      signupSchema.parse({ fullName, acceptTerms });
+      
+      setLoading(true);
+      const result = await loginWithGoogle({ isSignUpFlow: true, username: fullName });
+      
+      if (typeof result === "object" && result.success) {
+        navigate({ to: '/onboarding' });
+      }
     } catch (err: any) {
-      setError(err.message || 'Failed to create an account');
+      if (err instanceof z.ZodError) {
+        setError(err.errors[0].message);
+      } else {
+        setError(err.message || 'Failed to create an account.');
+      }
     } finally {
       setLoading(false);
     }
   };
 
-  const handleGoogle = async () => {
-    const success = await loginWithGoogle();
-    if (success) navigate({ to: '/' });
-  };
-
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background p-4">
-      <div className="w-full max-w-md space-y-8 rounded-xl bg-card border border-border p-8 shadow-lg">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground">Create an account</h2>
+    <div className="w-full space-y-6">
+      {error && (
+        <div className="p-4 rounded-xl bg-destructive/10 border border-destructive/20 flex items-start gap-3 animate-fade-in">
+          <AlertCircle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+          <p className="text-sm text-destructive-foreground font-medium">{error}</p>
         </div>
-        
-        <form className="mt-8 space-y-6" onSubmit={handleSignup}>
-          {error && <div className="rounded-md bg-destructive/10 p-4 text-sm text-destructive">{error}</div>}
-          
-          <div className="space-y-4 rounded-md shadow-sm">
-            <div>
-              <label htmlFor="username" className="sr-only">Username</label>
-              <Input
-                id="username"
-                name="username"
-                type="text"
-                autoComplete="username"
-                required
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="email-address" className="sr-only">Email address</label>
-              <Input
-                id="email-address"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                placeholder="Email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="password" className="sr-only">Password</label>
-              <Input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="new-password"
-                required
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="confirm-password" className="sr-only">Confirm Password</label>
-              <Input
-                id="confirm-password"
-                name="confirm-password"
-                type="password"
-                autoComplete="new-password"
-                required
-                placeholder="Confirm Password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-            </div>
-          </div>
+      )}
 
-          <div>
-            <Button type="submit" disabled={loading} className="w-full">
-              {loading ? 'Creating account...' : 'Sign up'}
-            </Button>
-          </div>
+      <div className="space-y-4">
+        <div className="space-y-1">
+          <label htmlFor="fullName" className="text-sm font-medium text-foreground">
+            User Name
+          </label>
+          <Input
+            id="fullName"
+            type="text"
+            autoComplete="name"
+            placeholder="Choose a username"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            disabled={loading}
+            className="w-full h-11"
+          />
+        </div>
 
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-border" />
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
-            </div>
-          </div>
-
-          <div className="mt-6">
-            <Button type="button" variant="outline" onClick={handleGoogle} className="w-full">
-              Sign up with Google
-            </Button>
-          </div>
-
-          <div className="text-sm text-center">
-            <Link to="/login" className="font-medium text-brand hover:text-brand/80">
-              Already have an account? Sign in
+        <div className="flex items-center gap-2 pt-2 pb-1">
+          <input
+            id="terms"
+            type="checkbox"
+            checked={acceptTerms}
+            onChange={(e) => setAcceptTerms(e.target.checked)}
+            disabled={loading}
+            className="w-4 h-4 rounded border-border text-brand focus:ring-brand accent-brand"
+          />
+          <label htmlFor="terms" className="text-sm text-muted-foreground cursor-pointer select-none">
+            I agree to the{' '}
+            <Link to="/legal/terms" className="text-foreground hover:text-brand transition-colors underline decoration-border underline-offset-4">
+              Terms
+            </Link>{' '}
+            and{' '}
+            <Link to="/legal/privacy" className="text-foreground hover:text-brand transition-colors underline decoration-border underline-offset-4">
+              Privacy Policy
             </Link>
-          </div>
-        </form>
+          </label>
+        </div>
+
+        <Button
+          type="button"
+          onClick={handleSignupWithGoogle}
+          disabled={loading}
+          className="w-full flex justify-center items-center gap-2 h-11 text-base border border-border rounded-xl bg-card hover:bg-accent hover:text-accent-foreground text-foreground transition-all disabled:opacity-50 font-medium shadow-sm group mt-2"
+        >
+          {loading ? (
+            <div className="w-5 h-5 border-2 border-brand-foreground/30 border-t-brand-foreground rounded-full animate-spin"></div>
+          ) : (
+            <>
+              <Chrome className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              Sign up with Google
+            </>
+          )}
+        </Button>
+      </div>
+
+      <div className="text-center text-sm text-muted-foreground mt-4">
+        Already have an account?{' '}
+        <Link to="/login" className="font-semibold text-brand hover:text-brand/80 transition-colors">
+          Log In
+        </Link>
       </div>
     </div>
   );

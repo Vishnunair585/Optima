@@ -64,6 +64,7 @@ import { Route as AdminAuthDiagnosticsRouteImport } from './routes/admin.auth-di
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 import { Route as AccountSupportRouteImport } from './routes/account.support'
 import { Route as AccountRequestsRouteImport } from './routes/account.requests'
+import { Route as HelpArticlesSlugRouteImport } from './routes/help_.articles.$slug'
 import { Route as AdminLegalPrivacyRouteImport } from './routes/admin/legal/privacy'
 import { Route as AccountRequestsIdRouteImport } from './routes/account.requests.$id'
 
@@ -342,6 +343,11 @@ const AccountRequestsRoute = AccountRequestsRouteImport.update({
   path: '/requests',
   getParentRoute: () => AccountRoute,
 } as any)
+const HelpArticlesSlugRoute = HelpArticlesSlugRouteImport.update({
+  id: '/help_/articles/$slug',
+  path: '/help/articles/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminLegalPrivacyRoute = AdminLegalPrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -411,6 +417,7 @@ export interface FileRoutesByFullPath {
   '/stacks/': typeof StacksIndexRoute
   '/account/requests/$id': typeof AccountRequestsIdRoute
   '/admin/legal/privacy': typeof AdminLegalPrivacyRoute
+  '/help/articles/$slug': typeof HelpArticlesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -470,6 +477,7 @@ export interface FileRoutesByTo {
   '/stacks': typeof StacksIndexRoute
   '/account/requests/$id': typeof AccountRequestsIdRoute
   '/admin/legal/privacy': typeof AdminLegalPrivacyRoute
+  '/help/articles/$slug': typeof HelpArticlesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -530,6 +538,7 @@ export interface FileRoutesById {
   '/stacks/': typeof StacksIndexRoute
   '/account/requests/$id': typeof AccountRequestsIdRoute
   '/admin/legal/privacy': typeof AdminLegalPrivacyRoute
+  '/help_/articles/$slug': typeof HelpArticlesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -591,6 +600,7 @@ export interface FileRouteTypes {
     | '/stacks/'
     | '/account/requests/$id'
     | '/admin/legal/privacy'
+    | '/help/articles/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -650,6 +660,7 @@ export interface FileRouteTypes {
     | '/stacks'
     | '/account/requests/$id'
     | '/admin/legal/privacy'
+    | '/help/articles/$slug'
   id:
     | '__root__'
     | '/'
@@ -709,6 +720,7 @@ export interface FileRouteTypes {
     | '/stacks/'
     | '/account/requests/$id'
     | '/admin/legal/privacy'
+    | '/help_/articles/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -750,6 +762,7 @@ export interface RootRouteChildren {
   StacksIdRoute: typeof StacksIdRoute
   LegalIndexRoute: typeof LegalIndexRoute
   StacksIndexRoute: typeof StacksIndexRoute
+  HelpArticlesSlugRoute: typeof HelpArticlesSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1139,6 +1152,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountRequestsRouteImport
       parentRoute: typeof AccountRoute
     }
+    '/help_/articles/$slug': {
+      id: '/help_/articles/$slug'
+      path: '/help/articles/$slug'
+      fullPath: '/help/articles/$slug'
+      preLoaderRoute: typeof HelpArticlesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/legal/privacy': {
       id: '/admin/legal/privacy'
       path: '/privacy'
@@ -1270,6 +1290,7 @@ const rootRouteChildren: RootRouteChildren = {
   StacksIdRoute: StacksIdRoute,
   LegalIndexRoute: LegalIndexRoute,
   StacksIndexRoute: StacksIndexRoute,
+  HelpArticlesSlugRoute: HelpArticlesSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

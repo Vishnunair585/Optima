@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { adminDb } from "../firebase-admin";
+
 
 export const syncUserFn = createServerFn({ method: "POST" })
   .validator(
@@ -12,6 +12,7 @@ export const syncUserFn = createServerFn({ method: "POST" })
     })
   )
   .handler(async ({ data }) => {
+    const { adminDb } = await import("../firebase-admin");
     if (!adminDb) {
       throw new Error("Firebase Admin not initialized.");
     }

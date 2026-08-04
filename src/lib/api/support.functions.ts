@@ -1,4 +1,5 @@
 import { createServerFn } from '@tanstack/react-start';
+import { createAdminServerFn, createProtectedServerFn } from './middleware';
 import { adminDb } from '../firebase-admin';
 import { getSessionFn } from './auth.functions';
 import { SubmitBugRequestSchema, SubmitFeatureRequestSchema, SubmitContactRequestSchema, SupportTicket } from './support.schema';
@@ -332,8 +333,8 @@ export const submitSupportTicketFn = createServerFn({ method: "POST" })
   return { success: true, ticket_id: ticketNumber };
 });
 
-export const getAdminTicketsFn = createServerFn({ method: "GET" }).handler(async () => { return []; });
-export const updateTicketStatusFn = createServerFn({ method: "POST" }).handler(async () => { return { success: true }; });
-export const replyToTicketFn = createServerFn({ method: "POST" }).handler(async () => { return { success: true }; });
-export const getUserTicketsFn = createServerFn({ method: "GET" }).handler(async () => { return []; });
-export const getTicketDetailsFn = createServerFn({ method: "GET" }).handler(async () => { return null; });
+export const getAdminTicketsFn = createAdminServerFn({ method: "GET" }).handler(async () => { return []; });
+export const updateTicketStatusFn = createAdminServerFn({ method: "POST" }).handler(async () => { return { success: true }; });
+export const replyToTicketFn = createProtectedServerFn({ method: "POST" }).handler(async () => { return { success: true }; });
+export const getUserTicketsFn = createProtectedServerFn({ method: "GET" }).handler(async () => { return []; });
+export const getTicketDetailsFn = createProtectedServerFn({ method: "GET" }).handler(async () => { return null; });

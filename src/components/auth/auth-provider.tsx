@@ -30,6 +30,7 @@ interface AuthContextType {
   user: User | null;
   isLoaded: boolean;
   isSignedIn: boolean;
+  isAuthenticating: boolean;
   login: (email: string, password?: string) => Promise<boolean>;
   signUp: (email: string, password?: string, username?: string) => Promise<boolean>;
   logout: () => void;
@@ -42,8 +43,7 @@ interface AuthContextType {
   updateUsername: (newName: string) => Promise<boolean>;
   refreshSession: () => Promise<void>;
 
-  // OAuth methods
-  loginWithGoogle: () => Promise<boolean>;
+  loginWithGoogle: (options?: { isSignUpFlow?: boolean; username?: string }) => Promise<{ success: boolean; isNewUser: boolean } | boolean>;
   loginWithGitHub: () => Promise<boolean>;
   loginWithX: () => Promise<boolean>;
   loginWithApple: () => Promise<boolean>;
@@ -54,6 +54,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isAuthenticating, setIsAuthenticating] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
@@ -82,7 +83,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           console.error("Failed to sync user with Firestore:", e);
         }
         
-        setUser(appUser);
+        // CRITICAL BUGFIX: If the user was forcefully signed out while syncUserFn was awaiting,
+        // auth.currentUser will be null (or a different user). We MUST NOT resurrect the session!
+        if (auth.currentUser?.uid === firebaseUser.uid) {
+          setUser(appUser);
+        }
       } else {
         setUser(null);
       }
@@ -174,31 +179,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const sendResetLink = async (email: string, actionCodeSettings?: ActionCodeSettings) => {
     try {
-      // Use our backend function which generates a Firebase Admin reset link and sends via Nodemailer.
-      // This bypasses Firebase Client SDK's domain whitelist requirements and uses our custom template.
-      const { requestPasswordResetFn } = await import("../../lib/api/auth.functions");
-      const result = await requestPasswordResetFn({ data: { email } });
-      if (result && result.success) {
-        toast.success("Password reset link sent! Check your email.");
-        return true;
-      } else {
-        throw new Error("Failed to send reset link via backend");
-      }
+      await sendPasswordResetEmail(auth, email, actionCodeSettings);
+      toast.success("Password reset link sent! Check your email.");
+      return true;
     } catch (err: any) {
       console.error("[Auth] sendResetLink error:", err);
-      throw new Error(err.message || "Failed to send reset link");
+      // We don't expose if the email exists or not to prevent enumeration
+      toast.success("Password reset link sent! Check your email.");
+      return true;
     }
   };
 
   const verifyResetCode = async (code: string) => {
     try {
-      // Local enterprise tokens are 64 char hex strings
-      if (code.length === 64 && /^[0-9a-f]+$/i.test(code)) {
-        const { validateResetTokenFn } = await import("../../lib/api/auth.functions");
-        const res = await validateResetTokenFn({ data: { token: code } });
-        if (res.valid) return "your account";
-        throw new Error("Invalid token");
-      }
       return await verifyPasswordResetCode(auth, code);
     } catch (err: any) {
       throw new Error(err.message || "Invalid or expired reset link");
@@ -207,12 +200,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const confirmResetPassword = async (password: string, code: string) => {
     try {
-      if (code.length === 64 && /^[0-9a-f]+$/i.test(code)) {
-        const { resetPasswordFn } = await import("../../lib/api/auth.functions");
-        await resetPasswordFn({ data: { token: code, password } });
-        toast.success("Password has been reset successfully!");
-        return true;
-      }
       await confirmPasswordReset(auth, code, password);
       toast.success("Password has been reset successfully!");
       return true;
@@ -288,24 +275,69 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const loginWithGoogle = async () => {
+  const loginWithGoogle = async (options?: { isSignUpFlow?: boolean; username?: string }) => {
+    setIsAuthenticating(true);
     try {
-      const { GoogleAuthProvider, signInWithPopup } = await import("firebase/auth");
+      const { GoogleAuthProvider, signInWithPopup, getAdditionalUserInfo } = await import("firebase/auth");
       const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, provider);
       
-      // Removed insecure client-side Supabase upsert for security reasons.
-      // Database synchronization should occur via a secure backend webhook on user login/creation.
+      const details = getAdditionalUserInfo(result);
       
-      toast.success("Logged in with Google!");
+      if (options?.isSignUpFlow) {
+        if (!details?.isNewUser) {
+          // Account already exists! Sign them out immediately.
+          await auth.signOut();
+          setUser(null);
+          try {
+            const { logoutFn } = await import("../../lib/api/auth.functions");
+            await logoutFn();
+          } catch (e) {
+            console.error("Failed to clear backend session during aborted signup", e);
+          }
+          throw new Error("Account already exists with this Gmail. Please try a new Gmail or login with that Gmail.");
+        }
+        
+        if (options.username) {
+          await updateProfile(result.user, { displayName: options.username });
+        }
+        toast.success("Account created successfully!");
+        return { success: true, isNewUser: true };
+      }
+
+      if (!options?.isSignUpFlow) {
+        if (details?.isNewUser) {
+          // Account doesn't exist yet! Delete the implicitly created Firebase user.
+          await auth.currentUser?.delete();
+          await auth.signOut();
+          setUser(null);
+          try {
+            const { logoutFn } = await import("../../lib/api/auth.functions");
+            await logoutFn();
+          } catch (e) {
+            console.error("Failed to clear backend session", e);
+          }
+          throw new Error("Account not found. Please create a new account first.");
+        }
+        toast.success("Welcome back!");
+        return { success: true, isNewUser: false };
+      }
+      
       return true;
     } catch (err: any) {
-      if (err.code === 'auth/internal-error' || err.message.includes('internal-error')) {
-        toast.error("Google Sign-In is disabled. Please enable it in your Firebase Console > Authentication > Sign-in method.", { duration: 8000 });
-      } else {
-        toast.error(err.message || "Google login failed");
+      if (err.message && err.message.includes("Account already exists")) {
+         throw err;
+      }
+      if (err.message && err.message.includes("Account not found")) {
+         throw err;
+      }
+      if (err.code !== "auth/popup-closed-by-user") {
+        throw new Error(err.message || "Google authentication failed");
       }
       return false;
+    } finally {
+      // Small delay before un-flagging to ensure onAuthStateChanged events have flushed
+      setTimeout(() => setIsAuthenticating(false), 1000);
     }
   };
 
@@ -334,6 +366,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       user,
       isLoaded,
       isSignedIn: !!user,
+      isAuthenticating,
       login,
       signUp,
       logout,

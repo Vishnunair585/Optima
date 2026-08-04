@@ -17,7 +17,7 @@ export function ProtectedRoute({ children, requireRole }: { children: ReactNode,
     } else if (user && !user.onboarded && location.pathname !== "/onboarding") {
       navigate({ to: "/onboarding" });
     } else if (requireRole && user?.role !== requireRole) {
-      navigate({ to: "/dashboard" });
+      navigate({ to: "/" });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoaded, isSignedIn, requireRole, user]);
@@ -47,18 +47,29 @@ export function ProtectedRoute({ children, requireRole }: { children: ReactNode,
 }
 
 export function PublicOnlyRoute({ children }: { children: ReactNode }) {
-  const { isLoaded, isSignedIn } = useAuth();
+  const { isLoaded, isSignedIn, isAuthenticating } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoaded) return;
+    if (!isLoaded || isAuthenticating) return;
     
+    let timer: NodeJS.Timeout;
     if (isSignedIn) {
-      navigate({ to: "/dashboard" });
+      // Add a small delay to prevent race conditions during OAuth signup flows
+      // where the user is briefly signed in before being signed out if they already exist.
+      timer = setTimeout(() => {
+        if (!isAuthenticating) {
+          navigate({ to: "/" });
+        }
+      }, 500);
     }
-  }, [isLoaded, isSignedIn, navigate]);
+    
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [isLoaded, isSignedIn, navigate, isAuthenticating]);
 
-  if (!isLoaded || isSignedIn) {
+  if (!isLoaded) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
@@ -73,5 +84,8 @@ export function PublicOnlyRoute({ children }: { children: ReactNode }) {
     );
   }
 
+  // We do NOT block rendering of children when isSignedIn is true because of the debounce above.
+  // If we block rendering immediately, the user will see a flash of "Loading Workspace" or blank screen
+  // during the 500ms delay before navigating or being signed out.
   return <>{children}</>;
 }

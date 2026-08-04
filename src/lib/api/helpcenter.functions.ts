@@ -63,11 +63,23 @@ export const getHelpArticleBySlugFn = createServerFn({ method: "GET" })
       return article;
     } catch (e) {
       // Mock article to avoid 500 on Cloudflare Pages
+      const mockArticles = [
+        { id: "1", slug: "how-to-reset-password", title: "How to reset your password", summary: "Learn how to easily recover your account access using our secure reset link.", content: "If you forgot your password, you can reset it by visiting the [Forgot Password](/forgot-password) page.\n\n1. Enter your registered email address.\n2. Check your inbox (and spam folder) for a secure reset link.\n3. Click the link and enter your new password.\n\nFor security reasons, reset links expire after 1 hour.", category: "authentication", status: "published", views_count: 142, read_time: 2, updated_at: Date.now() - 86400000 },
+        { id: "2", slug: "understanding-rankings", title: "Understanding AI Rankings", summary: "Discover how our proprietary algorithm ranks the best AI tools based on data.", content: "Our AI Rankings are determined dynamically by a combination of factors:\n\n*   **User Reviews & Ratings:** Verified user feedback heavily influences the score.\n*   **Performance Metrics:** Speed, uptime, and efficiency.\n*   **Feature Completeness:** How many core capabilities the tool provides.\n*   **Community Adoption:** Usage statistics and public stack inclusions.\n\nRankings are updated daily to reflect the latest data.", category: "rankings", status: "published", views_count: 531, read_time: 4, updated_at: Date.now() - 172800000 },
+        { id: "3", slug: "create-public-stack", title: "Creating a Public Stack", summary: "Share your AI workflow with the community by creating a public stack.", content: "Public Stacks allow you to share your favorite combination of AI tools with the world.\n\nTo create one:\n1. Go to your **Profile** and click **Create Stack**.\n2. Add the tools you use for your workflow.\n3. Write a description explaining how they work together.\n4. Toggle the visibility to **Public**.\n\nYour stack will now be visible on the public discovery page!", category: "stacks", status: "published", views_count: 89, read_time: 3, updated_at: Date.now() - 259200000 },
+        { id: "4", slug: "api-authentication", title: "API Authentication Guide", summary: "Learn how to secure your API requests using our bearer token system.", content: "To use the Optima API, you need to authenticate your requests using a Bearer Token.\n\n1. Generate an API Key from your **Developer Settings**.\n2. Include the key in the `Authorization` header of your HTTP requests:\n\n```http\nAuthorization: Bearer YOUR_API_KEY\n```\n\nKeep your API key secure and never share it publicly.", category: "api", status: "published", views_count: 234, read_time: 5, updated_at: Date.now() - 345600000 },
+        { id: "5", slug: "data-privacy-policy", title: "How we handle your data", summary: "A comprehensive guide to our data protection and privacy compliance.", content: "We take your privacy seriously. You can read our full Privacy Policy at [optima.com/legal/privacy](/legal/privacy).\n\nKey points:\n*   We never sell your personal data.\n*   We encrypt sensitive information at rest and in transit.\n*   You can request account deletion at any time.", category: "privacy", status: "published", views_count: 412, read_time: 3, updated_at: Date.now() - 432000000 },
+        { id: "6", slug: "troubleshooting-login", title: "I can't log into my account", summary: "Common solutions for authentication and session issues.", content: "If you're having trouble logging in, try the following steps:\n\n1. **Check your credentials:** Ensure you are using the correct email and password. If you used Google to sign up, you must use the Google login button.\n2. **Clear Cookies:** Sometimes stale session data causes issues. Try clearing your browser cookies for this site.\n3. **Reset Password:** If you forgot your password, use the Forgot Password link.\n\nIf the issue persists, contact support at optimainc2026@gmail.com.", category: "troubleshooting", status: "published", views_count: 756, read_time: 2, updated_at: Date.now() - 518400000 },
+      ];
+      
+      const found = mockArticles.find(a => a.slug === data.slug);
+      if (found) return found as any;
+
       return {
         id: "mock",
         slug: data.slug,
-        title: "Mock Article",
-        summary: "This is a mock article because the database connection is currently unavailable.",
+        title: "Article Not Found",
+        summary: "This article could not be found.",
         content: "Please check back later or contact support.",
         category: "troubleshooting",
         status: "published",

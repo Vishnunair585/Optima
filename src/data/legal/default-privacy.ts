@@ -143,5 +143,5 @@ Optima may update this Privacy Policy periodically.
 ## 16. Contact
 
 If you have questions about this Privacy Policy, please contact our Help Center or email our support team at:
-**privacy@optima.example.com**
+**optimainc2026@gmail.com**
 `;
