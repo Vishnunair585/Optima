@@ -47,7 +47,9 @@ export default {
 
     // Enforce HTTPS in production
     const proto = request.headers.get("x-forwarded-proto");
-    const isProduction = process.env.NODE_ENV === "production" || !!proto;
+    // Cloudflare Workers do not expose Node's `process`. The forwarded
+    // protocol is the reliable runtime signal for deployed requests.
+    const isProduction = proto === "https" || proto === "http";
     if (isProduction && proto === "http") {
       url.protocol = "https:";
       return Response.redirect(url.toString(), 301);

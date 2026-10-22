@@ -38,7 +38,11 @@ const envSchema = z.object({
   DISCORD_WEBHOOK_URL: z.string().url().optional().or(z.literal("")),
 }).catchall(z.string().optional()); // Allow dynamic keys like GOOGLE_CLIENT_ID, PRICE_PRO_MONTHLY
 
-const parsed = envSchema.safeParse(process.env);
+// `process` is available in the local Node runtime but not in Cloudflare
+// Workers. Keep the Node environment support without evaluating an
+// undeclared global at module load time on the edge.
+const runtimeEnv = typeof process !== "undefined" ? process.env : {};
+const parsed = envSchema.safeParse(runtimeEnv);
 
 if (!parsed.success) {
   console.error("❌ Invalid environment variables:", parsed.error.format());

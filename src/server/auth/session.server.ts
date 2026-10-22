@@ -2,7 +2,7 @@ import { db } from "../../lib/db";
 import { sessions, users } from "../../lib/db/schema";
 import { eq, lt } from "drizzle-orm";
 import { generateSessionToken } from "./crypto.server";
-import { getCookie, setCookie, deleteCookie } from "@tanstack/react-start/server";
+import { getCookie, getRequestHeader, setCookie, deleteCookie } from "@tanstack/react-start/server";
 
 const SESSION_COOKIE_NAME = "auth_session";
 
@@ -90,7 +90,7 @@ export async function invalidateSession(sessionId: string) {
 export function setSessionCookie(sessionId: string, expiresAt: Date) {
   setCookie(SESSION_COOKIE_NAME, sessionId, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: getRequestHeader("x-forwarded-proto") === "https",
     sameSite: "strict",
     path: "/",
     expires: expiresAt,
