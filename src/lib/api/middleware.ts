@@ -3,26 +3,27 @@ import { getSessionFn } from "./auth.functions";
 
 export const authMiddleware = createMiddleware().server(async ({ next }) => {
   const session = await getSessionFn();
-  if (!session || !session.userId) {
+  const userId = session?.user?.id;
+  if (!userId) {
     throw new Error("Unauthorized");
   }
-  return next({ context: { session } });
+  return next({ context: { session, userId, user: session.user } });
 });
 
 export const adminMiddleware = createMiddleware().server(async ({ next }) => {
   const session = await getSessionFn();
-  if (!session || !session.userId) {
+  const userId = session?.user?.id;
+  if (!userId) {
     throw new Error("Unauthorized");
   }
   
-  // Basic admin check (could be expanded based on schema role)
-  // We assume admin.com or role=admin for this project
-  const isAdmin = session.role === "admin" || session.email?.endsWith("@admin.com");
-  if (!isAdmin) {
-    throw new Error("Forbidden");
+  const { isAdmin } = await import("../security/authz");
+  const hasAdmin = session.user?.role === "Admin" || (await isAdmin(userId));
+  if (!hasAdmin) {
+    throw new Error("Forbidden: Admin privileges required.");
   }
 
-  return next({ context: { session } });
+  return next({ context: { session, userId, user: session.user } });
 });
 
 export const createProtectedServerFn = (options: { method: "GET" | "POST" }) => 

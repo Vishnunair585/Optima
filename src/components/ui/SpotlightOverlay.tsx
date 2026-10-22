@@ -1,26 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export function SpotlightOverlay() {
-  const [position, setPosition] = useState({ x: -1000, y: -1000 }); // Start off-screen
-  const [isClient, setIsClient] = useState(false);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
-    setIsClient(true);
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      if (rafRef.current) return;
+      rafRef.current = requestAnimationFrame(() => {
+        if (overlayRef.current) {
+          overlayRef.current.style.background = `radial-gradient(circle 400px at ${e.clientX}px ${e.clientY}px, rgba(255, 255, 255, 0.15) 0%, transparent 80%)`;
+        }
+        rafRef.current = null;
+      });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
-
-  if (!isClient) return null;
 
   return (
     <div
+      ref={overlayRef}
       className="pointer-events-none fixed inset-0 z-[9999] transition-opacity duration-300"
       style={{
-        background: `radial-gradient(circle 400px at ${position.x}px ${position.y}px, rgba(255, 255, 255, 0.15) 0%, transparent 80%)`,
+        background: `radial-gradient(circle 400px at -1000px -1000px, rgba(255, 255, 255, 0.15) 0%, transparent 80%)`,
         mixBlendMode: "difference",
       }}
     />

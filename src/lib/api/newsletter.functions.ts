@@ -16,10 +16,15 @@ async function checkAdmin(userId: string): Promise<boolean> {
   return isAdmin(userId);
 }
 
+import { escapeLikeString } from "../security/validation";
+
 // ─── Public: Subscribe ─────────────────────────────────
 
 export const subscribeNewsletterFn = createServerFn({ method: "POST" })
-  .validator(z.object({ email: z.string().email(), preferences: z.record(z.boolean()).optional() }))
+  .validator(z.object({
+    email: z.string().email().max(254).transform((v) => v.toLowerCase().trim()),
+    preferences: z.record(z.boolean()).optional()
+  }).strict())
   .handler(async ({ data }) => {
     const session = await getSession();
     try {
@@ -42,7 +47,7 @@ export const subscribeNewsletterFn = createServerFn({ method: "POST" })
 // ─── Public: Unsubscribe ─────────────────────────────────
 
 export const unsubscribeNewsletterFn = createServerFn({ method: "POST" })
-  .validator(z.object({ email: z.string().email() }))
+  .validator(z.object({ email: z.string().email().max(254).transform((v) => v.toLowerCase().trim()) }).strict())
   .handler(async ({ data }) => {
     await db.update(newsletterSubscribers).set({ active: false }).where(eq(newsletterSubscribers.email, data.email));
     return { success: true };
@@ -51,11 +56,18 @@ export const unsubscribeNewsletterFn = createServerFn({ method: "POST" })
 // ─── Public: Get published campaigns (archive) ──────────
 
 export const getNewsletterArchiveFn = createServerFn({ method: "GET" })
-  .validator(z.object({ category: z.string().optional(), search: z.string().optional(), limit: z.number().optional() }).optional())
+  .validator(z.object({
+    category: z.string().max(50).optional(),
+    search: z.string().max(100).optional(),
+    limit: z.number().int().min(1).max(100).optional()
+  }).optional())
   .handler(async ({ data: args }) => {
     let conditions: any[] = [eq(newsletterCampaigns.status, "sent")];
     if (args?.category && args.category !== "all") conditions.push(eq(newsletterCampaigns.category, args.category));
-    if (args?.search) conditions.push(like(newsletterCampaigns.title, `%${args.search}%`));
+    if (args?.search) {
+      const safeSearch = `%${escapeLikeString(args.search)}%`;
+      conditions.push(like(newsletterCampaigns.title, safeSearch));
+    }
     return db.select().from(newsletterCampaigns).where(and(...conditions)).orderBy(desc(newsletterCampaigns.sent_at)).limit(args?.limit || 20);
   });
 

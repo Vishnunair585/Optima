@@ -12,7 +12,9 @@ const BRUTE_FORCE_WINDOW_MS = 15 * 60 * 1000;
 
 export async function detectBruteForce(ip: string, email: string): Promise<boolean> {
   const since = new Date(Date.now() - BRUTE_FORCE_WINDOW_MS);
-  const recentAttempts = await db.select({ count: count() })
+  
+  // Check failed attempts by IP
+  const ipAttempts = await db.select({ count: count() })
     .from(systemLogs)
     .where(
       and(
@@ -22,7 +24,27 @@ export async function detectBruteForce(ip: string, email: string): Promise<boole
       )
     );
 
-  const attemptCount = Number(recentAttempts[0]?.count || 0);
+  const ipAttemptCount = Number(ipAttempts[0]?.count || 0);
+
+  // Check failed attempts by target email (protect against distributed brute force)
+  const normalizedEmail = email.toLowerCase().trim();
+  const allRecentLogs = await db.select({ metadata: systemLogs.metadata })
+    .from(systemLogs)
+    .where(
+      and(
+        eq(systemLogs.event_type, "auth_error" as any),
+        gte(systemLogs.created_at, since),
+      )
+    );
+
+  let emailAttemptCount = 0;
+  for (const log of allRecentLogs) {
+    if (log.metadata && typeof log.metadata === "object" && (log.metadata as any).email?.toLowerCase?.() === normalizedEmail) {
+      emailAttemptCount++;
+    }
+  }
+
+  const attemptCount = Math.max(ipAttemptCount, emailAttemptCount);
   if (attemptCount >= BRUTE_FORCE_THRESHOLD) {
     await recordSecurityEvent({
       event_type: "brute_force",

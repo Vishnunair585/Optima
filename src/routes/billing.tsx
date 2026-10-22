@@ -257,19 +257,19 @@ function BillingPage() {
               </div>
               <div>
                 <p className="text-xs font-mono uppercase text-muted-foreground">Current plan</p>
-                <h2 className="text-2xl font-black">{status.plan}</h2>
+                <h2 data-testid="current-plan-name" className="text-2xl font-black">{status.plan}</h2>
                 <p className="text-xs text-muted-foreground">
-                  Status: <span className="font-semibold text-foreground">{status.status}</span> · Renewal: {formatDate(status.current_period_end)}
+                  Status: <span data-testid="current-plan-status" className="font-semibold text-foreground">{status.status}</span> · Renewal: {formatDate(status.current_period_end)}
                 </p>
               </div>
             </div>
             <div className="flex flex-wrap gap-2">
               {activePaid && (
                 <>
-                  <button onClick={openPortal} disabled={action === "portal"} className="inline-flex h-10 items-center gap-2 rounded-lg border border-border px-4 text-sm font-semibold hover:bg-accent disabled:opacity-50">
+                  <button data-testid="manage-billing-btn" onClick={openPortal} disabled={action === "portal"} className="inline-flex h-10 items-center gap-2 rounded-lg border border-border px-4 text-sm font-semibold hover:bg-accent disabled:opacity-50">
                     <CreditCard className="h-4 w-4" /> Manage Billing
                   </button>
-                  <button onClick={cancelPlan} disabled={action === "cancel"} className="inline-flex h-10 items-center gap-2 rounded-lg border border-rose-500/30 px-4 text-sm font-semibold text-rose-300 hover:bg-rose-500/10 disabled:opacity-50">
+                  <button data-testid="cancel-subscription-btn" onClick={cancelPlan} disabled={action === "cancel"} className="inline-flex h-10 items-center gap-2 rounded-lg border border-rose-500/30 px-4 text-sm font-semibold text-rose-300 hover:bg-rose-500/10 disabled:opacity-50">
                     <X className="h-4 w-4" /> Cancel
                   </button>
                 </>
@@ -294,6 +294,7 @@ function BillingPage() {
           </div>
           <div className="mt-5 space-y-3">
             <input
+              data-testid="coupon-code-input"
               value={couponCode}
               onChange={(event) => setCouponCode(event.target.value.toUpperCase())}
               placeholder="Discount or referral code"
@@ -310,7 +311,7 @@ function BillingPage() {
           const current = status.plan === plan.name;
           const monthlyEquivalent = yearly && plan.yearlyPrice ? Math.round(plan.yearlyPrice / 12) : plan.price;
           return (
-            <div key={plan.name} className={`relative flex min-h-[430px] flex-col rounded-lg border p-6 ${plan.popular ? "border-brand bg-brand/5" : "border-border bg-card"}`}>
+            <div key={plan.name} data-testid={`plan-card-${plan.name.toLowerCase()}`} className={`relative flex min-h-[430px] flex-col rounded-lg border p-6 ${plan.popular ? "border-brand bg-brand/5" : "border-border bg-card"}`}>
               {plan.popular && <div className="absolute right-4 top-4 rounded-full bg-brand px-3 py-1 text-[10px] font-black uppercase text-brand-foreground">Popular</div>}
               <Icon className="h-6 w-6 text-brand" />
               <h3 className="mt-4 text-xl font-black">{plan.name}</h3>
@@ -335,11 +336,11 @@ function BillingPage() {
                 ))}
               </ul>
               {current ? (
-                <button disabled className="mt-6 h-11 rounded-lg border border-brand/30 bg-brand/10 text-sm font-bold text-brand">Current Plan</button>
+                <button data-testid={`plan-status-btn-${plan.name.toLowerCase()}`} disabled className="mt-6 h-11 rounded-lg border border-brand/30 bg-brand/10 text-sm font-bold text-brand">Current Plan</button>
               ) : plan.name === "Free" ? (
-                <button disabled className="mt-6 h-11 rounded-lg border border-border text-sm font-bold text-muted-foreground">Included</button>
+                <button data-testid={`plan-status-btn-${plan.name.toLowerCase()}`} disabled className="mt-6 h-11 rounded-lg border border-border text-sm font-bold text-muted-foreground">Included</button>
               ) : (
-                <button onClick={() => checkout(plan.name)} disabled={action !== null} className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-brand px-4 text-sm font-bold text-brand-foreground shadow-glow disabled:opacity-50">
+                <button data-testid={`upgrade-btn-${plan.name.toLowerCase()}`} onClick={() => checkout(plan.name)} disabled={action !== null} className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-brand px-4 text-sm font-bold text-brand-foreground shadow-glow disabled:opacity-50 cursor-pointer">
                   {action === `checkout-${plan.name}` ? "Opening Checkout..." : `Upgrade to ${plan.name}`} <ArrowRight className="h-4 w-4" />
                 </button>
               )}

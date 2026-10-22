@@ -73,21 +73,47 @@ function CalcPage() {
 
   // Search Results
   const saasResults = useMemo(() => {
-    if (!search.trim()) return [];
-    const query = search.toLowerCase();
-    return AI_TOOLS.filter((t) => t.name.toLowerCase().includes(query) || t.category.toLowerCase().includes(query)).slice(0, 10);
+    const q = search.trim().toLowerCase();
+    if (!q) return [];
+    return AI_TOOLS
+      .filter((t) => t.name.toLowerCase().includes(q) || t.category.toLowerCase().includes(q))
+      .sort((a, b) => {
+        const aStarts = a.name.toLowerCase().startsWith(q);
+        const bStarts = b.name.toLowerCase().startsWith(q);
+        if (aStarts && !bStarts) return -1;
+        if (!aStarts && bStarts) return 1;
+        return a.name.localeCompare(b.name);
+      })
+      .slice(0, 15);
   }, [search]);
 
   const apiResults = useMemo(() => {
-    if (!search.trim()) return API_MODELS;
-    const query = search.toLowerCase();
-    return API_MODELS.filter(m => m.name.toLowerCase().includes(query) || m.provider.toLowerCase().includes(query));
+    const q = search.trim().toLowerCase();
+    if (!q) return API_MODELS;
+    return API_MODELS
+      .filter(m => m.name.toLowerCase().includes(q) || m.provider.toLowerCase().includes(q))
+      .sort((a, b) => {
+        const aStarts = a.name.toLowerCase().startsWith(q);
+        const bStarts = b.name.toLowerCase().startsWith(q);
+        if (aStarts && !bStarts) return -1;
+        if (!aStarts && bStarts) return 1;
+        return a.name.localeCompare(b.name);
+      });
   }, [search]);
 
   const agentResults = useMemo(() => {
-    if (!search.trim()) return [];
-    const query = search.toLowerCase();
-    return AI_AGENTS.filter(m => m.name.toLowerCase().includes(query) || (m.vendor?.toLowerCase().includes(query) ?? false)).slice(0, 10);
+    const q = search.trim().toLowerCase();
+    if (!q) return [];
+    return AI_AGENTS
+      .filter(m => m.name.toLowerCase().includes(q) || (m.vendor?.toLowerCase().includes(q) ?? false))
+      .sort((a, b) => {
+        const aStarts = a.name.toLowerCase().startsWith(q);
+        const bStarts = b.name.toLowerCase().startsWith(q);
+        if (aStarts && !bStarts) return -1;
+        if (!aStarts && bStarts) return 1;
+        return a.name.localeCompare(b.name);
+      })
+      .slice(0, 15);
   }, [search]);
 
   // Calculations
@@ -215,6 +241,12 @@ function CalcPage() {
                 </button>
               ))}
 
+              {activeTab === 'api' && apiResults.length === 0 && (
+                <div className="text-center p-8 text-muted-foreground text-sm border border-dashed border-border rounded-xl">
+                  No LLM API models found matching &ldquo;<span className="text-foreground font-medium">{search}</span>&rdquo;.
+                </div>
+              )}
+
               {activeTab === 'agents' && agentResults.map(agent => (
                 <button
                   key={agent.name}
@@ -235,6 +267,12 @@ function CalcPage() {
                 </div>
               )}
 
+              {activeTab === 'agents' && search.trim() !== '' && agentResults.length === 0 && (
+                <div className="text-center p-8 text-muted-foreground text-sm border border-dashed border-border rounded-xl">
+                  No AI agents found matching &ldquo;<span className="text-foreground font-medium">{search}</span>&rdquo;.
+                </div>
+              )}
+
               {activeTab === 'saas' && saasResults.map(tool => (
                 <button
                   key={tool.name}
@@ -252,6 +290,12 @@ function CalcPage() {
               {activeTab === 'saas' && search.trim() === '' && (
                 <div className="text-center p-8 text-muted-foreground text-sm border border-dashed border-border rounded-xl">
                   Search through our database of 1,300+ AI SaaS applications to add them to your stack.
+                </div>
+              )}
+
+              {activeTab === 'saas' && search.trim() !== '' && saasResults.length === 0 && (
+                <div className="text-center p-8 text-muted-foreground text-sm border border-dashed border-border rounded-xl">
+                  No SaaS tools found matching &ldquo;<span className="text-foreground font-medium">{search}</span>&rdquo;.
                 </div>
               )}
             </div>

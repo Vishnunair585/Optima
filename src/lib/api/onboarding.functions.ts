@@ -16,16 +16,18 @@ async function rateLimit(key: string, limit: number, windowMs: number) {
 }
 import { getRequestHeader } from "@tanstack/react-start/server";
 
+import { sanitizedString, safeAvatarSchema } from "../security/validation";
+
 export const completeOnboardingFn = createServerFn({ method: "POST" })
   .validator(z.object({
-    fullName: z.string().min(2),
-    username: z.string().min(3).max(20).regex(/^[a-zA-Z0-9_]+$/),
-    avatarUrl: z.string().optional(),
-    userType: z.string(),
-    experienceLevel: z.string(),
-    goals: z.array(z.string()),
-    favoriteTools: z.array(z.string()),
-    categories: z.array(z.string()),
+    fullName: sanitizedString(100).min(2),
+    username: z.string().min(3).max(30).regex(/^[a-zA-Z0-9_-]+$/),
+    avatarUrl: safeAvatarSchema.optional().nullable(),
+    userType: sanitizedString(50),
+    experienceLevel: sanitizedString(50),
+    goals: z.array(sanitizedString(100)).max(20),
+    favoriteTools: z.array(sanitizedString(100)).max(30),
+    categories: z.array(sanitizedString(100)).max(30),
   }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
@@ -84,7 +86,7 @@ export const completeOnboardingFn = createServerFn({ method: "POST" })
   });
 
 export const checkUsernameFn = createServerFn({ method: "GET" })
-  .validator(z.object({ username: z.string() }).strict())
+  .validator(z.object({ username: z.string().min(1).max(30).regex(/^[a-zA-Z0-9_-]+$/) }).strict())
   .handler(async ({ data }) => {
     const ip = getRequestHeader("x-forwarded-for") || "unknown";
     if (!await rateLimit(`check-username:${ip}`, 20, 1000 * 60)) {

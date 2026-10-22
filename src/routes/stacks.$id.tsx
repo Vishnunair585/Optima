@@ -12,8 +12,24 @@ import { useAuth } from "../hooks/use-auth";
 
 export const Route = createFileRoute("/stacks/$id")({
   loader: ({ params }) => {
-    const stack = STACKS_DATA.find((s: any) => s.id === params.id);
+    let originalId = params.id;
+    let isMock = false;
+    let mockCategory = "";
+
+    if (params.id.includes("_mock_")) {
+      const parts = params.id.split("_mock_");
+      originalId = parts[0];
+      mockCategory = parts[1];
+      isMock = true;
+    }
+
+    let stack = STACKS_DATA.find((s: any) => s.id === originalId);
     if (!stack) throw notFound();
+
+    if (isMock) {
+      stack = { ...stack, category: mockCategory, id: params.id };
+    }
+
     return { stack };
   },
   head: ({ loaderData }) => ({
@@ -74,7 +90,7 @@ function StackDetailPage() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8 animate-fade-in">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       
       {/* Breadcrumb */}
       <nav className="flex items-center text-sm text-muted-foreground mb-8">

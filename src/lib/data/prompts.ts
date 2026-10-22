@@ -41,5475 +41,4059 @@ export const PROMPT_CATEGORIES: PromptCategory[] = [
 
 export const PROMPTS: PromptEntry[] = [
   {
-    "title": "Quick Coding Protocol 75",
+    "title": "Clean Architecture REST Controller Generator",
     "cat": "Coding",
     "tags": [
-      "coding",
-      "analysis"
+      "typescript",
+      "clean-architecture",
+      "backend"
     ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2158,
-    "uses": 12756,
+    "body": "You are a Principal Software Architect. Implement a production-grade TypeScript controller and service layer for {entityName}.\nRequirements:\n1. Strict input validation using Zod.\n2. Inversion of control / Dependency injection pattern.\n3. Detailed domain error types (NotFound, Conflict, Unauthorized) mapped to HTTP status codes.\n4. Idempotency handling for mutating endpoints.\n5. Full unit test coverage blueprint with Vitest.",
+    "likes": 884,
+    "uses": 3536,
+    "author": "system_architect"
+  },
+  {
+    "title": "Idiomatic Concurrent Go Worker Pool",
+    "cat": "Coding",
+    "tags": [
+      "golang",
+      "concurrency",
+      "performance"
+    ],
+    "body": "Design a thread-safe, bounded worker pool in Golang to process high-throughput jobs: {jobType}.\n- Implement context cancellation and graceful SIGTERM shutdown.\n- Prevent goroutine leaks using sync.WaitGroup and channel buffering.\n- Collect metrics on throughput, active workers, and queue backlog.\n- Write benchmark tests demonstrating allocation efficiency.",
+    "likes": 1011,
+    "uses": 4393,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "High-Performance React TanStack Virtualizer",
+    "cat": "Coding",
+    "tags": [
+      "react",
+      "frontend",
+      "optimization"
+    ],
+    "body": "Create a responsive React 19 component that renders 100,000+ rows using TanStack Virtual.\n- Support dynamic row heights and smooth scroll-to-index.\n- Implement keyboard navigation (Arrow Up/Down, Home, End).\n- Maintain accessible ARIA grid roles.\n- Optimize re-renders with memoization and CSS content-visibility.",
+    "likes": 1138,
+    "uses": 5250,
     "author": "deepmind"
   },
   {
-    "title": "Quick Coding Blueprint 39",
+    "title": "Drizzle ORM Normalized Schema with Foreign Keys & Indexes",
     "cat": "Coding",
     "tags": [
-      "coding",
-      "optimization"
+      "sql",
+      "database",
+      "drizzle-orm"
     ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3617,
-    "uses": 1988,
-    "author": "amazon"
+    "body": "Define a relational schema in TypeScript using Drizzle ORM for {domainModel}.\n- Define primary keys (UUIDv7 or ULID), foreign key constraints with cascade behaviors.\n- Add composite indexes for common queries.\n- Add soft-delete timestamps and automatic updated_at triggers.\n- Include sample seed data with complex joins.",
+    "likes": 1265,
+    "uses": 6107,
+    "author": "karpathy_fan"
   },
   {
-    "title": "Master Coding Guide 88",
+    "title": "Robust Retry with Exponential Backoff & Jitter",
     "cat": "Coding",
     "tags": [
-      "coding",
-      "productivity"
+      "resilience",
+      "networking",
+      "distributed-systems"
     ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 818,
-    "uses": 19390,
-    "author": "omni_labs"
+    "body": "Implement a resilient HTTP client wrapper in TypeScript that handles transient network errors and rate limits (429, 503).\n- Exponential backoff with Full Jitter algorithm.\n- Respect 'Retry-After' response headers.\n- Circuit breaker integration to trip after N consecutive failures.\n- Emits telemetry events for monitoring.",
+    "likes": 1392,
+    "uses": 6964,
+    "author": "gpt_master"
   },
   {
-    "title": "Advanced Coding Prompt 35",
+    "title": "Clean Architecture REST Controller Generator - Level 2",
     "cat": "Coding",
     "tags": [
-      "coding",
-      "optimization"
+      "typescript",
+      "clean-architecture",
+      "backend"
     ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 156,
-    "uses": 9096,
-    "author": "lumina_systems"
+    "body": "You are a Principal Software Architect. Implement a production-grade TypeScript controller and service layer for {entityName}.\nRequirements:\n1. Strict input validation using Zod.\n2. Inversion of control / Dependency injection pattern.\n3. Detailed domain error types (NotFound, Conflict, Unauthorized) mapped to HTTP status codes.\n4. Idempotency handling for mutating endpoints.\n5. Full unit test coverage blueprint with Vitest.",
+    "likes": 1519,
+    "uses": 7821,
+    "author": "claude_whisperer"
   },
   {
-    "title": "Expert Coding Prompt 17",
+    "title": "Idiomatic Concurrent Go Worker Pool - Level 2",
     "cat": "Coding",
     "tags": [
-      "coding",
-      "strategy"
+      "golang",
+      "concurrency",
+      "performance"
     ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4692,
-    "uses": 12820,
-    "author": "cohere"
+    "body": "Design a thread-safe, bounded worker pool in Golang to process high-throughput jobs: {jobType}.\n- Implement context cancellation and graceful SIGTERM shutdown.\n- Prevent goroutine leaks using sync.WaitGroup and channel buffering.\n- Collect metrics on throughput, active workers, and queue backlog.\n- Write benchmark tests demonstrating allocation efficiency.",
+    "likes": 1646,
+    "uses": 8678,
+    "author": "prompt_crafter"
   },
   {
-    "title": "Comprehensive Coding Guide 66",
+    "title": "High-Performance React TanStack Virtualizer - Level 2",
     "cat": "Coding",
     "tags": [
-      "coding",
+      "react",
+      "frontend",
       "optimization"
     ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3432,
-    "uses": 15535,
-    "author": "runway"
-  },
-  {
-    "title": "Pro Coding Blueprint 36",
-    "cat": "Coding",
-    "tags": [
-      "coding",
-      "strategy"
-    ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1220,
-    "uses": 13801,
-    "author": "midjourney"
-  },
-  {
-    "title": "Pro Coding Template 3",
-    "cat": "Coding",
-    "tags": [
-      "coding",
-      "optimization"
-    ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2210,
-    "uses": 15231,
-    "author": "microsoft"
-  },
-  {
-    "title": "Advanced Coding Strategy 91",
-    "cat": "Coding",
-    "tags": [
-      "coding",
-      "analysis"
-    ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2682,
-    "uses": 17145,
-    "author": "vertex_inc"
-  },
-  {
-    "title": "Essential Coding Framework 94",
-    "cat": "Coding",
-    "tags": [
-      "coding",
-      "strategy"
-    ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1225,
-    "uses": 19366,
-    "author": "flux_inc"
-  },
-  {
-    "title": "Essential Coding Prompt 47",
-    "cat": "Coding",
-    "tags": [
-      "coding",
-      "optimization"
-    ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2591,
-    "uses": 1354,
-    "author": "nova_corp"
-  },
-  {
-    "title": "Quick Coding Workflow 74",
-    "cat": "Coding",
-    "tags": [
-      "coding",
-      "productivity"
-    ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4173,
-    "uses": 8383,
-    "author": "vanguard_labs"
-  },
-  {
-    "title": "Master Coding Guide 98",
-    "cat": "Coding",
-    "tags": [
-      "coding",
-      "analysis"
-    ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4865,
-    "uses": 18311,
-    "author": "ibm"
-  },
-  {
-    "title": "Comprehensive Coding Prompt 2",
-    "cat": "Coding",
-    "tags": [
-      "coding",
-      "analysis"
-    ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3926,
-    "uses": 8965,
-    "author": "palantir"
-  },
-  {
-    "title": "Essential Coding Prompt 39",
-    "cat": "Coding",
-    "tags": [
-      "coding",
-      "analysis"
-    ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4096,
-    "uses": 6180,
-    "author": "midjourney"
-  },
-  {
-    "title": "Ultimate Coding Strategy 20",
-    "cat": "Coding",
-    "tags": [
-      "coding",
-      "analysis"
-    ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4231,
-    "uses": 5681,
-    "author": "openai"
-  },
-  {
-    "title": "Expert Coding Protocol 85",
-    "cat": "Coding",
-    "tags": [
-      "coding",
-      "productivity"
-    ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2914,
-    "uses": 5933,
-    "author": "palantir"
-  },
-  {
-    "title": "Pro Coding Guide 40",
-    "cat": "Coding",
-    "tags": [
-      "coding",
-      "strategy"
-    ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3588,
-    "uses": 1589,
-    "author": "c3.ai"
-  },
-  {
-    "title": "Essential Coding Framework 27",
-    "cat": "Coding",
-    "tags": [
-      "coding",
-      "optimization"
-    ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4300,
-    "uses": 8649,
-    "author": "c3.ai"
-  },
-  {
-    "title": "Master Coding Blueprint 58",
-    "cat": "Coding",
-    "tags": [
-      "coding",
-      "efficiency"
-    ],
-    "body": "You are an expert in Coding. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3343,
-    "uses": 16559,
-    "author": "vertex_systems"
-  },
-  {
-    "title": "Quick Debugging Workflow 2",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "efficiency"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4122,
-    "uses": 19188,
-    "author": "elevenlabs"
-  },
-  {
-    "title": "Essential Debugging Guide 70",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "optimization"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4757,
-    "uses": 12342,
-    "author": "prism_inc"
-  },
-  {
-    "title": "Comprehensive Debugging Strategy 3",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "productivity"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3579,
-    "uses": 5221,
-    "author": "meta"
-  },
-  {
-    "title": "Pro Debugging Blueprint 67",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "optimization"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 409,
-    "uses": 19917,
-    "author": "nexus_technologies"
-  },
-  {
-    "title": "Master Debugging Blueprint 49",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "analysis"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 617,
-    "uses": 7833,
-    "author": "ibm"
-  },
-  {
-    "title": "Master Debugging Template 34",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "optimization"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 967,
-    "uses": 15801,
-    "author": "neo_corp"
-  },
-  {
-    "title": "Advanced Debugging Guide 99",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "efficiency"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3162,
-    "uses": 17984,
-    "author": "microsoft"
-  },
-  {
-    "title": "Pro Debugging Strategy 67",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "efficiency"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4693,
-    "uses": 8775,
-    "author": "deepmind"
-  },
-  {
-    "title": "Pro Debugging Template 25",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "productivity"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 752,
-    "uses": 16283,
-    "author": "mistral"
-  },
-  {
-    "title": "Comprehensive Debugging Blueprint 31",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "efficiency"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 881,
-    "uses": 6998,
-    "author": "nova_inc"
-  },
-  {
-    "title": "Essential Debugging Blueprint 92",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "productivity"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4868,
-    "uses": 19370,
-    "author": "midjourney"
-  },
-  {
-    "title": "Comprehensive Debugging Blueprint 36",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "strategy"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4396,
-    "uses": 9420,
-    "author": "stability_ai"
-  },
-  {
-    "title": "Expert Debugging Prompt 77",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "analysis"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2399,
-    "uses": 2714,
-    "author": "amazon"
-  },
-  {
-    "title": "Ultimate Debugging Strategy 75",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "analysis"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2960,
-    "uses": 16093,
-    "author": "databricks"
-  },
-  {
-    "title": "Quick Debugging Strategy 92",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "optimization"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2034,
-    "uses": 9836,
-    "author": "vertex_inc"
-  },
-  {
-    "title": "Essential Debugging Workflow 5",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "analysis"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1411,
-    "uses": 6075,
-    "author": "synth_technologies"
-  },
-  {
-    "title": "Quick Debugging Template 81",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "productivity"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3656,
-    "uses": 16856,
-    "author": "nexus_technologies"
-  },
-  {
-    "title": "Master Debugging Template 23",
-    "cat": "Debugging",
-    "tags": [
-      "debugging",
-      "analysis"
-    ],
-    "body": "You are an expert in Debugging. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2084,
-    "uses": 16515,
-    "author": "flux_systems"
-  },
-  {
-    "title": "Pro Code Review Workflow 34",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "productivity"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2116,
-    "uses": 6394,
-    "author": "amazon"
-  },
-  {
-    "title": "Quick Code Review Strategy 10",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "productivity"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4871,
-    "uses": 10689,
-    "author": "aero_systems"
-  },
-  {
-    "title": "Advanced Code Review Guide 94",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "efficiency"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4781,
-    "uses": 14629,
-    "author": "cohere"
-  },
-  {
-    "title": "Master Code Review Template 52",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "productivity"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1116,
-    "uses": 6465,
-    "author": "databricks"
-  },
-  {
-    "title": "Expert Code Review Workflow 51",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "optimization"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3530,
-    "uses": 5259,
-    "author": "aero_inc"
-  },
-  {
-    "title": "Advanced Code Review Guide 35",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "analysis"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1587,
-    "uses": 2191,
-    "author": "meta"
-  },
-  {
-    "title": "Quick Code Review Protocol 42",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "analysis"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1240,
-    "uses": 13511,
-    "author": "core_systems"
-  },
-  {
-    "title": "Advanced Code Review Strategy 42",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "strategy"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1111,
-    "uses": 1836,
-    "author": "core_corp"
-  },
-  {
-    "title": "Quick Code Review Guide 9",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "efficiency"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2132,
-    "uses": 7518,
-    "author": "midjourney"
-  },
-  {
-    "title": "Master Code Review Workflow 92",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "analysis"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4349,
-    "uses": 18616,
-    "author": "scale_ai"
-  },
-  {
-    "title": "Ultimate Code Review Protocol 39",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "optimization"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3712,
-    "uses": 4213,
-    "author": "hyper_inc"
-  },
-  {
-    "title": "Ultimate Code Review Strategy 29",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "productivity"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3822,
-    "uses": 8602,
-    "author": "vanguard_systems"
-  },
-  {
-    "title": "Ultimate Code Review Workflow 52",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "optimization"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2407,
-    "uses": 3745,
-    "author": "flux_technologies"
-  },
-  {
-    "title": "Essential Code Review Framework 82",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "analysis"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2072,
-    "uses": 9370,
-    "author": "nova_labs"
-  },
-  {
-    "title": "Essential Code Review Workflow 21",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "strategy"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1955,
-    "uses": 14115,
-    "author": "core_inc"
-  },
-  {
-    "title": "Advanced Code Review Prompt 75",
-    "cat": "Code Review",
-    "tags": [
-      "code review",
-      "analysis"
-    ],
-    "body": "You are an expert in Code Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 118,
-    "uses": 2145,
-    "author": "flux_technologies"
-  },
-  {
-    "title": "Advanced Testing Protocol 32",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "optimization"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4625,
-    "uses": 12067,
-    "author": "stability_ai"
-  },
-  {
-    "title": "Pro Testing Protocol 26",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1215,
-    "uses": 2926,
-    "author": "aero_labs"
-  },
-  {
-    "title": "Quick Testing Prompt 85",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2869,
-    "uses": 18656,
-    "author": "nova_systems"
-  },
-  {
-    "title": "Ultimate Testing Blueprint 3",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "optimization"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4444,
-    "uses": 1643,
-    "author": "lumina_systems"
-  },
-  {
-    "title": "Comprehensive Testing Framework 69",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "strategy"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1672,
-    "uses": 19546,
-    "author": "nexus_labs"
-  },
-  {
-    "title": "Comprehensive Testing Protocol 25",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "productivity"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 903,
-    "uses": 16009,
-    "author": "mistral"
-  },
-  {
-    "title": "Expert Testing Strategy 72",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "optimization"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4425,
-    "uses": 16047,
-    "author": "nexus_inc"
-  },
-  {
-    "title": "Expert Testing Strategy 2",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "productivity"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4926,
-    "uses": 10530,
-    "author": "lumina_labs"
-  },
-  {
-    "title": "Master Testing Workflow 18",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "productivity"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1748,
-    "uses": 14985,
-    "author": "ibm"
-  },
-  {
-    "title": "Pro Testing Guide 1",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4136,
-    "uses": 7546,
-    "author": "core_inc"
-  },
-  {
-    "title": "Pro Testing Workflow 6",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "strategy"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 186,
-    "uses": 16985,
-    "author": "ibm"
-  },
-  {
-    "title": "Essential Testing Workflow 35",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3903,
-    "uses": 13741,
-    "author": "runway"
-  },
-  {
-    "title": "Ultimate Testing Workflow 3",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1133,
-    "uses": 6840,
-    "author": "palantir"
-  },
-  {
-    "title": "Ultimate Testing Framework 38",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "analysis"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1223,
-    "uses": 7482,
-    "author": "echo_inc"
-  },
-  {
-    "title": "Advanced Testing Guide 67",
-    "cat": "Testing",
-    "tags": [
-      "testing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Testing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3983,
-    "uses": 17063,
-    "author": "huggingface"
-  },
-  {
-    "title": "Ultimate Documentation Prompt 29",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "efficiency"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3740,
-    "uses": 17410,
-    "author": "core_labs"
-  },
-  {
-    "title": "Expert Documentation Prompt 5",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "productivity"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 114,
-    "uses": 13622,
-    "author": "databricks"
-  },
-  {
-    "title": "Expert Documentation Strategy 41",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "analysis"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1283,
-    "uses": 15277,
-    "author": "palantir"
-  },
-  {
-    "title": "Quick Documentation Prompt 38",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "productivity"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 240,
-    "uses": 16920,
-    "author": "hyper_systems"
-  },
-  {
-    "title": "Ultimate Documentation Framework 16",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "strategy"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1580,
-    "uses": 5113,
-    "author": "nova_corp"
-  },
-  {
-    "title": "Pro Documentation Framework 69",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "strategy"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3956,
-    "uses": 4973,
-    "author": "elevenlabs"
-  },
-  {
-    "title": "Expert Documentation Protocol 24",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "analysis"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 549,
-    "uses": 10168,
-    "author": "microsoft"
-  },
-  {
-    "title": "Advanced Documentation Workflow 62",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "optimization"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 810,
-    "uses": 1098,
-    "author": "flux_inc"
-  },
-  {
-    "title": "Ultimate Documentation Prompt 18",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "analysis"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3783,
-    "uses": 10103,
-    "author": "nexus_systems"
-  },
-  {
-    "title": "Ultimate Documentation Protocol 85",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "analysis"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4587,
-    "uses": 11640,
-    "author": "prism_corp"
-  },
-  {
-    "title": "Essential Documentation Workflow 23",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "strategy"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2952,
-    "uses": 19016,
-    "author": "neo_systems"
-  },
-  {
-    "title": "Pro Documentation Guide 50",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "strategy"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3964,
-    "uses": 16776,
-    "author": "nexus_corp"
-  },
-  {
-    "title": "Master Documentation Template 32",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "efficiency"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1720,
-    "uses": 9587,
-    "author": "synth_technologies"
-  },
-  {
-    "title": "Master Documentation Template 96",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "analysis"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3604,
-    "uses": 6654,
-    "author": "vertex_systems"
-  },
-  {
-    "title": "Ultimate Documentation Guide 18",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "productivity"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 688,
-    "uses": 15831,
-    "author": "scale_ai"
-  },
-  {
-    "title": "Comprehensive Documentation Guide 43",
-    "cat": "Documentation",
-    "tags": [
-      "documentation",
-      "analysis"
-    ],
-    "body": "You are an expert in Documentation. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 783,
-    "uses": 19547,
-    "author": "synth_labs"
-  },
-  {
-    "title": "Comprehensive Architecture Strategy 34",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "analysis"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3141,
-    "uses": 12079,
-    "author": "aero_technologies"
-  },
-  {
-    "title": "Advanced Architecture Prompt 85",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "analysis"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4261,
-    "uses": 11486,
-    "author": "vertex_labs"
-  },
-  {
-    "title": "Advanced Architecture Framework 58",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "productivity"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3844,
-    "uses": 6625,
-    "author": "aero_systems"
-  },
-  {
-    "title": "Comprehensive Architecture Framework 86",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "strategy"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 267,
-    "uses": 15356,
-    "author": "apex_systems"
-  },
-  {
-    "title": "Expert Architecture Guide 39",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "strategy"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2729,
-    "uses": 18548,
-    "author": "huggingface"
-  },
-  {
-    "title": "Advanced Architecture Guide 91",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "analysis"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3938,
-    "uses": 7345,
-    "author": "vanguard_systems"
-  },
-  {
-    "title": "Essential Architecture Strategy 1",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "optimization"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3643,
-    "uses": 3901,
-    "author": "databricks"
-  },
-  {
-    "title": "Expert Architecture Template 97",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "optimization"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2711,
-    "uses": 7695,
-    "author": "zenith_inc"
-  },
-  {
-    "title": "Quick Architecture Strategy 35",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "efficiency"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 649,
-    "uses": 3428,
-    "author": "mistral"
-  },
-  {
-    "title": "Advanced Architecture Protocol 15",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "strategy"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1729,
-    "uses": 14093,
-    "author": "c3.ai"
-  },
-  {
-    "title": "Essential Architecture Blueprint 64",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "efficiency"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3204,
-    "uses": 10677,
-    "author": "anthropic"
-  },
-  {
-    "title": "Pro Architecture Workflow 44",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "efficiency"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4428,
-    "uses": 982,
-    "author": "flux_technologies"
-  },
-  {
-    "title": "Advanced Architecture Framework 5",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "efficiency"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 904,
-    "uses": 19029,
-    "author": "openai"
-  },
-  {
-    "title": "Ultimate Architecture Guide 85",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "productivity"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3597,
-    "uses": 1917,
-    "author": "huggingface"
-  },
-  {
-    "title": "Pro Architecture Template 32",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "productivity"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4062,
-    "uses": 9665,
-    "author": "pulse_systems"
-  },
-  {
-    "title": "Quick Architecture Workflow 10",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "productivity"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2351,
-    "uses": 14073,
-    "author": "core_inc"
-  },
-  {
-    "title": "Quick Architecture Prompt 71",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "analysis"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2202,
-    "uses": 9717,
-    "author": "lumina_systems"
-  },
-  {
-    "title": "Pro Architecture Framework 90",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "strategy"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4610,
-    "uses": 4172,
-    "author": "scale_ai"
-  },
-  {
-    "title": "Expert Architecture Strategy 38",
-    "cat": "Architecture",
-    "tags": [
-      "architecture",
-      "analysis"
-    ],
-    "body": "You are an expert in Architecture. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 667,
-    "uses": 7939,
-    "author": "openai"
-  },
-  {
-    "title": "Expert Research Workflow 92",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "optimization"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2130,
-    "uses": 18950,
-    "author": "echo_corp"
-  },
-  {
-    "title": "Quick Research Strategy 80",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "strategy"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1229,
-    "uses": 2998,
-    "author": "nexus_corp"
-  },
-  {
-    "title": "Master Research Template 85",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "productivity"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1474,
-    "uses": 10313,
-    "author": "zenith_systems"
-  },
-  {
-    "title": "Expert Research Guide 96",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "strategy"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3043,
-    "uses": 4652,
-    "author": "nova_inc"
-  },
-  {
-    "title": "Master Research Blueprint 28",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "optimization"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1007,
-    "uses": 15760,
-    "author": "echo_corp"
-  },
-  {
-    "title": "Pro Research Blueprint 51",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "analysis"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4249,
-    "uses": 8772,
-    "author": "midjourney"
-  },
-  {
-    "title": "Pro Research Framework 15",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "productivity"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4299,
-    "uses": 14554,
-    "author": "nova_technologies"
-  },
-  {
-    "title": "Quick Research Blueprint 29",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "productivity"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3780,
-    "uses": 14349,
-    "author": "elevenlabs"
-  },
-  {
-    "title": "Advanced Research Prompt 56",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "strategy"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2945,
-    "uses": 9294,
-    "author": "anthropic"
-  },
-  {
-    "title": "Comprehensive Research Protocol 55",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "productivity"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 278,
-    "uses": 11769,
-    "author": "vertex_systems"
-  },
-  {
-    "title": "Expert Research Blueprint 66",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "optimization"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2751,
-    "uses": 7219,
-    "author": "meta"
-  },
-  {
-    "title": "Advanced Research Guide 72",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "analysis"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4946,
-    "uses": 10789,
-    "author": "meta"
-  },
-  {
-    "title": "Quick Research Guide 80",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "optimization"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2060,
-    "uses": 7275,
-    "author": "nova_systems"
-  },
-  {
-    "title": "Pro Research Framework 47",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "strategy"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4795,
-    "uses": 2641,
-    "author": "synth_inc"
-  },
-  {
-    "title": "Advanced Research Template 24",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "productivity"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3091,
-    "uses": 4835,
-    "author": "hyper_labs"
-  },
-  {
-    "title": "Advanced Research Guide 28",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "strategy"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 148,
-    "uses": 4459,
-    "author": "amazon"
-  },
-  {
-    "title": "Comprehensive Research Strategy 4",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "optimization"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 797,
-    "uses": 2506,
-    "author": "deepmind"
-  },
-  {
-    "title": "Ultimate Research Protocol 7",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "analysis"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4063,
-    "uses": 7091,
-    "author": "cohere"
-  },
-  {
-    "title": "Essential Research Prompt 82",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "optimization"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1544,
-    "uses": 7728,
-    "author": "vertex_labs"
-  },
-  {
-    "title": "Advanced Research Protocol 81",
-    "cat": "Research",
-    "tags": [
-      "research",
-      "strategy"
-    ],
-    "body": "You are an expert in Research. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2091,
-    "uses": 16797,
-    "author": "pulse_labs"
-  },
-  {
-    "title": "Essential Academic Writing Protocol 40",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "strategy"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2739,
-    "uses": 16876,
-    "author": "openai"
-  },
-  {
-    "title": "Quick Academic Writing Template 75",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3312,
-    "uses": 10109,
-    "author": "hyper_corp"
-  },
-  {
-    "title": "Quick Academic Writing Protocol 7",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "optimization"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1790,
-    "uses": 7931,
-    "author": "core_technologies"
-  },
-  {
-    "title": "Pro Academic Writing Workflow 89",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "optimization"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3914,
-    "uses": 18637,
-    "author": "aether_labs"
-  },
-  {
-    "title": "Expert Academic Writing Workflow 56",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "optimization"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3354,
-    "uses": 15679,
-    "author": "elevenlabs"
-  },
-  {
-    "title": "Comprehensive Academic Writing Blueprint 58",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "productivity"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4962,
-    "uses": 9463,
-    "author": "microsoft"
-  },
-  {
-    "title": "Advanced Academic Writing Template 43",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "optimization"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4838,
-    "uses": 19350,
-    "author": "midjourney"
-  },
-  {
-    "title": "Master Academic Writing Framework 62",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3117,
-    "uses": 15168,
-    "author": "neo_inc"
-  },
-  {
-    "title": "Pro Academic Writing Prompt 98",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "strategy"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 841,
-    "uses": 12183,
-    "author": "runway"
-  },
-  {
-    "title": "Expert Academic Writing Strategy 96",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "strategy"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3468,
-    "uses": 17333,
-    "author": "aether_corp"
-  },
-  {
-    "title": "Comprehensive Academic Writing Prompt 50",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "strategy"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2523,
-    "uses": 5558,
-    "author": "pulse_systems"
-  },
-  {
-    "title": "Quick Academic Writing Framework 8",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "productivity"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1268,
-    "uses": 5295,
-    "author": "google"
-  },
-  {
-    "title": "Expert Academic Writing Prompt 32",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "strategy"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2908,
-    "uses": 8713,
-    "author": "zenith_technologies"
-  },
-  {
-    "title": "Comprehensive Academic Writing Template 43",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1334,
-    "uses": 7305,
-    "author": "hyper_technologies"
-  },
-  {
-    "title": "Advanced Academic Writing Framework 37",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "optimization"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4984,
-    "uses": 18515,
-    "author": "databricks"
-  },
-  {
-    "title": "Quick Academic Writing Blueprint 49",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "analysis"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4676,
-    "uses": 4566,
-    "author": "meta"
-  },
-  {
-    "title": "Expert Academic Writing Framework 9",
-    "cat": "Academic Writing",
-    "tags": [
-      "academic writing",
-      "analysis"
-    ],
-    "body": "You are an expert in Academic Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2645,
-    "uses": 4555,
-    "author": "huggingface"
-  },
-  {
-    "title": "Advanced Literature Review Workflow 9",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "strategy"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3329,
-    "uses": 11701,
-    "author": "neo_systems"
-  },
-  {
-    "title": "Advanced Literature Review Protocol 96",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "productivity"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4261,
-    "uses": 9949,
-    "author": "runway"
-  },
-  {
-    "title": "Master Literature Review Guide 73",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "optimization"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3063,
-    "uses": 16482,
-    "author": "core_labs"
-  },
-  {
-    "title": "Master Literature Review Strategy 14",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "optimization"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4002,
-    "uses": 5032,
-    "author": "pulse_corp"
-  },
-  {
-    "title": "Pro Literature Review Framework 34",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "strategy"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3070,
-    "uses": 18554,
-    "author": "echo_labs"
-  },
-  {
-    "title": "Expert Literature Review Blueprint 21",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "strategy"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1659,
-    "uses": 11317,
-    "author": "hyper_corp"
-  },
-  {
-    "title": "Essential Literature Review Framework 42",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "efficiency"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2327,
-    "uses": 5675,
-    "author": "nexus_inc"
-  },
-  {
-    "title": "Comprehensive Literature Review Protocol 56",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "analysis"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2816,
-    "uses": 5236,
-    "author": "mistral"
-  },
-  {
-    "title": "Quick Literature Review Strategy 8",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "strategy"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4410,
-    "uses": 8779,
-    "author": "nova_systems"
-  },
-  {
-    "title": "Advanced Literature Review Template 82",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "analysis"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3578,
-    "uses": 17175,
-    "author": "apex_systems"
-  },
-  {
-    "title": "Essential Literature Review Protocol 43",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "productivity"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4526,
-    "uses": 15294,
-    "author": "catalyst_corp"
-  },
-  {
-    "title": "Quick Literature Review Protocol 55",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "productivity"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3134,
-    "uses": 9901,
-    "author": "scale_ai"
-  },
-  {
-    "title": "Comprehensive Literature Review Workflow 65",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "strategy"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1727,
-    "uses": 19172,
-    "author": "echo_labs"
-  },
-  {
-    "title": "Quick Literature Review Guide 34",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "efficiency"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2009,
-    "uses": 19641,
-    "author": "c3.ai"
-  },
-  {
-    "title": "Master Literature Review Prompt 50",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "optimization"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4758,
-    "uses": 16793,
-    "author": "zenith_labs"
-  },
-  {
-    "title": "Expert Literature Review Template 59",
-    "cat": "Literature Review",
-    "tags": [
-      "literature review",
-      "analysis"
-    ],
-    "body": "You are an expert in Literature Review. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1774,
-    "uses": 9540,
-    "author": "anthropic"
-  },
-  {
-    "title": "Advanced Data Analysis Blueprint 91",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "strategy"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3841,
-    "uses": 2957,
-    "author": "meta"
-  },
-  {
-    "title": "Comprehensive Data Analysis Framework 80",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "optimization"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1243,
-    "uses": 14912,
-    "author": "elevenlabs"
-  },
-  {
-    "title": "Advanced Data Analysis Framework 56",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "analysis"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3100,
-    "uses": 7652,
-    "author": "mistral"
-  },
-  {
-    "title": "Advanced Data Analysis Guide 80",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "strategy"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1771,
-    "uses": 15026,
-    "author": "stability_ai"
-  },
-  {
-    "title": "Advanced Data Analysis Prompt 14",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "optimization"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1509,
-    "uses": 11190,
-    "author": "google"
-  },
-  {
-    "title": "Pro Data Analysis Strategy 69",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "analysis"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3491,
-    "uses": 7897,
-    "author": "flux_labs"
-  },
-  {
-    "title": "Expert Data Analysis Framework 36",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "analysis"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4841,
-    "uses": 9571,
-    "author": "palantir"
-  },
-  {
-    "title": "Advanced Data Analysis Guide 89",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "analysis"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 767,
-    "uses": 11434,
-    "author": "palantir"
-  },
-  {
-    "title": "Essential Data Analysis Template 69",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "strategy"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3285,
-    "uses": 14968,
-    "author": "runway"
-  },
-  {
-    "title": "Essential Data Analysis Protocol 38",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "productivity"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4216,
-    "uses": 14504,
-    "author": "catalyst_labs"
-  },
-  {
-    "title": "Master Data Analysis Protocol 64",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "optimization"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1913,
-    "uses": 4681,
-    "author": "flux_corp"
-  },
-  {
-    "title": "Quick Data Analysis Workflow 68",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "optimization"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4565,
-    "uses": 8578,
-    "author": "aero_systems"
-  },
-  {
-    "title": "Ultimate Data Analysis Blueprint 27",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "efficiency"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3598,
-    "uses": 11993,
-    "author": "runway"
-  },
-  {
-    "title": "Comprehensive Data Analysis Template 6",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "analysis"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 202,
-    "uses": 10163,
-    "author": "mistral"
-  },
-  {
-    "title": "Essential Data Analysis Template 85",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "productivity"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4125,
-    "uses": 2266,
-    "author": "aero_labs"
-  },
-  {
-    "title": "Pro Data Analysis Workflow 1",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "analysis"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3712,
-    "uses": 5746,
-    "author": "flux_technologies"
-  },
-  {
-    "title": "Expert Data Analysis Protocol 4",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "productivity"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4453,
-    "uses": 6557,
-    "author": "google"
-  },
-  {
-    "title": "Master Data Analysis Protocol 45",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "optimization"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3776,
-    "uses": 2414,
-    "author": "meta"
-  },
-  {
-    "title": "Quick Data Analysis Workflow 24",
-    "cat": "Data Analysis",
-    "tags": [
-      "data analysis",
-      "efficiency"
-    ],
-    "body": "You are an expert in Data Analysis. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1809,
-    "uses": 674,
-    "author": "mistral"
-  },
-  {
-    "title": "Quick Marketing Blueprint 81",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "productivity"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4285,
-    "uses": 15704,
-    "author": "echo_labs"
-  },
-  {
-    "title": "Quick Marketing Guide 30",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "strategy"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1087,
-    "uses": 7632,
-    "author": "zenith_inc"
-  },
-  {
-    "title": "Comprehensive Marketing Workflow 34",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "analysis"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1402,
-    "uses": 18809,
-    "author": "hyper_inc"
-  },
-  {
-    "title": "Comprehensive Marketing Protocol 70",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "productivity"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 973,
-    "uses": 3153,
-    "author": "neo_systems"
-  },
-  {
-    "title": "Master Marketing Workflow 6",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "analysis"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2254,
-    "uses": 4712,
-    "author": "google"
-  },
-  {
-    "title": "Expert Marketing Strategy 64",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1260,
-    "uses": 6794,
-    "author": "google"
-  },
-  {
-    "title": "Expert Marketing Template 53",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3418,
-    "uses": 5775,
-    "author": "apex_technologies"
-  },
-  {
-    "title": "Quick Marketing Workflow 58",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "optimization"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3715,
-    "uses": 9168,
-    "author": "midjourney"
-  },
-  {
-    "title": "Expert Marketing Framework 70",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "productivity"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1168,
-    "uses": 7827,
-    "author": "apex_technologies"
-  },
-  {
-    "title": "Quick Marketing Blueprint 29",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "optimization"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2981,
-    "uses": 10554,
-    "author": "synth_labs"
-  },
-  {
-    "title": "Expert Marketing Blueprint 23",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4784,
-    "uses": 8099,
-    "author": "microsoft"
-  },
-  {
-    "title": "Advanced Marketing Blueprint 29",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "productivity"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1511,
-    "uses": 9217,
-    "author": "vanguard_technologies"
-  },
-  {
-    "title": "Quick Marketing Template 1",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "analysis"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 225,
-    "uses": 14502,
-    "author": "lumina_systems"
-  },
-  {
-    "title": "Advanced Marketing Guide 68",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "analysis"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4302,
-    "uses": 6581,
-    "author": "amazon"
-  },
-  {
-    "title": "Advanced Marketing Template 53",
-    "cat": "Marketing",
-    "tags": [
-      "marketing",
-      "optimization"
-    ],
-    "body": "You are an expert in Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1117,
-    "uses": 4440,
-    "author": "lumina_systems"
-  },
-  {
-    "title": "Expert Copywriting Protocol 32",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "productivity"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 499,
-    "uses": 8681,
-    "author": "elevenlabs"
-  },
-  {
-    "title": "Essential Copywriting Framework 69",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "analysis"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2099,
-    "uses": 1483,
-    "author": "amazon"
-  },
-  {
-    "title": "Essential Copywriting Blueprint 47",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "analysis"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1437,
-    "uses": 8568,
-    "author": "midjourney"
-  },
-  {
-    "title": "Comprehensive Copywriting Blueprint 7",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "strategy"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2276,
-    "uses": 16972,
-    "author": "deepmind"
-  },
-  {
-    "title": "Comprehensive Copywriting Guide 82",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "optimization"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3709,
-    "uses": 11383,
-    "author": "c3.ai"
-  },
-  {
-    "title": "Pro Copywriting Template 95",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "strategy"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 197,
-    "uses": 10584,
-    "author": "pulse_systems"
-  },
-  {
-    "title": "Pro Copywriting Protocol 82",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "strategy"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3164,
-    "uses": 6383,
-    "author": "echo_corp"
-  },
-  {
-    "title": "Ultimate Copywriting Framework 41",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "strategy"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3377,
-    "uses": 4847,
-    "author": "aether_systems"
-  },
-  {
-    "title": "Master Copywriting Prompt 35",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "efficiency"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2904,
-    "uses": 14379,
-    "author": "huggingface"
-  },
-  {
-    "title": "Advanced Copywriting Prompt 21",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "analysis"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4856,
-    "uses": 16161,
-    "author": "lumina_corp"
-  },
-  {
-    "title": "Comprehensive Copywriting Protocol 99",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "efficiency"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4524,
-    "uses": 7138,
-    "author": "databricks"
-  },
-  {
-    "title": "Master Copywriting Protocol 98",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "analysis"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 754,
-    "uses": 18902,
-    "author": "lumina_systems"
-  },
-  {
-    "title": "Ultimate Copywriting Guide 53",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "efficiency"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2466,
-    "uses": 10764,
-    "author": "scale_ai"
-  },
-  {
-    "title": "Advanced Copywriting Protocol 82",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "optimization"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2229,
-    "uses": 15908,
-    "author": "cohere"
-  },
-  {
-    "title": "Quick Copywriting Protocol 33",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "analysis"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1721,
-    "uses": 8668,
-    "author": "scale_ai"
-  },
-  {
-    "title": "Advanced Copywriting Template 42",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "analysis"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 922,
-    "uses": 16272,
-    "author": "mistral"
-  },
-  {
-    "title": "Expert Copywriting Framework 44",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "optimization"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1154,
-    "uses": 8788,
-    "author": "synth_corp"
-  },
-  {
-    "title": "Essential Copywriting Strategy 78",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "efficiency"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2274,
-    "uses": 2916,
-    "author": "lumina_technologies"
-  },
-  {
-    "title": "Pro Copywriting Protocol 87",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "strategy"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1450,
-    "uses": 12632,
-    "author": "neo_systems"
-  },
-  {
-    "title": "Essential Copywriting Strategy 46",
-    "cat": "Copywriting",
-    "tags": [
-      "copywriting",
-      "analysis"
-    ],
-    "body": "You are an expert in Copywriting. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4971,
-    "uses": 6062,
-    "author": "aether_inc"
-  },
-  {
-    "title": "Quick SEO Strategy 69",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "efficiency"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 304,
-    "uses": 18085,
-    "author": "scale_ai"
-  },
-  {
-    "title": "Pro SEO Prompt 13",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "productivity"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3191,
-    "uses": 7866,
-    "author": "catalyst_corp"
-  },
-  {
-    "title": "Pro SEO Strategy 97",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "productivity"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4049,
-    "uses": 14879,
-    "author": "ibm"
-  },
-  {
-    "title": "Master SEO Prompt 91",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "efficiency"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4858,
-    "uses": 17761,
-    "author": "core_inc"
-  },
-  {
-    "title": "Comprehensive SEO Framework 89",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "productivity"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2347,
-    "uses": 1543,
-    "author": "midjourney"
-  },
-  {
-    "title": "Advanced SEO Framework 53",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "strategy"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3619,
-    "uses": 10138,
-    "author": "aether_labs"
-  },
-  {
-    "title": "Master SEO Prompt 31",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "optimization"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3682,
-    "uses": 13275,
-    "author": "meta"
-  },
-  {
-    "title": "Master SEO Protocol 99",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "efficiency"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 521,
-    "uses": 7884,
-    "author": "stability_ai"
-  },
-  {
-    "title": "Quick SEO Workflow 14",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "productivity"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4342,
-    "uses": 13162,
-    "author": "microsoft"
-  },
-  {
-    "title": "Expert SEO Guide 52",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "optimization"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 481,
-    "uses": 15842,
-    "author": "nova_inc"
-  },
-  {
-    "title": "Expert SEO Blueprint 91",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "analysis"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3531,
-    "uses": 2520,
-    "author": "mistral"
-  },
-  {
-    "title": "Expert SEO Protocol 3",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "optimization"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3199,
-    "uses": 6916,
-    "author": "core_technologies"
-  },
-  {
-    "title": "Advanced SEO Workflow 77",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "optimization"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2007,
-    "uses": 14584,
-    "author": "snowflake"
-  },
-  {
-    "title": "Expert SEO Prompt 28",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "productivity"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1514,
-    "uses": 1612,
-    "author": "openai"
-  },
-  {
-    "title": "Ultimate SEO Blueprint 94",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "efficiency"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4308,
-    "uses": 2085,
-    "author": "vertex_technologies"
-  },
-  {
-    "title": "Essential SEO Guide 31",
-    "cat": "SEO",
-    "tags": [
-      "seo",
-      "strategy"
-    ],
-    "body": "You are an expert in SEO. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3511,
-    "uses": 14846,
-    "author": "meta"
-  },
-  {
-    "title": "Master Social Media Blueprint 43",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "strategy"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 423,
-    "uses": 9078,
-    "author": "anthropic"
-  },
-  {
-    "title": "Advanced Social Media Prompt 83",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "analysis"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1002,
-    "uses": 19456,
-    "author": "apex_inc"
-  },
-  {
-    "title": "Ultimate Social Media Workflow 42",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "analysis"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3401,
-    "uses": 5364,
-    "author": "vertex_corp"
-  },
-  {
-    "title": "Expert Social Media Guide 15",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "analysis"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1790,
-    "uses": 10442,
-    "author": "synth_corp"
-  },
-  {
-    "title": "Master Social Media Strategy 77",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "productivity"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3816,
-    "uses": 9842,
-    "author": "flux_inc"
-  },
-  {
-    "title": "Master Social Media Strategy 33",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "strategy"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4775,
-    "uses": 13140,
-    "author": "flux_inc"
-  },
-  {
-    "title": "Pro Social Media Template 54",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "analysis"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1341,
-    "uses": 17895,
-    "author": "ibm"
-  },
-  {
-    "title": "Quick Social Media Prompt 42",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "productivity"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2414,
-    "uses": 17844,
-    "author": "quantum_technologies"
-  },
-  {
-    "title": "Master Social Media Framework 39",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "analysis"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2839,
-    "uses": 9792,
-    "author": "amazon"
-  },
-  {
-    "title": "Quick Social Media Workflow 54",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "productivity"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4543,
-    "uses": 14950,
-    "author": "deepmind"
-  },
-  {
-    "title": "Advanced Social Media Workflow 10",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "optimization"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 395,
-    "uses": 8504,
-    "author": "meta"
-  },
-  {
-    "title": "Expert Social Media Framework 50",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "analysis"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2680,
-    "uses": 17433,
-    "author": "palantir"
-  },
-  {
-    "title": "Master Social Media Strategy 98",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "optimization"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4344,
-    "uses": 10180,
-    "author": "pulse_systems"
-  },
-  {
-    "title": "Advanced Social Media Guide 78",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "optimization"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1130,
-    "uses": 1482,
-    "author": "meta"
-  },
-  {
-    "title": "Advanced Social Media Workflow 50",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "efficiency"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3685,
-    "uses": 1038,
-    "author": "echo_systems"
-  },
-  {
-    "title": "Master Social Media Guide 90",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "analysis"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1575,
-    "uses": 15569,
-    "author": "stability_ai"
-  },
-  {
-    "title": "Comprehensive Social Media Strategy 90",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "strategy"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4039,
-    "uses": 19152,
-    "author": "midjourney"
-  },
-  {
-    "title": "Ultimate Social Media Template 87",
-    "cat": "Social Media",
-    "tags": [
-      "social media",
-      "efficiency"
-    ],
-    "body": "You are an expert in Social Media. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1115,
-    "uses": 18891,
-    "author": "databricks"
-  },
-  {
-    "title": "Ultimate Email Marketing Guide 30",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "productivity"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 111,
-    "uses": 2045,
-    "author": "google"
-  },
-  {
-    "title": "Essential Email Marketing Prompt 58",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "analysis"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3353,
-    "uses": 8487,
-    "author": "amazon"
-  },
-  {
-    "title": "Master Email Marketing Framework 75",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "strategy"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 165,
-    "uses": 8564,
-    "author": "catalyst_technologies"
-  },
-  {
-    "title": "Advanced Email Marketing Prompt 88",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "optimization"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3828,
-    "uses": 18050,
-    "author": "aero_corp"
-  },
-  {
-    "title": "Expert Email Marketing Framework 4",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1228,
-    "uses": 2413,
-    "author": "vanguard_corp"
-  },
-  {
-    "title": "Comprehensive Email Marketing Framework 72",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "optimization"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4169,
-    "uses": 16546,
-    "author": "catalyst_labs"
-  },
-  {
-    "title": "Comprehensive Email Marketing Protocol 68",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "strategy"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 798,
-    "uses": 522,
-    "author": "palantir"
-  },
-  {
-    "title": "Quick Email Marketing Template 28",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "analysis"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4963,
-    "uses": 5819,
-    "author": "elevenlabs"
-  },
-  {
-    "title": "Pro Email Marketing Strategy 8",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 110,
-    "uses": 19632,
-    "author": "anthropic"
-  },
-  {
-    "title": "Ultimate Email Marketing Guide 64",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "analysis"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4491,
-    "uses": 10387,
-    "author": "openai"
-  },
-  {
-    "title": "Quick Email Marketing Workflow 4",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "strategy"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3125,
-    "uses": 1231,
-    "author": "openai"
-  },
-  {
-    "title": "Comprehensive Email Marketing Template 55",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "productivity"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2946,
-    "uses": 8490,
-    "author": "openai"
-  },
-  {
-    "title": "Expert Email Marketing Blueprint 17",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "strategy"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4186,
-    "uses": 8662,
-    "author": "openai"
-  },
-  {
-    "title": "Essential Email Marketing Protocol 65",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "analysis"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1568,
-    "uses": 723,
-    "author": "nexus_technologies"
-  },
-  {
-    "title": "Pro Email Marketing Guide 85",
-    "cat": "Email Marketing",
-    "tags": [
-      "email marketing",
-      "strategy"
-    ],
-    "body": "You are an expert in Email Marketing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3214,
-    "uses": 10059,
-    "author": "flux_technologies"
-  },
-  {
-    "title": "Ultimate Content Strategy Strategy 18",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "analysis"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1060,
-    "uses": 6411,
-    "author": "deepmind"
-  },
-  {
-    "title": "Pro Content Strategy Protocol 36",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "strategy"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2656,
-    "uses": 17148,
-    "author": "anthropic"
-  },
-  {
-    "title": "Pro Content Strategy Blueprint 73",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "efficiency"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2503,
-    "uses": 6712,
-    "author": "catalyst_inc"
-  },
-  {
-    "title": "Pro Content Strategy Protocol 12",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "strategy"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 719,
-    "uses": 11852,
-    "author": "aero_inc"
-  },
-  {
-    "title": "Master Content Strategy Blueprint 87",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "strategy"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2236,
-    "uses": 18168,
-    "author": "vanguard_technologies"
-  },
-  {
-    "title": "Pro Content Strategy Strategy 46",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "optimization"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2721,
-    "uses": 11976,
-    "author": "nova_systems"
-  },
-  {
-    "title": "Advanced Content Strategy Guide 88",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "optimization"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 384,
-    "uses": 9375,
-    "author": "echo_inc"
-  },
-  {
-    "title": "Comprehensive Content Strategy Guide 98",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "optimization"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1741,
-    "uses": 3870,
-    "author": "pulse_technologies"
-  },
-  {
-    "title": "Expert Content Strategy Prompt 11",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "strategy"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1861,
-    "uses": 16278,
-    "author": "anthropic"
-  },
-  {
-    "title": "Expert Content Strategy Guide 50",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "productivity"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 974,
-    "uses": 17790,
-    "author": "ibm"
-  },
-  {
-    "title": "Master Content Strategy Blueprint 36",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "analysis"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 118,
-    "uses": 18650,
-    "author": "amazon"
-  },
-  {
-    "title": "Comprehensive Content Strategy Template 95",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "productivity"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3907,
-    "uses": 2820,
-    "author": "apex_systems"
-  },
-  {
-    "title": "Quick Content Strategy Workflow 67",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "productivity"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4658,
-    "uses": 6176,
-    "author": "hyper_inc"
-  },
-  {
-    "title": "Comprehensive Content Strategy Protocol 93",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "strategy"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1288,
-    "uses": 13216,
-    "author": "mistral"
-  },
-  {
-    "title": "Advanced Content Strategy Strategy 96",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "analysis"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2333,
-    "uses": 9092,
-    "author": "aero_systems"
-  },
-  {
-    "title": "Quick Content Strategy Strategy 67",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "efficiency"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4828,
-    "uses": 13079,
-    "author": "nexus_labs"
-  },
-  {
-    "title": "Expert Content Strategy Protocol 92",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "efficiency"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1869,
-    "uses": 1473,
-    "author": "hyper_corp"
-  },
-  {
-    "title": "Expert Content Strategy Framework 97",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "analysis"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3464,
-    "uses": 3297,
-    "author": "microsoft"
-  },
-  {
-    "title": "Expert Content Strategy Prompt 28",
-    "cat": "Content Strategy",
-    "tags": [
-      "content strategy",
-      "productivity"
-    ],
-    "body": "You are an expert in Content Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2833,
-    "uses": 15822,
-    "author": "elevenlabs"
-  },
-  {
-    "title": "Essential Creative Writing Strategy 65",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "strategy"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4989,
-    "uses": 11689,
-    "author": "amazon"
-  },
-  {
-    "title": "Ultimate Creative Writing Template 25",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "optimization"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4876,
-    "uses": 16986,
-    "author": "databricks"
-  },
-  {
-    "title": "Comprehensive Creative Writing Prompt 68",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1294,
-    "uses": 14591,
-    "author": "neo_labs"
-  },
-  {
-    "title": "Comprehensive Creative Writing Framework 80",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "productivity"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4486,
-    "uses": 19446,
-    "author": "flux_technologies"
-  },
-  {
-    "title": "Comprehensive Creative Writing Protocol 56",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "analysis"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2104,
-    "uses": 18059,
-    "author": "mistral"
-  },
-  {
-    "title": "Ultimate Creative Writing Workflow 34",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "optimization"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2895,
-    "uses": 3433,
-    "author": "meta"
-  },
-  {
-    "title": "Expert Creative Writing Protocol 19",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "productivity"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3126,
-    "uses": 16550,
-    "author": "echo_labs"
-  },
-  {
-    "title": "Master Creative Writing Strategy 95",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3824,
-    "uses": 14263,
-    "author": "c3.ai"
-  },
-  {
-    "title": "Comprehensive Creative Writing Guide 27",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "strategy"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1718,
-    "uses": 8980,
-    "author": "quantum_corp"
-  },
-  {
-    "title": "Quick Creative Writing Prompt 71",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "strategy"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 892,
-    "uses": 10129,
-    "author": "zenith_inc"
-  },
-  {
-    "title": "Pro Creative Writing Blueprint 71",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4750,
-    "uses": 8487,
-    "author": "synth_inc"
-  },
-  {
-    "title": "Ultimate Creative Writing Prompt 75",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "strategy"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3868,
-    "uses": 10445,
-    "author": "microsoft"
-  },
-  {
-    "title": "Advanced Creative Writing Guide 91",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "analysis"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1875,
-    "uses": 18176,
-    "author": "snowflake"
-  },
-  {
-    "title": "Ultimate Creative Writing Workflow 88",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1665,
-    "uses": 11096,
-    "author": "scale_ai"
-  },
-  {
-    "title": "Expert Creative Writing Guide 32",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2166,
-    "uses": 3723,
-    "author": "midjourney"
-  },
-  {
-    "title": "Pro Creative Writing Workflow 99",
-    "cat": "Creative Writing",
-    "tags": [
-      "creative writing",
-      "analysis"
-    ],
-    "body": "You are an expert in Creative Writing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
+    "body": "Create a responsive React 19 component that renders 100,000+ rows using TanStack Virtual.\n- Support dynamic row heights and smooth scroll-to-index.\n- Implement keyboard navigation (Arrow Up/Down, Home, End).\n- Maintain accessible ARIA grid roles.\n- Optimize re-renders with memoization and CSS content-visibility.",
     "likes": 1773,
-    "uses": 14523,
-    "author": "zenith_technologies"
+    "uses": 9535,
+    "author": "research_lead"
   },
   {
-    "title": "Advanced Editing Blueprint 67",
-    "cat": "Editing",
+    "title": "Drizzle ORM Normalized Schema with Foreign Keys & Indexes - Level 2",
+    "cat": "Coding",
     "tags": [
-      "editing",
-      "analysis"
+      "sql",
+      "database",
+      "drizzle-orm"
     ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3167,
-    "uses": 4263,
-    "author": "quantum_inc"
+    "body": "Define a relational schema in TypeScript using Drizzle ORM for {domainModel}.\n- Define primary keys (UUIDv7 or ULID), foreign key constraints with cascade behaviors.\n- Add composite indexes for common queries.\n- Add soft-delete timestamps and automatic updated_at triggers.\n- Include sample seed data with complex joins.",
+    "likes": 1900,
+    "uses": 10392,
+    "author": "system_architect"
   },
   {
-    "title": "Advanced Editing Framework 46",
-    "cat": "Editing",
+    "title": "Robust Retry with Exponential Backoff & Jitter - Level 2",
+    "cat": "Coding",
     "tags": [
-      "editing",
-      "efficiency"
+      "resilience",
+      "networking",
+      "distributed-systems"
     ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4075,
-    "uses": 3759,
-    "author": "apex_inc"
+    "body": "Implement a resilient HTTP client wrapper in TypeScript that handles transient network errors and rate limits (429, 503).\n- Exponential backoff with Full Jitter algorithm.\n- Respect 'Retry-After' response headers.\n- Circuit breaker integration to trip after N consecutive failures.\n- Emits telemetry events for monitoring.",
+    "likes": 2027,
+    "uses": 8249,
+    "author": "growth_engineer"
   },
   {
-    "title": "Master Editing Strategy 48",
-    "cat": "Editing",
+    "title": "Clean Architecture REST Controller Generator - Level 3",
+    "cat": "Coding",
     "tags": [
-      "editing",
-      "efficiency"
+      "typescript",
+      "clean-architecture",
+      "backend"
     ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3685,
-    "uses": 14704,
-    "author": "databricks"
-  },
-  {
-    "title": "Essential Editing Template 19",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "strategy"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 253,
-    "uses": 17596,
-    "author": "aether_systems"
-  },
-  {
-    "title": "Advanced Editing Framework 14",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "analysis"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3609,
-    "uses": 9762,
-    "author": "openai"
-  },
-  {
-    "title": "Quick Editing Prompt 58",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 568,
-    "uses": 16265,
-    "author": "meta"
-  },
-  {
-    "title": "Ultimate Editing Workflow 86",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4732,
-    "uses": 2070,
-    "author": "runway"
-  },
-  {
-    "title": "Quick Editing Framework 29",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "optimization"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4623,
-    "uses": 6878,
-    "author": "databricks"
-  },
-  {
-    "title": "Master Editing Blueprint 36",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "productivity"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 698,
-    "uses": 7185,
-    "author": "scale_ai"
-  },
-  {
-    "title": "Pro Editing Strategy 2",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "analysis"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1855,
-    "uses": 15420,
-    "author": "midjourney"
-  },
-  {
-    "title": "Ultimate Editing Guide 34",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1380,
-    "uses": 14728,
-    "author": "flux_corp"
-  },
-  {
-    "title": "Pro Editing Protocol 11",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "analysis"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1135,
-    "uses": 19664,
-    "author": "stability_ai"
-  },
-  {
-    "title": "Expert Editing Protocol 88",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "strategy"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 192,
-    "uses": 12121,
-    "author": "catalyst_systems"
-  },
-  {
-    "title": "Pro Editing Guide 19",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3574,
-    "uses": 11451,
-    "author": "amazon"
-  },
-  {
-    "title": "Master Editing Template 61",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "analysis"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2651,
-    "uses": 6163,
-    "author": "nova_technologies"
-  },
-  {
-    "title": "Ultimate Editing Workflow 17",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "productivity"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2669,
-    "uses": 15728,
-    "author": "midjourney"
-  },
-  {
-    "title": "Comprehensive Editing Protocol 11",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "strategy"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3288,
-    "uses": 14571,
-    "author": "aether_corp"
-  },
-  {
-    "title": "Comprehensive Editing Protocol 93",
-    "cat": "Editing",
-    "tags": [
-      "editing",
-      "efficiency"
-    ],
-    "body": "You are an expert in Editing. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4646,
-    "uses": 5413,
-    "author": "zenith_corp"
-  },
-  {
-    "title": "Essential Business Strategy Blueprint 9",
-    "cat": "Business Strategy",
-    "tags": [
-      "business strategy",
-      "efficiency"
-    ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4471,
-    "uses": 16107,
-    "author": "flux_corp"
-  },
-  {
-    "title": "Essential Business Strategy Blueprint 65",
-    "cat": "Business Strategy",
-    "tags": [
-      "business strategy",
-      "productivity"
-    ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3011,
-    "uses": 2016,
-    "author": "nova_systems"
-  },
-  {
-    "title": "Master Business Strategy Protocol 77",
-    "cat": "Business Strategy",
-    "tags": [
-      "business strategy",
-      "efficiency"
-    ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4335,
-    "uses": 14194,
-    "author": "mistral"
-  },
-  {
-    "title": "Ultimate Business Strategy Framework 36",
-    "cat": "Business Strategy",
-    "tags": [
-      "business strategy",
-      "analysis"
-    ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4000,
-    "uses": 1952,
-    "author": "scale_ai"
-  },
-  {
-    "title": "Ultimate Business Strategy Protocol 72",
-    "cat": "Business Strategy",
-    "tags": [
-      "business strategy",
-      "optimization"
-    ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4892,
-    "uses": 17151,
-    "author": "nexus_systems"
-  },
-  {
-    "title": "Ultimate Business Strategy Blueprint 88",
-    "cat": "Business Strategy",
-    "tags": [
-      "business strategy",
-      "optimization"
-    ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1611,
-    "uses": 4156,
-    "author": "vanguard_technologies"
-  },
-  {
-    "title": "Expert Business Strategy Template 57",
-    "cat": "Business Strategy",
-    "tags": [
-      "business strategy",
-      "strategy"
-    ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4056,
-    "uses": 3695,
+    "body": "You are a Principal Software Architect. Implement a production-grade TypeScript controller and service layer for {entityName}.\nRequirements:\n1. Strict input validation using Zod.\n2. Inversion of control / Dependency injection pattern.\n3. Detailed domain error types (NotFound, Conflict, Unauthorized) mapped to HTTP status codes.\n4. Idempotency handling for mutating endpoints.\n5. Full unit test coverage blueprint with Vitest.",
+    "likes": 2154,
+    "uses": 9106,
     "author": "deepmind"
   },
   {
-    "title": "Ultimate Business Strategy Guide 43",
-    "cat": "Business Strategy",
+    "title": "Idiomatic Concurrent Go Worker Pool - Level 3",
+    "cat": "Coding",
     "tags": [
-      "business strategy",
-      "analysis"
+      "golang",
+      "concurrency",
+      "performance"
     ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3103,
-    "uses": 13396,
-    "author": "hyper_labs"
+    "body": "Design a thread-safe, bounded worker pool in Golang to process high-throughput jobs: {jobType}.\n- Implement context cancellation and graceful SIGTERM shutdown.\n- Prevent goroutine leaks using sync.WaitGroup and channel buffering.\n- Collect metrics on throughput, active workers, and queue backlog.\n- Write benchmark tests demonstrating allocation efficiency.",
+    "likes": 2281,
+    "uses": 9963,
+    "author": "karpathy_fan"
   },
   {
-    "title": "Quick Business Strategy Blueprint 43",
-    "cat": "Business Strategy",
+    "title": "Deep Memory Leak & Heap Dump Diagnostic Protocol",
+    "cat": "Debugging",
     "tags": [
-      "business strategy",
-      "analysis"
+      "nodejs",
+      "memory",
+      "profiling"
     ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1001,
-    "uses": 2813,
-    "author": "nexus_systems"
+    "body": "Analyze the provided Node.js V8 heap profile or memory growth symptom: {issueDescription}.\n1. Identify potential retaining paths keeping objects from being garbage collected (closures, unremoved event listeners, global caches).\n2. Provide specific diagnostic commands using --inspect, heap snapshots, and clinic.js.\n3. Give the exact code refactor required to isolate and eliminate the retention leak.",
+    "likes": 1151,
+    "uses": 4604,
+    "author": "karpathy_fan"
   },
   {
-    "title": "Quick Business Strategy Prompt 26",
-    "cat": "Business Strategy",
+    "title": "Distributed Async Race Condition Root Cause Analysis",
+    "cat": "Debugging",
     "tags": [
-      "business strategy",
-      "productivity"
+      "concurrency",
+      "distributed",
+      "debugging"
     ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4064,
-    "uses": 12434,
-    "author": "ibm"
+    "body": "Given the following intermittent database/state inconsistency: {errorLog}.\n1. Formulate 3 distinct hypotheses on where concurrency or async race conditions occur.\n2. Trace database transaction isolation levels (Read Committed vs Serializable) and optimistic locking opportunities.\n3. Propose a deterministic reproduction script to prove the race condition.",
+    "likes": 1278,
+    "uses": 5461,
+    "author": "gpt_master"
   },
   {
-    "title": "Pro Business Strategy Workflow 82",
-    "cat": "Business Strategy",
+    "title": "Microservice 504 Gateway Timeout Cascade Debugger",
+    "cat": "Debugging",
     "tags": [
-      "business strategy",
-      "productivity"
+      "networking",
+      "microservices",
+      "latency"
     ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 607,
-    "uses": 3694,
-    "author": "pulse_corp"
+    "body": "Our API gateway is returning 504 Gateway Timeouts under sudden traffic spikes. Here is the architecture and tracing logs: {context}.\n1. Analyze upstream connection pool exhaustion and DNS resolution bottleneck risks.\n2. Evaluate timeout budgets across the downstream call graph.\n3. Provide immediate configuration tweaks and architectural circuit-breaker defenses.",
+    "likes": 1405,
+    "uses": 6318,
+    "author": "claude_whisperer"
   },
   {
-    "title": "Essential Business Strategy Guide 67",
-    "cat": "Business Strategy",
+    "title": "Hydration Mismatch Detector & SSR Stabilizer",
+    "cat": "Debugging",
     "tags": [
-      "business strategy",
-      "productivity"
+      "react",
+      "nextjs",
+      "ssr"
     ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2953,
-    "uses": 12399,
-    "author": "hyper_corp"
+    "body": "We are encountering React SSR hydration mismatch warning: '{errorMessage}'.\n- Explain the exact divergence between server render tree and client DOM.\n- Audit common culprits (window/localStorage access, date formatting, browser extensions, Math.random).\n- Refactor the component using clean useEffect state hydration or suppressHydrationWarning strategies.",
+    "likes": 1532,
+    "uses": 7175,
+    "author": "prompt_crafter"
   },
   {
-    "title": "Pro Business Strategy Strategy 31",
-    "cat": "Business Strategy",
+    "title": "SQL Query Plan Profiler & Index Optimizer",
+    "cat": "Debugging",
     "tags": [
-      "business strategy",
-      "analysis"
+      "postgresql",
+      "performance",
+      "explain-analyze"
     ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4514,
-    "uses": 1589,
-    "author": "snowflake"
+    "body": "Review this slow PostgreSQL EXPLAIN (ANALYZE, BUFFERS) query plan: {explainOutput}.\n1. Identify sequential scans, expensive nested loops, or hash join memory spillage.\n2. Point out missing partial indexes, bloated table statistics, or planner misestimations.\n3. Provide the optimized SQL query rewrite and precise CREATE INDEX DDL.",
+    "likes": 1659,
+    "uses": 8032,
+    "author": "research_lead"
   },
   {
-    "title": "Pro Business Strategy Protocol 92",
-    "cat": "Business Strategy",
+    "title": "Deep Memory Leak & Heap Dump Diagnostic Protocol - Level 2",
+    "cat": "Debugging",
     "tags": [
-      "business strategy",
-      "optimization"
+      "nodejs",
+      "memory",
+      "profiling"
     ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2391,
-    "uses": 5370,
-    "author": "microsoft"
+    "body": "Analyze the provided Node.js V8 heap profile or memory growth symptom: {issueDescription}.\n1. Identify potential retaining paths keeping objects from being garbage collected (closures, unremoved event listeners, global caches).\n2. Provide specific diagnostic commands using --inspect, heap snapshots, and clinic.js.\n3. Give the exact code refactor required to isolate and eliminate the retention leak.",
+    "likes": 1786,
+    "uses": 8889,
+    "author": "system_architect"
   },
   {
-    "title": "Quick Business Strategy Template 77",
-    "cat": "Business Strategy",
+    "title": "Distributed Async Race Condition Root Cause Analysis - Level 2",
+    "cat": "Debugging",
     "tags": [
-      "business strategy",
-      "analysis"
+      "concurrency",
+      "distributed",
+      "debugging"
     ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4929,
-    "uses": 5525,
-    "author": "neo_technologies"
+    "body": "Given the following intermittent database/state inconsistency: {errorLog}.\n1. Formulate 3 distinct hypotheses on where concurrency or async race conditions occur.\n2. Trace database transaction isolation levels (Read Committed vs Serializable) and optimistic locking opportunities.\n3. Propose a deterministic reproduction script to prove the race condition.",
+    "likes": 1913,
+    "uses": 9746,
+    "author": "growth_engineer"
   },
   {
-    "title": "Pro Business Strategy Protocol 49",
-    "cat": "Business Strategy",
+    "title": "Microservice 504 Gateway Timeout Cascade Debugger - Level 2",
+    "cat": "Debugging",
     "tags": [
-      "business strategy",
-      "analysis"
+      "networking",
+      "microservices",
+      "latency"
     ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1292,
-    "uses": 6596,
-    "author": "nova_technologies"
+    "body": "Our API gateway is returning 504 Gateway Timeouts under sudden traffic spikes. Here is the architecture and tracing logs: {context}.\n1. Analyze upstream connection pool exhaustion and DNS resolution bottleneck risks.\n2. Evaluate timeout budgets across the downstream call graph.\n3. Provide immediate configuration tweaks and architectural circuit-breaker defenses.",
+    "likes": 2040,
+    "uses": 10603,
+    "author": "deepmind"
   },
   {
-    "title": "Ultimate Business Strategy Framework 46",
-    "cat": "Business Strategy",
+    "title": "Hydration Mismatch Detector & SSR Stabilizer - Level 2",
+    "cat": "Debugging",
     "tags": [
-      "business strategy",
-      "strategy"
+      "react",
+      "nextjs",
+      "ssr"
     ],
-    "body": "You are an expert in Business Strategy. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3627,
-    "uses": 15386,
-    "author": "quantum_systems"
+    "body": "We are encountering React SSR hydration mismatch warning: '{errorMessage}'.\n- Explain the exact divergence between server render tree and client DOM.\n- Audit common culprits (window/localStorage access, date formatting, browser extensions, Math.random).\n- Refactor the component using clean useEffect state hydration or suppressHydrationWarning strategies.",
+    "likes": 2167,
+    "uses": 11460,
+    "author": "karpathy_fan"
   },
   {
-    "title": "Master Sales Blueprint 75",
-    "cat": "Sales",
+    "title": "SQL Query Plan Profiler & Index Optimizer - Level 2",
+    "cat": "Debugging",
     "tags": [
-      "sales",
-      "efficiency"
+      "postgresql",
+      "performance",
+      "explain-analyze"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 529,
-    "uses": 18420,
-    "author": "aether_technologies"
+    "body": "Review this slow PostgreSQL EXPLAIN (ANALYZE, BUFFERS) query plan: {explainOutput}.\n1. Identify sequential scans, expensive nested loops, or hash join memory spillage.\n2. Point out missing partial indexes, bloated table statistics, or planner misestimations.\n3. Provide the optimized SQL query rewrite and precise CREATE INDEX DDL.",
+    "likes": 2294,
+    "uses": 9317,
+    "author": "gpt_master"
   },
   {
-    "title": "Quick Sales Framework 90",
-    "cat": "Sales",
+    "title": "Deep Memory Leak & Heap Dump Diagnostic Protocol - Level 3",
+    "cat": "Debugging",
     "tags": [
-      "sales",
-      "strategy"
+      "nodejs",
+      "memory",
+      "profiling"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 542,
-    "uses": 12071,
-    "author": "prism_corp"
+    "body": "Analyze the provided Node.js V8 heap profile or memory growth symptom: {issueDescription}.\n1. Identify potential retaining paths keeping objects from being garbage collected (closures, unremoved event listeners, global caches).\n2. Provide specific diagnostic commands using --inspect, heap snapshots, and clinic.js.\n3. Give the exact code refactor required to isolate and eliminate the retention leak.",
+    "likes": 2421,
+    "uses": 10174,
+    "author": "claude_whisperer"
   },
   {
-    "title": "Quick Sales Workflow 97",
-    "cat": "Sales",
+    "title": "Distributed Async Race Condition Root Cause Analysis - Level 3",
+    "cat": "Debugging",
     "tags": [
-      "sales",
-      "strategy"
+      "concurrency",
+      "distributed",
+      "debugging"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2133,
-    "uses": 17686,
-    "author": "runway"
+    "body": "Given the following intermittent database/state inconsistency: {errorLog}.\n1. Formulate 3 distinct hypotheses on where concurrency or async race conditions occur.\n2. Trace database transaction isolation levels (Read Committed vs Serializable) and optimistic locking opportunities.\n3. Propose a deterministic reproduction script to prove the race condition.",
+    "likes": 2548,
+    "uses": 11031,
+    "author": "prompt_crafter"
   },
   {
-    "title": "Master Sales Blueprint 71",
-    "cat": "Sales",
+    "title": "Senior Security & Vulnerability Focused Code Review",
+    "cat": "Code Review",
     "tags": [
-      "sales",
-      "productivity"
+      "security",
+      "owasp",
+      "code-review"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1237,
-    "uses": 1641,
-    "author": "microsoft"
+    "body": "Conduct an exhaustive security-focused code review on this pull request diff: {diff}.\n- Check for OWASP Top 10: SQL injection, IDOR, SSRF, XSS, and broken access controls.\n- Validate authentication and session lifecycle checks.\n- Ensure no secrets, tokens, or PII are logged or transmitted insecurely.\n- Provide line-by-line remediations with explanations of the threat vectors.",
+    "likes": 1329,
+    "uses": 5316,
+    "author": "claude_whisperer"
   },
   {
-    "title": "Master Sales Workflow 2",
-    "cat": "Sales",
+    "title": "API Design & Backward Compatibility Audit",
+    "cat": "Code Review",
     "tags": [
-      "sales",
-      "productivity"
+      "api-design",
+      "rest",
+      "versioning"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4360,
-    "uses": 9241,
-    "author": "nova_corp"
+    "body": "Review the proposed API modifications to ensure zero breaking changes for existing consumers: {apiSpec}.\n- Verify field deprecation cycles, response schema additions, and query parameter defaults.\n- Check naming conventions for consistency and RESTful idempotency.\n- Ensure pagination semantics (cursor vs offset) adhere to enterprise standards.",
+    "likes": 1456,
+    "uses": 6173,
+    "author": "prompt_crafter"
   },
   {
-    "title": "Pro Sales Prompt 90",
-    "cat": "Sales",
+    "title": "Clean Code & SOLID Principles Maintainability Review",
+    "cat": "Code Review",
     "tags": [
-      "sales",
-      "productivity"
+      "refactoring",
+      "clean-code",
+      "solid"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1440,
-    "uses": 9639,
-    "author": "omni_technologies"
+    "body": "Evaluate this codebase module against SOLID design principles and Clean Architecture: {codeSnippet}.\n1. Single Responsibility: are classes/modules doing too much?\n2. Interface Segregation: are interfaces lean and purposeful?\n3. High Cyclomatic Complexity: identify deeply nested conditionals to simplify with early returns or strategy patterns.",
+    "likes": 1583,
+    "uses": 7030,
+    "author": "research_lead"
   },
   {
-    "title": "Master Sales Workflow 20",
-    "cat": "Sales",
+    "title": "Frontend Accessibility (a11y) & WCAG 2.1 AA Audit",
+    "cat": "Code Review",
     "tags": [
-      "sales",
-      "analysis"
+      "accessibility",
+      "a11y",
+      "wcag"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 974,
-    "uses": 3243,
-    "author": "mistral"
+    "body": "Audit this UI component implementation for WCAG 2.1 AA compliance: {componentCode}.\n- Check keyboard navigation (focus traps, tab order, Esc behavior).\n- Verify correct ARIA attributes (role, aria-expanded, aria-controls, aria-live).\n- Confirm semantic HTML5 elements are preferred over generic div/span tags.\n- Validate color contrast ratios and screen-reader announcements.",
+    "likes": 1710,
+    "uses": 7887,
+    "author": "system_architect"
   },
   {
-    "title": "Expert Sales Workflow 98",
-    "cat": "Sales",
+    "title": "Distributed Systems Failure Mode & Chaos Review",
+    "cat": "Code Review",
     "tags": [
-      "sales",
-      "optimization"
+      "distributed-systems",
+      "fault-tolerance",
+      "chaos"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3231,
-    "uses": 14447,
-    "author": "stability_ai"
+    "body": "Review the proposed microservice communication flow: {systemFlow}.\n- What happens if Service B is slow (p99 > 5s)?\n- What happens if the message queue drops messages or delivers duplicates?\n- Are state mutations idempotent? How are distributed transactions compensated?\n- Provide concrete resiliency recommendations.",
+    "likes": 1837,
+    "uses": 8744,
+    "author": "growth_engineer"
   },
   {
-    "title": "Quick Sales Guide 47",
-    "cat": "Sales",
+    "title": "Senior Security & Vulnerability Focused Code Review - Level 2",
+    "cat": "Code Review",
     "tags": [
-      "sales",
-      "strategy"
+      "security",
+      "owasp",
+      "code-review"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3498,
-    "uses": 6184,
-    "author": "microsoft"
+    "body": "Conduct an exhaustive security-focused code review on this pull request diff: {diff}.\n- Check for OWASP Top 10: SQL injection, IDOR, SSRF, XSS, and broken access controls.\n- Validate authentication and session lifecycle checks.\n- Ensure no secrets, tokens, or PII are logged or transmitted insecurely.\n- Provide line-by-line remediations with explanations of the threat vectors.",
+    "likes": 1964,
+    "uses": 9601,
+    "author": "deepmind"
   },
   {
-    "title": "Master Sales Strategy 54",
-    "cat": "Sales",
+    "title": "API Design & Backward Compatibility Audit - Level 2",
+    "cat": "Code Review",
     "tags": [
-      "sales",
-      "analysis"
+      "api-design",
+      "rest",
+      "versioning"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 130,
-    "uses": 16387,
-    "author": "omni_systems"
+    "body": "Review the proposed API modifications to ensure zero breaking changes for existing consumers: {apiSpec}.\n- Verify field deprecation cycles, response schema additions, and query parameter defaults.\n- Check naming conventions for consistency and RESTful idempotency.\n- Ensure pagination semantics (cursor vs offset) adhere to enterprise standards.",
+    "likes": 2091,
+    "uses": 10458,
+    "author": "karpathy_fan"
   },
   {
-    "title": "Pro Sales Guide 47",
-    "cat": "Sales",
+    "title": "Clean Code & SOLID Principles Maintainability Review - Level 2",
+    "cat": "Code Review",
     "tags": [
-      "sales",
-      "analysis"
+      "refactoring",
+      "clean-code",
+      "solid"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3043,
-    "uses": 5242,
-    "author": "synth_inc"
+    "body": "Evaluate this codebase module against SOLID design principles and Clean Architecture: {codeSnippet}.\n1. Single Responsibility: are classes/modules doing too much?\n2. Interface Segregation: are interfaces lean and purposeful?\n3. High Cyclomatic Complexity: identify deeply nested conditionals to simplify with early returns or strategy patterns.",
+    "likes": 2218,
+    "uses": 11315,
+    "author": "gpt_master"
   },
   {
-    "title": "Quick Sales Guide 14",
-    "cat": "Sales",
+    "title": "Frontend Accessibility (a11y) & WCAG 2.1 AA Audit - Level 2",
+    "cat": "Code Review",
     "tags": [
-      "sales",
-      "strategy"
+      "accessibility",
+      "a11y",
+      "wcag"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2593,
-    "uses": 19209,
-    "author": "aero_systems"
+    "body": "Audit this UI component implementation for WCAG 2.1 AA compliance: {componentCode}.\n- Check keyboard navigation (focus traps, tab order, Esc behavior).\n- Verify correct ARIA attributes (role, aria-expanded, aria-controls, aria-live).\n- Confirm semantic HTML5 elements are preferred over generic div/span tags.\n- Validate color contrast ratios and screen-reader announcements.",
+    "likes": 2345,
+    "uses": 12172,
+    "author": "claude_whisperer"
   },
   {
-    "title": "Master Sales Strategy 90",
-    "cat": "Sales",
+    "title": "Distributed Systems Failure Mode & Chaos Review - Level 2",
+    "cat": "Code Review",
     "tags": [
-      "sales",
-      "strategy"
+      "distributed-systems",
+      "fault-tolerance",
+      "chaos"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4041,
-    "uses": 6045,
-    "author": "openai"
+    "body": "Review the proposed microservice communication flow: {systemFlow}.\n- What happens if Service B is slow (p99 > 5s)?\n- What happens if the message queue drops messages or delivers duplicates?\n- Are state mutations idempotent? How are distributed transactions compensated?\n- Provide concrete resiliency recommendations.",
+    "likes": 2472,
+    "uses": 10029,
+    "author": "prompt_crafter"
   },
   {
-    "title": "Essential Sales Workflow 71",
-    "cat": "Sales",
+    "title": "Senior Security & Vulnerability Focused Code Review - Level 3",
+    "cat": "Code Review",
     "tags": [
-      "sales",
-      "optimization"
+      "security",
+      "owasp",
+      "code-review"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
+    "body": "Conduct an exhaustive security-focused code review on this pull request diff: {diff}.\n- Check for OWASP Top 10: SQL injection, IDOR, SSRF, XSS, and broken access controls.\n- Validate authentication and session lifecycle checks.\n- Ensure no secrets, tokens, or PII are logged or transmitted insecurely.\n- Provide line-by-line remediations with explanations of the threat vectors.",
     "likes": 2599,
-    "uses": 9711,
-    "author": "nexus_technologies"
+    "uses": 10886,
+    "author": "research_lead"
   },
   {
-    "title": "Expert Sales Guide 60",
-    "cat": "Sales",
+    "title": "API Design & Backward Compatibility Audit - Level 3",
+    "cat": "Code Review",
     "tags": [
-      "sales",
-      "efficiency"
+      "api-design",
+      "rest",
+      "versioning"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1842,
-    "uses": 1826,
-    "author": "vertex_corp"
+    "body": "Review the proposed API modifications to ensure zero breaking changes for existing consumers: {apiSpec}.\n- Verify field deprecation cycles, response schema additions, and query parameter defaults.\n- Check naming conventions for consistency and RESTful idempotency.\n- Ensure pagination semantics (cursor vs offset) adhere to enterprise standards.",
+    "likes": 2726,
+    "uses": 11743,
+    "author": "system_architect"
   },
   {
-    "title": "Quick Sales Prompt 98",
-    "cat": "Sales",
+    "title": "Comprehensive E2E Playwright Journey Generator",
+    "cat": "Testing",
     "tags": [
-      "sales",
-      "analysis"
+      "playwright",
+      "e2e",
+      "qa"
     ],
-    "body": "You are an expert in Sales. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3784,
-    "uses": 15722,
-    "author": "flux_inc"
+    "body": "Write an end-to-end test in Playwright for the user journey: {journeyName}.\n- Use data-testid selectors for UI resilience.\n- Test both happy path and edge-case failure states.\n- Include custom authentication fixtures.\n- Ensure zero race conditions by avoiding hardcoded sleep statements in favor of web assertions.",
+    "likes": 973,
+    "uses": 3892,
+    "author": "growth_engineer"
   },
   {
-    "title": "Ultimate Customer Support Template 33",
-    "cat": "Customer Support",
+    "title": "Edge-Case Property-Based Test Suite",
+    "cat": "Testing",
     "tags": [
-      "customer support",
-      "productivity"
+      "unit-testing",
+      "fast-check",
+      "edge-cases"
     ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3244,
-    "uses": 2917,
-    "author": "vanguard_labs"
-  },
-  {
-    "title": "Comprehensive Customer Support Prompt 95",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "strategy"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3905,
-    "uses": 4898,
-    "author": "elevenlabs"
-  },
-  {
-    "title": "Comprehensive Customer Support Protocol 19",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "optimization"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4832,
-    "uses": 7607,
-    "author": "neo_systems"
-  },
-  {
-    "title": "Essential Customer Support Framework 44",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "analysis"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 186,
-    "uses": 6626,
-    "author": "aero_systems"
-  },
-  {
-    "title": "Ultimate Customer Support Protocol 85",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "efficiency"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3537,
-    "uses": 10484,
-    "author": "elevenlabs"
-  },
-  {
-    "title": "Ultimate Customer Support Prompt 71",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "strategy"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2101,
-    "uses": 7793,
-    "author": "elevenlabs"
-  },
-  {
-    "title": "Essential Customer Support Prompt 46",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "analysis"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4203,
-    "uses": 14759,
-    "author": "echo_labs"
-  },
-  {
-    "title": "Comprehensive Customer Support Framework 30",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "strategy"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 228,
-    "uses": 13758,
-    "author": "apex_labs"
-  },
-  {
-    "title": "Master Customer Support Framework 75",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "optimization"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3553,
-    "uses": 2936,
-    "author": "pulse_inc"
-  },
-  {
-    "title": "Essential Customer Support Prompt 47",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "strategy"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 238,
-    "uses": 19678,
-    "author": "nexus_systems"
-  },
-  {
-    "title": "Expert Customer Support Template 29",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "productivity"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 457,
-    "uses": 18281,
-    "author": "core_corp"
-  },
-  {
-    "title": "Essential Customer Support Blueprint 57",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "strategy"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 377,
-    "uses": 2676,
-    "author": "lumina_systems"
-  },
-  {
-    "title": "Essential Customer Support Template 14",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "analysis"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3973,
-    "uses": 17487,
-    "author": "vertex_corp"
-  },
-  {
-    "title": "Quick Customer Support Strategy 83",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "analysis"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3078,
-    "uses": 15257,
-    "author": "scale_ai"
-  },
-  {
-    "title": "Ultimate Customer Support Blueprint 41",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "strategy"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2491,
-    "uses": 18938,
-    "author": "vertex_corp"
-  },
-  {
-    "title": "Ultimate Customer Support Blueprint 84",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "productivity"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3504,
-    "uses": 5009,
-    "author": "apex_corp"
-  },
-  {
-    "title": "Advanced Customer Support Workflow 88",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "analysis"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4142,
-    "uses": 9349,
-    "author": "apex_corp"
-  },
-  {
-    "title": "Comprehensive Customer Support Prompt 51",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "analysis"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1668,
-    "uses": 4344,
-    "author": "synth_inc"
-  },
-  {
-    "title": "Master Customer Support Template 53",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "efficiency"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4459,
-    "uses": 4452,
-    "author": "echo_systems"
-  },
-  {
-    "title": "Ultimate Customer Support Guide 59",
-    "cat": "Customer Support",
-    "tags": [
-      "customer support",
-      "efficiency"
-    ],
-    "body": "You are an expert in Customer Support. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1175,
-    "uses": 2428,
-    "author": "nexus_technologies"
-  },
-  {
-    "title": "Advanced Product Management Blueprint 57",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "analysis"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4783,
-    "uses": 7912,
-    "author": "lumina_labs"
-  },
-  {
-    "title": "Quick Product Management Guide 59",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "optimization"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3515,
-    "uses": 8992,
-    "author": "catalyst_labs"
-  },
-  {
-    "title": "Advanced Product Management Template 77",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "optimization"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3074,
-    "uses": 14895,
-    "author": "microsoft"
-  },
-  {
-    "title": "Master Product Management Blueprint 90",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "strategy"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4845,
-    "uses": 5909,
-    "author": "microsoft"
-  },
-  {
-    "title": "Quick Product Management Framework 21",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "efficiency"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4142,
-    "uses": 16636,
-    "author": "mistral"
-  },
-  {
-    "title": "Quick Product Management Framework 65",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "analysis"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4191,
-    "uses": 3427,
-    "author": "meta"
-  },
-  {
-    "title": "Expert Product Management Framework 78",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "optimization"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2448,
-    "uses": 19616,
-    "author": "runway"
-  },
-  {
-    "title": "Essential Product Management Prompt 73",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "optimization"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3621,
-    "uses": 10325,
-    "author": "flux_systems"
-  },
-  {
-    "title": "Essential Product Management Workflow 37",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "strategy"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1352,
-    "uses": 4465,
-    "author": "anthropic"
-  },
-  {
-    "title": "Pro Product Management Guide 34",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "analysis"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2730,
-    "uses": 3520,
-    "author": "cohere"
-  },
-  {
-    "title": "Expert Product Management Workflow 91",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "optimization"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 631,
-    "uses": 15726,
-    "author": "synth_labs"
-  },
-  {
-    "title": "Essential Product Management Template 88",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "strategy"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3622,
-    "uses": 3595,
-    "author": "lumina_corp"
-  },
-  {
-    "title": "Comprehensive Product Management Protocol 40",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "analysis"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1712,
-    "uses": 11236,
-    "author": "lumina_systems"
-  },
-  {
-    "title": "Quick Product Management Protocol 5",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "analysis"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 552,
-    "uses": 15780,
-    "author": "huggingface"
-  },
-  {
-    "title": "Master Product Management Template 1",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "strategy"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3324,
-    "uses": 17736,
-    "author": "lumina_labs"
-  },
-  {
-    "title": "Essential Product Management Strategy 90",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "strategy"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1076,
-    "uses": 13021,
-    "author": "vertex_labs"
-  },
-  {
-    "title": "Expert Product Management Framework 52",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "strategy"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2737,
-    "uses": 7960,
-    "author": "prism_corp"
-  },
-  {
-    "title": "Expert Product Management Framework 18",
-    "cat": "Product Management",
-    "tags": [
-      "product management",
-      "optimization"
-    ],
-    "body": "You are an expert in Product Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3373,
-    "uses": 3013,
-    "author": "neo_systems"
-  },
-  {
-    "title": "Advanced Project Management Workflow 55",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "optimization"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1851,
-    "uses": 13205,
-    "author": "aero_corp"
-  },
-  {
-    "title": "Master Project Management Strategy 56",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "analysis"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3961,
-    "uses": 11416,
-    "author": "pulse_inc"
-  },
-  {
-    "title": "Comprehensive Project Management Prompt 97",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "productivity"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3523,
-    "uses": 4263,
-    "author": "aero_corp"
-  },
-  {
-    "title": "Essential Project Management Blueprint 8",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "analysis"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 135,
-    "uses": 1052,
-    "author": "midjourney"
-  },
-  {
-    "title": "Expert Project Management Framework 87",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "optimization"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4281,
-    "uses": 3104,
-    "author": "huggingface"
-  },
-  {
-    "title": "Advanced Project Management Protocol 15",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "strategy"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3653,
-    "uses": 9380,
-    "author": "vertex_systems"
-  },
-  {
-    "title": "Quick Project Management Workflow 98",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "efficiency"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4947,
-    "uses": 9527,
-    "author": "midjourney"
-  },
-  {
-    "title": "Master Project Management Protocol 95",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "efficiency"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 172,
-    "uses": 19028,
-    "author": "runway"
-  },
-  {
-    "title": "Master Project Management Strategy 28",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "strategy"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4351,
-    "uses": 9252,
-    "author": "runway"
-  },
-  {
-    "title": "Master Project Management Prompt 27",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "efficiency"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 240,
-    "uses": 14550,
-    "author": "anthropic"
-  },
-  {
-    "title": "Essential Project Management Workflow 56",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "analysis"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2050,
-    "uses": 12001,
-    "author": "palantir"
-  },
-  {
-    "title": "Master Project Management Strategy 84",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "optimization"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 745,
-    "uses": 3566,
-    "author": "c3.ai"
-  },
-  {
-    "title": "Quick Project Management Blueprint 99",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "strategy"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1707,
-    "uses": 11710,
-    "author": "google"
-  },
-  {
-    "title": "Quick Project Management Protocol 70",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "productivity"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3532,
-    "uses": 19052,
-    "author": "flux_systems"
-  },
-  {
-    "title": "Quick Project Management Workflow 70",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "strategy"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 749,
-    "uses": 19461,
-    "author": "runway"
-  },
-  {
-    "title": "Master Project Management Blueprint 3",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "analysis"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1946,
-    "uses": 14738,
-    "author": "apex_corp"
-  },
-  {
-    "title": "Expert Project Management Workflow 67",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "analysis"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2180,
-    "uses": 8195,
-    "author": "palantir"
-  },
-  {
-    "title": "Advanced Project Management Protocol 79",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "strategy"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 592,
-    "uses": 19715,
-    "author": "runway"
-  },
-  {
-    "title": "Pro Project Management Guide 65",
-    "cat": "Project Management",
-    "tags": [
-      "project management",
-      "analysis"
-    ],
-    "body": "You are an expert in Project Management. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 135,
-    "uses": 16533,
-    "author": "flux_inc"
-  },
-  {
-    "title": "Pro Productivity Template 55",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "efficiency"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4246,
-    "uses": 11022,
-    "author": "vanguard_systems"
-  },
-  {
-    "title": "Ultimate Productivity Protocol 81",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "efficiency"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 419,
-    "uses": 16095,
-    "author": "huggingface"
-  },
-  {
-    "title": "Expert Productivity Protocol 92",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "optimization"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3892,
-    "uses": 16802,
-    "author": "vertex_inc"
-  },
-  {
-    "title": "Comprehensive Productivity Prompt 87",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "productivity"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3614,
-    "uses": 1218,
-    "author": "scale_ai"
-  },
-  {
-    "title": "Pro Productivity Framework 12",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "strategy"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3004,
-    "uses": 7566,
-    "author": "stability_ai"
-  },
-  {
-    "title": "Quick Productivity Protocol 49",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "analysis"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2228,
-    "uses": 11554,
-    "author": "palantir"
-  },
-  {
-    "title": "Expert Productivity Template 43",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "strategy"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1784,
-    "uses": 13449,
-    "author": "quantum_inc"
-  },
-  {
-    "title": "Expert Productivity Protocol 96",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "strategy"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2853,
-    "uses": 14237,
-    "author": "stability_ai"
-  },
-  {
-    "title": "Essential Productivity Protocol 75",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "optimization"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1422,
-    "uses": 6782,
-    "author": "core_technologies"
-  },
-  {
-    "title": "Quick Productivity Strategy 68",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "productivity"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4631,
-    "uses": 9951,
-    "author": "core_systems"
-  },
-  {
-    "title": "Advanced Productivity Prompt 1",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "strategy"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3687,
-    "uses": 4367,
-    "author": "runway"
-  },
-  {
-    "title": "Pro Productivity Workflow 44",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "efficiency"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 362,
-    "uses": 8416,
-    "author": "lumina_corp"
-  },
-  {
-    "title": "Comprehensive Productivity Workflow 92",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "efficiency"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4788,
-    "uses": 12367,
-    "author": "huggingface"
-  },
-  {
-    "title": "Comprehensive Productivity Protocol 93",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "analysis"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3896,
-    "uses": 3880,
-    "author": "aether_labs"
-  },
-  {
-    "title": "Ultimate Productivity Template 98",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "analysis"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2890,
-    "uses": 15413,
-    "author": "google"
-  },
-  {
-    "title": "Advanced Productivity Strategy 62",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "productivity"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3019,
-    "uses": 2125,
-    "author": "elevenlabs"
-  },
-  {
-    "title": "Advanced Productivity Framework 38",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "optimization"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4543,
-    "uses": 5249,
-    "author": "synth_labs"
-  },
-  {
-    "title": "Ultimate Productivity Prompt 86",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "optimization"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2418,
-    "uses": 10514,
-    "author": "flux_labs"
-  },
-  {
-    "title": "Comprehensive Productivity Template 77",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "productivity"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4889,
-    "uses": 11074,
-    "author": "microsoft"
-  },
-  {
-    "title": "Essential Productivity Template 54",
-    "cat": "Productivity",
-    "tags": [
-      "productivity",
-      "efficiency"
-    ],
-    "body": "You are an expert in Productivity. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3315,
-    "uses": 16208,
-    "author": "nexus_systems"
-  },
-  {
-    "title": "Master Brainstorming Template 55",
-    "cat": "Brainstorming",
-    "tags": [
-      "brainstorming",
-      "productivity"
-    ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2518,
-    "uses": 2294,
-    "author": "aero_labs"
-  },
-  {
-    "title": "Master Brainstorming Blueprint 9",
-    "cat": "Brainstorming",
-    "tags": [
-      "brainstorming",
-      "analysis"
-    ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3540,
-    "uses": 5004,
-    "author": "openai"
-  },
-  {
-    "title": "Expert Brainstorming Guide 52",
-    "cat": "Brainstorming",
-    "tags": [
-      "brainstorming",
-      "analysis"
-    ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1246,
-    "uses": 10654,
-    "author": "echo_corp"
-  },
-  {
-    "title": "Comprehensive Brainstorming Template 78",
-    "cat": "Brainstorming",
-    "tags": [
-      "brainstorming",
-      "strategy"
-    ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3101,
-    "uses": 14436,
+    "body": "Create property-based tests using fast-check (or equivalent) for the function: {functionSignature}.\n- Test invariant properties across extreme inputs: empty strings, MAX_INT, unicode emojis, SQL injection strings.\n- Assert that reversing operations produces original values.\n- Verify graceful error handling rather than unhandled exceptions.",
+    "likes": 1100,
+    "uses": 4749,
     "author": "deepmind"
   },
   {
-    "title": "Master Brainstorming Guide 15",
-    "cat": "Brainstorming",
+    "title": "Contract Testing with Pact for Microservices",
+    "cat": "Testing",
     "tags": [
-      "brainstorming",
-      "efficiency"
+      "contract-testing",
+      "pact",
+      "microservices"
     ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1804,
-    "uses": 6354,
-    "author": "vanguard_inc"
+    "body": "Define consumer-driven contract tests using Pact for the service contract between {consumer} and {provider}.\n- Define expected request headers, payloads, and response bodies with type matchers.\n- Handle negative 4xx/5xx responses.\n- Generate the Pact JSON contract specification to run in CI.",
+    "likes": 1227,
+    "uses": 5606,
+    "author": "karpathy_fan"
   },
   {
-    "title": "Comprehensive Brainstorming Guide 60",
-    "cat": "Brainstorming",
+    "title": "High-Load Locust Performance Stress Test",
+    "cat": "Testing",
     "tags": [
-      "brainstorming",
-      "productivity"
+      "load-testing",
+      "locust",
+      "performance"
     ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1925,
-    "uses": 16625,
+    "body": "Write a Python Locust load-testing scenario simulating 10,000 concurrent users accessing {endpointList}.\n- Simulate realistic user think time and task weighting.\n- Test user authentication token renewal.\n- Assert SLA thresholds: p95 response time < 200ms, error rate < 0.1%.",
+    "likes": 1354,
+    "uses": 6463,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Mocking Strategy for Third-Party API Integrations",
+    "cat": "Testing",
+    "tags": [
+      "mocking",
+      "msw",
+      "integration-tests"
+    ],
+    "body": "Set up Mock Service Worker (MSW) handlers in TypeScript to intercept and test third-party integrations with {apiName}.\n- Mock successful 200 responses, 429 rate limit errors with retry headers, and 500 server crashes.\n- Test how your application client handles network timeouts and malformed JSON payloads.",
+    "likes": 1481,
+    "uses": 7320,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Comprehensive E2E Playwright Journey Generator - Level 2",
+    "cat": "Testing",
+    "tags": [
+      "playwright",
+      "e2e",
+      "qa"
+    ],
+    "body": "Write an end-to-end test in Playwright for the user journey: {journeyName}.\n- Use data-testid selectors for UI resilience.\n- Test both happy path and edge-case failure states.\n- Include custom authentication fixtures.\n- Ensure zero race conditions by avoiding hardcoded sleep statements in favor of web assertions.",
+    "likes": 1608,
+    "uses": 8177,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Edge-Case Property-Based Test Suite - Level 2",
+    "cat": "Testing",
+    "tags": [
+      "unit-testing",
+      "fast-check",
+      "edge-cases"
+    ],
+    "body": "Create property-based tests using fast-check (or equivalent) for the function: {functionSignature}.\n- Test invariant properties across extreme inputs: empty strings, MAX_INT, unicode emojis, SQL injection strings.\n- Assert that reversing operations produces original values.\n- Verify graceful error handling rather than unhandled exceptions.",
+    "likes": 1735,
+    "uses": 9034,
+    "author": "research_lead"
+  },
+  {
+    "title": "Contract Testing with Pact for Microservices - Level 2",
+    "cat": "Testing",
+    "tags": [
+      "contract-testing",
+      "pact",
+      "microservices"
+    ],
+    "body": "Define consumer-driven contract tests using Pact for the service contract between {consumer} and {provider}.\n- Define expected request headers, payloads, and response bodies with type matchers.\n- Handle negative 4xx/5xx responses.\n- Generate the Pact JSON contract specification to run in CI.",
+    "likes": 1862,
+    "uses": 9891,
+    "author": "system_architect"
+  },
+  {
+    "title": "High-Load Locust Performance Stress Test - Level 2",
+    "cat": "Testing",
+    "tags": [
+      "load-testing",
+      "locust",
+      "performance"
+    ],
+    "body": "Write a Python Locust load-testing scenario simulating 10,000 concurrent users accessing {endpointList}.\n- Simulate realistic user think time and task weighting.\n- Test user authentication token renewal.\n- Assert SLA thresholds: p95 response time < 200ms, error rate < 0.1%.",
+    "likes": 1989,
+    "uses": 10748,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Mocking Strategy for Third-Party API Integrations - Level 2",
+    "cat": "Testing",
+    "tags": [
+      "mocking",
+      "msw",
+      "integration-tests"
+    ],
+    "body": "Set up Mock Service Worker (MSW) handlers in TypeScript to intercept and test third-party integrations with {apiName}.\n- Mock successful 200 responses, 429 rate limit errors with retry headers, and 500 server crashes.\n- Test how your application client handles network timeouts and malformed JSON payloads.",
+    "likes": 2116,
+    "uses": 8605,
     "author": "deepmind"
   },
   {
-    "title": "Comprehensive Brainstorming Strategy 32",
-    "cat": "Brainstorming",
+    "title": "Comprehensive E2E Playwright Journey Generator - Level 3",
+    "cat": "Testing",
     "tags": [
-      "brainstorming",
-      "efficiency"
+      "playwright",
+      "e2e",
+      "qa"
     ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2233,
-    "uses": 16169,
-    "author": "pulse_technologies"
+    "body": "Write an end-to-end test in Playwright for the user journey: {journeyName}.\n- Use data-testid selectors for UI resilience.\n- Test both happy path and edge-case failure states.\n- Include custom authentication fixtures.\n- Ensure zero race conditions by avoiding hardcoded sleep statements in favor of web assertions.",
+    "likes": 2243,
+    "uses": 9462,
+    "author": "karpathy_fan"
   },
   {
-    "title": "Ultimate Brainstorming Strategy 70",
-    "cat": "Brainstorming",
+    "title": "Edge-Case Property-Based Test Suite - Level 3",
+    "cat": "Testing",
     "tags": [
-      "brainstorming",
-      "strategy"
+      "unit-testing",
+      "fast-check",
+      "edge-cases"
     ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4273,
-    "uses": 7106,
-    "author": "midjourney"
+    "body": "Create property-based tests using fast-check (or equivalent) for the function: {functionSignature}.\n- Test invariant properties across extreme inputs: empty strings, MAX_INT, unicode emojis, SQL injection strings.\n- Assert that reversing operations produces original values.\n- Verify graceful error handling rather than unhandled exceptions.",
+    "likes": 2370,
+    "uses": 10319,
+    "author": "gpt_master"
   },
   {
-    "title": "Essential Brainstorming Template 34",
-    "cat": "Brainstorming",
+    "title": "Stripe-Grade Developer API Reference & Quickstart",
+    "cat": "Documentation",
     "tags": [
-      "brainstorming",
-      "strategy"
+      "api-docs",
+      "developer-experience",
+      "openapi"
     ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2165,
-    "uses": 903,
-    "author": "cohere"
+    "body": "Write a developer-first documentation guide for the {apiEndpoint} endpoint.\n- Clear explanation of the endpoint's purpose, authentication method, and rate limits.\n- Side-by-side request and response examples in cURL, JavaScript, and Python.\n- Detailed parameter table with data types, constraints, and descriptions.\n- Error handling table explaining every possible status code and resolution.",
+    "likes": 1507,
+    "uses": 6028,
+    "author": "research_lead"
   },
   {
-    "title": "Comprehensive Brainstorming Blueprint 7",
-    "cat": "Brainstorming",
+    "title": "Architecture Decision Record (ADR) Formal Template",
+    "cat": "Documentation",
     "tags": [
-      "brainstorming",
-      "strategy"
+      "adr",
+      "architecture",
+      "governance"
     ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4421,
-    "uses": 2430,
-    "author": "prism_labs"
+    "body": "Draft a formal Architecture Decision Record (ADR) for: {decisionTitle}.\n- Context: What technical problem or business constraint prompted this decision?\n- Decision: What choice was made, and what alternative solutions were evaluated?\n- Consequences: What are the positive trade-offs, negative costs, and operational obligations?",
+    "likes": 1634,
+    "uses": 6885,
+    "author": "system_architect"
   },
   {
-    "title": "Ultimate Brainstorming Workflow 4",
-    "cat": "Brainstorming",
+    "title": "Production Incident Post-Mortem & Root Cause Analysis",
+    "cat": "Documentation",
     "tags": [
-      "brainstorming",
-      "optimization"
+      "post-mortem",
+      "sre",
+      "reliability"
     ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1321,
-    "uses": 19775,
-    "author": "snowflake"
+    "body": "Draft a blameless engineering incident post-mortem for: {incidentDetails}.\n- Executive Summary: Impact duration, affected users, financial SLA impact.\n- Incident Timeline: Minute-by-minute detection, triage, mitigation, and resolution events.\n- Root Cause Analysis using the '5 Whys' framework.\n- Action Items: Preventative engineering work with assigned owners and priority levels.",
+    "likes": 1761,
+    "uses": 7742,
+    "author": "growth_engineer"
   },
   {
-    "title": "Essential Brainstorming Strategy 27",
-    "cat": "Brainstorming",
+    "title": "Comprehensive Open-Source README & Quickstart",
+    "cat": "Documentation",
     "tags": [
-      "brainstorming",
-      "optimization"
+      "readme",
+      "open-source",
+      "dx"
     ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 377,
-    "uses": 7405,
-    "author": "echo_inc"
+    "body": "Write a high-converting, crystal-clear GitHub README for the project: {projectName}.\n- Catchy hero tagline and dynamic badge links (build, license, coverage).\n- Key features with bulleted visual icons.\n- 60-second quickstart installation and environment variable guide.\n- Contributing guidelines, security vulnerability disclosure, and MIT license summary.",
+    "likes": 1888,
+    "uses": 8599,
+    "author": "deepmind"
   },
   {
-    "title": "Comprehensive Brainstorming Guide 82",
-    "cat": "Brainstorming",
+    "title": "System Runbook & Operational Disaster Recovery Guide",
+    "cat": "Documentation",
     "tags": [
-      "brainstorming",
-      "productivity"
+      "runbook",
+      "devops",
+      "sre"
     ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 108,
-    "uses": 5213,
-    "author": "elevenlabs"
+    "body": "Write a production runbook for on-call engineers handling alerts for {serviceName}.\n- Alert Definition: What triggers this alert, and what is the customer impact?\n- Diagnostic Steps: Exact CLI commands, logs to check, and metrics dashboards.\n- Mitigation Playbook: Step-by-step instructions to stabilize service within 5 minutes.\n- Escalation Matrix: Who to notify if primary mitigation fails.",
+    "likes": 2015,
+    "uses": 9456,
+    "author": "karpathy_fan"
   },
   {
-    "title": "Expert Brainstorming Template 64",
-    "cat": "Brainstorming",
+    "title": "Stripe-Grade Developer API Reference & Quickstart - Level 2",
+    "cat": "Documentation",
     "tags": [
-      "brainstorming",
-      "productivity"
+      "api-docs",
+      "developer-experience",
+      "openapi"
     ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 818,
-    "uses": 15544,
-    "author": "c3.ai"
-  },
-  {
-    "title": "Comprehensive Brainstorming Prompt 34",
-    "cat": "Brainstorming",
-    "tags": [
-      "brainstorming",
-      "strategy"
-    ],
-    "body": "You are an expert in Brainstorming. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4541,
-    "uses": 6759,
-    "author": "snowflake"
-  },
-  {
-    "title": "Advanced Personal Growth Blueprint 25",
-    "cat": "Personal Growth",
-    "tags": [
-      "personal growth",
-      "optimization"
-    ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 773,
-    "uses": 10232,
-    "author": "stability_ai"
-  },
-  {
-    "title": "Pro Personal Growth Guide 36",
-    "cat": "Personal Growth",
-    "tags": [
-      "personal growth",
-      "optimization"
-    ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2796,
-    "uses": 5082,
-    "author": "openai"
-  },
-  {
-    "title": "Expert Personal Growth Blueprint 54",
-    "cat": "Personal Growth",
-    "tags": [
-      "personal growth",
-      "optimization"
-    ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3055,
-    "uses": 8339,
-    "author": "prism_systems"
-  },
-  {
-    "title": "Pro Personal Growth Framework 24",
-    "cat": "Personal Growth",
-    "tags": [
-      "personal growth",
-      "efficiency"
-    ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4667,
-    "uses": 4296,
-    "author": "microsoft"
-  },
-  {
-    "title": "Master Personal Growth Protocol 7",
-    "cat": "Personal Growth",
-    "tags": [
-      "personal growth",
-      "analysis"
-    ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2717,
-    "uses": 4996,
-    "author": "vertex_systems"
-  },
-  {
-    "title": "Ultimate Personal Growth Guide 40",
-    "cat": "Personal Growth",
-    "tags": [
-      "personal growth",
-      "efficiency"
-    ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4700,
-    "uses": 14240,
-    "author": "aero_corp"
-  },
-  {
-    "title": "Ultimate Personal Growth Workflow 61",
-    "cat": "Personal Growth",
-    "tags": [
-      "personal growth",
-      "strategy"
-    ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
+    "body": "Write a developer-first documentation guide for the {apiEndpoint} endpoint.\n- Clear explanation of the endpoint's purpose, authentication method, and rate limits.\n- Side-by-side request and response examples in cURL, JavaScript, and Python.\n- Detailed parameter table with data types, constraints, and descriptions.\n- Error handling table explaining every possible status code and resolution.",
     "likes": 2142,
-    "uses": 14226,
-    "author": "mistral"
+    "uses": 10313,
+    "author": "gpt_master"
   },
   {
-    "title": "Essential Personal Growth Prompt 5",
-    "cat": "Personal Growth",
+    "title": "Architecture Decision Record (ADR) Formal Template - Level 2",
+    "cat": "Documentation",
     "tags": [
-      "personal growth",
-      "productivity"
+      "adr",
+      "architecture",
+      "governance"
     ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3648,
-    "uses": 984,
-    "author": "aether_corp"
+    "body": "Draft a formal Architecture Decision Record (ADR) for: {decisionTitle}.\n- Context: What technical problem or business constraint prompted this decision?\n- Decision: What choice was made, and what alternative solutions were evaluated?\n- Consequences: What are the positive trade-offs, negative costs, and operational obligations?",
+    "likes": 2269,
+    "uses": 11170,
+    "author": "claude_whisperer"
   },
   {
-    "title": "Essential Personal Growth Guide 12",
-    "cat": "Personal Growth",
+    "title": "Production Incident Post-Mortem & Root Cause Analysis - Level 2",
+    "cat": "Documentation",
     "tags": [
-      "personal growth",
-      "analysis"
+      "post-mortem",
+      "sre",
+      "reliability"
     ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 3793,
-    "uses": 13854,
-    "author": "synth_inc"
+    "body": "Draft a blameless engineering incident post-mortem for: {incidentDetails}.\n- Executive Summary: Impact duration, affected users, financial SLA impact.\n- Incident Timeline: Minute-by-minute detection, triage, mitigation, and resolution events.\n- Root Cause Analysis using the '5 Whys' framework.\n- Action Items: Preventative engineering work with assigned owners and priority levels.",
+    "likes": 2396,
+    "uses": 12027,
+    "author": "prompt_crafter"
   },
   {
-    "title": "Ultimate Personal Growth Strategy 29",
-    "cat": "Personal Growth",
+    "title": "Comprehensive Open-Source README & Quickstart - Level 2",
+    "cat": "Documentation",
     "tags": [
-      "personal growth",
-      "strategy"
+      "readme",
+      "open-source",
+      "dx"
     ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4974,
-    "uses": 3494,
-    "author": "quantum_technologies"
+    "body": "Write a high-converting, crystal-clear GitHub README for the project: {projectName}.\n- Catchy hero tagline and dynamic badge links (build, license, coverage).\n- Key features with bulleted visual icons.\n- 60-second quickstart installation and environment variable guide.\n- Contributing guidelines, security vulnerability disclosure, and MIT license summary.",
+    "likes": 2523,
+    "uses": 12884,
+    "author": "research_lead"
   },
   {
-    "title": "Master Personal Growth Prompt 55",
-    "cat": "Personal Growth",
+    "title": "System Runbook & Operational Disaster Recovery Guide - Level 2",
+    "cat": "Documentation",
     "tags": [
-      "personal growth",
-      "strategy"
+      "runbook",
+      "devops",
+      "sre"
     ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1159,
-    "uses": 17669,
-    "author": "meta"
+    "body": "Write a production runbook for on-call engineers handling alerts for {serviceName}.\n- Alert Definition: What triggers this alert, and what is the customer impact?\n- Diagnostic Steps: Exact CLI commands, logs to check, and metrics dashboards.\n- Mitigation Playbook: Step-by-step instructions to stabilize service within 5 minutes.\n- Escalation Matrix: Who to notify if primary mitigation fails.",
+    "likes": 2650,
+    "uses": 10741,
+    "author": "system_architect"
   },
   {
-    "title": "Quick Personal Growth Guide 31",
-    "cat": "Personal Growth",
+    "title": "Stripe-Grade Developer API Reference & Quickstart - Level 3",
+    "cat": "Documentation",
     "tags": [
-      "personal growth",
-      "optimization"
+      "api-docs",
+      "developer-experience",
+      "openapi"
     ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2642,
-    "uses": 5916,
-    "author": "echo_labs"
+    "body": "Write a developer-first documentation guide for the {apiEndpoint} endpoint.\n- Clear explanation of the endpoint's purpose, authentication method, and rate limits.\n- Side-by-side request and response examples in cURL, JavaScript, and Python.\n- Detailed parameter table with data types, constraints, and descriptions.\n- Error handling table explaining every possible status code and resolution.",
+    "likes": 2777,
+    "uses": 11598,
+    "author": "growth_engineer"
   },
   {
-    "title": "Pro Personal Growth Prompt 39",
-    "cat": "Personal Growth",
+    "title": "Architecture Decision Record (ADR) Formal Template - Level 3",
+    "cat": "Documentation",
     "tags": [
-      "personal growth",
-      "optimization"
+      "adr",
+      "architecture",
+      "governance"
     ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1685,
+    "body": "Draft a formal Architecture Decision Record (ADR) for: {decisionTitle}.\n- Context: What technical problem or business constraint prompted this decision?\n- Decision: What choice was made, and what alternative solutions were evaluated?\n- Consequences: What are the positive trade-offs, negative costs, and operational obligations?",
+    "likes": 404,
+    "uses": 2455,
+    "author": "deepmind"
+  },
+  {
+    "title": "Event-Driven Microservices Architecture Blueprint",
+    "cat": "Architecture",
+    "tags": [
+      "event-driven",
+      "kafka",
+      "microservices"
+    ],
+    "body": "Design an event-driven architecture for {systemDomain}.\n- Identify event producers, consumers, and message schemas (Protobuf/Avro).\n- Choose between Apache Kafka, RabbitMQ, and AWS SQS with trade-offs.\n- Implement transactional outbox pattern to guarantee at-least-once delivery.\n- Define consumer group scaling strategies and dead-letter queue (DLQ) redrive policies.",
+    "likes": 1418,
+    "uses": 5672,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Multi-Tenant SaaS Data Isolation Architecture",
+    "cat": "Architecture",
+    "tags": [
+      "multi-tenancy",
+      "saas",
+      "security"
+    ],
+    "body": "Architect a secure multi-tenant data storage strategy for an enterprise B2B SaaS platform.\n- Compare Shared DB + Tenant Column (Row-Level Security) vs Schema-per-tenant vs DB-per-tenant.\n- Design automated tenant provisioning, backup isolation, and data deletion for GDPR.\n- Define cross-tenant data leakage prevention guardrails at the ORM/DB connection level.",
+    "likes": 1545,
+    "uses": 6529,
+    "author": "research_lead"
+  },
+  {
+    "title": "Zero-Downtime Database Migration Architecture",
+    "cat": "Architecture",
+    "tags": [
+      "database",
+      "migrations",
+      "zero-downtime"
+    ],
+    "body": "Design a multi-phase zero-downtime schema migration plan for table: {tableName} with 100M+ rows.\n- Phase 1: Expand schema (add column, dual-writing).\n- Phase 2: Backfill historical records asynchronously with batch limits.\n- Phase 3: Transition application reads to the new column.\n- Phase 4: Contract schema (deprecate and drop old columns safely).",
+    "likes": 1672,
+    "uses": 7386,
+    "author": "system_architect"
+  },
+  {
+    "title": "Global Low-Latency Edge Caching & State Architecture",
+    "cat": "Architecture",
+    "tags": [
+      "edge",
+      "cdn",
+      "caching"
+    ],
+    "body": "Design an ultra-low latency edge caching strategy for a global application: {appName}.\n- Cache invalidation strategies: stale-while-revalidate, surrogate keys, and edge webhooks.\n- Handling dynamic authenticated user sessions without bypassing cache.\n- Distributed edge database evaluation (Cloudflare D1, PlanetScale, Turso) vs centralized read replicas.",
+    "likes": 1799,
+    "uses": 8243,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Zero-Trust Security & Identity Architecture",
+    "cat": "Architecture",
+    "tags": [
+      "security",
+      "zero-trust",
+      "iam"
+    ],
+    "body": "Formulate a Zero-Trust architecture specification for enterprise infrastructure.\n- Mutual TLS (mTLS) service-to-service communication with automated certificate rotation.\n- Short-lived scoped JWT access tokens with centralized revocation lists.\n- Fine-grained role-based (RBAC) and attribute-based (ABAC) authorization layers.",
+    "likes": 1926,
+    "uses": 9100,
+    "author": "deepmind"
+  },
+  {
+    "title": "Event-Driven Microservices Architecture Blueprint - Level 2",
+    "cat": "Architecture",
+    "tags": [
+      "event-driven",
+      "kafka",
+      "microservices"
+    ],
+    "body": "Design an event-driven architecture for {systemDomain}.\n- Identify event producers, consumers, and message schemas (Protobuf/Avro).\n- Choose between Apache Kafka, RabbitMQ, and AWS SQS with trade-offs.\n- Implement transactional outbox pattern to guarantee at-least-once delivery.\n- Define consumer group scaling strategies and dead-letter queue (DLQ) redrive policies.",
+    "likes": 2053,
+    "uses": 9957,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Multi-Tenant SaaS Data Isolation Architecture - Level 2",
+    "cat": "Architecture",
+    "tags": [
+      "multi-tenancy",
+      "saas",
+      "security"
+    ],
+    "body": "Architect a secure multi-tenant data storage strategy for an enterprise B2B SaaS platform.\n- Compare Shared DB + Tenant Column (Row-Level Security) vs Schema-per-tenant vs DB-per-tenant.\n- Design automated tenant provisioning, backup isolation, and data deletion for GDPR.\n- Define cross-tenant data leakage prevention guardrails at the ORM/DB connection level.",
+    "likes": 2180,
+    "uses": 10814,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Zero-Downtime Database Migration Architecture - Level 2",
+    "cat": "Architecture",
+    "tags": [
+      "database",
+      "migrations",
+      "zero-downtime"
+    ],
+    "body": "Design a multi-phase zero-downtime schema migration plan for table: {tableName} with 100M+ rows.\n- Phase 1: Expand schema (add column, dual-writing).\n- Phase 2: Backfill historical records asynchronously with batch limits.\n- Phase 3: Transition application reads to the new column.\n- Phase 4: Contract schema (deprecate and drop old columns safely).",
+    "likes": 2307,
+    "uses": 11671,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Global Low-Latency Edge Caching & State Architecture - Level 2",
+    "cat": "Architecture",
+    "tags": [
+      "edge",
+      "cdn",
+      "caching"
+    ],
+    "body": "Design an ultra-low latency edge caching strategy for a global application: {appName}.\n- Cache invalidation strategies: stale-while-revalidate, surrogate keys, and edge webhooks.\n- Handling dynamic authenticated user sessions without bypassing cache.\n- Distributed edge database evaluation (Cloudflare D1, PlanetScale, Turso) vs centralized read replicas.",
+    "likes": 2434,
+    "uses": 12528,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Zero-Trust Security & Identity Architecture - Level 2",
+    "cat": "Architecture",
+    "tags": [
+      "security",
+      "zero-trust",
+      "iam"
+    ],
+    "body": "Formulate a Zero-Trust architecture specification for enterprise infrastructure.\n- Mutual TLS (mTLS) service-to-service communication with automated certificate rotation.\n- Short-lived scoped JWT access tokens with centralized revocation lists.\n- Fine-grained role-based (RBAC) and attribute-based (ABAC) authorization layers.",
+    "likes": 2561,
+    "uses": 10385,
+    "author": "research_lead"
+  },
+  {
+    "title": "Event-Driven Microservices Architecture Blueprint - Level 3",
+    "cat": "Architecture",
+    "tags": [
+      "event-driven",
+      "kafka",
+      "microservices"
+    ],
+    "body": "Design an event-driven architecture for {systemDomain}.\n- Identify event producers, consumers, and message schemas (Protobuf/Avro).\n- Choose between Apache Kafka, RabbitMQ, and AWS SQS with trade-offs.\n- Implement transactional outbox pattern to guarantee at-least-once delivery.\n- Define consumer group scaling strategies and dead-letter queue (DLQ) redrive policies.",
+    "likes": 2688,
+    "uses": 11242,
+    "author": "system_architect"
+  },
+  {
+    "title": "Multi-Tenant SaaS Data Isolation Architecture - Level 3",
+    "cat": "Architecture",
+    "tags": [
+      "multi-tenancy",
+      "saas",
+      "security"
+    ],
+    "body": "Architect a secure multi-tenant data storage strategy for an enterprise B2B SaaS platform.\n- Compare Shared DB + Tenant Column (Row-Level Security) vs Schema-per-tenant vs DB-per-tenant.\n- Design automated tenant provisioning, backup isolation, and data deletion for GDPR.\n- Define cross-tenant data leakage prevention guardrails at the ORM/DB connection level.",
+    "likes": 2815,
+    "uses": 12099,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Systematic Literature Review & Meta-Synthesis",
+    "cat": "Research",
+    "tags": [
+      "academic",
+      "literature-review",
+      "methodology"
+    ],
+    "body": "Conduct a rigorous literature review framework on: {researchTopic}.\n1. Define search string syntax for PubMed, IEEE Xplore, and Google Scholar.\n2. Formulate explicit inclusion and exclusion criteria based on study methodology.\n3. Create a data extraction matrix comparing sample size, methodology, statistical power, and key findings.\n4. Synthesize contradictions and identify critical unanswered research gaps.",
+    "likes": 1062,
+    "uses": 4248,
+    "author": "deepmind"
+  },
+  {
+    "title": "Hypothesis Formulation & Statistical Test Design",
+    "cat": "Research",
+    "tags": [
+      "statistics",
+      "methodology",
+      "data-science"
+    ],
+    "body": "Given the research objective: {objective}.\n- Formulate primary Null Hypothesis (H0) and Alternative Hypothesis (H1).\n- Determine appropriate statistical test (e.g., ANOVA, Chi-Square, Mann-Whitney U, Regression).\n- Calculate required sample size (Power Analysis) for statistical significance (alpha = 0.05, power = 0.80).\n- Detail methods to control for confounding variables and selection bias.",
+    "likes": 1189,
+    "uses": 5105,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Competitive Landscape Matrix & Moat Analysis",
+    "cat": "Research",
+    "tags": [
+      "market-research",
+      "strategy",
+      "competitors"
+    ],
+    "body": "Perform a comprehensive competitive landscape analysis for the market sector: {marketSector}.\n- Map direct, indirect, and emerging substitute competitors.\n- Evaluate each player across Pricing, Feature Depth, Enterprise Readiness, and Developer Mindshare.\n- Analyze sustainable competitive moats (Network Effects, Switching Costs, Proprietary Data, Scale Economies).",
+    "likes": 1316,
+    "uses": 5962,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Qualitative User Interview Coding & Thematic Analysis",
+    "cat": "Research",
+    "tags": [
+      "ux-research",
+      "qualitative",
+      "thematic-analysis"
+    ],
+    "body": "Analyze the following qualitative interview transcripts: {transcripts}.\n1. Perform first-cycle open coding to identify recurring verbatim phrases.\n2. Group initial codes into second-cycle thematic clusters.\n3. Identify user pain points, emotional friction points, and unmet jobs-to-be-done (JTBD).\n4. Formulate actionable product development recommendations based on evidence.",
+    "likes": 1443,
+    "uses": 6819,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Technological Feasibility & Risk Assessment",
+    "cat": "Research",
+    "tags": [
+      "feasibility",
+      "technology",
+      "risk-assessment"
+    ],
+    "body": "Evaluate the technical feasibility of building: {proposedTechnology}.\n- Assess state-of-the-art computational limits, bandwidth bottlenecks, and inference costs.\n- Identify primary architectural failure points and regulatory/compliance roadblocks.\n- Recommend a phased proof-of-concept (PoC) roadmap with measurable validation milestones.",
+    "likes": 1570,
+    "uses": 7676,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Systematic Literature Review & Meta-Synthesis - Level 2",
+    "cat": "Research",
+    "tags": [
+      "academic",
+      "literature-review",
+      "methodology"
+    ],
+    "body": "Conduct a rigorous literature review framework on: {researchTopic}.\n1. Define search string syntax for PubMed, IEEE Xplore, and Google Scholar.\n2. Formulate explicit inclusion and exclusion criteria based on study methodology.\n3. Create a data extraction matrix comparing sample size, methodology, statistical power, and key findings.\n4. Synthesize contradictions and identify critical unanswered research gaps.",
+    "likes": 1697,
+    "uses": 8533,
+    "author": "research_lead"
+  },
+  {
+    "title": "Hypothesis Formulation & Statistical Test Design - Level 2",
+    "cat": "Research",
+    "tags": [
+      "statistics",
+      "methodology",
+      "data-science"
+    ],
+    "body": "Given the research objective: {objective}.\n- Formulate primary Null Hypothesis (H0) and Alternative Hypothesis (H1).\n- Determine appropriate statistical test (e.g., ANOVA, Chi-Square, Mann-Whitney U, Regression).\n- Calculate required sample size (Power Analysis) for statistical significance (alpha = 0.05, power = 0.80).\n- Detail methods to control for confounding variables and selection bias.",
+    "likes": 1824,
+    "uses": 9390,
+    "author": "system_architect"
+  },
+  {
+    "title": "Competitive Landscape Matrix & Moat Analysis - Level 2",
+    "cat": "Research",
+    "tags": [
+      "market-research",
+      "strategy",
+      "competitors"
+    ],
+    "body": "Perform a comprehensive competitive landscape analysis for the market sector: {marketSector}.\n- Map direct, indirect, and emerging substitute competitors.\n- Evaluate each player across Pricing, Feature Depth, Enterprise Readiness, and Developer Mindshare.\n- Analyze sustainable competitive moats (Network Effects, Switching Costs, Proprietary Data, Scale Economies).",
+    "likes": 1951,
+    "uses": 10247,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Qualitative User Interview Coding & Thematic Analysis - Level 2",
+    "cat": "Research",
+    "tags": [
+      "ux-research",
+      "qualitative",
+      "thematic-analysis"
+    ],
+    "body": "Analyze the following qualitative interview transcripts: {transcripts}.\n1. Perform first-cycle open coding to identify recurring verbatim phrases.\n2. Group initial codes into second-cycle thematic clusters.\n3. Identify user pain points, emotional friction points, and unmet jobs-to-be-done (JTBD).\n4. Formulate actionable product development recommendations based on evidence.",
+    "likes": 2078,
+    "uses": 11104,
+    "author": "deepmind"
+  },
+  {
+    "title": "Technological Feasibility & Risk Assessment - Level 2",
+    "cat": "Research",
+    "tags": [
+      "feasibility",
+      "technology",
+      "risk-assessment"
+    ],
+    "body": "Evaluate the technical feasibility of building: {proposedTechnology}.\n- Assess state-of-the-art computational limits, bandwidth bottlenecks, and inference costs.\n- Identify primary architectural failure points and regulatory/compliance roadblocks.\n- Recommend a phased proof-of-concept (PoC) roadmap with measurable validation milestones.",
+    "likes": 2205,
+    "uses": 8961,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Systematic Literature Review & Meta-Synthesis - Level 3",
+    "cat": "Research",
+    "tags": [
+      "academic",
+      "literature-review",
+      "methodology"
+    ],
+    "body": "Conduct a rigorous literature review framework on: {researchTopic}.\n1. Define search string syntax for PubMed, IEEE Xplore, and Google Scholar.\n2. Formulate explicit inclusion and exclusion criteria based on study methodology.\n3. Create a data extraction matrix comparing sample size, methodology, statistical power, and key findings.\n4. Synthesize contradictions and identify critical unanswered research gaps.",
+    "likes": 2332,
+    "uses": 9818,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Hypothesis Formulation & Statistical Test Design - Level 3",
+    "cat": "Research",
+    "tags": [
+      "statistics",
+      "methodology",
+      "data-science"
+    ],
+    "body": "Given the research objective: {objective}.\n- Formulate primary Null Hypothesis (H0) and Alternative Hypothesis (H1).\n- Determine appropriate statistical test (e.g., ANOVA, Chi-Square, Mann-Whitney U, Regression).\n- Calculate required sample size (Power Analysis) for statistical significance (alpha = 0.05, power = 0.80).\n- Detail methods to control for confounding variables and selection bias.",
+    "likes": 2459,
+    "uses": 10675,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "High-Impact Abstract & Executive Research Summary",
+    "cat": "Academic Writing",
+    "tags": [
+      "abstract",
+      "academic",
+      "publishing"
+    ],
+    "body": "Draft a publication-ready 250-word journal abstract based on this research paper draft: {paperNotes}.\n- Background & Motivation (2 sentences): Why does this research matter?\n- Methods (2 sentences): What novel technique or experiment was conducted?\n- Results (2 sentences): What are the key empirical findings with specific quantitative metrics?\n- Conclusion & Significance (1 sentence): How does this advance the field?",
+    "likes": 1774,
+    "uses": 7096,
+    "author": "deepmind"
+  },
+  {
+    "title": "Peer-Review Critique & Rebuttal Letter Drafter",
+    "cat": "Academic Writing",
+    "tags": [
+      "peer-review",
+      "rebuttal",
+      "journal"
+    ],
+    "body": "Draft a professional, courteous, and methodologically sound response to reviewer feedback on manuscript: {reviewerComment}.\n- Express appreciation for the reviewer's insight.\n- Clearly outline the concrete revisions, additional experiments, or statistical clarifications made.\n- Provide before-and-after excerpts showing the modified manuscript sections.",
+    "likes": 1901,
+    "uses": 7953,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Dissertation Introduction & Problem Statement",
+    "cat": "Academic Writing",
+    "tags": [
+      "dissertation",
+      "thesis",
+      "introduction"
+    ],
+    "body": "Draft a compelling opening chapter introduction for a PhD dissertation on: {thesisTopic}.\n- Establish the broader theoretical landscape and historical trajectory of the discipline.\n- Articulate the core research problem and intellectual stakes.\n- Outline the research questions and chapter-by-chapter organizational roadmap.",
+    "likes": 2028,
+    "uses": 8810,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Academic Discussion Section & Limitations Framing",
+    "cat": "Academic Writing",
+    "tags": [
+      "discussion",
+      "limitations",
+      "academic"
+    ],
+    "body": "Write a balanced academic Discussion section for findings: {findingsData}.\n- Contextualize results against foundational literature.\n- Discuss theoretical and practical implications.\n- Frame methodological limitations transparently (sample constraints, generalizability) while demonstrating why they do not invalidate primary conclusions.",
+    "likes": 2155,
+    "uses": 9667,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Formal Methodology & Experimental Protocol Documentation",
+    "cat": "Academic Writing",
+    "tags": [
+      "methodology",
+      "reproducibility",
+      "science"
+    ],
+    "body": "Write a replicable Materials and Methods section for: {experimentDetails}.\n- Document equipment specifications, software version numbers, and chemical/dataset sources.\n- Detail step-by-step procedural workflows.\n- Specify data cleaning, normalization, and statistical validation techniques.",
+    "likes": 2282,
+    "uses": 10524,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "High-Impact Abstract & Executive Research Summary - Level 2",
+    "cat": "Academic Writing",
+    "tags": [
+      "abstract",
+      "academic",
+      "publishing"
+    ],
+    "body": "Draft a publication-ready 250-word journal abstract based on this research paper draft: {paperNotes}.\n- Background & Motivation (2 sentences): Why does this research matter?\n- Methods (2 sentences): What novel technique or experiment was conducted?\n- Results (2 sentences): What are the key empirical findings with specific quantitative metrics?\n- Conclusion & Significance (1 sentence): How does this advance the field?",
+    "likes": 2409,
+    "uses": 11381,
+    "author": "research_lead"
+  },
+  {
+    "title": "Peer-Review Critique & Rebuttal Letter Drafter - Level 2",
+    "cat": "Academic Writing",
+    "tags": [
+      "peer-review",
+      "rebuttal",
+      "journal"
+    ],
+    "body": "Draft a professional, courteous, and methodologically sound response to reviewer feedback on manuscript: {reviewerComment}.\n- Express appreciation for the reviewer's insight.\n- Clearly outline the concrete revisions, additional experiments, or statistical clarifications made.\n- Provide before-and-after excerpts showing the modified manuscript sections.",
+    "likes": 2536,
+    "uses": 12238,
+    "author": "system_architect"
+  },
+  {
+    "title": "Dissertation Introduction & Problem Statement - Level 2",
+    "cat": "Academic Writing",
+    "tags": [
+      "dissertation",
+      "thesis",
+      "introduction"
+    ],
+    "body": "Draft a compelling opening chapter introduction for a PhD dissertation on: {thesisTopic}.\n- Establish the broader theoretical landscape and historical trajectory of the discipline.\n- Articulate the core research problem and intellectual stakes.\n- Outline the research questions and chapter-by-chapter organizational roadmap.",
+    "likes": 2663,
+    "uses": 13095,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Academic Discussion Section & Limitations Framing - Level 2",
+    "cat": "Academic Writing",
+    "tags": [
+      "discussion",
+      "limitations",
+      "academic"
+    ],
+    "body": "Write a balanced academic Discussion section for findings: {findingsData}.\n- Contextualize results against foundational literature.\n- Discuss theoretical and practical implications.\n- Frame methodological limitations transparently (sample constraints, generalizability) while demonstrating why they do not invalidate primary conclusions.",
+    "likes": 2790,
+    "uses": 13952,
+    "author": "deepmind"
+  },
+  {
+    "title": "Formal Methodology & Experimental Protocol Documentation - Level 2",
+    "cat": "Academic Writing",
+    "tags": [
+      "methodology",
+      "reproducibility",
+      "science"
+    ],
+    "body": "Write a replicable Materials and Methods section for: {experimentDetails}.\n- Document equipment specifications, software version numbers, and chemical/dataset sources.\n- Detail step-by-step procedural workflows.\n- Specify data cleaning, normalization, and statistical validation techniques.",
+    "likes": 417,
+    "uses": 1809,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "High-Impact Abstract & Executive Research Summary - Level 3",
+    "cat": "Academic Writing",
+    "tags": [
+      "abstract",
+      "academic",
+      "publishing"
+    ],
+    "body": "Draft a publication-ready 250-word journal abstract based on this research paper draft: {paperNotes}.\n- Background & Motivation (2 sentences): Why does this research matter?\n- Methods (2 sentences): What novel technique or experiment was conducted?\n- Results (2 sentences): What are the key empirical findings with specific quantitative metrics?\n- Conclusion & Significance (1 sentence): How does this advance the field?",
+    "likes": 544,
+    "uses": 2666,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Peer-Review Critique & Rebuttal Letter Drafter - Level 3",
+    "cat": "Academic Writing",
+    "tags": [
+      "peer-review",
+      "rebuttal",
+      "journal"
+    ],
+    "body": "Draft a professional, courteous, and methodologically sound response to reviewer feedback on manuscript: {reviewerComment}.\n- Express appreciation for the reviewer's insight.\n- Clearly outline the concrete revisions, additional experiments, or statistical clarifications made.\n- Provide before-and-after excerpts showing the modified manuscript sections.",
+    "likes": 671,
+    "uses": 3523,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Historical Paradigm Shift Chronology & Synthesis",
+    "cat": "Literature Review",
+    "tags": [
+      "history-of-ideas",
+      "synthesis",
+      "review"
+    ],
+    "body": "Synthesize the historical evolution of theories regarding: {conceptName} over the past 30 years.\n- Phase 1: Foundational models and early assumptions.\n- Phase 2: Empirical challenges and critical anomalies.\n- Phase 3: Contemporary synthesis and current emerging paradigms.\n- Highlight seminal papers and authors representing each philosophical shift.",
+    "likes": 1863,
+    "uses": 7452,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Comparative Theoretical Framework Evaluation",
+    "cat": "Literature Review",
+    "tags": [
+      "theory",
+      "frameworks",
+      "comparative"
+    ],
+    "body": "Compare and contrast the two dominant theoretical frameworks in: {field}:\n- Framework A vs Framework B.\n- Compare ontological assumptions, explanatory power, and testability.\n- Identify specific empirical scenarios where Framework A outperforms Framework B, and vice versa.",
+    "likes": 1990,
+    "uses": 8309,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Interdisciplinary Cross-Pollination Review",
+    "cat": "Literature Review",
+    "tags": [
+      "interdisciplinary",
+      "innovation",
+      "review"
+    ],
+    "body": "Investigate how concepts from {fieldOne} (e.g., evolutionary biology) can be synthesized to solve persistent problems in {fieldTwo} (e.g., distributed algorithms).\n- Identify parallel mechanisms and isomorphic structures.\n- Review recent cross-disciplinary publications.\n- Propose a novel hybrid model combining both domains.",
+    "likes": 2117,
+    "uses": 9166,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Methodological Divide Meta-Analysis",
+    "cat": "Literature Review",
+    "tags": [
+      "meta-analysis",
+      "methodology",
+      "epistemology"
+    ],
+    "body": "Analyze the tension between quantitative and qualitative methodologies within research on: {topic}.\n- Critique the strengths and vulnerabilities of each approach in current published studies.\n- Recommend a mixed-methods convergent design that bridges the divide.",
+    "likes": 2244,
     "uses": 10023,
-    "author": "neo_inc"
+    "author": "prompt_crafter"
   },
   {
-    "title": "Ultimate Personal Growth Protocol 95",
-    "cat": "Personal Growth",
+    "title": "Systematic Review Citation Graph Mapping",
+    "cat": "Literature Review",
     "tags": [
-      "personal growth",
-      "analysis"
+      "citation-analysis",
+      "bibliometrics",
+      "research"
     ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4976,
-    "uses": 1421,
-    "author": "scale_ai"
+    "body": "Structure a bibliometric citation map for: {field}.\n- Identify high-citation cluster hubs, bridge papers connecting disparate sub-disciplines, and declining conceptual branches.\n- Provide a categorized reading list for researchers entering this domain.",
+    "likes": 2371,
+    "uses": 10880,
+    "author": "research_lead"
   },
   {
-    "title": "Advanced Personal Growth Blueprint 35",
-    "cat": "Personal Growth",
+    "title": "Historical Paradigm Shift Chronology & Synthesis - Level 2",
+    "cat": "Literature Review",
     "tags": [
-      "personal growth",
-      "analysis"
+      "history-of-ideas",
+      "synthesis",
+      "review"
     ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 2811,
-    "uses": 14428,
-    "author": "apex_labs"
+    "body": "Synthesize the historical evolution of theories regarding: {conceptName} over the past 30 years.\n- Phase 1: Foundational models and early assumptions.\n- Phase 2: Empirical challenges and critical anomalies.\n- Phase 3: Contemporary synthesis and current emerging paradigms.\n- Highlight seminal papers and authors representing each philosophical shift.",
+    "likes": 2498,
+    "uses": 11737,
+    "author": "system_architect"
   },
   {
-    "title": "Advanced Personal Growth Guide 76",
-    "cat": "Personal Growth",
+    "title": "Comparative Theoretical Framework Evaluation - Level 2",
+    "cat": "Literature Review",
     "tags": [
-      "personal growth",
-      "optimization"
+      "theory",
+      "frameworks",
+      "comparative"
     ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 1106,
-    "uses": 18900,
-    "author": "midjourney"
+    "body": "Compare and contrast the two dominant theoretical frameworks in: {field}:\n- Framework A vs Framework B.\n- Compare ontological assumptions, explanatory power, and testability.\n- Identify specific empirical scenarios where Framework A outperforms Framework B, and vice versa.",
+    "likes": 2625,
+    "uses": 12594,
+    "author": "growth_engineer"
   },
   {
-    "title": "Quick Personal Growth Guide 46",
-    "cat": "Personal Growth",
+    "title": "Interdisciplinary Cross-Pollination Review - Level 2",
+    "cat": "Literature Review",
     "tags": [
-      "personal growth",
-      "analysis"
+      "interdisciplinary",
+      "innovation",
+      "review"
     ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4002,
-    "uses": 9879,
-    "author": "microsoft"
+    "body": "Investigate how concepts from {fieldOne} (e.g., evolutionary biology) can be synthesized to solve persistent problems in {fieldTwo} (e.g., distributed algorithms).\n- Identify parallel mechanisms and isomorphic structures.\n- Review recent cross-disciplinary publications.\n- Propose a novel hybrid model combining both domains.",
+    "likes": 2752,
+    "uses": 13451,
+    "author": "deepmind"
   },
   {
-    "title": "Master Personal Growth Template 52",
+    "title": "Methodological Divide Meta-Analysis - Level 2",
+    "cat": "Literature Review",
+    "tags": [
+      "meta-analysis",
+      "methodology",
+      "epistemology"
+    ],
+    "body": "Analyze the tension between quantitative and qualitative methodologies within research on: {topic}.\n- Critique the strengths and vulnerabilities of each approach in current published studies.\n- Recommend a mixed-methods convergent design that bridges the divide.",
+    "likes": 379,
+    "uses": 4308,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Systematic Review Citation Graph Mapping - Level 2",
+    "cat": "Literature Review",
+    "tags": [
+      "citation-analysis",
+      "bibliometrics",
+      "research"
+    ],
+    "body": "Structure a bibliometric citation map for: {field}.\n- Identify high-citation cluster hubs, bridge papers connecting disparate sub-disciplines, and declining conceptual branches.\n- Provide a categorized reading list for researchers entering this domain.",
+    "likes": 506,
+    "uses": 2165,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Historical Paradigm Shift Chronology & Synthesis - Level 3",
+    "cat": "Literature Review",
+    "tags": [
+      "history-of-ideas",
+      "synthesis",
+      "review"
+    ],
+    "body": "Synthesize the historical evolution of theories regarding: {conceptName} over the past 30 years.\n- Phase 1: Foundational models and early assumptions.\n- Phase 2: Empirical challenges and critical anomalies.\n- Phase 3: Contemporary synthesis and current emerging paradigms.\n- Highlight seminal papers and authors representing each philosophical shift.",
+    "likes": 633,
+    "uses": 3022,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Comparative Theoretical Framework Evaluation - Level 3",
+    "cat": "Literature Review",
+    "tags": [
+      "theory",
+      "frameworks",
+      "comparative"
+    ],
+    "body": "Compare and contrast the two dominant theoretical frameworks in: {field}:\n- Framework A vs Framework B.\n- Compare ontological assumptions, explanatory power, and testability.\n- Identify specific empirical scenarios where Framework A outperforms Framework B, and vice versa.",
+    "likes": 760,
+    "uses": 3879,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Exploratory Data Analysis (EDA) Python Script with Visuals",
+    "cat": "Data Analysis",
+    "tags": [
+      "python",
+      "pandas",
+      "eda"
+    ],
+    "body": "Generate a production Python script using Pandas, Seaborn, and Polars to perform comprehensive EDA on: {datasetDescription}.\n- Automated missing value imputation and outlier detection (IQR & Z-score).\n- Correlation matrices with heatmaps.\n- Feature distribution skewness analysis with recommended transformations (Box-Cox/Log).\n- Summary report of actionable patterns and anomalies.",
+    "likes": 1507,
+    "uses": 6028,
+    "author": "research_lead"
+  },
+  {
+    "title": "Predictive Machine Learning Pipeline with Cross-Validation",
+    "cat": "Data Analysis",
+    "tags": [
+      "machine-learning",
+      "scikit-learn",
+      "xgboost"
+    ],
+    "body": "Construct an end-to-end classification pipeline for: {targetVariable}.\n- Feature engineering: one-hot encoding, target encoding, interaction terms.\n- Stratified K-fold cross-validation to prevent data leakage.\n- Hyperparameter tuning using Optuna.\n- Model interpretability using SHAP values and feature importance plots.",
+    "likes": 1634,
+    "uses": 6885,
+    "author": "system_architect"
+  },
+  {
+    "title": "Time-Series Forecasting with Seasonal Decomposition",
+    "cat": "Data Analysis",
+    "tags": [
+      "time-series",
+      "forecasting",
+      "prophet"
+    ],
+    "body": "Build a time-series forecasting model for daily metric: {metricName}.\n- Decompose series into trend, seasonality, and residual noise.\n- Check stationarity via Augmented Dickey-Fuller (ADF) test.\n- Implement and compare ARIMA/SARIMAX vs Prophet models.\n- Output prediction intervals and calculate backtested MAPE/RMSE scores.",
+    "likes": 1761,
+    "uses": 7742,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Customer Cohort Retention & Churn Analysis",
+    "cat": "Data Analysis",
+    "tags": [
+      "cohort-analysis",
+      "retention",
+      "sql"
+    ],
+    "body": "Write optimized SQL and Python scripts to calculate monthly customer retention cohorts for: {transactionData}.\n- Calculate Day 1, Day 7, Day 30, and Month 1-12 retention curves.\n- Segment cohorts by acquisition channel and initial purchase value.\n- Identify early behavioral indicators strongly correlated with long-term retention.",
+    "likes": 1888,
+    "uses": 8599,
+    "author": "deepmind"
+  },
+  {
+    "title": "A/B Test Statistical Significance & Bayesian Analysis",
+    "cat": "Data Analysis",
+    "tags": [
+      "ab-testing",
+      "bayesian",
+      "experimentation"
+    ],
+    "body": "Analyze the results of an A/B test with conversion metrics: {variantMetrics}.\n- Frequentist Z-test with two-tailed p-value and 95% confidence intervals.\n- Bayesian calculation: probability that Variant B beats Variant A, and expected loss.\n- Recommend whether to conclude the test, extend runtime, or abandon due to low power.",
+    "likes": 2015,
+    "uses": 9456,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Exploratory Data Analysis (EDA) Python Script with Visuals - Level 2",
+    "cat": "Data Analysis",
+    "tags": [
+      "python",
+      "pandas",
+      "eda"
+    ],
+    "body": "Generate a production Python script using Pandas, Seaborn, and Polars to perform comprehensive EDA on: {datasetDescription}.\n- Automated missing value imputation and outlier detection (IQR & Z-score).\n- Correlation matrices with heatmaps.\n- Feature distribution skewness analysis with recommended transformations (Box-Cox/Log).\n- Summary report of actionable patterns and anomalies.",
+    "likes": 2142,
+    "uses": 10313,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Predictive Machine Learning Pipeline with Cross-Validation - Level 2",
+    "cat": "Data Analysis",
+    "tags": [
+      "machine-learning",
+      "scikit-learn",
+      "xgboost"
+    ],
+    "body": "Construct an end-to-end classification pipeline for: {targetVariable}.\n- Feature engineering: one-hot encoding, target encoding, interaction terms.\n- Stratified K-fold cross-validation to prevent data leakage.\n- Hyperparameter tuning using Optuna.\n- Model interpretability using SHAP values and feature importance plots.",
+    "likes": 2269,
+    "uses": 11170,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Time-Series Forecasting with Seasonal Decomposition - Level 2",
+    "cat": "Data Analysis",
+    "tags": [
+      "time-series",
+      "forecasting",
+      "prophet"
+    ],
+    "body": "Build a time-series forecasting model for daily metric: {metricName}.\n- Decompose series into trend, seasonality, and residual noise.\n- Check stationarity via Augmented Dickey-Fuller (ADF) test.\n- Implement and compare ARIMA/SARIMAX vs Prophet models.\n- Output prediction intervals and calculate backtested MAPE/RMSE scores.",
+    "likes": 2396,
+    "uses": 12027,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Customer Cohort Retention & Churn Analysis - Level 2",
+    "cat": "Data Analysis",
+    "tags": [
+      "cohort-analysis",
+      "retention",
+      "sql"
+    ],
+    "body": "Write optimized SQL and Python scripts to calculate monthly customer retention cohorts for: {transactionData}.\n- Calculate Day 1, Day 7, Day 30, and Month 1-12 retention curves.\n- Segment cohorts by acquisition channel and initial purchase value.\n- Identify early behavioral indicators strongly correlated with long-term retention.",
+    "likes": 2523,
+    "uses": 12884,
+    "author": "research_lead"
+  },
+  {
+    "title": "A/B Test Statistical Significance & Bayesian Analysis - Level 2",
+    "cat": "Data Analysis",
+    "tags": [
+      "ab-testing",
+      "bayesian",
+      "experimentation"
+    ],
+    "body": "Analyze the results of an A/B test with conversion metrics: {variantMetrics}.\n- Frequentist Z-test with two-tailed p-value and 95% confidence intervals.\n- Bayesian calculation: probability that Variant B beats Variant A, and expected loss.\n- Recommend whether to conclude the test, extend runtime, or abandon due to low power.",
+    "likes": 2650,
+    "uses": 10741,
+    "author": "system_architect"
+  },
+  {
+    "title": "Exploratory Data Analysis (EDA) Python Script with Visuals - Level 3",
+    "cat": "Data Analysis",
+    "tags": [
+      "python",
+      "pandas",
+      "eda"
+    ],
+    "body": "Generate a production Python script using Pandas, Seaborn, and Polars to perform comprehensive EDA on: {datasetDescription}.\n- Automated missing value imputation and outlier detection (IQR & Z-score).\n- Correlation matrices with heatmaps.\n- Feature distribution skewness analysis with recommended transformations (Box-Cox/Log).\n- Summary report of actionable patterns and anomalies.",
+    "likes": 2777,
+    "uses": 11598,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Predictive Machine Learning Pipeline with Cross-Validation - Level 3",
+    "cat": "Data Analysis",
+    "tags": [
+      "machine-learning",
+      "scikit-learn",
+      "xgboost"
+    ],
+    "body": "Construct an end-to-end classification pipeline for: {targetVariable}.\n- Feature engineering: one-hot encoding, target encoding, interaction terms.\n- Stratified K-fold cross-validation to prevent data leakage.\n- Hyperparameter tuning using Optuna.\n- Model interpretability using SHAP values and feature importance plots.",
+    "likes": 404,
+    "uses": 2455,
+    "author": "deepmind"
+  },
+  {
+    "title": "Go-To-Market (GTM) Launch Strategy & Channel Matrix",
+    "cat": "Marketing",
+    "tags": [
+      "gtm",
+      "launch",
+      "strategy"
+    ],
+    "body": "Develop a comprehensive 90-day Go-To-Market launch strategy for: {productName}.\n- Ideal Customer Profile (ICP) definition and pain-point matrix.\n- Channel prioritization (Paid acquisition, Organic SEO, Product-led growth, Outbound sales).\n- Week-by-week launch calendar covering pre-launch teaser, launch day blitz, and post-launch retention.\n- North Star KPI metrics and CAC/LTV targets.",
+    "likes": 1151,
+    "uses": 4604,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "B2B Account-Based Marketing (ABM) Playbook",
+    "cat": "Marketing",
+    "tags": [
+      "abm",
+      "b2b",
+      "enterprise"
+    ],
+    "body": "Create a targeted ABM playbook for landing Tier-1 Enterprise accounts in: {industry}.\n- Tier 1 account identification criteria and bespoke value proposition framing.\n- Multi-touch outreach sequence across LinkedIn, email, executive direct mail, and tailored microsites.\n- Content asset requirements: bespoke ROI calculator and customer case studies.",
+    "likes": 1278,
+    "uses": 5461,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Viral Product Hunt Launch Sequence & Assets",
+    "cat": "Marketing",
+    "tags": [
+      "product-hunt",
+      "launch",
+      "growth"
+    ],
+    "body": "Craft an end-to-end Product Hunt launch package for: {product}.\n- Compelling headline, tagline (under 60 chars), and maker comment detailing the origin story.\n- Engaging GIF demo storyboard instructions.\n- Outreach schedule for day-of community support without triggering voting penalty algorithms.\n- First-hour response template addressing technical questions.",
+    "likes": 1405,
+    "uses": 6318,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "High-Converting Webinar Funnel & Follow-Up Sequence",
+    "cat": "Marketing",
+    "tags": [
+      "webinars",
+      "funnels",
+      "lead-gen"
+    ],
+    "body": "Plan a high-converting B2B webinar funnel on: {topic}.\n- Irresistible webinar title and registration landing page copy.\n- 4-part email reminder sequence (7 days out, 24 hours, 1 hour, live now).\n- 45-minute presentation script outline keeping viewer retention above 70%.\n- Post-event segmentation emails for attendees vs no-shows.",
+    "likes": 1532,
+    "uses": 7175,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Referral & Viral Growth Loop Architecture",
+    "cat": "Marketing",
+    "tags": [
+      "viral-loops",
+      "plg",
+      "referral"
+    ],
+    "body": "Design a self-reinforcing product referral loop for: {appType}.\n- Two-sided incentive mechanics (Dropbox/Robinhood style).\n- In-app trigger moments when user satisfaction peaks (the 'Aha' moment).\n- Frictionless sharing mechanisms across WhatsApp, Twitter, and email.\n- Metrics tracking: K-factor calculation and cycle time optimization.",
+    "likes": 1659,
+    "uses": 8032,
+    "author": "research_lead"
+  },
+  {
+    "title": "Go-To-Market (GTM) Launch Strategy & Channel Matrix - Level 2",
+    "cat": "Marketing",
+    "tags": [
+      "gtm",
+      "launch",
+      "strategy"
+    ],
+    "body": "Develop a comprehensive 90-day Go-To-Market launch strategy for: {productName}.\n- Ideal Customer Profile (ICP) definition and pain-point matrix.\n- Channel prioritization (Paid acquisition, Organic SEO, Product-led growth, Outbound sales).\n- Week-by-week launch calendar covering pre-launch teaser, launch day blitz, and post-launch retention.\n- North Star KPI metrics and CAC/LTV targets.",
+    "likes": 1786,
+    "uses": 8889,
+    "author": "system_architect"
+  },
+  {
+    "title": "B2B Account-Based Marketing (ABM) Playbook - Level 2",
+    "cat": "Marketing",
+    "tags": [
+      "abm",
+      "b2b",
+      "enterprise"
+    ],
+    "body": "Create a targeted ABM playbook for landing Tier-1 Enterprise accounts in: {industry}.\n- Tier 1 account identification criteria and bespoke value proposition framing.\n- Multi-touch outreach sequence across LinkedIn, email, executive direct mail, and tailored microsites.\n- Content asset requirements: bespoke ROI calculator and customer case studies.",
+    "likes": 1913,
+    "uses": 9746,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Viral Product Hunt Launch Sequence & Assets - Level 2",
+    "cat": "Marketing",
+    "tags": [
+      "product-hunt",
+      "launch",
+      "growth"
+    ],
+    "body": "Craft an end-to-end Product Hunt launch package for: {product}.\n- Compelling headline, tagline (under 60 chars), and maker comment detailing the origin story.\n- Engaging GIF demo storyboard instructions.\n- Outreach schedule for day-of community support without triggering voting penalty algorithms.\n- First-hour response template addressing technical questions.",
+    "likes": 2040,
+    "uses": 10603,
+    "author": "deepmind"
+  },
+  {
+    "title": "High-Converting Webinar Funnel & Follow-Up Sequence - Level 2",
+    "cat": "Marketing",
+    "tags": [
+      "webinars",
+      "funnels",
+      "lead-gen"
+    ],
+    "body": "Plan a high-converting B2B webinar funnel on: {topic}.\n- Irresistible webinar title and registration landing page copy.\n- 4-part email reminder sequence (7 days out, 24 hours, 1 hour, live now).\n- 45-minute presentation script outline keeping viewer retention above 70%.\n- Post-event segmentation emails for attendees vs no-shows.",
+    "likes": 2167,
+    "uses": 11460,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Referral & Viral Growth Loop Architecture - Level 2",
+    "cat": "Marketing",
+    "tags": [
+      "viral-loops",
+      "plg",
+      "referral"
+    ],
+    "body": "Design a self-reinforcing product referral loop for: {appType}.\n- Two-sided incentive mechanics (Dropbox/Robinhood style).\n- In-app trigger moments when user satisfaction peaks (the 'Aha' moment).\n- Frictionless sharing mechanisms across WhatsApp, Twitter, and email.\n- Metrics tracking: K-factor calculation and cycle time optimization.",
+    "likes": 2294,
+    "uses": 9317,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Go-To-Market (GTM) Launch Strategy & Channel Matrix - Level 3",
+    "cat": "Marketing",
+    "tags": [
+      "gtm",
+      "launch",
+      "strategy"
+    ],
+    "body": "Develop a comprehensive 90-day Go-To-Market launch strategy for: {productName}.\n- Ideal Customer Profile (ICP) definition and pain-point matrix.\n- Channel prioritization (Paid acquisition, Organic SEO, Product-led growth, Outbound sales).\n- Week-by-week launch calendar covering pre-launch teaser, launch day blitz, and post-launch retention.\n- North Star KPI metrics and CAC/LTV targets.",
+    "likes": 2421,
+    "uses": 10174,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "B2B Account-Based Marketing (ABM) Playbook - Level 3",
+    "cat": "Marketing",
+    "tags": [
+      "abm",
+      "b2b",
+      "enterprise"
+    ],
+    "body": "Create a targeted ABM playbook for landing Tier-1 Enterprise accounts in: {industry}.\n- Tier 1 account identification criteria and bespoke value proposition framing.\n- Multi-touch outreach sequence across LinkedIn, email, executive direct mail, and tailored microsites.\n- Content asset requirements: bespoke ROI calculator and customer case studies.",
+    "likes": 2548,
+    "uses": 11031,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Landing Page Hero Section & Value Proposition Copy",
+    "cat": "Copywriting",
+    "tags": [
+      "landing-page",
+      "hero",
+      "conversion"
+    ],
+    "body": "Write 5 distinct high-converting variations of a landing page Hero Section for: {productOffer}.\nEach variation must include:\n1. Attention-grabbing headline (under 10 words) focused on the core transformational outcome.\n2. Subheadline addressing the primary objection and ideal audience.\n3. Primary call-to-action (CTA) button copy with low psychological friction.\n4. Trust badge / social proof placement recommendation.",
+    "likes": 1329,
+    "uses": 5316,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "PAS (Problem-Agitate-Solve) Sales Letter",
+    "cat": "Copywriting",
+    "tags": [
+      "pas",
+      "direct-response",
+      "sales-copy"
+    ],
+    "body": "Write a compelling sales narrative using the PAS framework for: {productOrService}.\n- Problem: State the visceral everyday frustration the customer experiences.\n- Agitate: Intensify the cost of inaction, wasted time, and emotional toll.\n- Solution: Introduce your product as the natural, proven relief.\n- Call to Action: Urge immediate action with an ironclad guarantee.",
+    "likes": 1456,
+    "uses": 6173,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Feature-to-Benefit Emotional Matrix Rewrite",
+    "cat": "Copywriting",
+    "tags": [
+      "benefits",
+      "psychology",
+      "refactor"
+    ],
+    "body": "Transform this list of dry technical specifications into compelling customer-centric benefits: {technicalFeatures}.\nFor each feature provide:\n- The Technical Spec.\n- The Functional Benefit (What it does for their workflow).\n- The Emotional Benefit (How it makes them feel or elevates their status).",
+    "likes": 1583,
+    "uses": 7030,
+    "author": "research_lead"
+  },
+  {
+    "title": "High-Converting Microcopy & UI Empty State Copy",
+    "cat": "Copywriting",
+    "tags": [
+      "microcopy",
+      "ux-writing",
+      "conversion"
+    ],
+    "body": "Write thoughtful UX microcopy for {userAction} in an application.\n- Button tooltips clarifying non-destructive actions.\n- Form field inline helper text and friendly validation errors.\n- Engaging empty state copy that guides users to take their first meaningful action.",
+    "likes": 1710,
+    "uses": 7887,
+    "author": "system_architect"
+  },
+  {
+    "title": "Irresistible B2B Case Study Narrative (STAR Framework)",
+    "cat": "Copywriting",
+    "tags": [
+      "case-study",
+      "social-proof",
+      "storytelling"
+    ],
+    "body": "Write a customer success story using the STAR framework for client: {clientName}.\n- Situation: The chaotic landscape prior to adopting the solution.\n- Task: The ambitious milestone they needed to achieve within tight constraints.\n- Action: How they implemented the product and team adoption.\n- Result: Hard quantitative business metrics achieved (+340% ROI, 14 hours saved weekly).",
+    "likes": 1837,
+    "uses": 8744,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Landing Page Hero Section & Value Proposition Copy - Level 2",
+    "cat": "Copywriting",
+    "tags": [
+      "landing-page",
+      "hero",
+      "conversion"
+    ],
+    "body": "Write 5 distinct high-converting variations of a landing page Hero Section for: {productOffer}.\nEach variation must include:\n1. Attention-grabbing headline (under 10 words) focused on the core transformational outcome.\n2. Subheadline addressing the primary objection and ideal audience.\n3. Primary call-to-action (CTA) button copy with low psychological friction.\n4. Trust badge / social proof placement recommendation.",
+    "likes": 1964,
+    "uses": 9601,
+    "author": "deepmind"
+  },
+  {
+    "title": "PAS (Problem-Agitate-Solve) Sales Letter - Level 2",
+    "cat": "Copywriting",
+    "tags": [
+      "pas",
+      "direct-response",
+      "sales-copy"
+    ],
+    "body": "Write a compelling sales narrative using the PAS framework for: {productOrService}.\n- Problem: State the visceral everyday frustration the customer experiences.\n- Agitate: Intensify the cost of inaction, wasted time, and emotional toll.\n- Solution: Introduce your product as the natural, proven relief.\n- Call to Action: Urge immediate action with an ironclad guarantee.",
+    "likes": 2091,
+    "uses": 10458,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Feature-to-Benefit Emotional Matrix Rewrite - Level 2",
+    "cat": "Copywriting",
+    "tags": [
+      "benefits",
+      "psychology",
+      "refactor"
+    ],
+    "body": "Transform this list of dry technical specifications into compelling customer-centric benefits: {technicalFeatures}.\nFor each feature provide:\n- The Technical Spec.\n- The Functional Benefit (What it does for their workflow).\n- The Emotional Benefit (How it makes them feel or elevates their status).",
+    "likes": 2218,
+    "uses": 11315,
+    "author": "gpt_master"
+  },
+  {
+    "title": "High-Converting Microcopy & UI Empty State Copy - Level 2",
+    "cat": "Copywriting",
+    "tags": [
+      "microcopy",
+      "ux-writing",
+      "conversion"
+    ],
+    "body": "Write thoughtful UX microcopy for {userAction} in an application.\n- Button tooltips clarifying non-destructive actions.\n- Form field inline helper text and friendly validation errors.\n- Engaging empty state copy that guides users to take their first meaningful action.",
+    "likes": 2345,
+    "uses": 12172,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Irresistible B2B Case Study Narrative (STAR Framework) - Level 2",
+    "cat": "Copywriting",
+    "tags": [
+      "case-study",
+      "social-proof",
+      "storytelling"
+    ],
+    "body": "Write a customer success story using the STAR framework for client: {clientName}.\n- Situation: The chaotic landscape prior to adopting the solution.\n- Task: The ambitious milestone they needed to achieve within tight constraints.\n- Action: How they implemented the product and team adoption.\n- Result: Hard quantitative business metrics achieved (+340% ROI, 14 hours saved weekly).",
+    "likes": 2472,
+    "uses": 10029,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Landing Page Hero Section & Value Proposition Copy - Level 3",
+    "cat": "Copywriting",
+    "tags": [
+      "landing-page",
+      "hero",
+      "conversion"
+    ],
+    "body": "Write 5 distinct high-converting variations of a landing page Hero Section for: {productOffer}.\nEach variation must include:\n1. Attention-grabbing headline (under 10 words) focused on the core transformational outcome.\n2. Subheadline addressing the primary objection and ideal audience.\n3. Primary call-to-action (CTA) button copy with low psychological friction.\n4. Trust badge / social proof placement recommendation.",
+    "likes": 2599,
+    "uses": 10886,
+    "author": "research_lead"
+  },
+  {
+    "title": "PAS (Problem-Agitate-Solve) Sales Letter - Level 3",
+    "cat": "Copywriting",
+    "tags": [
+      "pas",
+      "direct-response",
+      "sales-copy"
+    ],
+    "body": "Write a compelling sales narrative using the PAS framework for: {productOrService}.\n- Problem: State the visceral everyday frustration the customer experiences.\n- Agitate: Intensify the cost of inaction, wasted time, and emotional toll.\n- Solution: Introduce your product as the natural, proven relief.\n- Call to Action: Urge immediate action with an ironclad guarantee.",
+    "likes": 2726,
+    "uses": 11743,
+    "author": "system_architect"
+  },
+  {
+    "title": "Programmatic SEO Architecture & Database Keyword Blueprint",
+    "cat": "SEO",
+    "tags": [
+      "programmatic-seo",
+      "p-seo",
+      "scale"
+    ],
+    "body": "Design a programmatic SEO strategy for: {niche}.\n- Identify scalable keyword modifier patterns (e.g., '[Tool] vs [Tool]', 'Best [Category] for [Persona]').\n- Define database schema fields needed to generate high-value, non-thin dynamic pages.\n- Outline content modules that guarantee unique value on every programmatic URL.\n- Internal linking silo structure to distribute domain authority.",
+    "likes": 617,
+    "uses": 2468,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Semantic Content Optimization & Entities Extraction",
+    "cat": "SEO",
+    "tags": [
+      "on-page-seo",
+      "semantic-seo",
+      "nlp"
+    ],
+    "body": "Analyze the top-ranking competitors for target keyword: {targetKeyword}.\n- Extract essential Wikidata entities, LSI keywords, and subtopics required for topical authority.\n- Structure comprehensive H2 and H3 heading outlines covering search intent.\n- Draft an FAQ schema section targeting Google People Also Ask (PAA) rich snippets.",
+    "likes": 744,
+    "uses": 3325,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Technical SEO Core Web Vitals Audit & Remediation",
+    "cat": "SEO",
+    "tags": [
+      "technical-seo",
+      "core-web-vitals",
+      "speed"
+    ],
+    "body": "Provide a technical diagnostic and fix list for a site failing Core Web Vitals: {urlOrMetrics}.\n- LCP (Largest Contentful Paint): Prioritize critical path CSS, font preloading, and image optimization.\n- INP (Interaction to Next Paint): Break up long JavaScript tasks and defer non-critical scripts.\n- CLS (Cumulative Layout Shift): Reserve explicit aspect-ratio containers for dynamic ads and hero banners.",
+    "likes": 871,
+    "uses": 4182,
+    "author": "research_lead"
+  },
+  {
+    "title": "Link-Worthy Data Study & Digital PR Pitch",
+    "cat": "SEO",
+    "tags": [
+      "backlinks",
+      "digital-pr",
+      "outreach"
+    ],
+    "body": "Design a data-driven original research study in {industry} designed to earn editorial backlinks.\n- Outline the survey methodology or proprietary dataset to analyze.\n- Identify 3 counterintuitive, headline-grabbing statistical conclusions.\n- Draft an email pitch tailored to journalists at Forbes, TechCrunch, and industry publications.",
+    "likes": 998,
+    "uses": 5039,
+    "author": "system_architect"
+  },
+  {
+    "title": "SEO Internal Linking & Topic Cluster Strategy",
+    "cat": "SEO",
+    "tags": [
+      "internal-linking",
+      "topic-clusters",
+      "architecture"
+    ],
+    "body": "Construct a topical authority cluster for pillar topic: {pillarTopic}.\n- 1 Pillar page: Comprehensive, evergreen cornerstone guide.\n- 8 Sub-topic cluster articles addressing specific long-tail queries.\n- Bidirectional internal linking architecture ensuring search engine spiders discover all nodes.",
+    "likes": 1125,
+    "uses": 5896,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Programmatic SEO Architecture & Database Keyword Blueprint - Level 2",
+    "cat": "SEO",
+    "tags": [
+      "programmatic-seo",
+      "p-seo",
+      "scale"
+    ],
+    "body": "Design a programmatic SEO strategy for: {niche}.\n- Identify scalable keyword modifier patterns (e.g., '[Tool] vs [Tool]', 'Best [Category] for [Persona]').\n- Define database schema fields needed to generate high-value, non-thin dynamic pages.\n- Outline content modules that guarantee unique value on every programmatic URL.\n- Internal linking silo structure to distribute domain authority.",
+    "likes": 1252,
+    "uses": 6753,
+    "author": "deepmind"
+  },
+  {
+    "title": "Semantic Content Optimization & Entities Extraction - Level 2",
+    "cat": "SEO",
+    "tags": [
+      "on-page-seo",
+      "semantic-seo",
+      "nlp"
+    ],
+    "body": "Analyze the top-ranking competitors for target keyword: {targetKeyword}.\n- Extract essential Wikidata entities, LSI keywords, and subtopics required for topical authority.\n- Structure comprehensive H2 and H3 heading outlines covering search intent.\n- Draft an FAQ schema section targeting Google People Also Ask (PAA) rich snippets.",
+    "likes": 1379,
+    "uses": 7610,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Technical SEO Core Web Vitals Audit & Remediation - Level 2",
+    "cat": "SEO",
+    "tags": [
+      "technical-seo",
+      "core-web-vitals",
+      "speed"
+    ],
+    "body": "Provide a technical diagnostic and fix list for a site failing Core Web Vitals: {urlOrMetrics}.\n- LCP (Largest Contentful Paint): Prioritize critical path CSS, font preloading, and image optimization.\n- INP (Interaction to Next Paint): Break up long JavaScript tasks and defer non-critical scripts.\n- CLS (Cumulative Layout Shift): Reserve explicit aspect-ratio containers for dynamic ads and hero banners.",
+    "likes": 1506,
+    "uses": 8467,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Link-Worthy Data Study & Digital PR Pitch - Level 2",
+    "cat": "SEO",
+    "tags": [
+      "backlinks",
+      "digital-pr",
+      "outreach"
+    ],
+    "body": "Design a data-driven original research study in {industry} designed to earn editorial backlinks.\n- Outline the survey methodology or proprietary dataset to analyze.\n- Identify 3 counterintuitive, headline-grabbing statistical conclusions.\n- Draft an email pitch tailored to journalists at Forbes, TechCrunch, and industry publications.",
+    "likes": 1633,
+    "uses": 9324,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "SEO Internal Linking & Topic Cluster Strategy - Level 2",
+    "cat": "SEO",
+    "tags": [
+      "internal-linking",
+      "topic-clusters",
+      "architecture"
+    ],
+    "body": "Construct a topical authority cluster for pillar topic: {pillarTopic}.\n- 1 Pillar page: Comprehensive, evergreen cornerstone guide.\n- 8 Sub-topic cluster articles addressing specific long-tail queries.\n- Bidirectional internal linking architecture ensuring search engine spiders discover all nodes.",
+    "likes": 1760,
+    "uses": 7181,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Programmatic SEO Architecture & Database Keyword Blueprint - Level 3",
+    "cat": "SEO",
+    "tags": [
+      "programmatic-seo",
+      "p-seo",
+      "scale"
+    ],
+    "body": "Design a programmatic SEO strategy for: {niche}.\n- Identify scalable keyword modifier patterns (e.g., '[Tool] vs [Tool]', 'Best [Category] for [Persona]').\n- Define database schema fields needed to generate high-value, non-thin dynamic pages.\n- Outline content modules that guarantee unique value on every programmatic URL.\n- Internal linking silo structure to distribute domain authority.",
+    "likes": 1887,
+    "uses": 8038,
+    "author": "research_lead"
+  },
+  {
+    "title": "Semantic Content Optimization & Entities Extraction - Level 3",
+    "cat": "SEO",
+    "tags": [
+      "on-page-seo",
+      "semantic-seo",
+      "nlp"
+    ],
+    "body": "Analyze the top-ranking competitors for target keyword: {targetKeyword}.\n- Extract essential Wikidata entities, LSI keywords, and subtopics required for topical authority.\n- Structure comprehensive H2 and H3 heading outlines covering search intent.\n- Draft an FAQ schema section targeting Google People Also Ask (PAA) rich snippets.",
+    "likes": 2014,
+    "uses": 8895,
+    "author": "system_architect"
+  },
+  {
+    "title": "Viral LinkedIn Thought Leadership Breakdown",
+    "cat": "Social Media",
+    "tags": [
+      "linkedin",
+      "b2b",
+      "personal-brand"
+    ],
+    "body": "Write a high-engagement LinkedIn post based on this professional insight: {insight}.\n- Hook (First 2 lines): Bold, counter-narrative statement that stops the scroll.\n- Body: Concise, bulleted breakdown with ample white space for mobile readability.\n- Personal takeaway or vulnerability that humanizes the lesson.\n- Open-ended question prompting meaningful comments and discussions.",
+    "likes": 1418,
+    "uses": 5672,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "High-Retention Twitter/X Educational Thread",
+    "cat": "Social Media",
+    "tags": [
+      "twitter",
+      "x",
+      "threads"
+    ],
+    "body": "Craft an 8-tweet educational thread breaking down: {complexConcept}.\n- Tweet 1: High-conviction hook promising clear ROI for reading the thread.\n- Tweets 2-6: Step-by-step principles with concrete examples and zero fluff.\n- Tweet 7: Key takeaway summary graphic concept.\n- Tweet 8: Retweet prompt and call to action to follow for more.",
+    "likes": 1545,
+    "uses": 6529,
+    "author": "research_lead"
+  },
+  {
+    "title": "Short-Form Video Script (Reels / TikTok / Shorts)",
+    "cat": "Social Media",
+    "tags": [
+      "tiktok",
+      "reels",
+      "video-script"
+    ],
+    "body": "Write a 60-second video script for: {topic}.\n- Seconds 0-3 (Visual + Verbal Hook): Dramatic pattern interrupt statement.\n- Seconds 4-20: Establish problem and why traditional advice is broken.\n- Seconds 21-45: Fast-paced, 3-step actionable demonstration with on-screen text cues.\n- Seconds 46-60: Clear CTA to save the video and comment for a resource link.",
+    "likes": 1672,
+    "uses": 7386,
+    "author": "system_architect"
+  },
+  {
+    "title": "Social Media Community Management & Crisis Response",
+    "cat": "Social Media",
+    "tags": [
+      "crisis-management",
+      "community",
+      "pr"
+    ],
+    "body": "Draft a social media public response statement to address an active customer complaint: {complaint}.\n- Acknowledge the issue transparently without defensiveness.\n- Clarify immediate remediation steps underway.\n- Direct sensitive discussions to a private executive support channel.\n- Maintain an empathetic, composed brand voice.",
+    "likes": 1799,
+    "uses": 8243,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Monthly Multi-Platform Content Calendar Strategy",
+    "cat": "Social Media",
+    "tags": [
+      "content-calendar",
+      "strategy",
+      "planning"
+    ],
+    "body": "Develop a 30-day content calendar matrix for: {brandName}.\n- Balance across 4 content pillars: Industry Education, Customer Proof, Culture/Behind-the-Scenes, and Direct Product Value.\n- Adapt content formats across LinkedIn, X, Instagram, and YouTube.\n- Include specific posting time recommendations and engagement tracking metrics.",
+    "likes": 1926,
+    "uses": 9100,
+    "author": "deepmind"
+  },
+  {
+    "title": "Viral LinkedIn Thought Leadership Breakdown - Level 2",
+    "cat": "Social Media",
+    "tags": [
+      "linkedin",
+      "b2b",
+      "personal-brand"
+    ],
+    "body": "Write a high-engagement LinkedIn post based on this professional insight: {insight}.\n- Hook (First 2 lines): Bold, counter-narrative statement that stops the scroll.\n- Body: Concise, bulleted breakdown with ample white space for mobile readability.\n- Personal takeaway or vulnerability that humanizes the lesson.\n- Open-ended question prompting meaningful comments and discussions.",
+    "likes": 2053,
+    "uses": 9957,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "High-Retention Twitter/X Educational Thread - Level 2",
+    "cat": "Social Media",
+    "tags": [
+      "twitter",
+      "x",
+      "threads"
+    ],
+    "body": "Craft an 8-tweet educational thread breaking down: {complexConcept}.\n- Tweet 1: High-conviction hook promising clear ROI for reading the thread.\n- Tweets 2-6: Step-by-step principles with concrete examples and zero fluff.\n- Tweet 7: Key takeaway summary graphic concept.\n- Tweet 8: Retweet prompt and call to action to follow for more.",
+    "likes": 2180,
+    "uses": 10814,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Short-Form Video Script (Reels / TikTok / Shorts) - Level 2",
+    "cat": "Social Media",
+    "tags": [
+      "tiktok",
+      "reels",
+      "video-script"
+    ],
+    "body": "Write a 60-second video script for: {topic}.\n- Seconds 0-3 (Visual + Verbal Hook): Dramatic pattern interrupt statement.\n- Seconds 4-20: Establish problem and why traditional advice is broken.\n- Seconds 21-45: Fast-paced, 3-step actionable demonstration with on-screen text cues.\n- Seconds 46-60: Clear CTA to save the video and comment for a resource link.",
+    "likes": 2307,
+    "uses": 11671,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Social Media Community Management & Crisis Response - Level 2",
+    "cat": "Social Media",
+    "tags": [
+      "crisis-management",
+      "community",
+      "pr"
+    ],
+    "body": "Draft a social media public response statement to address an active customer complaint: {complaint}.\n- Acknowledge the issue transparently without defensiveness.\n- Clarify immediate remediation steps underway.\n- Direct sensitive discussions to a private executive support channel.\n- Maintain an empathetic, composed brand voice.",
+    "likes": 2434,
+    "uses": 12528,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Monthly Multi-Platform Content Calendar Strategy - Level 2",
+    "cat": "Social Media",
+    "tags": [
+      "content-calendar",
+      "strategy",
+      "planning"
+    ],
+    "body": "Develop a 30-day content calendar matrix for: {brandName}.\n- Balance across 4 content pillars: Industry Education, Customer Proof, Culture/Behind-the-Scenes, and Direct Product Value.\n- Adapt content formats across LinkedIn, X, Instagram, and YouTube.\n- Include specific posting time recommendations and engagement tracking metrics.",
+    "likes": 2561,
+    "uses": 10385,
+    "author": "research_lead"
+  },
+  {
+    "title": "Viral LinkedIn Thought Leadership Breakdown - Level 3",
+    "cat": "Social Media",
+    "tags": [
+      "linkedin",
+      "b2b",
+      "personal-brand"
+    ],
+    "body": "Write a high-engagement LinkedIn post based on this professional insight: {insight}.\n- Hook (First 2 lines): Bold, counter-narrative statement that stops the scroll.\n- Body: Concise, bulleted breakdown with ample white space for mobile readability.\n- Personal takeaway or vulnerability that humanizes the lesson.\n- Open-ended question prompting meaningful comments and discussions.",
+    "likes": 2688,
+    "uses": 11242,
+    "author": "system_architect"
+  },
+  {
+    "title": "High-Retention Twitter/X Educational Thread - Level 3",
+    "cat": "Social Media",
+    "tags": [
+      "twitter",
+      "x",
+      "threads"
+    ],
+    "body": "Craft an 8-tweet educational thread breaking down: {complexConcept}.\n- Tweet 1: High-conviction hook promising clear ROI for reading the thread.\n- Tweets 2-6: Step-by-step principles with concrete examples and zero fluff.\n- Tweet 7: Key takeaway summary graphic concept.\n- Tweet 8: Retweet prompt and call to action to follow for more.",
+    "likes": 2815,
+    "uses": 12099,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Automated 5-Day Onboarding Welcome Sequence",
+    "cat": "Email Marketing",
+    "tags": [
+      "welcome-sequence",
+      "onboarding",
+      "retention"
+    ],
+    "body": "Write a 5-email onboarding sequence for new users signing up for {productName}.\n- Email 1 (Day 0): Instant welcome, deliver value, guide them to complete their first action.\n- Email 2 (Day 1): Overcome the #1 onboarding hurdle with a 2-minute video tutorial.\n- Email 3 (Day 3): Customer case study showing what's possible with the tool.\n- Email 4 (Day 5): Introduce advanced power features.\n- Email 5 (Day 7): Feedback check-in or upgrade incentive.",
+    "likes": 1685,
+    "uses": 6740,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Cold Outbound Email Sequence with High Reply Rates",
+    "cat": "Email Marketing",
+    "tags": [
+      "cold-email",
+      "b2b-sales",
+      "outbound"
+    ],
+    "body": "Draft a 3-part cold email sequence targeting decision-makers in {targetRole} at {targetCompanyType}.\n- Email 1: 50-75 words, personalized trigger event, specific pain point observation, low-friction ask.\n- Email 2 (3 days later): Provide a relevant piece of data or asset without being pushy.\n- Email 3 (7 days later): Clean breakup email that frequently prompts delayed responses.",
+    "likes": 1812,
+    "uses": 7597,
+    "author": "deepmind"
+  },
+  {
+    "title": "Re-Engagement & Churn Win-Back Campaign",
+    "cat": "Email Marketing",
+    "tags": [
+      "win-back",
+      "churn",
+      "retention"
+    ],
+    "body": "Write a 3-email re-engagement campaign for users who have been inactive for 60+ days: {productName}.\n- Email 1: 'Is everything okay?' - Genuine check-in acknowledging that things get busy.\n- Email 2: Highlight top new features and performance speedups released since they left.\n- Email 3: Limited-time reactivation credit or complimentary strategy consultation.",
+    "likes": 1939,
+    "uses": 8454,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "High-Converting Product Launch Announcement Email",
+    "cat": "Email Marketing",
+    "tags": [
+      "product-launch",
+      "announcement",
+      "conversion"
+    ],
+    "body": "Draft a major product update broadcast email announcing: {featureName}.\n- Intriguing subject line (under 40 characters) optimized for mobile preview text.\n- The 'Why we built this' founder story.\n- Bulleted GIF walk-through of the top 3 capabilities.\n- Prominent, single-minded CTA button driving users directly into the feature.",
+    "likes": 2066,
+    "uses": 9311,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Weekly Value-First Newsletter Template & Curated Digest",
+    "cat": "Email Marketing",
+    "tags": [
+      "newsletter",
+      "curation",
+      "editorial"
+    ],
+    "body": "Create a clean newsletter layout for weekly edition covering {topic}.\n- Editorial introduction: Founder's hot take on this week's news.\n- Top 3 Curated Resources with 2-sentence takeaways.\n- Practical Tip of the Week: Step-by-step tutorial.\n- Community Question of the Week with polling links.",
+    "likes": 2193,
+    "uses": 10168,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Automated 5-Day Onboarding Welcome Sequence - Level 2",
+    "cat": "Email Marketing",
+    "tags": [
+      "welcome-sequence",
+      "onboarding",
+      "retention"
+    ],
+    "body": "Write a 5-email onboarding sequence for new users signing up for {productName}.\n- Email 1 (Day 0): Instant welcome, deliver value, guide them to complete their first action.\n- Email 2 (Day 1): Overcome the #1 onboarding hurdle with a 2-minute video tutorial.\n- Email 3 (Day 3): Customer case study showing what's possible with the tool.\n- Email 4 (Day 5): Introduce advanced power features.\n- Email 5 (Day 7): Feedback check-in or upgrade incentive.",
+    "likes": 2320,
+    "uses": 11025,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Cold Outbound Email Sequence with High Reply Rates - Level 2",
+    "cat": "Email Marketing",
+    "tags": [
+      "cold-email",
+      "b2b-sales",
+      "outbound"
+    ],
+    "body": "Draft a 3-part cold email sequence targeting decision-makers in {targetRole} at {targetCompanyType}.\n- Email 1: 50-75 words, personalized trigger event, specific pain point observation, low-friction ask.\n- Email 2 (3 days later): Provide a relevant piece of data or asset without being pushy.\n- Email 3 (7 days later): Clean breakup email that frequently prompts delayed responses.",
+    "likes": 2447,
+    "uses": 11882,
+    "author": "research_lead"
+  },
+  {
+    "title": "Re-Engagement & Churn Win-Back Campaign - Level 2",
+    "cat": "Email Marketing",
+    "tags": [
+      "win-back",
+      "churn",
+      "retention"
+    ],
+    "body": "Write a 3-email re-engagement campaign for users who have been inactive for 60+ days: {productName}.\n- Email 1: 'Is everything okay?' - Genuine check-in acknowledging that things get busy.\n- Email 2: Highlight top new features and performance speedups released since they left.\n- Email 3: Limited-time reactivation credit or complimentary strategy consultation.",
+    "likes": 2574,
+    "uses": 12739,
+    "author": "system_architect"
+  },
+  {
+    "title": "High-Converting Product Launch Announcement Email - Level 2",
+    "cat": "Email Marketing",
+    "tags": [
+      "product-launch",
+      "announcement",
+      "conversion"
+    ],
+    "body": "Draft a major product update broadcast email announcing: {featureName}.\n- Intriguing subject line (under 40 characters) optimized for mobile preview text.\n- The 'Why we built this' founder story.\n- Bulleted GIF walk-through of the top 3 capabilities.\n- Prominent, single-minded CTA button driving users directly into the feature.",
+    "likes": 2701,
+    "uses": 13596,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Weekly Value-First Newsletter Template & Curated Digest - Level 2",
+    "cat": "Email Marketing",
+    "tags": [
+      "newsletter",
+      "curation",
+      "editorial"
+    ],
+    "body": "Create a clean newsletter layout for weekly edition covering {topic}.\n- Editorial introduction: Founder's hot take on this week's news.\n- Top 3 Curated Resources with 2-sentence takeaways.\n- Practical Tip of the Week: Step-by-step tutorial.\n- Community Question of the Week with polling links.",
+    "likes": 2828,
+    "uses": 11453,
+    "author": "deepmind"
+  },
+  {
+    "title": "Automated 5-Day Onboarding Welcome Sequence - Level 3",
+    "cat": "Email Marketing",
+    "tags": [
+      "welcome-sequence",
+      "onboarding",
+      "retention"
+    ],
+    "body": "Write a 5-email onboarding sequence for new users signing up for {productName}.\n- Email 1 (Day 0): Instant welcome, deliver value, guide them to complete their first action.\n- Email 2 (Day 1): Overcome the #1 onboarding hurdle with a 2-minute video tutorial.\n- Email 3 (Day 3): Customer case study showing what's possible with the tool.\n- Email 4 (Day 5): Introduce advanced power features.\n- Email 5 (Day 7): Feedback check-in or upgrade incentive.",
+    "likes": 455,
+    "uses": 2310,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Cold Outbound Email Sequence with High Reply Rates - Level 3",
+    "cat": "Email Marketing",
+    "tags": [
+      "cold-email",
+      "b2b-sales",
+      "outbound"
+    ],
+    "body": "Draft a 3-part cold email sequence targeting decision-makers in {targetRole} at {targetCompanyType}.\n- Email 1: 50-75 words, personalized trigger event, specific pain point observation, low-friction ask.\n- Email 2 (3 days later): Provide a relevant piece of data or asset without being pushy.\n- Email 3 (7 days later): Clean breakup email that frequently prompts delayed responses.",
+    "likes": 582,
+    "uses": 3167,
+    "author": "gpt_master"
+  },
+  {
+    "title": "B2B Content Hub & Pillar-Cluster Roadmap",
+    "cat": "Content Strategy",
+    "tags": [
+      "content-strategy",
+      "architecture",
+      "b2b"
+    ],
+    "body": "Develop a comprehensive 6-month content strategy for: {companyNiche}.\n- Map buyer journeys from Awareness (TOFU) to Consideration (MOFU) to Decision (BOFU).\n- Identify 3 foundational pillar topics and 15 supporting cluster articles.\n- Establish content reuse workflows (turn 1 webinar into 4 articles, 12 social posts, and 2 videos).\n- Define ROI tracking framework connecting content views to pipeline revenue.",
+    "likes": 1774,
+    "uses": 7096,
+    "author": "deepmind"
+  },
+  {
+    "title": "Thought Leadership Executive Ghostwriting Strategy",
+    "cat": "Content Strategy",
+    "tags": [
+      "ghostwriting",
+      "executive",
+      "branding"
+    ],
+    "body": "Design a ghostwriting cadence for our C-Suite executive on topic: {executiveTopic}.\n- Extract authentic personal anecdotes and proprietary industry viewpoints.\n- Structure long-form essays for Medium/Substack paired with LinkedIn commentary.\n- Maintain distinct voice principles: assertive, concise, data-backed, accessible.",
+    "likes": 1901,
+    "uses": 7953,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Competitor Content Gap & SERP Cannibalization Audit",
+    "cat": "Content Strategy",
+    "tags": [
+      "gap-analysis",
+      "audit",
+      "serp"
+    ],
+    "body": "Conduct a content gap analysis between our domain and key competitors: {competitorUrls}.\n- Identify high-volume, low-difficulty topics our competitors rank for that we lack.\n- Detect internal content cannibalization where two of our articles compete for the same intent.\n- Recommend consolidation, 301 redirects, or net-new content creation.",
+    "likes": 2028,
+    "uses": 8810,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Omnichannel Content Repurposing Matrix",
+    "cat": "Content Strategy",
+    "tags": [
+      "repurposing",
+      "workflows",
+      "distribution"
+    ],
+    "body": "Create an SOP (Standard Operating Procedure) for repurposing a single 30-minute podcast into 10 multi-format assets:\n- 1 In-depth technical blog post.\n- 1 Email newsletter edition.\n- 3 Vertical video reels (TikTok, YouTube Shorts, IG).\n- 2 LinkedIn breakdown carousels.\n- 3 Actionable Twitter/X threads.",
+    "likes": 2155,
+    "uses": 9667,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Editorial Style Guide & Brand Voice Governance",
+    "cat": "Content Strategy",
+    "tags": [
+      "style-guide",
+      "governance",
+      "branding"
+    ],
+    "body": "Draft a standardized Editorial Style Guide for our marketing and technical writers.\n- Voice pillars (e.g., Confident but humble, Technical but clear).\n- Rules on jargon, acronyms, capitalization, and Oxford commas.\n- Guidelines for AI-assisted writing, fact-checking requirements, and plagiarism checks.",
+    "likes": 2282,
+    "uses": 10524,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "B2B Content Hub & Pillar-Cluster Roadmap - Level 2",
+    "cat": "Content Strategy",
+    "tags": [
+      "content-strategy",
+      "architecture",
+      "b2b"
+    ],
+    "body": "Develop a comprehensive 6-month content strategy for: {companyNiche}.\n- Map buyer journeys from Awareness (TOFU) to Consideration (MOFU) to Decision (BOFU).\n- Identify 3 foundational pillar topics and 15 supporting cluster articles.\n- Establish content reuse workflows (turn 1 webinar into 4 articles, 12 social posts, and 2 videos).\n- Define ROI tracking framework connecting content views to pipeline revenue.",
+    "likes": 2409,
+    "uses": 11381,
+    "author": "research_lead"
+  },
+  {
+    "title": "Thought Leadership Executive Ghostwriting Strategy - Level 2",
+    "cat": "Content Strategy",
+    "tags": [
+      "ghostwriting",
+      "executive",
+      "branding"
+    ],
+    "body": "Design a ghostwriting cadence for our C-Suite executive on topic: {executiveTopic}.\n- Extract authentic personal anecdotes and proprietary industry viewpoints.\n- Structure long-form essays for Medium/Substack paired with LinkedIn commentary.\n- Maintain distinct voice principles: assertive, concise, data-backed, accessible.",
+    "likes": 2536,
+    "uses": 12238,
+    "author": "system_architect"
+  },
+  {
+    "title": "Competitor Content Gap & SERP Cannibalization Audit - Level 2",
+    "cat": "Content Strategy",
+    "tags": [
+      "gap-analysis",
+      "audit",
+      "serp"
+    ],
+    "body": "Conduct a content gap analysis between our domain and key competitors: {competitorUrls}.\n- Identify high-volume, low-difficulty topics our competitors rank for that we lack.\n- Detect internal content cannibalization where two of our articles compete for the same intent.\n- Recommend consolidation, 301 redirects, or net-new content creation.",
+    "likes": 2663,
+    "uses": 13095,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Omnichannel Content Repurposing Matrix - Level 2",
+    "cat": "Content Strategy",
+    "tags": [
+      "repurposing",
+      "workflows",
+      "distribution"
+    ],
+    "body": "Create an SOP (Standard Operating Procedure) for repurposing a single 30-minute podcast into 10 multi-format assets:\n- 1 In-depth technical blog post.\n- 1 Email newsletter edition.\n- 3 Vertical video reels (TikTok, YouTube Shorts, IG).\n- 2 LinkedIn breakdown carousels.\n- 3 Actionable Twitter/X threads.",
+    "likes": 2790,
+    "uses": 13952,
+    "author": "deepmind"
+  },
+  {
+    "title": "Editorial Style Guide & Brand Voice Governance - Level 2",
+    "cat": "Content Strategy",
+    "tags": [
+      "style-guide",
+      "governance",
+      "branding"
+    ],
+    "body": "Draft a standardized Editorial Style Guide for our marketing and technical writers.\n- Voice pillars (e.g., Confident but humble, Technical but clear).\n- Rules on jargon, acronyms, capitalization, and Oxford commas.\n- Guidelines for AI-assisted writing, fact-checking requirements, and plagiarism checks.",
+    "likes": 417,
+    "uses": 1809,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "B2B Content Hub & Pillar-Cluster Roadmap - Level 3",
+    "cat": "Content Strategy",
+    "tags": [
+      "content-strategy",
+      "architecture",
+      "b2b"
+    ],
+    "body": "Develop a comprehensive 6-month content strategy for: {companyNiche}.\n- Map buyer journeys from Awareness (TOFU) to Consideration (MOFU) to Decision (BOFU).\n- Identify 3 foundational pillar topics and 15 supporting cluster articles.\n- Establish content reuse workflows (turn 1 webinar into 4 articles, 12 social posts, and 2 videos).\n- Define ROI tracking framework connecting content views to pipeline revenue.",
+    "likes": 544,
+    "uses": 2666,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Thought Leadership Executive Ghostwriting Strategy - Level 3",
+    "cat": "Content Strategy",
+    "tags": [
+      "ghostwriting",
+      "executive",
+      "branding"
+    ],
+    "body": "Design a ghostwriting cadence for our C-Suite executive on topic: {executiveTopic}.\n- Extract authentic personal anecdotes and proprietary industry viewpoints.\n- Structure long-form essays for Medium/Substack paired with LinkedIn commentary.\n- Maintain distinct voice principles: assertive, concise, data-backed, accessible.",
+    "likes": 671,
+    "uses": 3523,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Compelling Character Arc & Psychological Profile",
+    "cat": "Creative Writing",
+    "tags": [
+      "fiction",
+      "character-design",
+      "psychology"
+    ],
+    "body": "Build a multi-dimensional protagonist profile for a story set in: {setting}.\n- Core desire (What they consciously want) vs Unconscious need (What they actually need to grow).\n- The Fatal Flaw / The Lie they believe about themselves.\n- Formative childhood wound (The Ghost/Backstory).\n- Dialogue cadence, physical mannerisms, and internal moral boundaries.",
+    "likes": 1774,
+    "uses": 7096,
+    "author": "deepmind"
+  },
+  {
+    "title": "High-Tension Climactic Scene Scripting",
+    "cat": "Creative Writing",
+    "tags": [
+      "pacing",
+      "dialogue",
+      "tension"
+    ],
+    "body": "Write a high-stakes confrontation scene between two characters who love each other but are on opposing sides of a conflict: {conflict}.\n- Subtext in dialogue: characters say one thing while meaning another.\n- Physical blocking and micro-actions that mirror emotional shifts.\n- Pacing that accelerates steadily toward an irreversible choice.",
+    "likes": 1901,
+    "uses": 7953,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Immersive Worldbuilding & Magic System Rules",
+    "cat": "Creative Writing",
+    "tags": [
+      "worldbuilding",
+      "fantasy",
+      "sci-fi"
+    ],
+    "body": "Design an internally consistent magic or advanced technology system for: {worldConcept}.\n- The Source of power and biological/societal costs of utilizing it.\n- Hard limitations: What is strictly impossible, and what happens when pushed beyond safe limits?\n- How this system influences economic commerce, warfare, religion, and social hierarchies.",
+    "likes": 2028,
+    "uses": 8810,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Atmospheric Sensory Setting Description",
+    "cat": "Creative Writing",
+    "tags": [
+      "sensory",
+      "prose",
+      "atmosphere"
+    ],
+    "body": "Write a richly detailed opening passage establishing the setting: {location}.\n- Engage all five senses (sight, smell, sound, touch, taste) rather than visual description alone.\n- Establish mood and thematic foreboding through carefully chosen figurative language.\n- Ensure description reveals character psychology through how they perceive their environment.",
+    "likes": 2155,
+    "uses": 9667,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Plot Twist & Foreshadowing Architecture",
+    "cat": "Creative Writing",
+    "tags": [
+      "plotting",
+      "mystery",
+      "twists"
+    ],
+    "body": "Architect a narrative plot twist for a mystery/thriller about: {premise}.\n- The Revealed Truth: What actually happened?\n- The False Assumption: What did the audience and protagonist believe occurred?\n- Foreshadowing breadcrumbs: 3 subtle, fair-play clues planted earlier that only make sense in retrospect.",
+    "likes": 2282,
+    "uses": 10524,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Compelling Character Arc & Psychological Profile - Level 2",
+    "cat": "Creative Writing",
+    "tags": [
+      "fiction",
+      "character-design",
+      "psychology"
+    ],
+    "body": "Build a multi-dimensional protagonist profile for a story set in: {setting}.\n- Core desire (What they consciously want) vs Unconscious need (What they actually need to grow).\n- The Fatal Flaw / The Lie they believe about themselves.\n- Formative childhood wound (The Ghost/Backstory).\n- Dialogue cadence, physical mannerisms, and internal moral boundaries.",
+    "likes": 2409,
+    "uses": 11381,
+    "author": "research_lead"
+  },
+  {
+    "title": "High-Tension Climactic Scene Scripting - Level 2",
+    "cat": "Creative Writing",
+    "tags": [
+      "pacing",
+      "dialogue",
+      "tension"
+    ],
+    "body": "Write a high-stakes confrontation scene between two characters who love each other but are on opposing sides of a conflict: {conflict}.\n- Subtext in dialogue: characters say one thing while meaning another.\n- Physical blocking and micro-actions that mirror emotional shifts.\n- Pacing that accelerates steadily toward an irreversible choice.",
+    "likes": 2536,
+    "uses": 12238,
+    "author": "system_architect"
+  },
+  {
+    "title": "Immersive Worldbuilding & Magic System Rules - Level 2",
+    "cat": "Creative Writing",
+    "tags": [
+      "worldbuilding",
+      "fantasy",
+      "sci-fi"
+    ],
+    "body": "Design an internally consistent magic or advanced technology system for: {worldConcept}.\n- The Source of power and biological/societal costs of utilizing it.\n- Hard limitations: What is strictly impossible, and what happens when pushed beyond safe limits?\n- How this system influences economic commerce, warfare, religion, and social hierarchies.",
+    "likes": 2663,
+    "uses": 13095,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Atmospheric Sensory Setting Description - Level 2",
+    "cat": "Creative Writing",
+    "tags": [
+      "sensory",
+      "prose",
+      "atmosphere"
+    ],
+    "body": "Write a richly detailed opening passage establishing the setting: {location}.\n- Engage all five senses (sight, smell, sound, touch, taste) rather than visual description alone.\n- Establish mood and thematic foreboding through carefully chosen figurative language.\n- Ensure description reveals character psychology through how they perceive their environment.",
+    "likes": 2790,
+    "uses": 13952,
+    "author": "deepmind"
+  },
+  {
+    "title": "Plot Twist & Foreshadowing Architecture - Level 2",
+    "cat": "Creative Writing",
+    "tags": [
+      "plotting",
+      "mystery",
+      "twists"
+    ],
+    "body": "Architect a narrative plot twist for a mystery/thriller about: {premise}.\n- The Revealed Truth: What actually happened?\n- The False Assumption: What did the audience and protagonist believe occurred?\n- Foreshadowing breadcrumbs: 3 subtle, fair-play clues planted earlier that only make sense in retrospect.",
+    "likes": 417,
+    "uses": 1809,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Compelling Character Arc & Psychological Profile - Level 3",
+    "cat": "Creative Writing",
+    "tags": [
+      "fiction",
+      "character-design",
+      "psychology"
+    ],
+    "body": "Build a multi-dimensional protagonist profile for a story set in: {setting}.\n- Core desire (What they consciously want) vs Unconscious need (What they actually need to grow).\n- The Fatal Flaw / The Lie they believe about themselves.\n- Formative childhood wound (The Ghost/Backstory).\n- Dialogue cadence, physical mannerisms, and internal moral boundaries.",
+    "likes": 544,
+    "uses": 2666,
+    "author": "gpt_master"
+  },
+  {
+    "title": "High-Tension Climactic Scene Scripting - Level 3",
+    "cat": "Creative Writing",
+    "tags": [
+      "pacing",
+      "dialogue",
+      "tension"
+    ],
+    "body": "Write a high-stakes confrontation scene between two characters who love each other but are on opposing sides of a conflict: {conflict}.\n- Subtext in dialogue: characters say one thing while meaning another.\n- Physical blocking and micro-actions that mirror emotional shifts.\n- Pacing that accelerates steadily toward an irreversible choice.",
+    "likes": 671,
+    "uses": 3523,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Developmental Fiction Manuscript Structural Critique",
+    "cat": "Editing",
+    "tags": [
+      "developmental-editing",
+      "pacing",
+      "structure"
+    ],
+    "body": "Perform a developmental edit on the provided manuscript chapter: {chapterText}.\n- Evaluate pacing: where does the story drag or rush past emotional moments?\n- Assess character consistency, agency, and motivation.\n- Check narrative point of view (POV) consistency and eliminate head-hopping.\n- Provide concrete suggestions to heighten narrative stakes.",
+    "likes": 973,
+    "uses": 3892,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Line Editing for Cadence, Rhythm, and Voice",
+    "cat": "Editing",
+    "tags": [
+      "line-editing",
+      "style",
+      "cadence"
+    ],
+    "body": "Line edit this prose passage for musicality and flow: {textPassage}.\n- Vary sentence lengths to create dynamic reading rhythm.\n- Eliminate passive voice, weak adverbs, and repetitive filter words ('he saw', 'she felt').\n- Enhance active verbs and sensory precision while preserving the author's unique voice.",
+    "likes": 1100,
+    "uses": 4749,
+    "author": "deepmind"
+  },
+  {
+    "title": "Ruthless Tightening & Word Count Reduction (25% Cut)",
+    "cat": "Editing",
+    "tags": [
+      "copy-editing",
+      "conciseness",
+      "clarity"
+    ],
+    "body": "Edit this 1,000-word draft down to under 750 words without losing any core insights or arguments: {draftText}.\n- Cut redundancies, throat-clearing opening phrases, and filler words.\n- Convert wordy prepositional phrases into crisp, punchy sentences.\n- Show side-by-side diff with word count tracking.",
+    "likes": 1227,
+    "uses": 5606,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Technical Accuracy & Fact-Checking Verification Protocol",
+    "cat": "Editing",
+    "tags": [
+      "fact-checking",
+      "accuracy",
+      "verification"
+    ],
+    "body": "Audit the following technical article draft for factual correctness: {articleText}.\n- Verify citations, scientific claims, statistical calculations, and software release timelines.\n- Flag vague assertions that require primary source links.\n- Note potential copyright or trademark attribution requirements.",
+    "likes": 1354,
+    "uses": 6463,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Tone Shift & Audience Repositioning Rewrite",
+    "cat": "Editing",
+    "tags": [
+      "tone",
+      "repositioning",
+      "audience"
+    ],
+    "body": "Rewrite this casual internal engineering memo: {memoText} into a polished, professional board-level update for non-technical investors.\n- Strip internal acronyms and explain architectural choices in business terms (revenue risk, customer retention).\n- Maintain an authoritative, measured executive tone.",
+    "likes": 1481,
+    "uses": 7320,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Developmental Fiction Manuscript Structural Critique - Level 2",
+    "cat": "Editing",
+    "tags": [
+      "developmental-editing",
+      "pacing",
+      "structure"
+    ],
+    "body": "Perform a developmental edit on the provided manuscript chapter: {chapterText}.\n- Evaluate pacing: where does the story drag or rush past emotional moments?\n- Assess character consistency, agency, and motivation.\n- Check narrative point of view (POV) consistency and eliminate head-hopping.\n- Provide concrete suggestions to heighten narrative stakes.",
+    "likes": 1608,
+    "uses": 8177,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Line Editing for Cadence, Rhythm, and Voice - Level 2",
+    "cat": "Editing",
+    "tags": [
+      "line-editing",
+      "style",
+      "cadence"
+    ],
+    "body": "Line edit this prose passage for musicality and flow: {textPassage}.\n- Vary sentence lengths to create dynamic reading rhythm.\n- Eliminate passive voice, weak adverbs, and repetitive filter words ('he saw', 'she felt').\n- Enhance active verbs and sensory precision while preserving the author's unique voice.",
+    "likes": 1735,
+    "uses": 9034,
+    "author": "research_lead"
+  },
+  {
+    "title": "Ruthless Tightening & Word Count Reduction (25% Cut) - Level 2",
+    "cat": "Editing",
+    "tags": [
+      "copy-editing",
+      "conciseness",
+      "clarity"
+    ],
+    "body": "Edit this 1,000-word draft down to under 750 words without losing any core insights or arguments: {draftText}.\n- Cut redundancies, throat-clearing opening phrases, and filler words.\n- Convert wordy prepositional phrases into crisp, punchy sentences.\n- Show side-by-side diff with word count tracking.",
+    "likes": 1862,
+    "uses": 9891,
+    "author": "system_architect"
+  },
+  {
+    "title": "Technical Accuracy & Fact-Checking Verification Protocol - Level 2",
+    "cat": "Editing",
+    "tags": [
+      "fact-checking",
+      "accuracy",
+      "verification"
+    ],
+    "body": "Audit the following technical article draft for factual correctness: {articleText}.\n- Verify citations, scientific claims, statistical calculations, and software release timelines.\n- Flag vague assertions that require primary source links.\n- Note potential copyright or trademark attribution requirements.",
+    "likes": 1989,
+    "uses": 10748,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Tone Shift & Audience Repositioning Rewrite - Level 2",
+    "cat": "Editing",
+    "tags": [
+      "tone",
+      "repositioning",
+      "audience"
+    ],
+    "body": "Rewrite this casual internal engineering memo: {memoText} into a polished, professional board-level update for non-technical investors.\n- Strip internal acronyms and explain architectural choices in business terms (revenue risk, customer retention).\n- Maintain an authoritative, measured executive tone.",
+    "likes": 2116,
+    "uses": 8605,
+    "author": "deepmind"
+  },
+  {
+    "title": "Developmental Fiction Manuscript Structural Critique - Level 3",
+    "cat": "Editing",
+    "tags": [
+      "developmental-editing",
+      "pacing",
+      "structure"
+    ],
+    "body": "Perform a developmental edit on the provided manuscript chapter: {chapterText}.\n- Evaluate pacing: where does the story drag or rush past emotional moments?\n- Assess character consistency, agency, and motivation.\n- Check narrative point of view (POV) consistency and eliminate head-hopping.\n- Provide concrete suggestions to heighten narrative stakes.",
+    "likes": 2243,
+    "uses": 9462,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Line Editing for Cadence, Rhythm, and Voice - Level 3",
+    "cat": "Editing",
+    "tags": [
+      "line-editing",
+      "style",
+      "cadence"
+    ],
+    "body": "Line edit this prose passage for musicality and flow: {textPassage}.\n- Vary sentence lengths to create dynamic reading rhythm.\n- Eliminate passive voice, weak adverbs, and repetitive filter words ('he saw', 'she felt').\n- Enhance active verbs and sensory precision while preserving the author's unique voice.",
+    "likes": 2370,
+    "uses": 10319,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Blue Ocean Strategy & Value Innovation Canvas",
+    "cat": "Business Strategy",
+    "tags": [
+      "blue-ocean",
+      "strategy",
+      "innovation"
+    ],
+    "body": "Apply Blue Ocean Strategy to reimagine our business in the {industry} market.\n- Four Actions Framework (ERRC Grid):\n  1. Eliminate: Which factors that the industry takes for granted should be eliminated?\n  2. Reduce: Which factors should be reduced well below industry standards?\n  3. Raise: Which factors should be raised well above industry standards?\n  4. Create: Which factors should be created that the industry has never offered?",
+    "likes": 1863,
+    "uses": 7452,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Unit Economics, CAC Payback & LTV Optimization",
+    "cat": "Business Strategy",
+    "tags": [
+      "unit-economics",
+      "saas-metrics",
+      "finance"
+    ],
+    "body": "Analyze the unit economics for our SaaS model: {metricsData}.\n- Calculate Customer Acquisition Cost (CAC), Lifetime Value (LTV), and CAC Payback Period.\n- Identify sensitivity levers (churn reduction, pricing expansion, self-serve onboarding).\n- Recommend concrete pricing and packaging adjustments to achieve a 4:1 LTV-to-CAC ratio.",
+    "likes": 1990,
+    "uses": 8309,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Comprehensive Risk Assessment & Threat Modeling Matrix",
+    "cat": "Business Strategy",
+    "tags": [
+      "risk-management",
+      "governance",
+      "strategy"
+    ],
+    "body": "Conduct an enterprise risk assessment for: {businessInitiative}.\n- Assess risks across Operational, Financial, Regulatory, and Cyber vectors.\n- Score each risk on a 5x5 Likelihood vs Impact severity matrix.\n- Formulate specific mitigation controls and contingency fallbacks for all high-risk items.",
+    "likes": 2117,
+    "uses": 9166,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "M&A Target Evaluation & Synergies Scorecard",
+    "cat": "Business Strategy",
+    "tags": [
+      "ma",
+      "corporate-development",
+      "valuation"
+    ],
+    "body": "Create an acquisition screening scorecard for potential targets in {sector}.\n- Strategic fit criteria: Product portfolio expansion, technical talent, customer base overlap.\n- Financial metrics: ARR growth, net revenue retention (NRR), gross margins.\n- Integration risk factors: Cultural friction, tech stack debt, customer retention vulnerability.",
+    "likes": 2244,
+    "uses": 10023,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Organizational OKR (Objectives & Key Results) Cascade",
+    "cat": "Business Strategy",
+    "tags": [
+      "okrs",
+      "operations",
+      "leadership"
+    ],
+    "body": "Design an aligned OKR cascade for Q3 across Company, Product, and Engineering for objective: {topObjective}.\n- 3 inspiring, qualitative Objectives.\n- 3-4 strictly measurable, ambitious Key Results per objective (using 'measured from X to Y' format).\n- Weekly tracking cadence and red/yellow/green grading rubric.",
+    "likes": 2371,
+    "uses": 10880,
+    "author": "research_lead"
+  },
+  {
+    "title": "Blue Ocean Strategy & Value Innovation Canvas - Level 2",
+    "cat": "Business Strategy",
+    "tags": [
+      "blue-ocean",
+      "strategy",
+      "innovation"
+    ],
+    "body": "Apply Blue Ocean Strategy to reimagine our business in the {industry} market.\n- Four Actions Framework (ERRC Grid):\n  1. Eliminate: Which factors that the industry takes for granted should be eliminated?\n  2. Reduce: Which factors should be reduced well below industry standards?\n  3. Raise: Which factors should be raised well above industry standards?\n  4. Create: Which factors should be created that the industry has never offered?",
+    "likes": 2498,
+    "uses": 11737,
+    "author": "system_architect"
+  },
+  {
+    "title": "Unit Economics, CAC Payback & LTV Optimization - Level 2",
+    "cat": "Business Strategy",
+    "tags": [
+      "unit-economics",
+      "saas-metrics",
+      "finance"
+    ],
+    "body": "Analyze the unit economics for our SaaS model: {metricsData}.\n- Calculate Customer Acquisition Cost (CAC), Lifetime Value (LTV), and CAC Payback Period.\n- Identify sensitivity levers (churn reduction, pricing expansion, self-serve onboarding).\n- Recommend concrete pricing and packaging adjustments to achieve a 4:1 LTV-to-CAC ratio.",
+    "likes": 2625,
+    "uses": 12594,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Comprehensive Risk Assessment & Threat Modeling Matrix - Level 2",
+    "cat": "Business Strategy",
+    "tags": [
+      "risk-management",
+      "governance",
+      "strategy"
+    ],
+    "body": "Conduct an enterprise risk assessment for: {businessInitiative}.\n- Assess risks across Operational, Financial, Regulatory, and Cyber vectors.\n- Score each risk on a 5x5 Likelihood vs Impact severity matrix.\n- Formulate specific mitigation controls and contingency fallbacks for all high-risk items.",
+    "likes": 2752,
+    "uses": 13451,
+    "author": "deepmind"
+  },
+  {
+    "title": "M&A Target Evaluation & Synergies Scorecard - Level 2",
+    "cat": "Business Strategy",
+    "tags": [
+      "ma",
+      "corporate-development",
+      "valuation"
+    ],
+    "body": "Create an acquisition screening scorecard for potential targets in {sector}.\n- Strategic fit criteria: Product portfolio expansion, technical talent, customer base overlap.\n- Financial metrics: ARR growth, net revenue retention (NRR), gross margins.\n- Integration risk factors: Cultural friction, tech stack debt, customer retention vulnerability.",
+    "likes": 379,
+    "uses": 4308,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Organizational OKR (Objectives & Key Results) Cascade - Level 2",
+    "cat": "Business Strategy",
+    "tags": [
+      "okrs",
+      "operations",
+      "leadership"
+    ],
+    "body": "Design an aligned OKR cascade for Q3 across Company, Product, and Engineering for objective: {topObjective}.\n- 3 inspiring, qualitative Objectives.\n- 3-4 strictly measurable, ambitious Key Results per objective (using 'measured from X to Y' format).\n- Weekly tracking cadence and red/yellow/green grading rubric.",
+    "likes": 506,
+    "uses": 2165,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Blue Ocean Strategy & Value Innovation Canvas - Level 3",
+    "cat": "Business Strategy",
+    "tags": [
+      "blue-ocean",
+      "strategy",
+      "innovation"
+    ],
+    "body": "Apply Blue Ocean Strategy to reimagine our business in the {industry} market.\n- Four Actions Framework (ERRC Grid):\n  1. Eliminate: Which factors that the industry takes for granted should be eliminated?\n  2. Reduce: Which factors should be reduced well below industry standards?\n  3. Raise: Which factors should be raised well above industry standards?\n  4. Create: Which factors should be created that the industry has never offered?",
+    "likes": 633,
+    "uses": 3022,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Unit Economics, CAC Payback & LTV Optimization - Level 3",
+    "cat": "Business Strategy",
+    "tags": [
+      "unit-economics",
+      "saas-metrics",
+      "finance"
+    ],
+    "body": "Analyze the unit economics for our SaaS model: {metricsData}.\n- Calculate Customer Acquisition Cost (CAC), Lifetime Value (LTV), and CAC Payback Period.\n- Identify sensitivity levers (churn reduction, pricing expansion, self-serve onboarding).\n- Recommend concrete pricing and packaging adjustments to achieve a 4:1 LTV-to-CAC ratio.",
+    "likes": 760,
+    "uses": 3879,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Enterprise Discovery Call Question Script (MEDDPICC)",
+    "cat": "Sales",
+    "tags": [
+      "discovery",
+      "meddpicc",
+      "enterprise-sales"
+    ],
+    "body": "Generate a discovery call question framework using MEDDPICC for prospect in {industry}.\n- Metrics: Uncover quantifiable financial outcomes the prospect must deliver.\n- Economic Buyer: Identify the true budget holder.\n- Decision Criteria & Decision Process: Map formal evaluation steps.\n- Paper Process: Unpack procurement, legal, and security review cycles.\n- Implicate Pain: Highlight cost of inaction.",
+    "likes": 795,
+    "uses": 3180,
+    "author": "research_lead"
+  },
+  {
+    "title": "Objection Handling Script Matrix (Pricing, Competitors, Timing)",
+    "cat": "Sales",
+    "tags": [
+      "objection-handling",
+      "scripts",
+      "closing"
+    ],
+    "body": "Write battle-tested objection responses for our sales team facing objections regarding {productName}:\n1. 'Your price is too high compared to Competitor X.'\n2. 'We don't have the internal engineering bandwidth to integrate this right now.'\n3. 'We already built an in-house tool that works well enough.'\n4. 'Check back with us in Q4 when budgets renew.'",
+    "likes": 922,
+    "uses": 4037,
+    "author": "system_architect"
+  },
+  {
+    "title": "Executive Mutual Action Plan (MAP) for Enterprise Deals",
+    "cat": "Sales",
+    "tags": [
+      "map",
+      "enterprise-sales",
+      "closing"
+    ],
+    "body": "Draft a collaborative Mutual Action Plan (MAP) to present to the VP of Engineering to close a contract by {targetCloseDate}.\n- Milestone-by-milestone schedule: Technical validation, security questionnaire, legal redlines, procurement approval, onboarding kickoff.\n- Assigned owners on both Buyer and Vendor teams.\n- Highlight shared dependencies and business risk if the go-live date slips.",
+    "likes": 1049,
+    "uses": 4894,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Post-Demo Champion Enablement Toolkit",
+    "cat": "Sales",
+    "tags": [
+      "sales-enablement",
+      "internal-champion",
+      "b2b"
+    ],
+    "body": "Equip our internal champion to pitch our solution: {solutionName} to their CFO.\n- 1-page executive summary highlighting hard financial ROI and payback timeline.\n- Internal slide deck answering common security, compliance, and migration questions.\n- Script for how the champion should respond when the CFO asks 'Why now?'",
+    "likes": 1176,
+    "uses": 5751,
+    "author": "deepmind"
+  },
+  {
+    "title": "Contract Renewal & Upsell Expansion Script",
+    "cat": "Sales",
+    "tags": [
+      "account-management",
+      "upsell",
+      "expansion"
+    ],
+    "body": "Write an annual contract renewal and tier expansion proposal for customer: {customerName}.\n- Celebrate their team's usage achievements and quantitative value derived over the past 12 months.\n- Introduce higher-tier capabilities (SSO, audit logs, dedicated support) aligned with their growth.\n- Provide multi-year discount incentives to secure long-term commitment.",
+    "likes": 1303,
+    "uses": 6608,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Enterprise Discovery Call Question Script (MEDDPICC) - Level 2",
+    "cat": "Sales",
+    "tags": [
+      "discovery",
+      "meddpicc",
+      "enterprise-sales"
+    ],
+    "body": "Generate a discovery call question framework using MEDDPICC for prospect in {industry}.\n- Metrics: Uncover quantifiable financial outcomes the prospect must deliver.\n- Economic Buyer: Identify the true budget holder.\n- Decision Criteria & Decision Process: Map formal evaluation steps.\n- Paper Process: Unpack procurement, legal, and security review cycles.\n- Implicate Pain: Highlight cost of inaction.",
+    "likes": 1430,
+    "uses": 7465,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Objection Handling Script Matrix (Pricing, Competitors, Timing) - Level 2",
+    "cat": "Sales",
+    "tags": [
+      "objection-handling",
+      "scripts",
+      "closing"
+    ],
+    "body": "Write battle-tested objection responses for our sales team facing objections regarding {productName}:\n1. 'Your price is too high compared to Competitor X.'\n2. 'We don't have the internal engineering bandwidth to integrate this right now.'\n3. 'We already built an in-house tool that works well enough.'\n4. 'Check back with us in Q4 when budgets renew.'",
+    "likes": 1557,
+    "uses": 8322,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Executive Mutual Action Plan (MAP) for Enterprise Deals - Level 2",
+    "cat": "Sales",
+    "tags": [
+      "map",
+      "enterprise-sales",
+      "closing"
+    ],
+    "body": "Draft a collaborative Mutual Action Plan (MAP) to present to the VP of Engineering to close a contract by {targetCloseDate}.\n- Milestone-by-milestone schedule: Technical validation, security questionnaire, legal redlines, procurement approval, onboarding kickoff.\n- Assigned owners on both Buyer and Vendor teams.\n- Highlight shared dependencies and business risk if the go-live date slips.",
+    "likes": 1684,
+    "uses": 9179,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Post-Demo Champion Enablement Toolkit - Level 2",
+    "cat": "Sales",
+    "tags": [
+      "sales-enablement",
+      "internal-champion",
+      "b2b"
+    ],
+    "body": "Equip our internal champion to pitch our solution: {solutionName} to their CFO.\n- 1-page executive summary highlighting hard financial ROI and payback timeline.\n- Internal slide deck answering common security, compliance, and migration questions.\n- Script for how the champion should respond when the CFO asks 'Why now?'",
+    "likes": 1811,
+    "uses": 10036,
+    "author": "research_lead"
+  },
+  {
+    "title": "Contract Renewal & Upsell Expansion Script - Level 2",
+    "cat": "Sales",
+    "tags": [
+      "account-management",
+      "upsell",
+      "expansion"
+    ],
+    "body": "Write an annual contract renewal and tier expansion proposal for customer: {customerName}.\n- Celebrate their team's usage achievements and quantitative value derived over the past 12 months.\n- Introduce higher-tier capabilities (SSO, audit logs, dedicated support) aligned with their growth.\n- Provide multi-year discount incentives to secure long-term commitment.",
+    "likes": 1938,
+    "uses": 7893,
+    "author": "system_architect"
+  },
+  {
+    "title": "Enterprise Discovery Call Question Script (MEDDPICC) - Level 3",
+    "cat": "Sales",
+    "tags": [
+      "discovery",
+      "meddpicc",
+      "enterprise-sales"
+    ],
+    "body": "Generate a discovery call question framework using MEDDPICC for prospect in {industry}.\n- Metrics: Uncover quantifiable financial outcomes the prospect must deliver.\n- Economic Buyer: Identify the true budget holder.\n- Decision Criteria & Decision Process: Map formal evaluation steps.\n- Paper Process: Unpack procurement, legal, and security review cycles.\n- Implicate Pain: Highlight cost of inaction.",
+    "likes": 2065,
+    "uses": 8750,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Objection Handling Script Matrix (Pricing, Competitors, Timing) - Level 3",
+    "cat": "Sales",
+    "tags": [
+      "objection-handling",
+      "scripts",
+      "closing"
+    ],
+    "body": "Write battle-tested objection responses for our sales team facing objections regarding {productName}:\n1. 'Your price is too high compared to Competitor X.'\n2. 'We don't have the internal engineering bandwidth to integrate this right now.'\n3. 'We already built an in-house tool that works well enough.'\n4. 'Check back with us in Q4 when budgets renew.'",
+    "likes": 2192,
+    "uses": 9607,
+    "author": "deepmind"
+  },
+  {
+    "title": "De-escalation Macro for Outages & Service Disruptions",
+    "cat": "Customer Support",
+    "tags": [
+      "de-escalation",
+      "support",
+      "incident-response"
+    ],
+    "body": "Write an empathetic, highly professional customer support macro to handle furious enterprise customers during an active unexpected service outage: {outageDetails}.\n- Validate customer frustration without accepting legal liability.\n- Clearly outline status page links and our engineers' immediate actions.\n- Promise scheduled updates every 30 minutes until resolution.\n- Offer proactive post-incident credits.",
+    "likes": 1774,
+    "uses": 7096,
+    "author": "deepmind"
+  },
+  {
+    "title": "Clear Step-by-Step Technical Troubleshooting Guide",
+    "cat": "Customer Support",
+    "tags": [
+      "troubleshooting",
+      "kb",
+      "tier-2"
+    ],
+    "body": "Write a customer-facing help center article guiding non-technical users to resolve error: {errorName}.\n- Symptoms: How to know if you are experiencing this issue.\n- Quick Fix (2 minutes): Browser cache, cookie reset, or permission check.\n- Advanced Resolution: Step-by-step screenshots instructions.\n- When to contact support: Exact diagnostic logs to attach.",
+    "likes": 1901,
+    "uses": 7953,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Polite Feature Request Decline with Alternative Workarounds",
+    "cat": "Customer Support",
+    "tags": [
+      "feature-requests",
+      "customer-success",
+      "support"
+    ],
+    "body": "Draft a thoughtful support response to a long-time paying customer requesting a feature: {requestedFeature} that is not on our product roadmap.\n- Express genuine gratitude for their detailed product feedback.\n- Explain the architectural or strategic reasoning honestly without defensive jargon.\n- Provide an ingenious workaround using our existing API or integration hooks.\n- Ensure the customer feels respected and valued.",
+    "likes": 2028,
+    "uses": 8810,
+    "author": "gpt_master"
+  },
+  {
+    "title": "VIP Onboarding & White-Glove Welcome Playbook",
+    "cat": "Customer Support",
+    "tags": [
+      "vip",
+      "white-glove",
+      "customer-success"
+    ],
+    "body": "Draft a dedicated communication cadence for a new $50K+ ARR enterprise account.\n- Day 1: Welcome letter from VP of Customer Experience and dedicated CSM introduction.\n- Day 7: Milestone review checking user seat activations and integration status.\n- Day 30: Quarterly business review (QBR) scheduling and feedback collection.",
+    "likes": 2155,
+    "uses": 9667,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Automated Ticket Tagging & Sentiment Classification Rules",
+    "cat": "Customer Support",
+    "tags": [
+      "automation",
+      "nlp",
+      "tagging"
+    ],
+    "body": "Define comprehensive regex and prompt classification rules to automatically tag incoming support tickets by:\n- Urgency: P1 (System Down), P2 (Major Bug), P3 (Minor Glitch), P4 (Inquiry).\n- Category: Billing, Authentication, Integration, Feature Request, Legal/Security.\n- Churn Risk: Detect frustrated sentiment and phrases like 'canceling my account'.",
+    "likes": 2282,
+    "uses": 10524,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "De-escalation Macro for Outages & Service Disruptions - Level 2",
+    "cat": "Customer Support",
+    "tags": [
+      "de-escalation",
+      "support",
+      "incident-response"
+    ],
+    "body": "Write an empathetic, highly professional customer support macro to handle furious enterprise customers during an active unexpected service outage: {outageDetails}.\n- Validate customer frustration without accepting legal liability.\n- Clearly outline status page links and our engineers' immediate actions.\n- Promise scheduled updates every 30 minutes until resolution.\n- Offer proactive post-incident credits.",
+    "likes": 2409,
+    "uses": 11381,
+    "author": "research_lead"
+  },
+  {
+    "title": "Clear Step-by-Step Technical Troubleshooting Guide - Level 2",
+    "cat": "Customer Support",
+    "tags": [
+      "troubleshooting",
+      "kb",
+      "tier-2"
+    ],
+    "body": "Write a customer-facing help center article guiding non-technical users to resolve error: {errorName}.\n- Symptoms: How to know if you are experiencing this issue.\n- Quick Fix (2 minutes): Browser cache, cookie reset, or permission check.\n- Advanced Resolution: Step-by-step screenshots instructions.\n- When to contact support: Exact diagnostic logs to attach.",
+    "likes": 2536,
+    "uses": 12238,
+    "author": "system_architect"
+  },
+  {
+    "title": "Polite Feature Request Decline with Alternative Workarounds - Level 2",
+    "cat": "Customer Support",
+    "tags": [
+      "feature-requests",
+      "customer-success",
+      "support"
+    ],
+    "body": "Draft a thoughtful support response to a long-time paying customer requesting a feature: {requestedFeature} that is not on our product roadmap.\n- Express genuine gratitude for their detailed product feedback.\n- Explain the architectural or strategic reasoning honestly without defensive jargon.\n- Provide an ingenious workaround using our existing API or integration hooks.\n- Ensure the customer feels respected and valued.",
+    "likes": 2663,
+    "uses": 13095,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "VIP Onboarding & White-Glove Welcome Playbook - Level 2",
+    "cat": "Customer Support",
+    "tags": [
+      "vip",
+      "white-glove",
+      "customer-success"
+    ],
+    "body": "Draft a dedicated communication cadence for a new $50K+ ARR enterprise account.\n- Day 1: Welcome letter from VP of Customer Experience and dedicated CSM introduction.\n- Day 7: Milestone review checking user seat activations and integration status.\n- Day 30: Quarterly business review (QBR) scheduling and feedback collection.",
+    "likes": 2790,
+    "uses": 13952,
+    "author": "deepmind"
+  },
+  {
+    "title": "Automated Ticket Tagging & Sentiment Classification Rules - Level 2",
+    "cat": "Customer Support",
+    "tags": [
+      "automation",
+      "nlp",
+      "tagging"
+    ],
+    "body": "Define comprehensive regex and prompt classification rules to automatically tag incoming support tickets by:\n- Urgency: P1 (System Down), P2 (Major Bug), P3 (Minor Glitch), P4 (Inquiry).\n- Category: Billing, Authentication, Integration, Feature Request, Legal/Security.\n- Churn Risk: Detect frustrated sentiment and phrases like 'canceling my account'.",
+    "likes": 417,
+    "uses": 1809,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "De-escalation Macro for Outages & Service Disruptions - Level 3",
+    "cat": "Customer Support",
+    "tags": [
+      "de-escalation",
+      "support",
+      "incident-response"
+    ],
+    "body": "Write an empathetic, highly professional customer support macro to handle furious enterprise customers during an active unexpected service outage: {outageDetails}.\n- Validate customer frustration without accepting legal liability.\n- Clearly outline status page links and our engineers' immediate actions.\n- Promise scheduled updates every 30 minutes until resolution.\n- Offer proactive post-incident credits.",
+    "likes": 544,
+    "uses": 2666,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Clear Step-by-Step Technical Troubleshooting Guide - Level 3",
+    "cat": "Customer Support",
+    "tags": [
+      "troubleshooting",
+      "kb",
+      "tier-2"
+    ],
+    "body": "Write a customer-facing help center article guiding non-technical users to resolve error: {errorName}.\n- Symptoms: How to know if you are experiencing this issue.\n- Quick Fix (2 minutes): Browser cache, cookie reset, or permission check.\n- Advanced Resolution: Step-by-step screenshots instructions.\n- When to contact support: Exact diagnostic logs to attach.",
+    "likes": 671,
+    "uses": 3523,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Comprehensive PRD (Product Requirement Document)",
+    "cat": "Product Management",
+    "tags": [
+      "prd",
+      "product-management",
+      "specs"
+    ],
+    "body": "Author an exhaustive Product Requirements Document (PRD) for feature: {featureName}.\n- Executive Summary & Problem Statement: Why are we building this now?\n- Target Personas & Primary Use Cases.\n- In-Scope vs Out-of-Scope boundaries.\n- Detailed Functional Requirements and Edge Cases.\n- Non-functional requirements (Latency < 100ms, 99.99% Availability).\n- Success Metrics & Launch Milestones.",
+    "likes": 1952,
+    "uses": 7808,
+    "author": "gpt_master"
+  },
+  {
+    "title": "RICE Framework Scoring & Backlog Prioritization",
+    "cat": "Product Management",
+    "tags": [
+      "rice",
+      "prioritization",
+      "backlog"
+    ],
+    "body": "Evaluate and rank these 5 prospective product initiatives using the RICE framework: {initiativesList}.\nFor each initiative provide:\n- Reach: Estimated users impacted per quarter.\n- Impact: Minimal (0.5), Medium (1), High (2), Massive (3).\n- Confidence: Low (50%), Medium (80%), High (100%).\n- Effort: Person-months required.\n- Calculated RICE Score = (R * I * C) / E with prioritized recommendation.",
+    "likes": 2079,
+    "uses": 8665,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "User Story Mapping & Sprint Epic Breakdown",
+    "cat": "Product Management",
+    "tags": [
+      "user-stories",
+      "agile",
+      "scrum"
+    ],
+    "body": "Break down the high-level initiative: {epicName} into detailed Agile User Stories.\nFor each story provide:\n- Standard format: As a [persona], I want [action], so that [business value].\n- Acceptance Criteria written in Given-When-Then (Gherkin) syntax.\n- Technical implementation notes and potential QA risks.",
+    "likes": 2206,
+    "uses": 9522,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Product Analytics Tracking Plan & Funnel Taxonomy",
+    "cat": "Product Management",
+    "tags": [
+      "analytics",
+      "tracking",
+      "mixpanel"
+    ],
+    "body": "Design a behavioral tracking schema for our checkout flow: {checkoutFlow}.\n- Define explicit event names in Object-Action format (e.g., 'checkout_plan_selected').\n- Specify required property keys (plan_tier, billing_cycle, coupon_applied, user_id).\n- Map drop-off funnel conversion rates to monitor in Amplitude/Mixpanel.",
+    "likes": 2333,
+    "uses": 10379,
+    "author": "research_lead"
+  },
+  {
+    "title": "Feature Sunsetting & Deprecation Plan",
+    "cat": "Product Management",
+    "tags": [
+      "sunsetting",
+      "deprecation",
+      "lifecycle"
+    ],
+    "body": "Draft a feature sunsetting roadmap for legacy capability: {legacyFeature}.\n- Identify active usage cohorts and migration alternatives.\n- 90-day communication schedule (in-app banners, email warnings, API deprecation headers).\n- Engineering plan for database cleanup, code removal, and redirect routing.",
+    "likes": 2460,
+    "uses": 11236,
+    "author": "system_architect"
+  },
+  {
+    "title": "Comprehensive PRD (Product Requirement Document) - Level 2",
+    "cat": "Product Management",
+    "tags": [
+      "prd",
+      "product-management",
+      "specs"
+    ],
+    "body": "Author an exhaustive Product Requirements Document (PRD) for feature: {featureName}.\n- Executive Summary & Problem Statement: Why are we building this now?\n- Target Personas & Primary Use Cases.\n- In-Scope vs Out-of-Scope boundaries.\n- Detailed Functional Requirements and Edge Cases.\n- Non-functional requirements (Latency < 100ms, 99.99% Availability).\n- Success Metrics & Launch Milestones.",
+    "likes": 2587,
+    "uses": 12093,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "RICE Framework Scoring & Backlog Prioritization - Level 2",
+    "cat": "Product Management",
+    "tags": [
+      "rice",
+      "prioritization",
+      "backlog"
+    ],
+    "body": "Evaluate and rank these 5 prospective product initiatives using the RICE framework: {initiativesList}.\nFor each initiative provide:\n- Reach: Estimated users impacted per quarter.\n- Impact: Minimal (0.5), Medium (1), High (2), Massive (3).\n- Confidence: Low (50%), Medium (80%), High (100%).\n- Effort: Person-months required.\n- Calculated RICE Score = (R * I * C) / E with prioritized recommendation.",
+    "likes": 2714,
+    "uses": 12950,
+    "author": "deepmind"
+  },
+  {
+    "title": "User Story Mapping & Sprint Epic Breakdown - Level 2",
+    "cat": "Product Management",
+    "tags": [
+      "user-stories",
+      "agile",
+      "scrum"
+    ],
+    "body": "Break down the high-level initiative: {epicName} into detailed Agile User Stories.\nFor each story provide:\n- Standard format: As a [persona], I want [action], so that [business value].\n- Acceptance Criteria written in Given-When-Then (Gherkin) syntax.\n- Technical implementation notes and potential QA risks.",
+    "likes": 2841,
+    "uses": 13807,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Product Analytics Tracking Plan & Funnel Taxonomy - Level 2",
+    "cat": "Product Management",
+    "tags": [
+      "analytics",
+      "tracking",
+      "mixpanel"
+    ],
+    "body": "Design a behavioral tracking schema for our checkout flow: {checkoutFlow}.\n- Define explicit event names in Object-Action format (e.g., 'checkout_plan_selected').\n- Specify required property keys (plan_tier, billing_cycle, coupon_applied, user_id).\n- Map drop-off funnel conversion rates to monitor in Amplitude/Mixpanel.",
+    "likes": 468,
+    "uses": 4664,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Feature Sunsetting & Deprecation Plan - Level 2",
+    "cat": "Product Management",
+    "tags": [
+      "sunsetting",
+      "deprecation",
+      "lifecycle"
+    ],
+    "body": "Draft a feature sunsetting roadmap for legacy capability: {legacyFeature}.\n- Identify active usage cohorts and migration alternatives.\n- 90-day communication schedule (in-app banners, email warnings, API deprecation headers).\n- Engineering plan for database cleanup, code removal, and redirect routing.",
+    "likes": 595,
+    "uses": 2521,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Comprehensive PRD (Product Requirement Document) - Level 3",
+    "cat": "Product Management",
+    "tags": [
+      "prd",
+      "product-management",
+      "specs"
+    ],
+    "body": "Author an exhaustive Product Requirements Document (PRD) for feature: {featureName}.\n- Executive Summary & Problem Statement: Why are we building this now?\n- Target Personas & Primary Use Cases.\n- In-Scope vs Out-of-Scope boundaries.\n- Detailed Functional Requirements and Edge Cases.\n- Non-functional requirements (Latency < 100ms, 99.99% Availability).\n- Success Metrics & Launch Milestones.",
+    "likes": 722,
+    "uses": 3378,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "RICE Framework Scoring & Backlog Prioritization - Level 3",
+    "cat": "Product Management",
+    "tags": [
+      "rice",
+      "prioritization",
+      "backlog"
+    ],
+    "body": "Evaluate and rank these 5 prospective product initiatives using the RICE framework: {initiativesList}.\nFor each initiative provide:\n- Reach: Estimated users impacted per quarter.\n- Impact: Minimal (0.5), Medium (1), High (2), Massive (3).\n- Confidence: Low (50%), Medium (80%), High (100%).\n- Effort: Person-months required.\n- Calculated RICE Score = (R * I * C) / E with prioritized recommendation.",
+    "likes": 849,
+    "uses": 4235,
+    "author": "research_lead"
+  },
+  {
+    "title": "Critical Path Method (CPM) Schedule & Dependency Map",
+    "cat": "Project Management",
+    "tags": [
+      "cpm",
+      "scheduling",
+      "dependencies"
+    ],
+    "body": "Analyze the following software release tasks and dependencies: {taskList}.\n- Identify early start, early finish, late start, and late finish dates.\n- Map the Critical Path of tasks where any delay directly postpones the release date.\n- Calculate float/slack time for non-critical activities.\n- Recommend fast-tracking or crashing strategies to compress delivery time by 2 weeks.",
+    "likes": 1952,
+    "uses": 7808,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Weekly Stakeholder Status Report (RAG Status)",
+    "cat": "Project Management",
+    "tags": [
+      "status-report",
+      "stakeholders",
+      "rag"
+    ],
+    "body": "Draft an executive project status report for initiative: {projectName}.\n- Overall Project Health: Red / Amber / Green (RAG) with 2-sentence rationale.\n- Key Milestones Achieved This Week.\n- Planned Deliverables for Next Week.\n- Top 3 Risks, Blockers, and Required Decisions from Leadership.",
+    "likes": 2079,
+    "uses": 8665,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Sprint Retrospective Facilitation Guide & Action Items",
+    "cat": "Project Management",
+    "tags": [
+      "retrospective",
+      "agile",
+      "continuous-improvement"
+    ],
+    "body": "Design an engaging, blameless 60-minute Sprint Retrospective for an engineering team recovering from a difficult release.\n- Warm-up icebreaker to foster psychological safety.\n- Structured reflection exercise: What went well? What went wrong? What confused us?\n- Voting process to select the top 2 systemic issues.\n- SMART action items with single owners to implement in the next sprint.",
+    "likes": 2206,
+    "uses": 9522,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Vendor RFP (Request for Proposal) Evaluation Matrix",
+    "cat": "Project Management",
+    "tags": [
+      "rfp",
+      "procurement",
+      "vendor-management"
+    ],
+    "body": "Create a weighted evaluation scorecard to assess 3 competitive enterprise software vendors for: {projectRequirement}.\n- Category weights: Security & Compliance (25%), Technical Fit (30%), Pricing & TCO (25%), Support SLA (20%).\n- Specific grading questions for vendor demos and architecture reviews.\n- Final recommendation summary formula.",
+    "likes": 2333,
+    "uses": 10379,
+    "author": "research_lead"
+  },
+  {
+    "title": "Comprehensive Change Management & Training Plan",
+    "cat": "Project Management",
+    "tags": [
+      "change-management",
+      "training",
+      "adoption"
+    ],
+    "body": "Design a change management plan for rolling out a new enterprise tool to 1,000+ employees: {toolName}.\n- Stakeholder impact assessment by department.\n- Communication cascade: Leadership vision, manager briefings, end-user FAQs.\n- Phased training schedule: Live interactive webinars, self-paced video guides, and office hours.",
+    "likes": 2460,
+    "uses": 11236,
+    "author": "system_architect"
+  },
+  {
+    "title": "Critical Path Method (CPM) Schedule & Dependency Map - Level 2",
+    "cat": "Project Management",
+    "tags": [
+      "cpm",
+      "scheduling",
+      "dependencies"
+    ],
+    "body": "Analyze the following software release tasks and dependencies: {taskList}.\n- Identify early start, early finish, late start, and late finish dates.\n- Map the Critical Path of tasks where any delay directly postpones the release date.\n- Calculate float/slack time for non-critical activities.\n- Recommend fast-tracking or crashing strategies to compress delivery time by 2 weeks.",
+    "likes": 2587,
+    "uses": 12093,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Weekly Stakeholder Status Report (RAG Status) - Level 2",
+    "cat": "Project Management",
+    "tags": [
+      "status-report",
+      "stakeholders",
+      "rag"
+    ],
+    "body": "Draft an executive project status report for initiative: {projectName}.\n- Overall Project Health: Red / Amber / Green (RAG) with 2-sentence rationale.\n- Key Milestones Achieved This Week.\n- Planned Deliverables for Next Week.\n- Top 3 Risks, Blockers, and Required Decisions from Leadership.",
+    "likes": 2714,
+    "uses": 12950,
+    "author": "deepmind"
+  },
+  {
+    "title": "Sprint Retrospective Facilitation Guide & Action Items - Level 2",
+    "cat": "Project Management",
+    "tags": [
+      "retrospective",
+      "agile",
+      "continuous-improvement"
+    ],
+    "body": "Design an engaging, blameless 60-minute Sprint Retrospective for an engineering team recovering from a difficult release.\n- Warm-up icebreaker to foster psychological safety.\n- Structured reflection exercise: What went well? What went wrong? What confused us?\n- Voting process to select the top 2 systemic issues.\n- SMART action items with single owners to implement in the next sprint.",
+    "likes": 2841,
+    "uses": 13807,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Vendor RFP (Request for Proposal) Evaluation Matrix - Level 2",
+    "cat": "Project Management",
+    "tags": [
+      "rfp",
+      "procurement",
+      "vendor-management"
+    ],
+    "body": "Create a weighted evaluation scorecard to assess 3 competitive enterprise software vendors for: {projectRequirement}.\n- Category weights: Security & Compliance (25%), Technical Fit (30%), Pricing & TCO (25%), Support SLA (20%).\n- Specific grading questions for vendor demos and architecture reviews.\n- Final recommendation summary formula.",
+    "likes": 468,
+    "uses": 4664,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Comprehensive Change Management & Training Plan - Level 2",
+    "cat": "Project Management",
+    "tags": [
+      "change-management",
+      "training",
+      "adoption"
+    ],
+    "body": "Design a change management plan for rolling out a new enterprise tool to 1,000+ employees: {toolName}.\n- Stakeholder impact assessment by department.\n- Communication cascade: Leadership vision, manager briefings, end-user FAQs.\n- Phased training schedule: Live interactive webinars, self-paced video guides, and office hours.",
+    "likes": 595,
+    "uses": 2521,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Critical Path Method (CPM) Schedule & Dependency Map - Level 3",
+    "cat": "Project Management",
+    "tags": [
+      "cpm",
+      "scheduling",
+      "dependencies"
+    ],
+    "body": "Analyze the following software release tasks and dependencies: {taskList}.\n- Identify early start, early finish, late start, and late finish dates.\n- Map the Critical Path of tasks where any delay directly postpones the release date.\n- Calculate float/slack time for non-critical activities.\n- Recommend fast-tracking or crashing strategies to compress delivery time by 2 weeks.",
+    "likes": 722,
+    "uses": 3378,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Weekly Stakeholder Status Report (RAG Status) - Level 3",
+    "cat": "Project Management",
+    "tags": [
+      "status-report",
+      "stakeholders",
+      "rag"
+    ],
+    "body": "Draft an executive project status report for initiative: {projectName}.\n- Overall Project Health: Red / Amber / Green (RAG) with 2-sentence rationale.\n- Key Milestones Achieved This Week.\n- Planned Deliverables for Next Week.\n- Top 3 Risks, Blockers, and Required Decisions from Leadership.",
+    "likes": 849,
+    "uses": 4235,
+    "author": "research_lead"
+  },
+  {
+    "title": "Eisenhower Matrix Daily Task Triage System",
+    "cat": "Productivity",
+    "tags": [
+      "time-management",
+      "eisenhower",
+      "focus"
+    ],
+    "body": "Take my disorganized list of 20 tasks: {taskList} and categorize them using the Eisenhower Matrix:\n1. Urgent & Important (Do First: High stakes deadlines today).\n2. Important, Not Urgent (Schedule: High-leverage strategic growth).\n3. Urgent, Not Important (Delegate / Automate: Interruptions and admin work).\n4. Neither Urgent nor Important (Eliminate: Distractions to delete).\nProvide a recommended sequence for my workday.",
+    "likes": 1418,
+    "uses": 5672,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Weekly Review & Digital Declutter Protocol",
+    "cat": "Productivity",
+    "tags": [
+      "weekly-review",
+      "gtd",
+      "habits"
+    ],
+    "body": "Guide me through a comprehensive 45-minute Getting Things Done (GTD) Weekly Review.\n- Inbox Zero clearing across Email, Slack, Downloads folder, and Desktop notes.\n- Review open projects against active milestones.\n- Calibrate upcoming 14-day calendar commitments and decline low-value meetings.\n- Identify top 3 Needle-Moving Priorities for the upcoming week.",
+    "likes": 1545,
+    "uses": 6529,
+    "author": "research_lead"
+  },
+  {
+    "title": "Ultradian Rhythm Deep Work Block Optimizer",
+    "cat": "Productivity",
+    "tags": [
+      "deep-work",
+      "energy-management",
+      "focus"
+    ],
+    "body": "Structure my daily schedule around 90-minute ultradian focus rhythms based on my peak mental energy hours: {energyHours}.\n- Match high-cognitive load tasks (writing, architecture, debugging) to peak dopamine periods.\n- Schedule restorative low-cognitive tasks (admin, email, meetings) during energy dips.\n- Include protocols for pre-focus transition routines and deliberate decompression walks.",
+    "likes": 1672,
+    "uses": 7386,
+    "author": "system_architect"
+  },
+  {
+    "title": "Automated Personal Dashboard & Habit Tracker Setup",
+    "cat": "Productivity",
+    "tags": [
+      "notion",
+      "habits",
+      "tracking"
+    ],
+    "body": "Design a minimal, friction-free personal productivity dashboard in Notion or Obsidian.\n- Daily non-negotiable habit tracking (Exercise, Deep Work, Reading, Sleep).\n- Active Project tracker linked to current week sprint goals.\n- Quick-capture scratchpad that syncs seamlessly from mobile to desktop.",
+    "likes": 1799,
+    "uses": 8243,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Meeting Audit & Calendar De-bloat Strategy",
+    "cat": "Productivity",
+    "tags": [
+      "calendar",
+      "meetings",
+      "efficiency"
+    ],
+    "body": "Audit my recurring weekly meeting schedule: {calendarList}.\n- Identify meetings that can be transitioned entirely to asynchronous Loom videos or Slack updates.\n- Consolidate fragmented 30-minute meetings into single batch blocks to preserve 3+ hour focus stretches.\n- Draft polite email templates to step down from non-essential recurring committees.",
+    "likes": 1926,
+    "uses": 9100,
+    "author": "deepmind"
+  },
+  {
+    "title": "Eisenhower Matrix Daily Task Triage System - Level 2",
+    "cat": "Productivity",
+    "tags": [
+      "time-management",
+      "eisenhower",
+      "focus"
+    ],
+    "body": "Take my disorganized list of 20 tasks: {taskList} and categorize them using the Eisenhower Matrix:\n1. Urgent & Important (Do First: High stakes deadlines today).\n2. Important, Not Urgent (Schedule: High-leverage strategic growth).\n3. Urgent, Not Important (Delegate / Automate: Interruptions and admin work).\n4. Neither Urgent nor Important (Eliminate: Distractions to delete).\nProvide a recommended sequence for my workday.",
+    "likes": 2053,
+    "uses": 9957,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Weekly Review & Digital Declutter Protocol - Level 2",
+    "cat": "Productivity",
+    "tags": [
+      "weekly-review",
+      "gtd",
+      "habits"
+    ],
+    "body": "Guide me through a comprehensive 45-minute Getting Things Done (GTD) Weekly Review.\n- Inbox Zero clearing across Email, Slack, Downloads folder, and Desktop notes.\n- Review open projects against active milestones.\n- Calibrate upcoming 14-day calendar commitments and decline low-value meetings.\n- Identify top 3 Needle-Moving Priorities for the upcoming week.",
+    "likes": 2180,
+    "uses": 10814,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Ultradian Rhythm Deep Work Block Optimizer - Level 2",
+    "cat": "Productivity",
+    "tags": [
+      "deep-work",
+      "energy-management",
+      "focus"
+    ],
+    "body": "Structure my daily schedule around 90-minute ultradian focus rhythms based on my peak mental energy hours: {energyHours}.\n- Match high-cognitive load tasks (writing, architecture, debugging) to peak dopamine periods.\n- Schedule restorative low-cognitive tasks (admin, email, meetings) during energy dips.\n- Include protocols for pre-focus transition routines and deliberate decompression walks.",
+    "likes": 2307,
+    "uses": 11671,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Automated Personal Dashboard & Habit Tracker Setup - Level 2",
+    "cat": "Productivity",
+    "tags": [
+      "notion",
+      "habits",
+      "tracking"
+    ],
+    "body": "Design a minimal, friction-free personal productivity dashboard in Notion or Obsidian.\n- Daily non-negotiable habit tracking (Exercise, Deep Work, Reading, Sleep).\n- Active Project tracker linked to current week sprint goals.\n- Quick-capture scratchpad that syncs seamlessly from mobile to desktop.",
+    "likes": 2434,
+    "uses": 12528,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Meeting Audit & Calendar De-bloat Strategy - Level 2",
+    "cat": "Productivity",
+    "tags": [
+      "calendar",
+      "meetings",
+      "efficiency"
+    ],
+    "body": "Audit my recurring weekly meeting schedule: {calendarList}.\n- Identify meetings that can be transitioned entirely to asynchronous Loom videos or Slack updates.\n- Consolidate fragmented 30-minute meetings into single batch blocks to preserve 3+ hour focus stretches.\n- Draft polite email templates to step down from non-essential recurring committees.",
+    "likes": 2561,
+    "uses": 10385,
+    "author": "research_lead"
+  },
+  {
+    "title": "Eisenhower Matrix Daily Task Triage System - Level 3",
+    "cat": "Productivity",
+    "tags": [
+      "time-management",
+      "eisenhower",
+      "focus"
+    ],
+    "body": "Take my disorganized list of 20 tasks: {taskList} and categorize them using the Eisenhower Matrix:\n1. Urgent & Important (Do First: High stakes deadlines today).\n2. Important, Not Urgent (Schedule: High-leverage strategic growth).\n3. Urgent, Not Important (Delegate / Automate: Interruptions and admin work).\n4. Neither Urgent nor Important (Eliminate: Distractions to delete).\nProvide a recommended sequence for my workday.",
+    "likes": 2688,
+    "uses": 11242,
+    "author": "system_architect"
+  },
+  {
+    "title": "Weekly Review & Digital Declutter Protocol - Level 3",
+    "cat": "Productivity",
+    "tags": [
+      "weekly-review",
+      "gtd",
+      "habits"
+    ],
+    "body": "Guide me through a comprehensive 45-minute Getting Things Done (GTD) Weekly Review.\n- Inbox Zero clearing across Email, Slack, Downloads folder, and Desktop notes.\n- Review open projects against active milestones.\n- Calibrate upcoming 14-day calendar commitments and decline low-value meetings.\n- Identify top 3 Needle-Moving Priorities for the upcoming week.",
+    "likes": 2815,
+    "uses": 12099,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "SCAMPER Creative Ideation Framework",
+    "cat": "Brainstorming",
+    "tags": [
+      "scamper",
+      "innovation",
+      "creativity"
+    ],
+    "body": "Apply the SCAMPER framework to generate 15 breakthrough product variations for: {productOrService}.\n- Substitute: What materials, components, or audiences can we swap?\n- Combine: What complementary services can we package together?\n- Adapt: What ideas from completely unrelated industries can we borrow?\n- Modify/Magnify: What feature can we exaggerate to an extreme?\n- Put to another use: How can this serve a non-obvious demographic?\n- Eliminate: What complex feature can we remove to simplify drastically?\n- Reverse: What if we flipped the business model upside down?",
+    "likes": 1507,
+    "uses": 6028,
+    "author": "research_lead"
+  },
+  {
+    "title": "Crazy Eights Fast-Paced Design Sprint Exercise",
+    "cat": "Brainstorming",
+    "tags": [
+      "design-sprint",
+      "crazy-eights",
+      "ux"
+    ],
+    "body": "Facilitate a 'Crazy Eights' ideation exercise to solve the user problem: {userFriction}.\n- Generate 8 distinct, wildly divergent concepts in 8 minutes.\n- Concept 1: The conservative industry standard.\n- Concept 2: The voice-first / ambient AI approach.\n- Concept 3: The ultra-minimalist single-button solution.\n- Concept 4: The community-powered crowdsourced approach.\n- Concepts 5-8: Experimental boundary-pushing ideas.",
+    "likes": 1634,
+    "uses": 6885,
+    "author": "system_architect"
+  },
+  {
+    "title": "First Principles Deconstruction & Reassembly",
+    "cat": "Brainstorming",
+    "tags": [
+      "first-principles",
+      "physics",
+      "strategy"
+    ],
+    "body": "Deconstruct the industry problem: {industryProblem} to fundamental physics and mathematical truths.\n- Strip away historical assumptions, industry dogma, and 'the way it has always been done'.\n- What are the irreducible, non-negotiable raw costs and requirements?\n- Build an alternative, highly efficient solution from ground zero based solely on those foundational truths.",
+    "likes": 1761,
+    "uses": 7742,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Worst Possible Idea Reverse-Engineering",
+    "cat": "Brainstorming",
+    "tags": [
+      "lateral-thinking",
+      "reverse-ideation",
+      "humor"
+    ],
+    "body": "We are brainstorming solutions for: {goal}.\n1. Generate 5 intentionally terrible, catastrophic ideas that would make the problem exponentially worse.\n2. For each terrible idea, analyze the underlying assumption that makes it dreadful.\n3. Reverse that dreadful property to uncover an unexpected, highly creative breakthrough solution.",
+    "likes": 1888,
+    "uses": 8599,
+    "author": "deepmind"
+  },
+  {
+    "title": "Cross-Industry Analogy Transposition Matrix",
+    "cat": "Brainstorming",
+    "tags": [
+      "analogies",
+      "cross-pollination",
+      "ideation"
+    ],
+    "body": "Brainstorm novel business models for {myBusiness} by transposing proven mechanics from other successful industries:\n- What would this look like as 'The Netflix of {myBusiness}' (Subscription / Unlimited)?\n- What would this look like as 'The Airbnb of {myBusiness}' (Peer-to-peer marketplace)?\n- What would this look like as 'The Costco of {myBusiness}' (Negative margin membership club)?\n- What would this look like as 'The Duolingo of {myBusiness}' (Gamified bite-sized education)?",
+    "likes": 2015,
+    "uses": 9456,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "SCAMPER Creative Ideation Framework - Level 2",
+    "cat": "Brainstorming",
+    "tags": [
+      "scamper",
+      "innovation",
+      "creativity"
+    ],
+    "body": "Apply the SCAMPER framework to generate 15 breakthrough product variations for: {productOrService}.\n- Substitute: What materials, components, or audiences can we swap?\n- Combine: What complementary services can we package together?\n- Adapt: What ideas from completely unrelated industries can we borrow?\n- Modify/Magnify: What feature can we exaggerate to an extreme?\n- Put to another use: How can this serve a non-obvious demographic?\n- Eliminate: What complex feature can we remove to simplify drastically?\n- Reverse: What if we flipped the business model upside down?",
+    "likes": 2142,
+    "uses": 10313,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Crazy Eights Fast-Paced Design Sprint Exercise - Level 2",
+    "cat": "Brainstorming",
+    "tags": [
+      "design-sprint",
+      "crazy-eights",
+      "ux"
+    ],
+    "body": "Facilitate a 'Crazy Eights' ideation exercise to solve the user problem: {userFriction}.\n- Generate 8 distinct, wildly divergent concepts in 8 minutes.\n- Concept 1: The conservative industry standard.\n- Concept 2: The voice-first / ambient AI approach.\n- Concept 3: The ultra-minimalist single-button solution.\n- Concept 4: The community-powered crowdsourced approach.\n- Concepts 5-8: Experimental boundary-pushing ideas.",
+    "likes": 2269,
+    "uses": 11170,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "First Principles Deconstruction & Reassembly - Level 2",
+    "cat": "Brainstorming",
+    "tags": [
+      "first-principles",
+      "physics",
+      "strategy"
+    ],
+    "body": "Deconstruct the industry problem: {industryProblem} to fundamental physics and mathematical truths.\n- Strip away historical assumptions, industry dogma, and 'the way it has always been done'.\n- What are the irreducible, non-negotiable raw costs and requirements?\n- Build an alternative, highly efficient solution from ground zero based solely on those foundational truths.",
+    "likes": 2396,
+    "uses": 12027,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Worst Possible Idea Reverse-Engineering - Level 2",
+    "cat": "Brainstorming",
+    "tags": [
+      "lateral-thinking",
+      "reverse-ideation",
+      "humor"
+    ],
+    "body": "We are brainstorming solutions for: {goal}.\n1. Generate 5 intentionally terrible, catastrophic ideas that would make the problem exponentially worse.\n2. For each terrible idea, analyze the underlying assumption that makes it dreadful.\n3. Reverse that dreadful property to uncover an unexpected, highly creative breakthrough solution.",
+    "likes": 2523,
+    "uses": 12884,
+    "author": "research_lead"
+  },
+  {
+    "title": "Cross-Industry Analogy Transposition Matrix - Level 2",
+    "cat": "Brainstorming",
+    "tags": [
+      "analogies",
+      "cross-pollination",
+      "ideation"
+    ],
+    "body": "Brainstorm novel business models for {myBusiness} by transposing proven mechanics from other successful industries:\n- What would this look like as 'The Netflix of {myBusiness}' (Subscription / Unlimited)?\n- What would this look like as 'The Airbnb of {myBusiness}' (Peer-to-peer marketplace)?\n- What would this look like as 'The Costco of {myBusiness}' (Negative margin membership club)?\n- What would this look like as 'The Duolingo of {myBusiness}' (Gamified bite-sized education)?",
+    "likes": 2650,
+    "uses": 10741,
+    "author": "system_architect"
+  },
+  {
+    "title": "SCAMPER Creative Ideation Framework - Level 3",
+    "cat": "Brainstorming",
+    "tags": [
+      "scamper",
+      "innovation",
+      "creativity"
+    ],
+    "body": "Apply the SCAMPER framework to generate 15 breakthrough product variations for: {productOrService}.\n- Substitute: What materials, components, or audiences can we swap?\n- Combine: What complementary services can we package together?\n- Adapt: What ideas from completely unrelated industries can we borrow?\n- Modify/Magnify: What feature can we exaggerate to an extreme?\n- Put to another use: How can this serve a non-obvious demographic?\n- Eliminate: What complex feature can we remove to simplify drastically?\n- Reverse: What if we flipped the business model upside down?",
+    "likes": 2777,
+    "uses": 11598,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Crazy Eights Fast-Paced Design Sprint Exercise - Level 3",
+    "cat": "Brainstorming",
+    "tags": [
+      "design-sprint",
+      "crazy-eights",
+      "ux"
+    ],
+    "body": "Facilitate a 'Crazy Eights' ideation exercise to solve the user problem: {userFriction}.\n- Generate 8 distinct, wildly divergent concepts in 8 minutes.\n- Concept 1: The conservative industry standard.\n- Concept 2: The voice-first / ambient AI approach.\n- Concept 3: The ultra-minimalist single-button solution.\n- Concept 4: The community-powered crowdsourced approach.\n- Concepts 5-8: Experimental boundary-pushing ideas.",
+    "likes": 404,
+    "uses": 2455,
+    "author": "deepmind"
+  },
+  {
+    "title": "Annual Life Audit & Ikigai Purpose Calibration",
     "cat": "Personal Growth",
     "tags": [
-      "personal growth",
-      "productivity"
+      "ikigai",
+      "life-audit",
+      "purpose"
     ],
-    "body": "You are an expert in Personal Growth. Your task is to analyze the provided information and deliver a comprehensive output that addresses the core requirements. Make sure to structure your response clearly with actionable insights. Here is the context: {context}",
-    "likes": 4858,
-    "uses": 15153,
-    "author": "meta"
+    "body": "Guide me through an intensive annual life audit across Career, Health, Relationships, and Wealth.\n- Audit where my actual weekly time goes vs my stated core values.\n- Map my current activities against the Ikigai framework (What I love, What I'm good at, What the world needs, What I can get paid for).\n- Identify energy-draining obligations to eliminate over the next 90 days.",
+    "likes": 1685,
+    "uses": 6740,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Stoic Fear Setting & Worst-Case Scenario Preparation",
+    "cat": "Personal Growth",
+    "tags": [
+      "stoicism",
+      "fear-setting",
+      "resilience"
+    ],
+    "body": "I am hesitating on taking a major career/business leap: {decision}.\nLead me through Tim Ferriss's Stoic 'Fear Setting' exercise:\n1. Define: What is the absolute worst that could happen if I take this action and fail completely?\n2. Prevent: What specific actions can I take right now to decrease the likelihood of that worst-case outcome?\n3. Repair: If the worst-case happens, how could I recover or get back to baseline?\n4. Cost of Inaction: What will my life look like in 1, 3, and 5 years if I do not act?",
+    "likes": 1812,
+    "uses": 7597,
+    "author": "deepmind"
+  },
+  {
+    "title": "Cognitive Distortion Audit & Reframing Journal",
+    "cat": "Personal Growth",
+    "tags": [
+      "cbt",
+      "mindset",
+      "psychology"
+    ],
+    "body": "Help me examine this recurring negative self-talk thought: '{limitingBelief}'.\n1. Identify cognitive distortions present (All-or-Nothing thinking, Catastrophizing, Mind Reading, Emotional Reasoning).\n2. Examine the evidence: What objective empirical facts support this thought? What objective facts contradict it?\n3. Synthesize an objective, compassionate, and grounded reframed perspective.",
+    "likes": 1939,
+    "uses": 8454,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Socratic Career Crossroad Decision Tree",
+    "cat": "Personal Growth",
+    "tags": [
+      "career",
+      "socratic",
+      "decisions"
+    ],
+    "body": "I am deciding between two career paths: Path A: {pathA} vs Path B: {pathB}.\n- Ask me 5 probing Socratic questions that force me to confront my underlying motivations (prestige vs autonomy, security vs upside).\n- Evaluate both paths across 5-year compounding potential and downside risk asymmetry.\n- Help me identify which path aligns with my authentic self rather than external expectations.",
+    "likes": 2066,
+    "uses": 9311,
+    "author": "gpt_master"
+  },
+  {
+    "title": "Deliberate Practice & Skill Mastery Curriculum",
+    "cat": "Personal Growth",
+    "tags": [
+      "mastery",
+      "learning",
+      "skill-acquisition"
+    ],
+    "body": "Design a 6-month deliberate practice curriculum to achieve top 10% proficiency in: {skillName}.\n- Deconstruct the skill into its foundational sub-competencies.\n- Design targeted practice drills with immediate feedback mechanisms.\n- Create a progressive overload schedule that consistently challenges my cognitive threshold.\n- Recommend top books, mentors, and projects to validate real-world competency.",
+    "likes": 2193,
+    "uses": 10168,
+    "author": "claude_whisperer"
+  },
+  {
+    "title": "Annual Life Audit & Ikigai Purpose Calibration - Level 2",
+    "cat": "Personal Growth",
+    "tags": [
+      "ikigai",
+      "life-audit",
+      "purpose"
+    ],
+    "body": "Guide me through an intensive annual life audit across Career, Health, Relationships, and Wealth.\n- Audit where my actual weekly time goes vs my stated core values.\n- Map my current activities against the Ikigai framework (What I love, What I'm good at, What the world needs, What I can get paid for).\n- Identify energy-draining obligations to eliminate over the next 90 days.",
+    "likes": 2320,
+    "uses": 11025,
+    "author": "prompt_crafter"
+  },
+  {
+    "title": "Stoic Fear Setting & Worst-Case Scenario Preparation - Level 2",
+    "cat": "Personal Growth",
+    "tags": [
+      "stoicism",
+      "fear-setting",
+      "resilience"
+    ],
+    "body": "I am hesitating on taking a major career/business leap: {decision}.\nLead me through Tim Ferriss's Stoic 'Fear Setting' exercise:\n1. Define: What is the absolute worst that could happen if I take this action and fail completely?\n2. Prevent: What specific actions can I take right now to decrease the likelihood of that worst-case outcome?\n3. Repair: If the worst-case happens, how could I recover or get back to baseline?\n4. Cost of Inaction: What will my life look like in 1, 3, and 5 years if I do not act?",
+    "likes": 2447,
+    "uses": 11882,
+    "author": "research_lead"
+  },
+  {
+    "title": "Cognitive Distortion Audit & Reframing Journal - Level 2",
+    "cat": "Personal Growth",
+    "tags": [
+      "cbt",
+      "mindset",
+      "psychology"
+    ],
+    "body": "Help me examine this recurring negative self-talk thought: '{limitingBelief}'.\n1. Identify cognitive distortions present (All-or-Nothing thinking, Catastrophizing, Mind Reading, Emotional Reasoning).\n2. Examine the evidence: What objective empirical facts support this thought? What objective facts contradict it?\n3. Synthesize an objective, compassionate, and grounded reframed perspective.",
+    "likes": 2574,
+    "uses": 12739,
+    "author": "system_architect"
+  },
+  {
+    "title": "Socratic Career Crossroad Decision Tree - Level 2",
+    "cat": "Personal Growth",
+    "tags": [
+      "career",
+      "socratic",
+      "decisions"
+    ],
+    "body": "I am deciding between two career paths: Path A: {pathA} vs Path B: {pathB}.\n- Ask me 5 probing Socratic questions that force me to confront my underlying motivations (prestige vs autonomy, security vs upside).\n- Evaluate both paths across 5-year compounding potential and downside risk asymmetry.\n- Help me identify which path aligns with my authentic self rather than external expectations.",
+    "likes": 2701,
+    "uses": 13596,
+    "author": "growth_engineer"
+  },
+  {
+    "title": "Deliberate Practice & Skill Mastery Curriculum - Level 2",
+    "cat": "Personal Growth",
+    "tags": [
+      "mastery",
+      "learning",
+      "skill-acquisition"
+    ],
+    "body": "Design a 6-month deliberate practice curriculum to achieve top 10% proficiency in: {skillName}.\n- Deconstruct the skill into its foundational sub-competencies.\n- Design targeted practice drills with immediate feedback mechanisms.\n- Create a progressive overload schedule that consistently challenges my cognitive threshold.\n- Recommend top books, mentors, and projects to validate real-world competency.",
+    "likes": 2828,
+    "uses": 11453,
+    "author": "deepmind"
+  },
+  {
+    "title": "Annual Life Audit & Ikigai Purpose Calibration - Level 3",
+    "cat": "Personal Growth",
+    "tags": [
+      "ikigai",
+      "life-audit",
+      "purpose"
+    ],
+    "body": "Guide me through an intensive annual life audit across Career, Health, Relationships, and Wealth.\n- Audit where my actual weekly time goes vs my stated core values.\n- Map my current activities against the Ikigai framework (What I love, What I'm good at, What the world needs, What I can get paid for).\n- Identify energy-draining obligations to eliminate over the next 90 days.",
+    "likes": 455,
+    "uses": 2310,
+    "author": "karpathy_fan"
+  },
+  {
+    "title": "Stoic Fear Setting & Worst-Case Scenario Preparation - Level 3",
+    "cat": "Personal Growth",
+    "tags": [
+      "stoicism",
+      "fear-setting",
+      "resilience"
+    ],
+    "body": "I am hesitating on taking a major career/business leap: {decision}.\nLead me through Tim Ferriss's Stoic 'Fear Setting' exercise:\n1. Define: What is the absolute worst that could happen if I take this action and fail completely?\n2. Prevent: What specific actions can I take right now to decrease the likelihood of that worst-case outcome?\n3. Repair: If the worst-case happens, how could I recover or get back to baseline?\n4. Cost of Inaction: What will my life look like in 1, 3, and 5 years if I do not act?",
+    "likes": 582,
+    "uses": 3167,
+    "author": "gpt_master"
   }
 ];

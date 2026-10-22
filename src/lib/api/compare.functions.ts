@@ -16,11 +16,12 @@ async function rateLimit(key: string, limit: number, windowMs: number) {
 }
 import { getRequestHeader } from "@tanstack/react-start/server";
 import { recordFeatureUsage } from "./billing.functions";
+import { sanitizedString } from "../security/validation";
 
 export const saveComparisonFn = createServerFn({ method: "POST" })
   .validator(z.object({
-    name: z.string().min(1).max(100),
-    tools: z.array(z.string()).min(2).max(4),
+    name: sanitizedString(100).min(1),
+    tools: z.array(z.string().min(1).max(50).regex(/^[a-zA-Z0-9_\s.-]+$/)).min(2).max(4),
   }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
@@ -68,7 +69,7 @@ export const saveComparisonFn = createServerFn({ method: "POST" })
   });
 
 export const getComparisonBySlugFn = createServerFn({ method: "GET" })
-  .validator(z.object({ slug: z.string() }).strict())
+  .validator(z.object({ slug: z.string().min(1).max(200).regex(/^[a-zA-Z0-9_-]+$/) }).strict())
   .handler(async ({ data }) => {
     const ip = getRequestHeader("x-forwarded-for") || "unknown";
     if (!await rateLimit(`compare-read:${ip}`, 100, 1000 * 60)) {
@@ -105,7 +106,7 @@ export const getSavedComparisonsFn = createServerFn({ method: "GET" })
   });
 
 export const deleteComparisonFn = createServerFn({ method: "POST" })
-  .validator(z.object({ id: z.string() }).strict())
+  .validator(z.object({ id: z.string().min(1).max(128) }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Unauthorized");

@@ -34,3 +34,9 @@ dist-ssr
 # Secrets
 .env
 .env.*
+
+# Test outputs & databases
+playwright-report/
+test-results/
+blob-report/
+sqlite.db*

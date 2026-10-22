@@ -72,8 +72,8 @@ function ProfilePage() {
       setLoadingStacks(true);
       try {
         const [created, bookmarked] = await Promise.all([
-          getStacksFn({ userId: user.id, limit: 50 }),
-          getStacksFn({ savedByUserId: user.id, limit: 50 }),
+          getStacksFn({ data: { userId: user.id, limit: 50 } }),
+          getStacksFn({ data: { savedByUserId: user.id, limit: 50 } }),
         ]);
         setMyStacks(created);
         setBookmarkedStacks(bookmarked);

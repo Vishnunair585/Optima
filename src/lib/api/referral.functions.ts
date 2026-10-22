@@ -448,8 +448,8 @@ export async function convertReferral(referredUserId: string, revenueCents = 0) 
 
 export const trackReferralClickFn = createServerFn({ method: "POST" })
   .validator(z.object({
-    code: z.string().min(5),
-    sessionId: z.string().optional(),
+    code: z.string().min(3).max(50).regex(/^[A-Za-z0-9_-]+$/),
+    sessionId: z.string().max(128).optional(),
   }).strict())
   .handler(async ({ data }) => {
     const ip = await getClientIp();
@@ -560,7 +560,7 @@ export const getReferralDashboardFn = createServerFn({ method: "GET" })
   });
 
 export const sendReferralInviteFn = createServerFn({ method: "POST" })
-  .validator(z.object({ email: z.string().email() }).strict())
+  .validator(z.object({ email: z.string().email().max(254).transform((v) => v.toLowerCase().trim()) }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) throw new Error("Please log in.");
@@ -747,7 +747,7 @@ export const resolveFraudAlertFn = createServerFn({ method: "POST" })
   });
 
 export const getReferralLandingFn = createServerFn({ method: "GET" })
-  .validator(z.object({ code: z.string() }).strict())
+  .validator(z.object({ code: z.string().min(1).max(50).regex(/^[A-Za-z0-9_-]+$/) }).strict())
   .handler(async ({ data }) => {
     const referrer = await getReferrerByCode(data.code);
     if (!referrer) return { valid: false as const };

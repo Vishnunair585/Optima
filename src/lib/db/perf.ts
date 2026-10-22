@@ -22,8 +22,14 @@ const SLOW_THRESHOLD_MS = 200;
 
 export function explainQuery(query: string): QueryPlan[] {
   const sqlite = getSqlite();
+  // Reject multiple statements or non-SELECT queries to prevent SQL injection
+  if (!query || typeof query !== "string") return [];
+  const trimmed = query.trim();
+  if (!/^SELECT\b/i.test(trimmed) || /;|\b(DROP|DELETE|UPDATE|INSERT|ALTER|CREATE|EXEC)\b/i.test(trimmed)) {
+    return [];
+  }
   try {
-    return sqlite.prepare(`EXPLAIN QUERY PLAN ${query}`).all() as QueryPlan[];
+    return sqlite.prepare(`EXPLAIN QUERY PLAN ${trimmed}`).all() as QueryPlan[];
   } catch {
     return [];
   }
@@ -33,9 +39,11 @@ export function getTableStats() {
   const sqlite = getSqlite();
   const tables = sqlite.prepare("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name").all() as { name: string }[];
   return tables.map((t) => {
-    const count = sqlite.prepare(`SELECT COUNT(*) as cnt FROM "${t.name}"`).get() as { cnt: number };
-    const size = sqlite.prepare(`SELECT COUNT(*) as pages FROM sqlite_master WHERE type='table' AND name='${t.name}'`).get() as { pages: number };
-    return { name: t.name, rows: count.cnt };
+    // Sanitize identifier to prevent SQL injection in table name
+    const safeTableName = t.name.replace(/[^a-zA-Z0-9_]/g, "");
+    const count = sqlite.prepare(`SELECT COUNT(*) as cnt FROM "${safeTableName}"`).get() as { cnt: number };
+    const size = sqlite.prepare("SELECT COUNT(*) as pages FROM sqlite_master WHERE type='table' AND name=?").get(t.name) as { pages: number };
+    return { name: t.name, rows: count?.cnt || 0 };
   });
 }
 

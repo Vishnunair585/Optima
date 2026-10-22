@@ -13,11 +13,22 @@ import { toast } from "sonner";
 
 import { ProtectedRoute } from "../components/auth/route-guard";
 
+import { z } from "zod";
+
+const compareSearchSchema = z.object({
+  tools: z
+    .string()
+    .max(256)
+    .regex(/^[a-zA-Z0-9_,.-]*$/, "Invalid tools parameter")
+    .optional(),
+});
+
 export const Route = createFileRoute("/compare")({
   validateSearch: (search: Record<string, unknown>) => {
+    const result = compareSearchSchema.safeParse(search);
     return {
-      tools: search.tools as string | undefined,
-    }
+      tools: result.success ? result.data.tools : undefined,
+    };
   },
   head: () => ({
     meta: [
@@ -243,7 +254,8 @@ function ComparePage() {
   const tableRef = useRef<HTMLDivElement>(null);
 
   const filteredTools = useMemo(() => {
-    if (!searchQuery) return [];
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return [];
     
     const metaTools = Object.keys(TOOL_META).map(name => ({
       name,
@@ -254,10 +266,31 @@ function ComparePage() {
     const combinedTools = [...metaTools, ...AI_TOOLS];
     const uniqueTools = Array.from(new Map(combinedTools.map(t => [t.name, t])).values());
 
-    return uniqueTools.filter(t =>
-      t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (t.category && t.category.toLowerCase().includes(searchQuery.toLowerCase()))
-    ).slice(0, 8);
+    return uniqueTools
+      .filter(t => {
+        const nameLower = t.name.toLowerCase();
+        const catLower = (t.category || "").toLowerCase();
+        return nameLower.includes(q) || catLower.includes(q);
+      })
+      .sort((a, b) => {
+        const aName = a.name.toLowerCase();
+        const bName = b.name.toLowerCase();
+        // Priority 1: Name starts with search query
+        const aStarts = aName.startsWith(q);
+        const bStarts = bName.startsWith(q);
+        if (aStarts && !bStarts) return -1;
+        if (!aStarts && bStarts) return 1;
+
+        // Priority 2: Any word in the name starts with search query
+        const aWord = aName.split(/\s+/).some(w => w.startsWith(q));
+        const bWord = bName.split(/\s+/).some(w => w.startsWith(q));
+        if (aWord && !bWord) return -1;
+        if (!aWord && bWord) return 1;
+
+        // Priority 3: Alphabetical order
+        return aName.localeCompare(bName);
+      })
+      .slice(0, 10);
   }, [searchQuery]);
 
   const toggle = (name: string) => {
@@ -344,6 +377,7 @@ function ComparePage() {
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <input
             type="text"
+            data-testid="compare-search-input"
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             onFocus={() => setSearchFocused(true)}
@@ -351,26 +385,38 @@ function ComparePage() {
             placeholder="Search AI tools to compare..."
             className="h-12 w-full rounded-2xl border border-border bg-card/40 pl-10 pr-4 text-sm outline-none focus:border-brand transition-all"
           />
-          {searchFocused && filteredTools.length > 0 && (
-            <div className="absolute left-0 right-0 top-14 z-50 rounded-2xl border border-border bg-background/98 backdrop-blur-xl shadow-elegant p-2 animate-scale-in">
-              {filteredTools.map(tool => (
-                <button
-                  key={tool.name}
-                  onClick={() => toggle(tool.name)}
-                  className="flex items-center gap-3 w-full rounded-xl px-3 py-2.5 text-sm hover:bg-accent transition-colors text-left"
-                >
-                  <span className="h-2.5 w-2.5 rounded-full shrink-0" style={{ background: tool.color }} />
-                  <div className="flex-1 min-w-0">
-                    <span className="font-medium">{tool.name}</span>
-                    <span className="text-muted-foreground text-xs ml-2">{tool.category}</span>
-                  </div>
-                  {selected.includes(tool.name) ? (
-                    <Check className="h-4 w-4 text-brand shrink-0" />
-                  ) : (
-                    <Plus className="h-4 w-4 text-muted-foreground shrink-0" />
-                  )}
-                </button>
-              ))}
+          {searchFocused && searchQuery.trim() !== "" && (
+            <div data-testid="compare-search-results" className="absolute left-0 right-0 top-14 z-50 rounded-2xl border border-border bg-background/98 backdrop-blur-xl shadow-elegant p-2 animate-scale-in">
+              {filteredTools.length > 0 ? (
+                filteredTools.map(tool => (
+                  <button
+                    key={tool.name}
+                    type="button"
+                    data-testid={`compare-select-tool-${tool.name.toLowerCase()}`}
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      toggle(tool.name);
+                    }}
+                    onClick={() => toggle(tool.name)}
+                    className="flex items-center gap-3 w-full rounded-xl px-3 py-2.5 text-sm hover:bg-accent transition-colors text-left cursor-pointer"
+                  >
+                    <span className="h-2.5 w-2.5 rounded-full shrink-0" style={{ background: tool.color }} />
+                    <div className="flex-1 min-w-0">
+                      <span className="font-medium text-foreground">{tool.name}</span>
+                      <span className="text-muted-foreground text-xs ml-2">{tool.category}</span>
+                    </div>
+                    {selected.includes(tool.name) ? (
+                      <Check className="h-4 w-4 text-brand shrink-0" />
+                    ) : (
+                      <Plus className="h-4 w-4 text-muted-foreground shrink-0" />
+                    )}
+                  </button>
+                ))
+              ) : (
+                <div className="px-4 py-3 text-sm text-center text-muted-foreground">
+                  No tools found matching &ldquo;<span className="text-foreground font-medium">{searchQuery}</span>&rdquo;.
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -380,10 +426,10 @@ function ComparePage() {
           {selected.map(s => {
             const tool = AI_TOOLS.find(t => t.name === s);
             return (
-              <span key={s} className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3.5 py-1.5 text-sm font-medium">
+              <span key={s} data-testid={`compare-pill-${s.toLowerCase()}`} className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3.5 py-1.5 text-sm font-medium">
                 <span className="h-2 w-2 rounded-full" style={{ background: tool?.color }} />
                 {s}
-                <button onClick={() => toggle(s)} className="hover:text-destructive transition-colors">
+                <button data-testid={`remove-tool-${s.toLowerCase()}`} onClick={() => toggle(s)} className="hover:text-destructive transition-colors">
                   <X className="h-3.5 w-3.5" />
                 </button>
               </span>
@@ -391,6 +437,7 @@ function ComparePage() {
           })}
           {selected.length < 4 && (
             <button
+              data-testid="compare-add-tool-btn"
               onClick={() => document.querySelector<HTMLInputElement>('input[placeholder*="Search"]')?.focus()}
               className="inline-flex items-center gap-1.5 rounded-full border border-dashed border-border px-3.5 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:border-brand/50 transition-all"
             >
@@ -398,10 +445,10 @@ function ComparePage() {
             </button>
           )}
           <div className="ml-auto flex items-center gap-2">
-            <button onClick={shareUrl} className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground hover:bg-accent transition-all">
+            <button data-testid="compare-share-btn" onClick={shareUrl} className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground hover:bg-accent transition-all">
               <Share2 className="h-3.5 w-3.5" /> Share
             </button>
-            <button onClick={exportCSV} className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground hover:bg-accent transition-all">
+            <button data-testid="compare-export-csv-btn" onClick={exportCSV} className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground hover:bg-accent transition-all">
               <Download className="h-3.5 w-3.5" /> CSV
             </button>
           </div>
@@ -409,7 +456,7 @@ function ComparePage() {
       </div>
 
       {selected.length === 0 ? (
-        <div className="rounded-3xl border border-dashed border-border p-16 text-center text-muted-foreground">
+        <div data-testid="compare-empty-state" className="rounded-3xl border border-dashed border-border p-16 text-center text-muted-foreground">
           <Search className="h-10 w-10 mx-auto mb-4 opacity-30" />
           <p className="text-lg font-medium">Select tools to compare</p>
           <p className="text-sm mt-1">Search and add up to 4 AI tools for a side-by-side comparison.</p>

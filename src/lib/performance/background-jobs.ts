@@ -65,8 +65,14 @@ export function initializeBackgroundJobs(): void {
       const db = getDb();
       const now = new Date();
       const { passwordResetTokens, emailVerificationTokens } = await import("../db/schema");
-      await db.delete(passwordResetTokens).where(eq(passwordResetTokens.expires_at, null as any));
-      await db.delete(emailVerificationTokens).where(eq(emailVerificationTokens.expires_at, null as any));
+      const { lt, or, eq } = await import("drizzle-orm");
+      await db.delete(passwordResetTokens).where(
+        or(
+          lt(passwordResetTokens.expires_at, now),
+          eq(passwordResetTokens.used, true)
+        )
+      );
+      await db.delete(emailVerificationTokens).where(lt(emailVerificationTokens.expires_at, now));
     },
     retries: 1,
   });

@@ -17,6 +17,7 @@ async function rateLimit(key: string, limit: number, windowMs: number) {
 import { getRequestHeader } from "@tanstack/react-start/server";
 import { AI_TOOLS } from "../data/tools";
 import { canUseFeature, recordFeatureUsage } from "./billing.functions";
+import { sanitizedString, escapeLikeString } from "../security/validation";
 
 // Type definitions matching database outputs
 export interface StackTool {
@@ -71,17 +72,17 @@ async function isAdmin(userId: string) {
 
 export const createStackFn = createServerFn({ method: "POST" })
   .validator(z.object({
-    name: z.string().min(1).max(100),
-    description: z.string().max(500).optional().default(""),
-    goal: z.string().min(1),
-    category: z.string().min(1),
+    name: sanitizedString(100).min(1),
+    description: sanitizedString(1000).optional().default(""),
+    goal: sanitizedString(500).min(1),
+    category: sanitizedString(50).min(1),
     difficulty_level: z.enum(["Beginner", "Intermediate", "Advanced"]),
     is_public: z.boolean(),
     tools: z.array(z.object({
-      tool_id: z.string(),
-      position: z.number(),
-      purpose: z.string()
-    })).min(1)
+      tool_id: z.string().min(1).max(100),
+      position: z.number().int().min(0).max(100),
+      purpose: sanitizedString(500)
+    })).min(1).max(50)
   }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
@@ -132,18 +133,18 @@ export const createStackFn = createServerFn({ method: "POST" })
 
 export const updateStackFn = createServerFn({ method: "POST" })
   .validator(z.object({
-    id: z.string(),
-    name: z.string().min(1).max(100),
-    description: z.string().max(500).optional().default(""),
-    goal: z.string().min(1),
-    category: z.string().min(1),
+    id: z.string().min(1).max(128),
+    name: sanitizedString(100).min(1),
+    description: sanitizedString(1000).optional().default(""),
+    goal: sanitizedString(500).min(1),
+    category: sanitizedString(50).min(1),
     difficulty_level: z.enum(["Beginner", "Intermediate", "Advanced"]),
     is_public: z.boolean(),
     tools: z.array(z.object({
-      tool_id: z.string(),
-      position: z.number(),
-      purpose: z.string()
-    })).min(1)
+      tool_id: z.string().min(1).max(100),
+      position: z.number().int().min(0).max(100),
+      purpose: sanitizedString(500)
+    })).min(1).max(50)
   }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
@@ -273,6 +274,15 @@ export const getStackByIdOrSlugFn = createServerFn({ method: "GET" })
     if (result.length === 0) return null;
     const stack = result[0];
 
+    // IDOR / Privacy Protection: If stack is private, only owner or admin can view
+    if (!stack.is_public) {
+      if (!authData) return null;
+      const userIsAdmin = await isAdmin(authData.user.id);
+      if (stack.user_id !== authData.user.id && !userIsAdmin) {
+        return null;
+      }
+    }
+
     // Increment views
     await db.update(stacks).set({ views_count: stack.views_count + 1 }).where(eq(stacks.id, stack.id));
 
@@ -365,15 +375,15 @@ export const getStackByIdOrSlugFn = createServerFn({ method: "GET" })
 
 export const getStacksFn = createServerFn({ method: "GET" })
   .validator(z.object({
-    category: z.string().optional(),
-    search: z.string().optional(),
-    difficulty: z.string().optional(),
+    category: z.string().max(50).optional(),
+    search: z.string().max(100).optional(),
+    difficulty: z.string().max(50).optional(),
     sortBy: z.enum(["latest", "popular", "featured"]).optional().default("latest"),
-    userId: z.string().optional(),
-    likedByUserId: z.string().optional(),
-    savedByUserId: z.string().optional(),
-    limit: z.number().optional().default(20),
-    offset: z.number().optional().default(0)
+    userId: z.string().max(128).optional(),
+    likedByUserId: z.string().max(128).optional(),
+    savedByUserId: z.string().max(128).optional(),
+    limit: z.number().int().min(1).max(100).optional().default(20),
+    offset: z.number().int().min(0).optional().default(0)
   }).strict())
   .handler(async ({ data }) => {
     const ip = getRequestHeader("x-forwarded-for") || "unknown";
@@ -405,13 +415,18 @@ export const getStacksFn = createServerFn({ method: "GET" })
     // Filter clauses
     const filters = [];
 
-    // Unless requesting a specific user's stacks, only show public ones
-    if (!data.userId && !data.likedByUserId && !data.savedByUserId) {
-      filters.push(eq(stacks.is_public, true));
-    }
+    const authData = await getSession();
+    const userIsAdmin = authData ? await isAdmin(authData.user.id) : false;
 
+    // If filtering by a specific user, only include private stacks if the requester is that user or an admin
     if (data.userId) {
       filters.push(eq(stacks.user_id, data.userId));
+      if (!authData || (authData.user.id !== data.userId && !userIsAdmin)) {
+        filters.push(eq(stacks.is_public, true));
+      }
+    } else {
+      // Default / public feeds: only show public stacks (unless requesting user's own)
+      filters.push(eq(stacks.is_public, true));
     }
 
     if (data.category && data.category !== "All") {
@@ -423,9 +438,10 @@ export const getStacksFn = createServerFn({ method: "GET" })
     }
 
     if (data.search) {
+      const safePattern = `%${escapeLikeString(data.search)}%`;
       filters.push(or(
-        sql`${stacks.name} LIKE ${`%${data.search}%`}`,
-        sql`${stacks.description} LIKE ${`%${data.search}%`}`
+        sql`${stacks.name} LIKE ${safePattern}`,
+        sql`${stacks.description} LIKE ${safePattern}`
       ));
     }
 
@@ -532,9 +548,9 @@ export const toggleBookmarkStackFn = createServerFn({ method: "POST" })
 
 export const addCommentFn = createServerFn({ method: "POST" })
   .validator(z.object({
-    stackId: z.string(),
-    content: z.string().min(1).max(1000),
-    parentId: z.string().optional()
+    stackId: z.string().min(1).max(128),
+    content: sanitizedString(1000).min(1),
+    parentId: z.string().max(128).optional()
   }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();

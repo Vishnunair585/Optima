@@ -1,7 +1,14 @@
 const rateLimits = new Map<string, { count: number; expiresAt: number }>();
+const MAX_RATE_LIMIT_ENTRIES = 10000;
 
 export function checkRateLimit(key: string, limit: number, windowMs: number): boolean {
   const now = Date.now();
+
+  // Bounded map protection: if map grows too large, run cleanup
+  if (rateLimits.size > MAX_RATE_LIMIT_ENTRIES) {
+    cleanupRateLimits();
+  }
+
   const record = rateLimits.get(key);
 
   if (!record || record.expiresAt < now) {
@@ -17,8 +24,12 @@ export function checkRateLimit(key: string, limit: number, windowMs: number): bo
   return true;
 }
 
-// Clean up expired rate limits occasionally (can be called periodically or manually)
-export function cleanupRateLimits() {
+export function resetRateLimitKey(key: string): void {
+  rateLimits.delete(key);
+}
+
+// Clean up expired rate limits
+export function cleanupRateLimits(): void {
   const now = Date.now();
   for (const [key, record] of rateLimits.entries()) {
     if (record.expiresAt < now) {

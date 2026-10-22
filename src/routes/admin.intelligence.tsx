@@ -75,39 +75,85 @@ function NavItem({ icon, label, isActive, onClick }: { icon: React.ReactNode, la
   )
 }
 
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { getApprovalQueueFn, approveQueueItemFn, rejectQueueItemFn } from '../lib/api/intelligence.functions';
+
 function ApprovalQueueView() {
+  const queryClient = useQueryClient();
+  const { data: queue = [], isLoading } = useQuery({
+    queryKey: ['intelligence-queue'],
+    queryFn: () => getApprovalQueueFn()
+  });
+
+  const approveMutation = useMutation({
+    mutationFn: (id: string) => approveQueueItemFn({ data: { id } }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['intelligence-queue'] });
+    }
+  });
+
+  const rejectMutation = useMutation({
+    mutationFn: (id: string) => rejectQueueItemFn({ data: { id } }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['intelligence-queue'] });
+    }
+  });
+
+  if (isLoading) return <div className="text-white/60">Loading queue...</div>;
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold font-display">Pending Approvals</h2>
         <span className="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm font-medium border border-purple-500/30">
-          3 Items Pending
+          {queue.length} Items Pending
         </span>
       </div>
 
       <div className="grid gap-4">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="bg-white/5 border border-white/10 p-6 rounded-2xl flex items-start gap-6 hover:border-white/20 transition-colors group">
-            <div className="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center shrink-0">
-              <Database className="w-6 h-6" />
-            </div>
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="bg-white/10 text-white/80 px-2 py-0.5 rounded text-xs font-semibold tracking-wider">AI TOOL</span>
-                <span className="text-white/40 text-sm">Source: ycombinator.com/rss</span>
+        {queue.length === 0 ? (
+          <div className="text-white/40 italic">No pending items in the queue.</div>
+        ) : (
+          queue.map((item) => {
+            let parsedData: any = {};
+            try { parsedData = JSON.parse(item.data); } catch (e) {}
+
+            return (
+              <div key={item.id} className="bg-white/5 border border-white/10 p-6 rounded-2xl flex items-start gap-6 hover:border-white/20 transition-colors group">
+                <div className="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center shrink-0">
+                  <Database className="w-6 h-6" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="bg-white/10 text-white/80 px-2 py-0.5 rounded text-xs font-semibold tracking-wider">
+                      {parsedData.category?.toUpperCase() || 'NEWS'}
+                    </span>
+                    <span className="text-white/40 text-sm">Source: {item.source_url}</span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-purple-300 transition-colors">{item.title}</h3>
+                  <p className="text-white/60 mb-4 line-clamp-2">{parsedData.summary || 'No summary available.'}</p>
+                  <div className="flex items-center gap-4">
+                    <span className="text-green-400 text-sm font-medium flex items-center gap-1"><CheckCircle className="w-4 h-4"/> Confidence: {item.confidence_score}%</span>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2 shrink-0">
+                  <button 
+                    onClick={() => approveMutation.mutate(item.id)}
+                    disabled={approveMutation.isPending}
+                    className="px-6 py-2 bg-purple-600 hover:bg-purple-500 disabled:opacity-50 text-white font-medium rounded-lg transition-all shadow-[0_0_20px_rgba(147,51,234,0.3)]">
+                    Approve
+                  </button>
+                  <button 
+                    onClick={() => rejectMutation.mutate(item.id)}
+                    disabled={rejectMutation.isPending}
+                    className="px-6 py-2 bg-white/5 hover:bg-white/10 disabled:opacity-50 text-white/70 font-medium rounded-lg transition-colors">
+                    Reject
+                  </button>
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-2 group-hover:text-purple-300 transition-colors">Project Omega {i}</h3>
-              <p className="text-white/60 mb-4 line-clamp-2">A new foundational model focusing on multi-modal reasoning and autonomous agent capabilities. Generated summary suggests high impact on existing tool stacks.</p>
-              <div className="flex items-center gap-4">
-                <span className="text-green-400 text-sm font-medium flex items-center gap-1"><CheckCircle className="w-4 h-4"/> Confidence: 92%</span>
-              </div>
-            </div>
-            <div className="flex flex-col gap-2 shrink-0">
-              <button className="px-6 py-2 bg-purple-600 hover:bg-purple-500 text-white font-medium rounded-lg transition-all shadow-[0_0_20px_rgba(147,51,234,0.3)]">Approve</button>
-              <button className="px-6 py-2 bg-white/5 hover:bg-white/10 text-white/70 font-medium rounded-lg transition-colors">Reject</button>
-            </div>
-          </div>
-        ))}
+            );
+          })
+        )}
       </div>
     </div>
   )

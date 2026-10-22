@@ -10,6 +10,7 @@ import {
 } from "../monitoring/security-monitor";
 import { startMeasure, endMeasure } from "../monitoring/perf-monitor";
 import { captureApiError } from "../monitoring/sentry.server";
+import { safeAvatarSchema, isSafeRedirectUrl } from "../security/validation";
 const generateId = () => crypto.randomUUID();
 
 async function getSession() {
@@ -131,7 +132,8 @@ export const signUpFn = createServerFn({ method: "POST" })
       throw new Error("Too many attempts. Try again later.");
     }
 
-    const existingUser = await db.select({ id: users.id }).from(users).where(eq(users.email, data.email));
+    const normalizedEmail = data.email.toLowerCase().trim();
+    const existingUser = await db.select({ id: users.id }).from(users).where(eq(users.email, normalizedEmail));
     if (existingUser.length > 0) {
       throw new Error("An account with this email already exists. Try logging in instead.");
     }
@@ -141,8 +143,8 @@ export const signUpFn = createServerFn({ method: "POST" })
 
     await db.insert(users).values({
       id,
-      email: data.email,
-      name: data.username,
+      email: normalizedEmail,
+      name: data.username.trim(),
       password_hash: passwordHash,
       email_verified: false,
     });
@@ -152,6 +154,13 @@ export const signUpFn = createServerFn({ method: "POST" })
 
     if (data.referralCode) {
       await processReferralSignup(data.referralCode, id, ip, data.fingerprint);
+    }
+
+    // Automatically generate and dispatch verification email token
+    try {
+      await sendVerificationEmailFn({ data: { email: normalizedEmail, userId: id } });
+    } catch (e) {
+      // Don't block account creation if email delivery is delayed or queued
     }
 
     // Create session
@@ -195,7 +204,19 @@ export const loginFn = createServerFn({ method: "POST" })
       throw new Error("Account temporarily locked due to suspicious activity.");
     }
 
-    if (!await rateLimit(`login:${data.email}`, 10, 1000 * 60 * 15)) {
+    // Dual-key rate limit: protect against IP spraying and targeted brute force
+    if (!await rateLimit(`login:ip:${ip}`, 20, 1000 * 60 * 15)) {
+      await logSystemEvent({
+        event_type: "auth_error",
+        severity: "warn",
+        description: `Rate limited login attempts from IP ${ip}`,
+        metadata: { ip },
+        ip_address: ip,
+      });
+      throw new Error("Too many login attempts from this network. Please try again later.");
+    }
+
+    if (!await rateLimit(`login:email:${data.email.toLowerCase().trim()}`, 5, 1000 * 60 * 15)) {
       await logSystemEvent({
         event_type: "auth_error",
         severity: "warn",
@@ -203,11 +224,13 @@ export const loginFn = createServerFn({ method: "POST" })
         metadata: { email: data.email },
         ip_address: ip,
       });
-      throw new Error("Too many login attempts. Please try again later.");
+      throw new Error("Too many login attempts for this account. Please try again in 15 minutes.");
     }
 
-    const result = await db.select().from(users).where(eq(users.email, data.email));
+    const result = await db.select().from(users).where(eq(users.email, data.email.toLowerCase().trim()));
     if (result.length === 0) {
+      // Timing attack mitigation: perform dummy hash check
+      await verifyPass("$argon2id$v=19$m=19456,t=2,p=1$c29tZXNhbHQAAAAAAAAAAA$iQ4gXk2p34tQ2qYlK/eJ4z5yG7F9lP4B2c8a1e3m0u4", data.password);
       await detectRepeatedFailure(data.email, ip);
       await logSystemEvent({
         event_type: "auth_error",
@@ -286,7 +309,7 @@ export const getSessionFn = createServerFn({ method: "GET" })
   });
 
 export const updateAvatarFn = createServerFn({ method: "POST" })
-  .validator(z.object({ avatar: z.string().max(2048) }).strict())
+  .validator(z.object({ avatar: safeAvatarSchema }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
     if (!authData) {
@@ -439,14 +462,133 @@ export const verifyEmailManuallyFn = createServerFn({ method: "POST" })
     return { success: true };
   });
 
+export const requestPasswordResetFn = createServerFn({ method: "POST" })
+  .validator(z.object({ email: z.string().email().max(255) }).strict())
+  .handler(async ({ data }) => {
+    const ip = await getClientIp();
+    const normalizedEmail = data.email.toLowerCase().trim();
+
+    // Rate limit reset link requests by IP and by target email
+    if (!await rateLimit(`reset:ip:${ip}`, 5, 1000 * 60 * 15)) {
+      throw new Error("Too many password reset requests from this network. Please wait.");
+    }
+    if (!await rateLimit(`reset:email:${normalizedEmail}`, 3, 1000 * 60 * 15)) {
+      throw new Error("Too many password reset requests for this account. Please check your inbox or wait 15 minutes.");
+    }
+
+    const user = await db.select().from(users).where(eq(users.email, normalizedEmail)).limit(1);
+    
+    // Always return success to prevent email enumeration
+    if (user.length === 0) {
+      return { success: true };
+    }
+
+    const userId = user[0].id;
+    const { passwordResetTokens } = await import("../db/schema");
+    const { generateSecureToken, hashToken } = await import("../../server/auth/crypto.server");
+
+    // Invalidate any previously active reset tokens for this user
+    await db.delete(passwordResetTokens).where(eq(passwordResetTokens.user_id, userId));
+
+    const rawToken = generateSecureToken(32);
+    const tokenHash = hashToken(rawToken);
+    const expiresAt = new Date(Date.now() + 1000 * 60 * 15); // 15 minutes strict TTL
+
+    await db.insert(passwordResetTokens).values({
+      id: generateId(),
+      user_id: userId,
+      token_hash: tokenHash,
+      expires_at: expiresAt,
+      used: false,
+      ip_address: ip,
+    });
+
+    const origin = await getOrigin();
+    const resetUrl = `${origin}/reset-password?token=${rawToken}`;
+
+    const { sendEmail } = await import("../email/send-email");
+    await sendEmail(
+      normalizedEmail,
+      "Reset your Optima password",
+      `Hello,\n\nA password reset was requested for your Optima account. Click the link below to set a new password:\n\n${resetUrl}\n\nThis link is valid for 15 minutes and can only be used once.\n\nIf you did not request this reset, you can safely ignore this email.\n\nOptima Security Team`,
+    );
+
+    await logSystemEvent({
+      event_type: "login",
+      severity: "info",
+      user_id: userId,
+      description: `Password reset requested for ${normalizedEmail}`,
+      ip_address: ip,
+    });
+
+    return { success: true };
+  });
+
+export const resetPasswordWithTokenFn = createServerFn({ method: "POST" })
+  .validator(z.object({
+    token: z.string().min(16).max(256),
+    newPassword: z.string().min(8).max(255),
+  }).strict())
+  .handler(async ({ data }) => {
+    const ip = await getClientIp();
+    if (!await rateLimit(`reset_submit:${ip}`, 10, 1000 * 60 * 15)) {
+      throw new Error("Too many attempts. Please try again later.");
+    }
+
+    const { passwordResetTokens, sessions } = await import("../db/schema");
+    const { hashToken } = await import("../../server/auth/crypto.server");
+    const tokenHash = hashToken(data.token);
+    const now = new Date();
+
+    const record = await db.select().from(passwordResetTokens)
+      .where(and(
+        eq(passwordResetTokens.token_hash, tokenHash),
+        eq(passwordResetTokens.used, false),
+        gte(passwordResetTokens.expires_at, now),
+      ))
+      .limit(1);
+
+    if (record.length === 0) {
+      throw new Error("Password reset link is invalid or has expired.");
+    }
+
+    const tokenEntry = record[0];
+    const newPasswordHash = await hashPass(data.newPassword);
+
+    // Update password
+    await db.update(users)
+      .set({ password_hash: newPasswordHash, updated_at: now })
+      .where(eq(users.id, tokenEntry.user_id));
+
+    // Mark token as used immediately and purge
+    await db.update(passwordResetTokens)
+      .set({ used: true })
+      .where(eq(passwordResetTokens.id, tokenEntry.id));
+    await db.delete(passwordResetTokens).where(eq(passwordResetTokens.id, tokenEntry.id));
+
+    // Invalidate all existing active sessions for security
+    await db.delete(sessions).where(eq(sessions.user_id, tokenEntry.user_id));
+
+    await logSystemEvent({
+      event_type: "admin_action",
+      severity: "info",
+      user_id: tokenEntry.user_id,
+      description: `Password successfully reset via token for user ${tokenEntry.user_id}`,
+      ip_address: ip,
+    });
+
+    return { success: true };
+  });
+
 // OAuth URLs
 export const getOAuthUrlFn = createServerFn({ method: "POST" })
   .validator(z.object({
-    provider: z.string().max(50),
+    provider: z.enum(["google", "github", "twitter"]),
     redirectTo: z.string().max(2048),
   }).strict())
   .handler(async ({ data }) => {
     const origin = await getOrigin();
+    const safeRedirect = isSafeRedirectUrl(data.redirectTo) ? data.redirectTo : "/";
 
     // For each provider, return the OAuth URL.
     // When real API keys are configured in .env, these will redirect to the provider.
@@ -458,10 +600,10 @@ export const getOAuthUrlFn = createServerFn({ method: "POST" })
     if (!clientId) {
       // Mock mode: simulate successful OAuth by creating a session directly
       // This allows development/testing without real OAuth keys
-      return { url: `${origin}/login?oauth=mock&provider=${data.provider}&redirect=${encodeURIComponent(data.redirectTo)}` };
+      return { url: `${origin}/login?oauth=mock&provider=${data.provider}&redirect=${encodeURIComponent(safeRedirect)}` };
     }
 
-    const redirectUri = `${origin}/auth-callback?provider=${data.provider}`;
+    const redirectUri = `${origin}/auth-callback?provider=${data.provider}&redirect=${encodeURIComponent(safeRedirect)}`;
 
     const urls: Record<string, string> = {
       google: `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=openid%20email%20profile&access_type=offline`,

@@ -42,19 +42,20 @@ export function LoginForm() {
   return (
     <div className="w-full space-y-6">
       {error && (
-        <div className="p-4 rounded-xl bg-destructive/10 border border-destructive/20 flex items-start gap-3 animate-fade-in">
+        <div data-testid="login-error-alert" className="p-4 rounded-xl bg-destructive/10 border border-destructive/20 flex items-start gap-3 animate-fade-in">
           <AlertCircle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
           <p className="text-sm text-destructive-foreground font-medium">{error}</p>
         </div>
       )}
 
-      <form onSubmit={handleEmailSignIn} className="space-y-4">
+      <form onSubmit={handleEmailSignIn} noValidate className="space-y-4">
         <div className="space-y-1">
           <label htmlFor="email" className="text-sm font-medium text-foreground">
             Email
           </label>
           <Input
             id="email"
+            data-testid="login-email-input"
             type="email"
             autoComplete="email"
             placeholder="you@example.com"
@@ -80,6 +81,7 @@ export function LoginForm() {
           <div className="relative">
             <Input
               id="password"
+              data-testid="login-password-input"
               type={showPassword ? "text" : "password"}
               autoComplete="current-password"
               placeholder="••••••••"
@@ -90,6 +92,7 @@ export function LoginForm() {
             />
             <button
               type="button"
+              data-testid="login-toggle-password-btn"
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
               tabIndex={-1}
@@ -101,6 +104,7 @@ export function LoginForm() {
 
         <Button
           type="submit"
+          data-testid="login-submit-btn"
           disabled={loading}
           className="w-full h-11 text-base font-semibold bg-gradient-brand text-white shadow-lg hover:shadow-brand/25 transition-all"
         >

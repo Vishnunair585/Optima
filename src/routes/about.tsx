@@ -39,7 +39,7 @@ function AboutPage() {
 
   return (
     <div className="animate-fade-in">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-24 pb-32">

@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ExternalLink, CheckCircle2 } from "lucide-react";
-import { MOCK_DB } from "../lib/data/mock-intelligence";
+import { useQuery } from '@tanstack/react-query';
+import { getNewsArticlesFn } from '../lib/api/news.functions';
 
 export const Route = createFileRoute("/news")({
   head: () => ({
@@ -14,7 +15,10 @@ export const Route = createFileRoute("/news")({
 });
 
 function NewsPage() {
-  const news = MOCK_DB.news;
+  const { data: news = [], isLoading } = useQuery({
+    queryKey: ['news-articles'],
+    queryFn: () => getNewsArticlesFn()
+  });
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8 animate-fade-in">
@@ -25,36 +29,38 @@ function NewsPage() {
       </header>
 
       <div className="mt-12 space-y-6">
-        {news.map(item => (
-          <div key={item.id} className="group relative rounded-2xl border border-border bg-card/40 p-6 transition-all hover:bg-card">
-            <div className="flex items-center justify-between mb-3">
-              <span className="inline-flex items-center gap-1.5 rounded-md bg-accent px-2 py-1 text-xs font-medium text-foreground">
-                {item.category}
-              </span>
-              <span className="flex items-center gap-1 text-[10px] uppercase font-bold text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded">
-                <CheckCircle2 className="h-3 w-3" /> {item.confidence_score}% Verified
-              </span>
-            </div>
-            <h2 className="text-xl font-bold mb-2 group-hover:text-brand transition-colors">{item.headline}</h2>
-            <p className="text-sm text-muted-foreground mb-4">{item.summary}</p>
-            
-            <div className="flex items-center justify-between mt-6 pt-4 border-t border-border/50">
-              <div className="flex flex-col">
-                <span className="text-xs font-semibold">{item.source_name}</span>
-                <span className="text-[10px] text-muted-foreground">{new Date(item.published_at).toLocaleDateString()}</span>
+        {isLoading ? (
+          <div className="text-muted-foreground animate-pulse">Loading news updates...</div>
+        ) : news.length === 0 ? (
+          <div className="text-muted-foreground">No recent news available.</div>
+        ) : (
+          news.map(item => (
+            <div key={item.id} className="group relative rounded-2xl border border-border bg-card/40 p-6 transition-all hover:bg-card">
+              <div className="flex items-center justify-between mb-3">
+                <span className="inline-flex items-center gap-1.5 rounded-md bg-accent px-2 py-1 text-xs font-medium text-foreground">
+                  {item.category}
+                </span>
+                <span className="flex items-center gap-1 text-[10px] uppercase font-bold text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded">
+                  <CheckCircle2 className="h-3 w-3" /> Verified
+                </span>
               </div>
-              <a 
-                href={item.source_url} 
-                target="_blank" 
-                rel="noreferrer" 
-                className="flex items-center gap-1 text-xs font-medium text-brand hover:underline"
-              >
-                Read Source <ExternalLink className="h-3 w-3" />
-              </a>
+              <h2 className="text-xl font-bold mb-2 group-hover:text-brand transition-colors">
+                <Link to={`/blog/$slug`} params={{ slug: item.slug }} className="hover:underline">
+                  {item.title}
+                </Link>
+              </h2>
+              <p className="text-sm text-muted-foreground mb-4">{item.summary}</p>
+              
+              <div className="flex items-center justify-between mt-6 pt-4 border-t border-border/50">
+                <div className="flex flex-col">
+                  <span className="text-[10px] text-muted-foreground">{item.published_at ? new Date(item.published_at).toLocaleDateString() : 'Recent'}</span>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );
 }
+

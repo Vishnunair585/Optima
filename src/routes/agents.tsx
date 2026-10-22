@@ -29,9 +29,9 @@ function AgentsPage() {
   const [query, setQuery] = useState("");
 
   const list = useMemo(() => {
-    return AI_AGENTS.filter((a) => {
+    const q = query.toLowerCase().trim();
+    const filtered = AI_AGENTS.filter((a) => {
       const matchesCat = cat === "All" || a.cat === cat;
-      const q = query.toLowerCase().trim();
       const matchesQuery =
         !q ||
         a.name.toLowerCase().includes(q) ||
@@ -39,6 +39,24 @@ function AgentsPage() {
         a.cat.toLowerCase().includes(q) ||
         (a.vendor?.toLowerCase().includes(q) ?? false);
       return matchesCat && matchesQuery;
+    });
+
+    if (!q) return filtered;
+
+    return filtered.sort((a, b) => {
+      const aName = a.name.toLowerCase();
+      const bName = b.name.toLowerCase();
+      const aStarts = aName.startsWith(q);
+      const bStarts = bName.startsWith(q);
+      if (aStarts && !bStarts) return -1;
+      if (!aStarts && bStarts) return 1;
+
+      const aWord = aName.split(/\s+/).some(w => w.startsWith(q));
+      const bWord = bName.split(/\s+/).some(w => w.startsWith(q));
+      if (aWord && !bWord) return -1;
+      if (!aWord && bWord) return 1;
+
+      return aName.localeCompare(bName);
     });
   }, [cat, query]);
 
@@ -142,8 +160,10 @@ function AgentsPage() {
       ) : (
         <div className="mt-16 rounded-2xl border border-dashed border-border p-16 text-center text-muted-foreground">
           <Bot className="h-10 w-10 mx-auto mb-3 opacity-40" />
-          <p className="font-semibold">No agents match your search</p>
-          <p className="text-sm mt-1">Try a different category or search term.</p>
+          <p className="font-semibold text-foreground text-lg">
+            {query.trim() ? `No AI agents found matching "${query.trim()}"` : "No agents available in this category"}
+          </p>
+          <p className="text-sm mt-1">There is no such tool matching your search. Try checking your spelling or selecting another category.</p>
         </div>
       )}
     </div>

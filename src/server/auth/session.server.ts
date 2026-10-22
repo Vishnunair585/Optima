@@ -1,19 +1,28 @@
 import { db } from "../../lib/db";
 import { sessions, users } from "../../lib/db/schema";
-import { eq } from "drizzle-orm";
+import { eq, lt } from "drizzle-orm";
 import { generateSessionToken } from "./crypto.server";
 import { getCookie, setCookie, deleteCookie } from "@tanstack/react-start/server";
 
 const SESSION_COOKIE_NAME = "auth_session";
 
-export async function createSession(userId: string): Promise<string> {
+export async function createSession(userId: string, metadata?: { ip_address?: string; device_info?: string }): Promise<string> {
   const sessionId = generateSessionToken();
   const expiresAt = new Date(Date.now() + 1000 * 60 * 60 * 24 * 30); // 30 days
   
+  // Clean up any already-expired sessions for this user or globally to keep the DB lean
+  try {
+    await db.delete(sessions).where(lt(sessions.expires_at, new Date()));
+  } catch {
+    // Ignore cleanup errors during session creation
+  }
+
   await db.insert(sessions).values({
     id: sessionId,
     user_id: userId,
     expires_at: expiresAt,
+    ip_address: metadata?.ip_address || null,
+    device_info: metadata?.device_info || null,
   });
   
   return sessionId;

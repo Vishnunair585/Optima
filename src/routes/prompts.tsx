@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Copy, Bookmark, Search, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { ProtectedRoute } from "../components/auth/route-guard";
@@ -29,6 +29,12 @@ function PromptsPage() {
   const { user } = useAuth();
   const [cat, setCat] = useState("All");
   const [q, setQ] = useState("");
+  const [visibleCount, setVisibleCount] = useState(24);
+
+  useEffect(() => {
+    setVisibleCount(24);
+  }, [cat, q]);
+
   const [saved, setSaved] = useState<string[]>(() => {
     if (typeof window !== "undefined") {
       try {
@@ -40,10 +46,31 @@ function PromptsPage() {
     return [];
   });
 
-  const list = PROMPTS.filter((p) =>
-    (cat === "All" || p.cat === cat) &&
-    (q === "" || p.title.toLowerCase().includes(q.toLowerCase()) || p.body.toLowerCase().includes(q.toLowerCase()))
-  );
+  const list = useMemo(() => {
+    const queryStr = q.toLowerCase().trim();
+    const filtered = PROMPTS.filter((p) =>
+      (cat === "All" || p.cat === cat) &&
+      (!queryStr || p.title.toLowerCase().includes(queryStr) || p.body.toLowerCase().includes(queryStr) || p.tags.some(t => t.toLowerCase().includes(queryStr)))
+    );
+
+    if (!queryStr) return filtered;
+
+    return filtered.sort((a, b) => {
+      const aTitle = a.title.toLowerCase();
+      const bTitle = b.title.toLowerCase();
+      const aStarts = aTitle.startsWith(queryStr);
+      const bStarts = bTitle.startsWith(queryStr);
+      if (aStarts && !bStarts) return -1;
+      if (!aStarts && bStarts) return 1;
+
+      const aWord = aTitle.split(/\s+/).some(w => w.startsWith(queryStr));
+      const bWord = bTitle.split(/\s+/).some(w => w.startsWith(queryStr));
+      if (aWord && !bWord) return -1;
+      if (!aWord && bWord) return 1;
+
+      return aTitle.localeCompare(bTitle);
+    });
+  }, [cat, q]);
 
   const handleCopy = (text: string) => {
     if (typeof window !== "undefined" && navigator.clipboard) {
@@ -115,7 +142,7 @@ function PromptsPage() {
       </div>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2">
-        {list.map((p, i) => (
+        {list.slice(0, visibleCount).map((p, i) => (
           <div key={i} className="group rounded-2xl glass p-6 transition-all hover:-translate-y-0.5">
             <div className="flex items-center justify-between">
               <span className="inline-flex items-center gap-1 rounded-full border border-border bg-card/60 px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
@@ -142,9 +169,24 @@ function PromptsPage() {
             <pre className="mt-3 max-h-32 overflow-hidden whitespace-pre-wrap rounded-xl border border-border bg-background/60 p-3 font-mono text-xs text-muted-foreground">{p.body}</pre>
           </div>
         ))}
+
+        {visibleCount < list.length && (
+          <div className="col-span-full text-center mt-6">
+            <button
+              onClick={() => setVisibleCount((prev) => prev + 24)}
+              className="px-6 py-2.5 rounded-full bg-accent hover:bg-accent/80 border border-border text-sm font-medium transition-all hover:scale-[1.02]"
+            >
+              Load More Prompts ({list.length - visibleCount} remaining)
+            </button>
+          </div>
+        )}
+
         {list.length === 0 && (
           <div className="col-span-full rounded-2xl border border-dashed border-border p-12 text-center text-muted-foreground">
-            No prompts match. Try a different search.
+            <p className="text-base font-semibold text-foreground mb-1">
+              {q.trim() ? `No prompts found matching "${q.trim()}"` : "No prompts found in this category"}
+            </p>
+            <p className="text-sm">There are no prompts matching your search query. Try another keyword or category.</p>
           </div>
         )}
       </div>

@@ -2,7 +2,8 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/use-auth";
 import { toast } from "sonner";
-import { GlobalLoader } from "../components/ui/GlobalLoader";
+import { isSafeRedirectUrl } from "../lib/security/validation";
+
 export const Route = createFileRoute("/auth-callback")({
   component: OAuthCallbackPage,
 });
@@ -29,7 +30,7 @@ function OAuthCallbackPage() {
         // Handle OAuth callback - provider session is set via cookie
         await refreshSession();
 
-        const safeRedirect = redirect && redirect.startsWith("/") && !redirect.startsWith("//") ? redirect : null;
+        const safeRedirect = isSafeRedirectUrl(redirect) ? redirect : null;
         if (safeRedirect) {
           navigate({ to: safeRedirect });
         } else {

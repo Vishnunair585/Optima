@@ -2,14 +2,16 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
 
+import { sanitizedString, safeAvatarSchema } from "../security/validation";
+
 export const syncUserFn = createServerFn({ method: "POST" })
   .validator(
     z.object({
-      uid: z.string(),
-      email: z.string().email(),
-      name: z.string(),
-      avatar: z.string().optional().nullable(),
-    })
+      uid: z.string().min(1).max(128).regex(/^[a-zA-Z0-9_-]+$/),
+      email: z.string().email().max(254).transform((v) => v.toLowerCase().trim()),
+      name: sanitizedString(100).min(1),
+      avatar: safeAvatarSchema.optional().nullable(),
+    }).strict()
   )
   .handler(async ({ data }) => {
     const { adminDb } = await import("../firebase-admin");

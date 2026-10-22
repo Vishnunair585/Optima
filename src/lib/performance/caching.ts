@@ -22,7 +22,7 @@ export async function getCachedOrFetch<T>(key: string, fetchFn: () => Promise<T>
 }
 
 export const invalidateCacheTagFn = createServerFn({ method: "POST" })
-  .validator(z.object({ tag: z.string() }))
+  .validator(z.object({ tag: z.string().min(1).max(100).regex(/^[a-zA-Z0-9_:-]+$/) }).strict())
   .handler(async ({ data }) => {
     globalCache.invalidateTag(data.tag);
     return { success: true };

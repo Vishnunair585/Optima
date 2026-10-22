@@ -1,5 +1,6 @@
 import { getSqlite } from "./connection";
 import { v4 as uuid } from "uuid";
+import { sanitizeFtsQuery } from "../security/validation";
 
 let searchInitialized = false;
 const FTS_TABLES = ["stacks_fts", "tools_fts", "comparisons_fts"] as const;
@@ -53,7 +54,8 @@ export interface SearchResult {
 export function searchAll(query: string, limit = 20): SearchResult[] {
   initializeSearch();
   const sqlite = getSqlite();
-  const sanitized = query.replace(/['"]/g, "").trim();
+  const safeLimit = Math.max(1, Math.min(100, Math.floor(Number(limit) || 20)));
+  const sanitized = sanitizeFtsQuery(query);
   if (!sanitized) return [];
 
   const results: SearchResult[] = [];
@@ -67,7 +69,7 @@ export function searchAll(query: string, limit = 20): SearchResult[] {
        ORDER BY rank
        LIMIT ?`,
     )
-    .all(sanitized, limit) as { id: string; name: string; description: string; category: string; rank: number }[];
+    .all(sanitized, safeLimit) as { id: string; name: string; description: string; category: string; rank: number }[];
 
   for (const s of stacks) {
     results.push({
@@ -90,7 +92,7 @@ export function searchAll(query: string, limit = 20): SearchResult[] {
        ORDER BY rank
        LIMIT ?`,
     )
-    .all(sanitized, limit) as { stack_id: string; tool_id: string; purpose: string; stack_name: string; description: string; rank: number }[];
+    .all(sanitized, safeLimit) as { stack_id: string; tool_id: string; purpose: string; stack_name: string; description: string; rank: number }[];
 
   for (const t of tools) {
     results.push({
@@ -104,13 +106,14 @@ export function searchAll(query: string, limit = 20): SearchResult[] {
   }
 
   results.sort((a, b) => a.rank - b.rank);
-  return results.slice(0, limit);
+  return results.slice(0, safeLimit);
 }
 
 export function searchStacks(query: string, limit = 20) {
   initializeSearch();
   const sqlite = getSqlite();
-  const sanitized = query.replace(/['"]/g, "").trim();
+  const safeLimit = Math.max(1, Math.min(100, Math.floor(Number(limit) || 20)));
+  const sanitized = sanitizeFtsQuery(query);
   if (!sanitized) return [];
 
   return sqlite
@@ -122,7 +125,7 @@ export function searchStacks(query: string, limit = 20) {
        ORDER BY rank
        LIMIT ?`,
     )
-    .all(sanitized, limit);
+    .all(sanitized, safeLimit);
 }
 
 export function updateStackSearchIndex(stackId: string): void {

@@ -26,27 +26,42 @@ function StacksLibraryPage() {
   const [query, setQuery] = useState("");
   const { user } = useAuth();
   const [category, setCategory] = useState("All");
+  const [visibleCount, setVisibleCount] = useState(24);
 
   const categories = ["All", ...CATEGORIES];
 
+  useEffect(() => {
+    setVisibleCount(24);
+  }, [category, query]);
+
   const filteredStacks = useMemo(() => {
-    let results = STACKS_DATA.filter((s: any) => {
-      const matchQuery = s.title.toLowerCase().includes(query.toLowerCase()) || s.description.toLowerCase().includes(query.toLowerCase());
+    const q = query.toLowerCase().trim();
+    const filtered = STACKS_DATA.filter((s: any) => {
+      const matchQuery = !q || 
+        s.title.toLowerCase().includes(q) || 
+        s.description.toLowerCase().includes(q) ||
+        (Array.isArray(s.tools) && s.tools.some((t: any) => (t.name || t).toLowerCase().includes(q)));
       const matchCat = category === "All" || s.category === category;
       return matchQuery && matchCat;
     });
 
-    // If less than 10 results and no explicit query, fallback by injecting mock or other stacks to pad up to 10
-    if (results.length < 10 && !query && category !== "All") {
-      const padding = STACKS_DATA.filter(s => s.category !== category).slice(0, 10 - results.length).map(s => ({
-        ...s,
-        category: category,
-        id: `${s.id}_mock_${category}`
-      }));
-      results = [...results, ...padding];
-    }
+    if (!q) return filtered;
 
-    return results.slice(0, 50); // Paginate or limit to 50 for performance
+    return filtered.sort((a: any, b: any) => {
+      const aTitle = a.title.toLowerCase();
+      const bTitle = b.title.toLowerCase();
+      const aStarts = aTitle.startsWith(q);
+      const bStarts = bTitle.startsWith(q);
+      if (aStarts && !bStarts) return -1;
+      if (!aStarts && bStarts) return 1;
+
+      const aWord = aTitle.split(/\s+/).some((w: string) => w.startsWith(q));
+      const bWord = bTitle.split(/\s+/).some((w: string) => w.startsWith(q));
+      if (aWord && !bWord) return -1;
+      if (!aWord && bWord) return 1;
+
+      return aTitle.localeCompare(bTitle);
+    });
   }, [query, category]);
 
   return (
@@ -100,18 +115,32 @@ function StacksLibraryPage() {
       <div>
         <h2 className="text-xl font-bold flex items-center gap-2 mb-6">
           <Layers className="h-5 w-5 text-muted-foreground" /> 
-          {query ? "Search Results" : "All Workflows"} <span className="text-sm font-normal text-muted-foreground">({filteredStacks.length} shown)</span>
+          {query ? "Search Results" : "All Workflows"} <span className="text-sm font-normal text-muted-foreground">({filteredStacks.length} total)</span>
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredStacks.map((stack: any) => (
+          {filteredStacks.slice(0, visibleCount).map((stack: any) => (
             <StackCard key={stack.id} stack={stack} />
           ))}
         </div>
+
+        {visibleCount < filteredStacks.length && (
+          <div className="text-center mt-12">
+            <button
+              onClick={() => setVisibleCount((prev) => prev + 24)}
+              className="px-6 py-3 rounded-full bg-accent hover:bg-accent/80 border border-border text-sm font-medium transition-all hover:scale-[1.02] shadow-sm"
+            >
+              Load More Workflows ({filteredStacks.length - visibleCount} remaining)
+            </button>
+          </div>
+        )}
         
         {filteredStacks.length === 0 && (
-          <div className="text-center py-24 rounded-2xl border border-dashed border-border">
-            <p className="text-muted-foreground">No workflows found matching your criteria.</p>
-            <button onClick={() => {setQuery(""); setCategory("All");}} className="mt-4 text-brand hover:underline">Clear filters</button>
+          <div className="text-center py-24 rounded-2xl border border-dashed border-border p-8">
+            <p className="text-lg font-semibold text-foreground mb-1">
+              {query.trim() ? `No AI workflows found matching "${query.trim()}"` : "No workflows found in this category"}
+            </p>
+            <p className="text-muted-foreground text-sm">There is no such tool or workflow in our library. Try searching for another keyword or clear filters.</p>
+            <button onClick={() => {setQuery(""); setCategory("All");}} className="mt-4 px-4 py-2 rounded-xl border border-border bg-card/60 text-brand text-sm hover:underline">Clear filters</button>
           </div>
         )}
       </div>

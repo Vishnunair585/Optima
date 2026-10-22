@@ -18,16 +18,18 @@ export interface AnalyticsEventInput {
   metadata: any;
 }
 
+import { sanitizedString } from "../security/validation";
+
 // 1. Ingest Batched Events
 export const trackEventFn = createServerFn({ method: "POST" })
   .validator(z.object({
     events: z.array(z.object({
-      id: z.string(),
-      event_name: z.string(),
-      page_url: z.string(),
-      session_id: z.string(),
-      metadata: z.any()
-    }))
+      id: z.string().min(1).max(128),
+      event_name: sanitizedString(100).min(1),
+      page_url: z.string().max(2048),
+      session_id: z.string().min(1).max(128),
+      metadata: z.record(z.unknown()).optional().default({})
+    })).min(1).max(50)
   }).strict())
   .handler(async ({ data }) => {
     const authData = await getSession();
@@ -74,8 +76,9 @@ export const getAnalyticsSummaryFn = createServerFn({ method: "GET" })
     const authData = await getSession();
     if (!authData) throw new Error("Unauthorized");
 
-    // Check if admin
-    const adminCheck = authData.user.email === "admin@optima.com" || authData.user.name.toLowerCase().includes("admin");
+    // Check if admin using security authz service
+    const { isAdmin } = await import("../security/authz");
+    const adminCheck = authData.user.role === "Admin" || (await isAdmin(authData.user.id));
     if (!adminCheck) throw new Error("Admin privileges required.");
 
     const now = new Date();
@@ -188,8 +191,9 @@ export const getRealTimeAnalyticsFn = createServerFn({ method: "GET" })
     const authData = await getSession();
     if (!authData) throw new Error("Unauthorized");
 
-    // Check if admin
-    const adminCheck = authData.user.email === "admin@optima.com" || authData.user.name.toLowerCase().includes("admin");
+    // Check if admin using security authz service
+    const { isAdmin } = await import("../security/authz");
+    const adminCheck = authData.user.role === "Admin" || (await isAdmin(authData.user.id));
     if (!adminCheck) throw new Error("Admin privileges required.");
 
     // Active users in last 15 minutes
