@@ -13,7 +13,8 @@ export default defineConfig({
         name: 'mock-server',
         enforce: 'pre',
         resolveId(source, importer, options) {
-          if (!options?.ssr && (source === 'better-sqlite3' || source === 'drizzle-orm/better-sqlite3')) {
+          const isProductionBuild = process.env.NODE_ENV === 'production';
+          if ((!options?.ssr || isProductionBuild) && (source === 'better-sqlite3' || source === 'drizzle-orm/better-sqlite3')) {
             return { id: '\0mock-server', moduleSideEffects: false };
           }
         },
