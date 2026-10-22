@@ -15,10 +15,11 @@ const firebaseConfig = {
   appId: getEnv('VITE_FIREBASE_APP_ID'),
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+// Firebase is a browser service. Initializing it during SSR makes the
+// Cloudflare worker evaluate browser-only configuration and APIs.
+const app = typeof window !== "undefined" ? initializeApp(firebaseConfig) : null;
+export const auth = app ? getAuth(app) : (null as unknown as ReturnType<typeof getAuth>);
+export const db = app ? getFirestore(app) : (null as unknown as ReturnType<typeof getFirestore>);
 
 // Auth Providers
 export const googleProvider = new GoogleAuthProvider();
@@ -26,6 +27,8 @@ export const githubProvider = new GithubAuthProvider();
 export const twitterProvider = new TwitterAuthProvider();
 
 // Persistent login across tabs/restarts
-setPersistence(auth, browserLocalPersistence).catch((error) => {
-  console.error("Auth persistence error:", error);
-});
+if (auth) {
+  setPersistence(auth, browserLocalPersistence).catch((error) => {
+    console.error("Auth persistence error:", error);
+  });
+}
