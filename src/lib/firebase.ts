@@ -15,9 +15,15 @@ const firebaseConfig = {
   appId: getEnv('VITE_FIREBASE_APP_ID'),
 };
 
+const hasFirebaseConfig = Object.values(firebaseConfig).every(
+  (value) => typeof value === 'string' && value.trim().length > 0,
+);
+
 // Firebase is a browser service. Initializing it during SSR makes the
 // Cloudflare worker evaluate browser-only configuration and APIs.
-const app = typeof window !== "undefined" ? initializeApp(firebaseConfig) : null;
+const app = typeof window !== "undefined" && hasFirebaseConfig
+  ? initializeApp(firebaseConfig)
+  : null;
 export const auth = app ? getAuth(app) : (null as unknown as ReturnType<typeof getAuth>);
 export const db = app ? getFirestore(app) : (null as unknown as ReturnType<typeof getFirestore>);
 

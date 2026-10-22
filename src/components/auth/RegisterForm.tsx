@@ -13,6 +13,10 @@ export function RegisterForm() {
   const handleOAuthSignIn = async (provider: any) => {
     try {
       setError(null);
+      if (!auth) {
+        setError('Sign-up is temporarily unavailable. Please try again later.');
+        return;
+      }
       // Do not setLoading(true) before popup to prevent popup blockers
       const result = await signInWithPopup(auth, provider);
       setLoading(true);

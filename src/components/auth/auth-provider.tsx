@@ -82,6 +82,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
     }
 
+    if (!auth) {
+      setIsLoaded(true);
+      return;
+    }
+
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
         // Map Firebase user to app User interface
@@ -277,7 +282,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const updateAvatar = async (avatarBase64: string) => {
-    if (!auth.currentUser) return false;
+    if (!auth || !auth.currentUser) return false;
     try {
       // Firebase auth photoURL max length is 2048 chars
       if (avatarBase64.length < 2048) {
@@ -305,7 +310,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const updateUsername = async (newName: string) => {
-    if (!auth.currentUser) return false;
+    if (!auth || !auth.currentUser) return false;
     try {
       await updateProfile(auth.currentUser, { displayName: newName });
       
@@ -331,14 +336,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const resendOtp = async (email: string) => {
-    if (auth.currentUser) {
+    if (auth?.currentUser) {
       await sendEmailVerification(auth.currentUser);
       toast.success("Verification email sent.");
     }
   };
 
   const refreshSession = async () => {
-    if (auth.currentUser) {
+    if (auth?.currentUser) {
       await auth.currentUser.reload();
     }
   };
