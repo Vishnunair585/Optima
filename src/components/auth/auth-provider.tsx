@@ -162,6 +162,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = async (email: string, password?: string) => {
     checkRateLimit();
     if (!password) throw new Error("Password is required");
+    if (!auth) throw new Error("Authentication is temporarily unavailable. Please try again later.");
     try {
       await signInWithEmailAndPassword(auth, email, password);
       // Reset on success
@@ -177,6 +178,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signUp = async (email: string, password?: string, username?: string) => {
     if (!password) throw new Error("Password is required");
+    if (!auth) throw new Error("Authentication is temporarily unavailable. Please try again later.");
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const firebaseUser = userCredential.user;
@@ -351,6 +353,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const loginWithGoogle = async (options?: { isSignUpFlow?: boolean; username?: string }) => {
     setIsAuthenticating(true);
     try {
+      if (!auth) throw new Error("Google authentication is temporarily unavailable. Please try again later.");
       const { GoogleAuthProvider, signInWithPopup, getAdditionalUserInfo } = await import("firebase/auth");
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
