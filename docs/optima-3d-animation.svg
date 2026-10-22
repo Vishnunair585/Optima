@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" role="img" aria-labelledby="title desc">
+  <title id="title">Optima AI decision engine</title>
+  <desc id="desc">An animated isometric cube connects discovery, comparison, ranking, and workflow nodes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0a14"/>
+      <stop offset=".52" stop-color="#1a1434"/>
+      <stop offset="1" stop-color="#090b16"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#9b7cff"/>
+      <stop offset="1" stop-color="#5b35f5"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#27d7ff"/>
+      <stop offset="1" stop-color="#8d7aff"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#a994ff" stroke-opacity=".11"/>
+    </pattern>
+  </defs>
+
+  <rect width="960" height="360" rx="28" fill="url(#bg)"/>
+  <ellipse cx="480" cy="184" rx="230" ry="120" fill="#714dff" opacity=".18" filter="url(#soft)">
+    <animate attributeName="opacity" values=".1;.25;.1" dur="4s" repeatCount="indefinite"/>
+  </ellipse>
+  <path d="M0 270H960M0 310H960" stroke="#9b7cff" stroke-opacity=".1"/>
+  <rect x="24" y="24" width="912" height="312" rx="20" fill="url(#grid)" opacity=".65"/>
+
+  <g fill="none" stroke-linecap="round" filter="url(#glow)">
+    <path d="M185 177C290 90 350 93 424 163S605 252 770 165" stroke="#8d7aff" stroke-width="2" stroke-dasharray="7 10">
+      <animate attributeName="stroke-dashoffset" from="0" to="-68" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M193 235C315 300 358 258 438 195S610 88 770 226" stroke="#27d7ff" stroke-width="2" stroke-dasharray="4 12">
+      <animate attributeName="stroke-dashoffset" from="0" to="64" dur="3s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <g font-family="Inter,Arial,sans-serif" text-anchor="middle">
+    <g transform="translate(160 168)">
+      <circle r="34" fill="#15142b" stroke="#9b7cff" stroke-width="2"/>
+      <circle r="23" fill="none" stroke="#9b7cff" stroke-opacity=".35">
+        <animate attributeName="r" values="23;29;23" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;.2;1" dur="2.4s" repeatCount="indefinite"/>
+      </circle>
+      <text y="5" fill="#fff" font-size="12" font-weight="700">DISCOVER</text>
+      <text y="56" fill="#aaa1c9" font-size="11">AI Finder</text>
+    </g>
+    <g transform="translate(800 168)">
+      <circle r="34" fill="#15142b" stroke="#27d7ff" stroke-width="2"/>
+      <circle r="23" fill="none" stroke="#27d7ff" stroke-opacity=".35">
+        <animate attributeName="r" values="23;29;23" dur="2.4s" begin=".8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;.2;1" dur="2.4s" begin=".8s" repeatCount="indefinite"/>
+      </circle>
+      <text y="5" fill="#fff" font-size="12" font-weight="700">DECIDE</text>
+      <text y="56" fill="#aaa1c9" font-size="11">Compare + Rank</text>
+    </g>
+  </g>
+
+  <g transform="translate(480 175)">
+    <animateTransform attributeName="transform" type="rotate" values="0 0 0;360 0 0" dur="18s" repeatCount="indefinite"/>
+    <g stroke="#c4b7ff" stroke-width="2" stroke-linejoin="round">
+      <path d="M0-80L76-38L0 4L-76-38Z" fill="url(#violet)"/>
+      <path d="M-76-38L0 4V88L-76 46Z" fill="#3c287f"/>
+      <path d="M0 4L76-38V46L0 88Z" fill="url(#cyan)"/>
+    </g>
+    <path d="M0-54V62M-51-26L51 28M-51 28L51-26" stroke="#fff" stroke-opacity=".36" stroke-width="2"/>
+    <circle r="12" fill="#fff" opacity=".9" filter="url(#glow)">
+      <animate attributeName="r" values="9;14;9" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g fill="#fff">
+    <circle cx="280" cy="125" r="3"><animate attributeName="cy" values="125;115;125" dur="2s" repeatCount="indefinite"/></circle>
+    <circle cx="680" cy="235" r="3"><animate attributeName="cy" values="235;245;235" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="315" cy="264" r="2" fill="#27d7ff"><animate attributeName="opacity" values=".2;1;.2" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="650" cy="105" r="2" fill="#9b7cff"><animate attributeName="opacity" values="1;.2;1" dur="1.6s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <text x="480" y="318" fill="#c9c0e8" font-family="Inter,Arial,sans-serif" font-size="13" letter-spacing="3" text-anchor="middle">FIND · COMPARE · BUILD BETTER</text>
+</svg>
